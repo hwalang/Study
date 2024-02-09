@@ -1,1 +1,1 @@
-# C-C-_STUDY
+# C/C++_STUDY
