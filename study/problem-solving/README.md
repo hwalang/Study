@@ -14,9 +14,7 @@ layout:
 
 # 2024.05.21. 원형 순열에서의 인원 제거
 
-[https://www.codetree.ai/missions/6/problems/josephus-permutations?\&utm\_source=clipboard\&utm\_medium=text](https://www.codetree.ai/missions/6/problems/josephus-permutations?\&utm\_source=clipboard\&utm\_medium=text)
-
-코드 트리
+\[code tree]\([https://www.codetree.ai/missions/6/problems/josephus-permutations?\&utm\_source=clipboard\&utm\_medium=text](https://www.codetree.ai/missions/6/problems/josephus-permutations?\&utm\_source=clipboard\&utm\_medium=text))
 
 
 
