@@ -5,18 +5,16 @@ layout:
   description:
     visible: false
   tableOfContents:
-    visible: true
+    visible: false
   outline:
-    visible: true
+    visible: false
   pagination:
-    visible: true
+    visible: false
 ---
 
 # 2024.05.21. 원형 순열에서의 인원 제거
 
 \[code tree]\([https://www.codetree.ai/missions/6/problems/josephus-permutations?\&utm\_source=clipboard\&utm\_medium=text](https://www.codetree.ai/missions/6/problems/josephus-permutations?\&utm\_source=clipboard\&utm\_medium=text))
-
-
 
 ## 1. My Solution
 
