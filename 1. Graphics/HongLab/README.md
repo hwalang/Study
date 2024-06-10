@@ -12,4 +12,4 @@
    - 상용 엔진 숙련도는 입사해서도 빠르게 쌓을 수 있다고 판단했습니다.
 
 # HongLab Index
-- [part1 목차](part1/README_part1.md)
+- [part1 목차](part1/README.md)
