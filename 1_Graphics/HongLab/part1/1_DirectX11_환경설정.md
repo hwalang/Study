@@ -8,6 +8,7 @@
 2. Quick Start: Windows 따라한다.
 3. clone을 받으면 vcpkg가 설치되고, cd vcpkg를 통해 접근할 수 있다.
 4. dir 명령어를 통해 vcpkg 내부의 파일을 볼 수 있으며, bootstrap-vcpkg.bat를 복붙( enter, ctrl + v )해서 다운로드를 진행한다.
+5. image 처리를 위해서 "vcpkg install stb:x64-windows" 명령어로 stb를 설치한다.
 
 vcpkg 설치 끝
 
@@ -17,3 +18,11 @@ vcpkg 설치 끝
 2. win32로 window를 띄우고 directX11을 사용하기 때문에 "imgui[win32-binding]"와 "imgui[dx11-binding]"를 다운한다.
    - vcpkg install imgui[win32-binding,dx11-binding]:x64-windows
 3. 같은 경로에서 "vcpkg integrate install"를 통해 visual studio에서 vcpkg를 사용할 수 있게 세팅한다.
+
+## 3. visual studio 2022 세팅
+- 멀티쓰레드 이용을 위한 open MP 사용
+![openMP 사용](part1_images/openMP.png)
+  - 프로젝트의 properties로 이동
+  - C/C++ -> All Options -> open 검색
+  - Configuration을 Release로 변경
+  - Open MP Support를 YES로 세팅
