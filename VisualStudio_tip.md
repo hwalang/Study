@@ -1,6 +1,7 @@
 # Visual Studio 2022 TIP
+1. [shortcut keys](#shortcut-keys)
 
-## short cut
+## Shortcut Keys
 - alt + f12 </br>
 ![예시 이미지](VisualStudio_Images/peek_definition.png)
   - peek definition
