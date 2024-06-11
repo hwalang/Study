@@ -11,15 +11,18 @@
 각 project 마다 properties를 세팅할 수 있다.
 ### 1. cpp compiler
 ![change compiler](VisualStudio_Images/determine_compiler.png)
+
 어떤 cpp compiler를 사용할지 결정한다.
 
 ### 2. Preprocessor Definitions
 ![edit preprocessor](VisualStudio_Images/preprocessor.png)
+
 scanf, sprintf를 사용할 때 발생하는 warning을 없애줄 때 유용하다.
 
 ## Utilities
 ### 1. Open Containing Folder
 ![open containing folder](VisualStudio_Images/open_containing_folder.png)
+
 선택한 파일이 위치한 Folder를 연다.
 
 ## Shortcut Keys
