@@ -9,12 +9,16 @@ row는 `가로줄`, column은 `세로줄`을 의미한다.
 ![alt text](images/m_by_n_matrix.png)
 </br>
 
-따라서 m * n 행렬의 m과 n은 
-</br>m은 `row의 크기`
-</br>n은 `column의 크기`
+m * n 행렬의 m과 n은 
+</br>m은 `row의 개수`
+</br>n은 `col의 개수`
+
+</br>따라서 위 그림은 2 * 3 행렬이다.
 
 ## for문 순회
 데이터가 row-major 방식으로 저장되는 경우( c/c++ )에는 row-major order가 효율적이다.
+
+### 1. row, col 용어
 
 ```cpp
 // row-major order
@@ -25,15 +29,43 @@ for (int row = 0; row < m; ++row) {
 }
 ```
 
-row를 행 전체라고 생각하지 않는다.
-</br>row는 행에 존재하는 하나의 원소를 뜻한다.
-</br>예로 들면, arr = {1, 2, 3}; 중에서 arr 자체가 아닌 1, 2, 3을 의미한다.
+row는 `row_index` 즉, 행 인덱스를 의미한다.
+</br>row를 row 전체라고 생각하지 않는다.
+
 
 ```cpp
 // column-major order
-for (int col = 0; col < m; ++col) {
-  for (int row = 0; row < n; ++row) {
+for (int col = 0; col < n; ++col) {
+  for (int row = 0; row < m; ++row) {
     arr[row][col];
+  }
+}
+```
+
+col을 column 전체라고 생각하지 않는다.
+</br>col은 `column_index` 즉, 열 인덱스를 의미한다.
+
+### 2. y, x 용어
+
+일반적으로 아래와 같은 의미로 사용한다.
+
+</br>y는 `row_index`
+</br>x는 `column_index`
+
+</br>이 순서는 표준이 있는 것이 아니라 사람 또는 상황에 따라 다를 수 있다.
+
+```cpp
+// row-major order
+for (int y = 0; y < m; ++y) {
+  for (int x = 0; x < n; ++x) {
+    arr[y][x];
+  }
+}
+
+// column-major order
+for (int x = 0; x < n; ++x) {
+  for (int y = 0; y < m; ++y) {
+    arr[y][x];
   }
 }
 ```
