@@ -6,7 +6,7 @@
 
 row는 `가로줄`, column은 `세로줄`을 의미한다.
 </br>
-![alt text](images/m_by_n_matrix.png)
+![alt text](Images/m_by_n_matrix.png)
 </br>
 
 m * n 행렬의 m과 n은 
