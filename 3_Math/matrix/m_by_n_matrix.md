@@ -63,16 +63,16 @@ col을 column 전체라고 생각하지 않는다.
 
 ```cpp
 // row-major order
-for (int x = 0; x < m; ++x) {
-  for (int y = 0; y < n; ++y) {
-    arr[x][y];
+for (int y = 0; y < n; ++y) {
+  for (int x = 0; x < m; ++x) {
+    arr[y][x];
   }
 }
 
 // column-major order
-for (int y = 0; y < n; ++y) {
-  for (int x = 0; x < m; ++x) {
-    arr[x][y];
+for (int x = 0; x < m; ++x) {
+  for (int y = 0; y < n; ++y) {
+    arr[y][x];
   }
 }
 ```
