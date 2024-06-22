@@ -7,24 +7,24 @@ using namespace std;
 const int MAX_N = 20;
 int grid[MAX_N][MAX_N];
 
-// grid ¹ÛÀ¸·Î ³ª°¡Áö ¾ÊÀ¸¸é true
+// grid ë°–ìœ¼ë¡œ ë‚˜ê°€ì§€ ì•Šìœ¼ë©´ true
 bool InRanged(int x, int y, int N)
 {
 	return y >= 0 && y < N && x >= 0 && x < N;
 }
 
-// ¸¸µé¾îÁø Á÷»ç°¢Çü¿¡ Á¸ÀçÇÏ´Â ÇÕ
+// ë§Œë“¤ì–´ì§„ ì§ì‚¬ê°í˜•ì— ì¡´ì¬í•˜ëŠ” í•©
 int GetSumOfRhombus(int x, int y, int len1, int len2, int N)
 {
-	// 1, 2, 3, 4¹ø ÀÌµ¿ ¹æÇâ
+	// 1, 2, 3, 4ë²ˆ ì´ë™ ë°©í–¥
 	pair<int, int> dir[] = { {-1, 1}, {-1, -1}, {1, -1}, {1, 1} };
 
 	int sum = 0;
 	int nextX, nextY;
 	int curX = x, curY = y;
 
-	// Áßº¹ ÄÚµå¸¦ ÇÏ³ª·Î ÇÕÄ¡±â¿£ ¹İÈ¯°ª( nextÁÂÇ¥¿Í sum°ª )ÀÌ 2°³
-	// 1¹ø ¹æÇâ
+	// ì¤‘ë³µ ì½”ë“œë¥¼ í•˜ë‚˜ë¡œ í•©ì¹˜ê¸°ì—” ë°˜í™˜ê°’( nextì¢Œí‘œì™€ sumê°’ )ì´ 2ê°œ
+	// 1ë²ˆ ë°©í–¥
 	for (int i = 1; i <= len1; ++i) {
 		nextX = curX + dir[0].first;
 		nextY = curY + dir[0].second;
@@ -35,7 +35,7 @@ int GetSumOfRhombus(int x, int y, int len1, int len2, int N)
 		curY = nextY;
 	}
 
-	// 2¹ø ¹æÇâ
+	// 2ë²ˆ ë°©í–¥
 	for (int i = 1; i <= len2; ++i) {
 		nextX = curX + dir[1].first;
 		nextY = curY + dir[1].second;
@@ -46,7 +46,7 @@ int GetSumOfRhombus(int x, int y, int len1, int len2, int N)
 		curY = nextY;
 	}
 
-	// 3¹ø ¹æÇâ
+	// 3ë²ˆ ë°©í–¥
 	for (int i = 1; i <= len1; ++i) {
 		nextX = curX + dir[2].first;
 		nextY = curY + dir[2].second;
@@ -57,7 +57,7 @@ int GetSumOfRhombus(int x, int y, int len1, int len2, int N)
 		curY = nextY;
 	}
 
-	// 4¹ø ¹æÇâ
+	// 4ë²ˆ ë°©í–¥
 	for (int i = 1; i <= len2; ++i) {
 		nextX = curX + dir[3].first;
 		nextY = curY + dir[3].second;
@@ -71,13 +71,13 @@ int GetSumOfRhombus(int x, int y, int len1, int len2, int N)
 	return sum;
 }
 
-// ÇöÀç ÁÂÇ¥¿¡¼­ ¸¸µé ¼ö ÀÖ´Â °¡Àå Å« Á÷»ç°¢ÇüÀ» ¸¸µç µÚ ÃÖ´ëÇÕÀ» ¹İÈ¯ÇÑ´Ù.
+// í˜„ì¬ ì¢Œí‘œì—ì„œ ë§Œë“¤ ìˆ˜ ìˆëŠ” ê°€ì¥ í° ì§ì‚¬ê°í˜•ì„ ë§Œë“  ë’¤ ìµœëŒ€í•©ì„ ë°˜í™˜í•œë‹¤.
 int GetMaxSumOfRhombus(int x, int y, int N)
 {
 	int maxSum = 0;
 
-	// len1: 1, 3¹ø ¹æÇâÀÇ ±æÀÌ
-	// len2: 2, 4¹ø ¹æÇâÀÇ ±æÀÌ - ¼­·Î °°Àº ±æÀÌ¸¦ °¡Áü
+	// len1: 1, 3ë²ˆ ë°©í–¥ì˜ ê¸¸ì´
+	// len2: 2, 4ë²ˆ ë°©í–¥ì˜ ê¸¸ì´ - ì„œë¡œ ê°™ì€ ê¸¸ì´ë¥¼ ê°€ì§
 	for (int len1 = 1; len1 < N; ++len1) {
 		for (int len2 = 1; len2 < N; ++len2) {
 			maxSum = max(maxSum, GetSumOfRhombus(x, y, len1, len2, N));
@@ -100,7 +100,7 @@ int main()
 
 	int maxSum = 0;
 
-	// ÃÖ»ó´Ü + ±× ¹Ø, ÃÖÁÂ´Ü, ÃÖ¿ì´ÜÀº Á¦¿Ü
+	// ìµœìƒë‹¨ + ê·¸ ë°‘, ìµœì¢Œë‹¨, ìµœìš°ë‹¨ì€ ì œì™¸
 	for (int x = 2; x < N; ++x) {
 		for (int y = 1; y < N - 1; ++y) {
 			maxSum = max(maxSum, GetMaxSumOfRhombus(x, y, N));

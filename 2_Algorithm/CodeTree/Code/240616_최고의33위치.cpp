@@ -4,16 +4,17 @@
 using namespace std;
 
 const int MAX_N = 20;
+const int GRID_SIZE = 3;
 
-int GetNumOfCoin(const int& x, const int& y, const int baseGrid[MAX_N][MAX_N])
+int GetNumOfCoin(int x, int y, const int baseGrid[MAX_N][MAX_N])
 {
 	int coin = 0;
 
-	// ½ÃÀÛÁ¡À» ±âÁØÀ¸·Î 3 * 3 °İÀÚ ³»ºÎÀÇ µ¿Àü¼ö¸¦ ±¸ÇÔ
-	for (int i = x; i < x + 3; ++i) {
-		for (int j = y; j < y + 3; ++j) {
+	// ì‹œì‘ì ì„ ê¸°ì¤€ìœ¼ë¡œ 3 * 3 ê²©ì ë‚´ë¶€ì˜ ë™ì „ìˆ˜ë¥¼ êµ¬í•¨
+	for (int i = x; i < x + GRID_SIZE; ++i) {
+		for (int j = y; j < y + GRID_SIZE; ++j) {
 			if (baseGrid[i][j] == 1) {
-				++coin;					// 0°ú 1¸¸ Á¸ÀçÇÏ±â ‹š¹®¿¡ coin += baseGrid[i][j];µµ °¡´É
+				++coin;					// 0ê³¼ 1ë§Œ ì¡´ì¬í•˜ê¸° ë–„ë¬¸ì— coin += baseGrid[i][j];ë„ ê°€ëŠ¥
 			}
 		}
 	}
@@ -21,15 +22,14 @@ int GetNumOfCoin(const int& x, const int& y, const int baseGrid[MAX_N][MAX_N])
 	return coin;
 }
 
-int GetMaxCoin(const int& N, const int baseGrid[MAX_N][MAX_N])
+int GetMaxCoin(int N, const int baseGrid[MAX_N][MAX_N])
 {
 	int maxCoin = 0;
 
-	// N * N °İÀÚ¸¦ ¼øÈ¸
-	for (int i = 0; i < N; ++i) {
-		for (int j = 0; j < N; ++j) {
-			if (i + 2 >= N || j + 2 >= N) continue;
-			// ÃÖ´ë µ¿Àü¼ö °»½Å
+	// N * N ê²©ìë¥¼ ìˆœíšŒ
+	for (int i = 0; i <= N - GRID_SIZE; ++i) {
+		for (int j = 0; j <= N - GRID_SIZE; ++j) {
+			// ìµœëŒ€ ë™ì „ìˆ˜ ê°±ì‹ 
 			maxCoin = max(maxCoin, GetNumOfCoin(i, j, baseGrid));
 		}
 	}
@@ -49,7 +49,7 @@ int main()
 		}
 	}
 
-	// 3*3 °İÀÚ ³»ºÎ¿¡ Á¸ÀçÇÒ ¼ö ÀÖ´Â ÃÖ´ë µ¿Àü °¹¼ö¸¦ ¹İÈ¯
+	// 3*3 ê²©ì ë‚´ë¶€ì— ì¡´ì¬í•  ìˆ˜ ìˆëŠ” ìµœëŒ€ ë™ì „ ê°¯ìˆ˜ë¥¼ ë°˜í™˜
 	int maxCoin = GetMaxCoin(N, baseGrid);
 
 	cout << maxCoin;
