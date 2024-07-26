@@ -19,14 +19,18 @@ n에 1을 넣었을 때 5가 나와야 한다.
 위 식이 수열 A의 일반항이다.
 ```
 
-x번째 항을 $a_{x}$, 공차가 d인 arithmetic sequence의 일반항은 
+x번째 항을 $a_{x}$, 공차가 d인 arithmetic sequence의 일반항은
+
 $$a_{n} = a_{x} + (n - x)d$$
 
 만약 x = 1이라면 
+
 $$a_n = a_1 + (n - 1)d$$
 
 
 ## 공차 구하기
 $$ d = a(n + 1) - a_n ( n >= 2 ) $$
+
 $$ \frac{a_x - a_y}{x - y} $$
+
 위 두가지 식으로 common difference를 구할 수 있다.
