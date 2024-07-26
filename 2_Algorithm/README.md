@@ -2,7 +2,7 @@
 - [CodeTree](#codetree)
 
 # Index
-1. [Skills](README.md) : 다양한 문제 해결 기법을 메모한다.
+1. [Skills](Skills/README.md) : 다양한 문제 해결 기법을 메모한다.
 
 # CodeTree
 | 날짜 | 문제 풀이 | 일차 | 성공 여부 |
