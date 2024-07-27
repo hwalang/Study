@@ -1,2 +1,2 @@
 # INDEX
-1. [Standard](STD/std_accumulate.md)
+1. [Standard](STD/README.md)
