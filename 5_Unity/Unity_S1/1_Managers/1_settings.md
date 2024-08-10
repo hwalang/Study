@@ -9,7 +9,7 @@
 # 1. Unity 환경 설정
 1. [ Build Settings - Android - Switch Platform ] : 모바일 게임을 만들기 때문에 `Android Platform`으로 미리 세팅한다.
 2. Package Managers에서 `Addressables를 다운`받는다. 이는 `패치 시스템`에 영향을 끼친다.
-3. 2D 게임에서 `Animation 방식`이 2가지 있다. Spine, Sprite 중 Spine을 사용한다. spine unity download를 검색하여 `spine-unity 4.1 for Unity`를 다운받아서 실행시킨다.
+3. 2D 게임에서 `Animation 방식`이 2가지 있다. Spine, Sprite 중 Spine을 사용한다. spine unity download를 검색하여 `spine-unity 4.1 for Unity`를 다운받아서 실행시킨다.</br>
 ![alt text](Images/spine-unity-4.1-for-unity.png) </br>
 `모두 import를 진행`한다.
 1. `데이터를 관리하는 Json 파일`을 위해서 Package Managers에서 `name으로 Package를 가져오는 방법`이 사용해본다.</br>
