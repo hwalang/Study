@@ -27,7 +27,7 @@ Unity에서 사용하는 Asset 관리 시스템이다. `Asset Bundle + Bundle �
 ```
 [ 과정 ]
 1. Asset이 위치한 Path 준비
-  - Resources 폴더 방식: /Resources에 Asset을 생성
+  - Resources 폴더 방식: /Resources에 Asset을 저장
   - Asset Bundle: Bundle 내부에 Asset Path를 입력
 
 2. Asset의 Path를 이용해서 Resource.Load() API로 Loading
@@ -61,6 +61,8 @@ Resources가 apk에 Built-in되어 `용량이 증가`한다.</br>
 1. 앱을 실행하고 이용하는데 `필수적인 Resource`인 경우
 2. `Update가 빈번하지 않고`, `Remote로 Update할 필요가 없는 경우`
 
+</br></br></br>
+
 ### Asset Bundle
 Asset의 Bundle( 묶음 )</br>
 Resources 폴더의 하위에 있는 특정 폴더를 압축한 것과 유사하다.</br>
@@ -82,7 +84,7 @@ Asset의 Bundle 의존성으로 인해 다른 Bundle에서 같은 Asset을 저�
 즉, `Resource에 중복`이 발생한다.</br>
 
 라이브 중인 A게임에서 0.1 버전의 bundle에 `호환`되도록 설계했다.</br>
-시간이 흘러 0.2 버전의 bundle이 등장했습니다.</br>
+시간이 흘러 0.2 버전의 bundle이 등장했다.</br>
 A 게임이 업데이트하지 않고 0.1 버전 bundle을 사용하는 경우, A 게임은 0.2 버전 bundle에서 제공되는 데이터 구조나 Resource 형식을 처리할 수 없다.</br>
 이로 인해 A 게임 사용자가 0.2 버전 bundle을 다운로드하여 사용하려고 하면 A 게임은 정상적으로 동작하지 않을 수 있다.</br>
 
