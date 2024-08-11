@@ -35,7 +35,7 @@ charset = utf-8
 
 # 3. 폴더 구조
 Resources, Scripts, Scenes 폴더는 Unity에서 `Special Folder Name으로 지정한 폴더`다. cpp의 keyword와 같은 개념이다.</br>
-@를 붙이지 않고 폴더를 생성한다면, Unity가 이를 built-in 한다.</br>
+@를 붙이지 않고 폴더를 생성한다면, Unity가 이를 자신만의 방식으로 사용한다. 대표적으로 해당 폴더에 존재하는 Resource를 앱에 built-in 한다.</br>
 따라서 keyword 개념으로 사용하지 않고, `나만의 방식으로 사용하기 위해서 @를 붙였다.`</br>
 `Addressables 방식`으로 사용하여 `built-in을 막아주기도 한다`.</br>
 ![alt text](Images/folder-structure.png)

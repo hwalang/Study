@@ -1,4 +1,4 @@
-# Memory Policy
+# 2가지 Memory Policy
 
 ## 1. 필요할 때마다 memory로 가져와서 사용
 게임을 진행하면서 끊김 현상이 발생할 수 있다.</br>
@@ -11,7 +11,7 @@
 
 </br></br></br>
 
-## 3. 참고 코드 - 코드 분석이 필요하다. c# 문법 포함
+## 3. Addressable Asset의 Handle
 ``` c#
 // Object를 명확히 정의한다. System.Object가 있기 때문이다.
 using Object = UnityEngine.Object;
@@ -142,3 +142,4 @@ public class ResourceManager
     #endregion
 }
 ```
+Handle에 대한 개념과 AsyncOperationHandle의 목적을 [handle](/6_CS/1_handle.md) 에 메모했다.</br>

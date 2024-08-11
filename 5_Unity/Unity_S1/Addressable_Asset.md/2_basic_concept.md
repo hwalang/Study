@@ -1,4 +1,4 @@
-- [Addressable](#addressable)
+- [Addressable Asset](#addressable-asset)
   - [1. Addressable 이전 Asset 관리 방식](#1-addressable-이전-asset-관리-방식)
     - [Resources 폴더 문제점](#resources-폴더-문제점)
     - [Resources 폴더를 사용하는 이유](#resources-폴더를-사용하는-이유)
@@ -18,7 +18,7 @@
 - [출처](#출처)
 
 
-# Addressable
+# Addressable Asset
 Unity에서 사용하는 Asset 관리 시스템이다. `Asset Bundle + Bundle 관리 시스템`</br>
 
 ## 1. Addressable 이전 Asset 관리 방식
@@ -38,20 +38,7 @@ Unity에서 사용하는 Asset 관리 시스템이다. `Asset Bundle + Bundle �
 </br></br></br>
 
 ### Resources 폴더 문제점
-Resource 폴더를 사용하면 프로젝트를 빌드하면서 `c# 코드와 resource 파일들이 apk에 묶어서 배포( built-in )`한다.</br>
-
-모바일 스토어에 올린 뒤에는 패치를 진행한다.</br>
-
-패치를 한다는 것은 다양한 resource가 추가된다는 뜻이고, 또 다시 빌드를 통해 방대한 resource와 c# 파일을 묶는 과정이 필요하다.</br>
-즉, Resource로 인한 `build 시간이 증가`한다.</br>
-
-가장 큰 문제는 스토어에 올리기 위해 `심사를 받는 기간`이다.</br>
-길면 몇 주간 이뤄지는데, 이 기간동안 새로운 패치를 유저에게 제공할 수 없다는 의미이다.</br>
-
-이외에도</br>
-Resources가 apk에 Built-in되어 `용량이 증가`한다.</br>
-
-앱을 실행할 때 `indexing 과정이 발생`하기 때문에 실행 시간이 증가한다.</br>
+자세한 내용은 [Resources](1_Resources.md) 를 참고하자.
 
 </br></br></br>
 
@@ -91,6 +78,7 @@ A 게임이 업데이트하지 않고 0.1 버전 bundle을 사용하는 경우, 
 bundle 내부에 Asset의 Path는 string 형태다.</br>
 이를 외부 코드에서 Load하여 사용한다. 만약 bundle 내부의 path가 변경되면 `외부 코드에서도 변경된 path를 사용하도록 작업`해야 한다.</br>
 
+***예시***
 
 </br></br></br>
 
@@ -98,8 +86,7 @@ bundle 내부에 Asset의 Path는 string 형태다.</br>
 ## 2. Addressable Asset
 Asset Bundle의 문제점을 해결하기 위해 도입됐다( `Asset Bundle + Bundle 관리 시스템` ).</br>
 
-
-웹 서버를 이용해서 필요한 resource만 클라이언트에 전달하면 되기 때문이다.</br>
+`웹 서버를 이용해서 필요한 resource만 클라이언트에 전달`하면 되기 때문이다.</br>
 운영 측면에서 엄청난 유연성을 챙길 수 있다.</br>
 
 </br></br></br>
@@ -116,6 +103,8 @@ Bundle에서 `Asset을 사용하기 위한 구현 과정이 간단`해졌다.</b
 이는 Bundle의 Download & Load 단계에서 Asset 들의 의존성( Label, Key가 제대로 기입 )을 API에서 일괄 관리한다.</br>
 즉, `Label( Key ) 관리`만 한다면, 기존 `Asset Bundle의 의존성에 의한 중복이나 수동 관리를 해결`할 수 있다.</br>
 
+***Group, Label, Bundle이 실제 프로젝트에서 어떻게 적용되는지 예시를 추가***
+
 </br></br></br>
 
 
@@ -124,7 +113,9 @@ Catalog란, `Asset의 Address( Group, Label 정보 포함 )와 Asset 매핑 정�
 Catalog 덕분에 의존성 문제를 해결하고, bundle 자체의 version도 관리할 수 있다.</br>
 
 앱을 `배포할 때 앱이 사용할 catalog의 version이 함께 기재`된다.</br>
-이로 인해 저장소에 사용할 catalog와 bundle만 존재하면 새롭게 배포하는 catalog와 bundle 때문에 문제가 발생할 여지가 없다.</br>
+이로 인해 저장소에 사용할 catalog와 bundle만 존재하면 새롭게 배포하는 catalog와 bundle 때문에 문제가 발생하지 않는다.</br>
+
+***Catalog가 업데이트되는 방식, 배포된 앱과 어떻게 상호작용하는지에 대한 설명***
 
 </br></br></br>
 
@@ -136,6 +127,10 @@ Addressable은 `Asset의 Path를 참조`한다.</br>
 2. Adress는 Group 단위로 묶이며, label이라는 별도의 태그 부여 가능
 3. Client에서 `Address 혹은 Group, Label을 통해서 Asset을 Load` 가능
 4. Asset Path가 바껴도 `Address, Group, Label만 바뀌지 않으면 반영할 필요 없음`
+
+이전 방식( /Resource, Asset Bundle )은 Asset Path를 Client에서 맞춰줘야 했다.</br>
+하지만 참조 방식으로 바뀌면서 Path가 변경되도 주소값은 변경되지 않기에 Client의 코드를 수정할 필요가 없다.</br>
+
 
 </br></br></br>
 
@@ -149,6 +144,7 @@ Addressable은 `Asset의 Path를 참조`한다.</br>
 </br></br></br>
 
 ### Group
+`Group은 Bundle 단위`이다.</br>
 개발 단계에서는 신경쓰지 않아도 되지만, 배포하기 전에는 Asset을 어떤 Group으로 나눌지 결정한다.</br>
 
 @Resource 폴더 내부의 파일은 배포를 해도 적용되지 않는다.</br>

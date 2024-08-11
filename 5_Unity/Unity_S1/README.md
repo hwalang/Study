@@ -14,4 +14,5 @@
   - 출시까지 목표인 강의이기 때문에 Unity의 전반적인 기능을 학습 할 수 있다.
 
 # Index
-1. [1강 Managers](1_Managers/) : Settings, Singleton/Static_Instance, Resources/Asset Bundle/Addressable
+1. [Addressable Asset System](Addressable_Asset.md/) : Unity의 Addressable Asset System을 정리
+2. [1강 Managers](1_Managers/) : Settings, Singleton/Static_Instance, Resources/Asset Bundle/Addressable
