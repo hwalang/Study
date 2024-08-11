@@ -1,6 +1,6 @@
 - [1. Unity 환경 설정](#1-unity-환경-설정)
 - [2. Visual Studio 환경 설정](#2-visual-studio-환경-설정)
-- [3. 폴더 구조 ( @의 의미 )](#3-폴더-구조--의-의미-)
+- [3. 폴더 구조](#3-폴더-구조)
     - [Managers 폴더 내부](#managers-폴더-내부)
     - [@Resources 폴더 내부](#resources-폴더-내부)
   
@@ -33,9 +33,11 @@ charset = utf-8
 
 </br></br></br>
 
-# 3. 폴더 구조 ( @의 의미 )
-@를 붙이지 않고 폴더를 생성한다면, Build 할 때 해당 폴더가 같이 포함된다.</br>
-@를 붙여서 폴더를 생성하는 것은 `Addressables 방식`이다.</br>
+# 3. 폴더 구조
+Resources, Scripts, Scenes 폴더는 Unity에서 `Special Folder Name으로 지정한 폴더`다. cpp의 keyword와 같은 개념이다.</br>
+@를 붙이지 않고 폴더를 생성한다면, Unity가 이를 built-in 한다.</br>
+따라서 keyword 개념으로 사용하지 않고, `나만의 방식으로 사용하기 위해서 @를 붙였다.`</br>
+`Addressables 방식`으로 사용하여 `built-in을 막아주기도 한다`.</br>
 ![alt text](Images/folder-structure.png)
 
 ### Managers 폴더 내부
