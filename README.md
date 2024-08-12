@@ -4,5 +4,5 @@
 3. [Math](3_Math/)
 4. [Language](4_Language/)
 5. [Unity](5_Unity/)
-6. [CS](6_CS/)
+6. [Computer Science](6_CS/)
 7. [GIT](7_GIT/)
