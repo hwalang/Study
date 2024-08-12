@@ -13,8 +13,24 @@ cpp은 다중 상속이 가능하지만, C class에서 Func() 함수를 호출�
 
 이 때문에 c#은 하나의 abstract class만 상속 받을 수 있다.</br>
 
+</br>
+
+### 1.2. 무엇을 inheritance 하나?
+![alt text](Images/ab_interface/choice_interface_abstract.png)</br>
+Robot 혹은 Switchable 두 기본 class 중에서 무엇을 선택해야 하나?</br>
+
+abstract class를 사용해 `abstract의 기본 기능을 정의`한다.</br>
+`interface`를 통해 `유연성이 필요한 주변 기능을 정의`한다.</br>
+
+abstract class는 기능을 정의할 수 있고, interface는 로직의 구체화를 이를 사용하는 class에게 맡긴다.</br>
+
+
 ### 1.2. is-a, has-a
-![alt text](Images/ab_interface/result.png)
+![alt text](Images/ab_interface/result_abstract_interface.png)
+
+Robot의 기본 클래스에서 NPC를 파생시키고 핵심 기능을 상속했다.</br>
+ISwitchable interface를 이용해서 NPC를 켜고 끄는 기능을 추가했다.</br>
+
 NPC는 Robot이다.</br>
 NPC는 Switchable 할 수 있는 Robot이다.</br>
 
