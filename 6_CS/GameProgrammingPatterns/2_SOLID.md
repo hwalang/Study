@@ -24,7 +24,7 @@
 
 # 요약
 
-모든 Design Pattern은 SOLID 원칙을 지키려고 노력한다.</br>
+`모든 Design Pattern은 SOLID 원칙을 지키려고 노력`한다.</br>
 
 1. Single Responsibility
    - class는 `하나의 작업만 수행`, `변경할 이유는 하나`만
@@ -64,7 +64,7 @@ Unity의 GameObject에는 작고 다양한 Component가 내부에 포함된다.<
 ## 예시
 
 ### Single Responsibility 적용 이전
-![alt text](Images/S_Player.png)</br>
+![alt text](Images/SOLID/S_Player.png)</br>
 
 Player Script는 여러 기능을 수행하고 있다.</br>
 
@@ -98,7 +98,7 @@ Player 클래스가 Audio, Input, Movement 3가지 기능을 담당한다.</br>
 </br>
 
 ### Single Responsibility 적용 이후
-![alt text](Images/S_Player2.png)</br>
+![alt text](Images/SOLID/S_Player2.png)</br>
 
 ```c#
 // Single Responsibility
@@ -152,7 +152,7 @@ interface와 abstract를 활용함으로써 `확장하기 까다로운 switch, i
 ## 예시
 
 ### Open-closed 적용 이전
-![alt text](Images/OCP1.png)</br>
+![alt text](Images/SOLID/OCP1.png)</br>
 
 
 ```c#
@@ -182,7 +182,7 @@ Shape 클래스를 만들고 Shape를 처리할 method를 만들 수도 있지�
 </br>
 
 ### Open-closed 적용 이후
-![alt text](Images/OCP2.png)</br>
+![alt text](Images/SOLID/OCP2.png)</br>
 ```c#
 public abstract class Shape
 {
@@ -236,7 +236,7 @@ super class에서 상속을 요구하는 메소드를 child class에서 사용�
    - 기능의 전달은 interface 또는 별도의 class로 대신한다.
 
 
-![alt text](Images/LSP3.png)</br>
+![alt text](Images/SOLID/LSP3.png)</br>
 
 이 때문에 abstraction을 단순하게 유지하기 위해 `inheritance 보다 composition을 권장`한다.</br>
 이는 `abstract로 상속을 받는 구조( inheritance )`보다는 `interface를 가져다 사용하는 것( composition )`을 의미한다.</br>
@@ -246,7 +246,7 @@ super class에서 상속을 요구하는 메소드를 child class에서 사용�
 ## 예시
 
 ### Liskov substitution 적용 이전
-![alt text](Images/LSP1.png) ![alt text](Images/LSP2.png)</br>
+![alt text](Images/SOLID/LSP1.png) ![alt text](Images/SOLID/LSP2.png)</br>
 
 ```c#
 public class Vehicle
@@ -272,7 +272,7 @@ Train은 Vehicle의 하위 클래스이므로 Vehicle 클래스가 허용되는 
 </br>
 
 ### Liskov substitution 적용 이후
-![alt text](Images/LSP4.png)</BR>
+![alt text](Images/SOLID/LSP4.png)</BR>
 
 ```c#
 public interface ITurnable { 
@@ -356,7 +356,7 @@ public interface IUnitStats
 </br>
 
 ### Interface Segregation 적용 이후
-![alt text](Images/ISP1.png)</br>
+![alt text](Images/SOLID/ISP1.png)</br>
 
 ```c#
 public interface IMovable {
@@ -419,7 +419,7 @@ A class와 B class 간의 dependency 또는 coupling이 클수록 하나의 clas
 또한 A class에서 발생한 오류가 B class로 전염될 수 있다.</br>
 
 `coupling은 낮추고 cohesion은 높이는 것을 목표`로 삼는다.</br>
-![alt text](Images/DIP3.png) ![alt text](Images/DIP4.png)</br>
+![alt text](Images/SOLID/DIP3.png) ![alt text](Images/SOLID/DIP4.png)</br>
 
 내부 로직이나 private 로직으로 작동하는 객체를 cohesion이 높은 것으로 간주한다.</br>
 
@@ -429,7 +429,7 @@ A class와 B class 간의 dependency 또는 coupling이 클수록 하나의 clas
 ## 예시
 
 ### Dependency Inversion 적용 이전
-![alt text](Images/DIP1.png)</br>
+![alt text](Images/SOLID/DIP1.png)</br>
 상위 수준인 Switch가 하위 수준인 Door에 의존하고 있다.</br>
 
 ```c#
@@ -460,7 +460,7 @@ door만 있는 상황에서는 문제가 없다. 하지만 함정 기믹이 추�
 또한 추가한다는 것은 OCP를 위반한다.</br>
 
 ### Dependency Inversion 적용 이후
-![alt text](Images/DIP2.png)</br>
+![alt text](Images/SOLID/DIP2.png)</br>
 
 
 ```c#
