@@ -1,5 +1,10 @@
 # std::reverse
+
+[cppreference-reverse](https://en.cppreference.com/w/cpp/algorithm/reverse)
+
 ```cpp
+#include <algorithm>
+
 // BidirIt: LagacyBidirectionalIterator에 속함
 template< class BidirIt >
 void reverse( BidirIt first, BidirIt last );                            // #1
@@ -74,12 +79,19 @@ int main()
 }
 ```
 
+```cpp
+#include <algorithm>
+
+std::string solution(std::string str, int s, in e)
+{
+  std::reverse(str.begin() + s, str.begin() + e + 1);
+  return str;
+}
+```
+[Programmers - 문자열 뒤집기](https://school.programmers.co.kr/learn/courses/30/lessons/181905) </br>
+[s, e] index 범위의 문자를 뒤집는 코드이다.</br>
 
 
 </br>
 </br>
 </br>
-
-# 참고 자료
-[cppreference-reverse](https://en.cppreference.com/w/cpp/algorithm/reverse)
-
