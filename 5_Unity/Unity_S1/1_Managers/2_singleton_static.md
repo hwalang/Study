@@ -10,6 +10,7 @@
   - [2. Dependency 관리](#2-dependency-관리)
   - [3. Multi-Thread](#3-multi-thread)
   - [4. 어려운 Test](#4-어려운-test)
+- [static class가 아니라 singleton으로 구현하는 이유](#static-class가-아니라-singleton으로-구현하는-이유)
 
 </br></br></br>
 
@@ -142,3 +143,6 @@ Managers 로직을 테스트하기 위해서는 Data, Resource 등 관리하는 
 </br>
 </br>
 </br>
+
+# static class가 아니라 singleton으로 구현하는 이유
+static 클래스에는 static 변수와 함수만이 선언 가능합니다. 강의 내에서 singleton 인스턴스로 만드는 클래스는 static한 성격을 가지지는 않습니다. 다만 m_Instance 변수를 static 변수로 선언하고 생성된 자기 자신의 인스턴스를 m_Instance에 대입함으로써, 코드 어디에서든 m_Instance에 접근하면 동일한 인스턴스에 접근하도록 유도하는 것입니다. 이것이 singleton 패턴의 의도인 것입니다. Singleton 인스턴스의 클래스가 static한 성격이 아니라는 것이 이해가 되셨으면 좋겠습니다. 이런 클래스를 static으로 선언한다면 현재 클래스에서 동적으로 생성된 오브젝트를 다루는 여러가지 행위 자체가 불가능해 질 것입니다.
