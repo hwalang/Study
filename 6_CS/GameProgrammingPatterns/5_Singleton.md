@@ -13,6 +13,11 @@
     - [`volatile을 사용하는 이유`](#volatile을-사용하는-이유)
   - [3.2. static instance를 미리 생성](#32-static-instance를-미리-생성)
 - [예시 4 : Generic](#예시-4--generic)
+  - [4.1. 간단한 Generic](#41-간단한-generic)
+  - [4.2. 실전 Generic](#42-실전-generic)
+    - [`중복된 Instance를 파괴한다는 의미`](#중복된-instance를-파괴한다는-의미)
+    - [`중복된 Instance를 파괴한다는 의미 2`](#중복된-instance를-파괴한다는-의미-2)
+    - [`Instance 동작 과정`](#instance-동작-과정)
 - [예시 5 : 다른 Manager를 관리하는 Managers](#예시-5--다른-manager를-관리하는-managers)
 
 </br>
@@ -269,6 +274,8 @@ Lazy Initailzation의 이점은 없다.</br>
 </br>
 
 # 예시 4 : Generic
+
+## 4.1. 간단한 Generic
 AudioManager로서 작동하는 Singleton과 GameManager로 작동하는 다른 Singleton이 필요한 경우, 이 두 Singleton은 공존할 수 없다.</br>
 관련 코드를 복제하고 로직을 각 클래스로 붙여 넣어야 한다.</br>
 
@@ -320,6 +327,94 @@ public class Singleton<T> : MonoBehaviour where T : Component
 public class GameManager : Singleton<GameManager> { ... }
 ```
 Singleton을 상속받은 GameManager이다.</br>
+
+<br>
+<br>
+
+## 4.2. 실전 Generic
+```c#
+public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<T>
+{
+  protected bool m_IsDestroyOnLoad = false;
+
+  protected static T m_Instance;
+  public static T Instance { get { return m_Instance; }}
+
+  private void Awake()
+  {
+    Init();
+  }
+
+  protected virtual void Init()
+  {
+    if (m_Instance == null)
+    {
+      m_Instance = (T)this;
+      if (!m_IsDestroyOnLoad)
+      {
+        DontDestroyOnLoad(this);
+      }
+    }
+    else
+    {
+      Destroy(gameObject);
+    }
+  }
+
+  protected virtual void OnDestroy()
+  {
+    Dispose();
+  }
+
+  protected virtual void Dispose()
+  {
+    m_Instance = null;
+  }
+}
+```
+bool 값으로 singleton instance가 scene 전환 시 삭제 여부를 결정한다.<br>
+
+
+### `중복된 Instance를 파괴한다는 의미`
+`m_Instance는 static 변수이기 때문에 memory를 하나만 차지`한다.<br>
+따라서 Init() 함수에서 `m_Instance가 Scene에 존재하면( memory에 존재 ) 현재 Singleton instance를 삭제`한다.<br>
+
+m_Instance는 최초로 설정된 instance는 계속 유지된다.<br>
+Init() 함수는 기존 instance가 이미 존재함을 감지하고 새로 생성된 게임 오브젝트를 파괴한다.<br>
+`중요한 포인트는 static 변수인 m_Instance가 이미 참조하고 있는 객체는 memory에 남아있고, 이후 중복 생성된 객체는 memory에서 해제`된다.<br>
+
+<br>
+
+### `중복된 Instance를 파괴한다는 의미 2`
+현재 게임 오브젝트가 파괴될 때, m_Instance를 null 처리한다.<br>
+`중복 생성된 객체를 파괴할 때 기존 m_Instance에 영향을 미칠 것 같지만, OnDestroy()가 호출되는 시점에서 파괴되는 객체는 이미 중복 생성된 객체이기 때문에 영향을 미치지 않는다`.<br>
+
+<br>
+
+### `Instance 동작 과정`
+
+1. `첫 번째 singleton 객체가 생성되어 m_Instance memory 공간에서 이를 참조`한다.
+2. 두 번째로 동일한 singleton 객체가 생성되면, Init() 메서드에서 m_Instance가 존재하기 때문에 `중복 객체는 파괴`된다.
+3. `이때 중복 객체의 OnDestory()가 호출`된다.
+4. `기존 m_Instance는 첫 번째 객체를 참조`하고 있다. 따라서 Dispose()에서 m_Instance를 null로 설정하더라도 `기존의 m_Instance에는 영향을 주지 않는다`.
+5. null로 세팅한 후에 해당 게임 오브젝트는 Scene에서 사라진다.
+
+<br>
+
+기존 m_Instance에 영향을 주지 않는 이유는 참조의 일관성 때문이다.<br>
+```c#
+protected virtual void OnDestroy()
+{
+    if (m_Instance == this)
+    {
+        Dispose();
+    }
+}
+```
+그럼에도 불안하다면, `현재 instance가 singleton instance와 동일한지 확인 후에 null 처리`를 수행한다.<br>
+
+`하지만 Dispose() 의도`는 child class에서 자신만의 파괴 로직을 넣기 위함이기 때문에 기존 코드로 유지해도 된다.<br>
+
 
 <br>
 <br>
