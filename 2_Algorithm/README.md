@@ -17,5 +17,9 @@
 # Programmers
 | 날짜 | 문제 풀이 | 메모한 기술 |
 |:---:|:---:|:---:|
-| `2024.07.28` | [`프로그래머스 - 배열 만들기2`](Programmers/240728_배열만들기2.md) | brute-force, bit-mask |
+| `2024.08.15` | [`프로그래머스 - QR code`](Programmers/240815_QRcode.md) | Modulo 연산 |
+| `2024.08.14` | [`프로그래머스 - 세로 읽기`](Programmers/240814_세로읽기.md) | Thinking |
 | `2024.08.09` | [`프로그래머스 - 주사위 게임3`](Programmers/240809_주사위게임2.md) | 2D-matrix, Thinking |
+| `2024.07.28` | [`프로그래머스 - 배열 만들기2`](Programmers/240728_배열만들기2.md) | brute-force, bit-mask |
+
+
