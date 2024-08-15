@@ -17,6 +17,7 @@
 # Programmers
 | 날짜 | 문제 풀이 | 메모한 기술 |
 |:---:|:---:|:---:|
+| `2024.08.15` | [`프로그래머스 - 문자 개수 세기`](Programmers/240815_문자개수세기.md) | ASCII code와 영문자를 이용한 count 배열 |
 | `2024.08.15` | [`프로그래머스 - QR code`](Programmers/240815_QRcode.md) | Modulo 연산 |
 | `2024.08.14` | [`프로그래머스 - 세로 읽기`](Programmers/240814_세로읽기.md) | Thinking |
 | `2024.08.09` | [`프로그래머스 - 주사위 게임3`](Programmers/240809_주사위게임2.md) | 2D-matrix, Thinking |
