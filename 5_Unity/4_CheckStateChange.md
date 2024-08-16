@@ -78,3 +78,14 @@ public interface IState : IColorable
 }
 ```
 UI.Text의 색깔을 바꾸기 위한 IColorable interface를 IState가 가진다.<br>
+
+```c#
+public class IdleState : IState
+{
+  ...
+  // color to change player ( alternately : pass in color value with constructor )
+  Color meshColor = Color.white;
+  public Color MeshColor { get => meshColor; set => meshColor = value; }
+}
+```
+각 State class에 맞는 색깔을 지정한다.<br>
