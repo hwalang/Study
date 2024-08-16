@@ -62,3 +62,6 @@ SDS는 `project 전반에서 정의하여 사용할 수 있는 symbol`이다.</b
 
 SDS List에 Conditional 속성에서 명시한 symbol( DEV_VER )이 있으면 Log와 LogWarning이 실행되고,아니면 무시된다.</br>
 따라서 개발 단계에서 Log와 LogWarning이 실행되도록 SDS List에 DEV_VER을 추가한다.</br>
+
+ctrl + s로 저장해야 project에 반영된다.<br>
+project에 반영됐는지 확인하는 방법에는 Git Tool에 ProjectSettings 파일이 변경된 것을 확인하면 된다.<br>
