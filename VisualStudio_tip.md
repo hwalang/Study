@@ -4,7 +4,8 @@
   - [2. Preprocessor Definitions](#2-preprocessor-definitions)
 - [Functions](#functions) : visual studio 기능
   - [1. Check Thread](#1-check-thread)
-  - [1. Open Containing Folder](#1-open-containing-folder)
+  - [2. Open Containing Folder](#2-open-containing-folder)
+  - [3. 하나의 solution에 있는 projects를 한 번에 실행](#3-하나의-solution에-있는-projects를-한-번에-실행)
 - [Shortcut Keys](#shortcut-keys) : 단축키
   - [alt + f12 ( peek definition )](#alt--f12--peek-definition-)
 
@@ -37,6 +38,16 @@ Multi-Thread 환경에서 `현재 수행 중인 Thread를 알고 싶다면`, 프
 ![open containing folder](VisualStudio_Images/open_containing_folder.png)
 
 선택한 파일이 위치한 Folder를 연다.
+
+<br>
+
+### 3. 하나의 solution에 있는 projects를 동시에 실행
+Solution - Properties - Common Properties - Startup Project - check `Multiple startup projects`<br>
+
+![alt text](/6_CS/GameServer/Images/Set_Multiple_projects.png)!
+
+2개 이상의 projects를 동시에 실행해서 테스트 할 수 있다.<br>
+Action 값을 Start로 세팅한 projects만 실행된다.<br>
 
 <br>
 <br>
