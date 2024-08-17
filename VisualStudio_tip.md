@@ -1,29 +1,45 @@
 **Visual Studio 2022 TIP**
-- [Properties](#properties)
+- [Properties](#properties) : project 또는 solution 속성
   - [1. cpp compiler](#1-cpp-compiler)
   - [2. Preprocessor Definitions](#2-preprocessor-definitions)
-- [Utilities](#utilities)
+- [Functions](#functions) : visual studio 기능
+  - [1. Check Thread](#1-check-thread)
   - [1. Open Containing Folder](#1-open-containing-folder)
-- [Shortcut Keys](#shortcut-keys)
+- [Shortcut Keys](#shortcut-keys) : 단축키
   - [alt + f12 ( peek definition )](#alt--f12--peek-definition-)
 
+<br>
+
 ## Properties
-각 project 마다 properties를 세팅할 수 있다.
 ### 1. cpp compiler
 ![change compiler](VisualStudio_Images/determine_compiler.png)
 
 어떤 cpp compiler를 사용할지 결정한다.
+
+<br>
 
 ### 2. Preprocessor Definitions
 ![edit preprocessor](VisualStudio_Images/preprocessor.png)
 
 scanf, sprintf를 사용할 때 발생하는 warning을 없애줄 때 유용하다.
 
-## Utilities
-### 1. Open Containing Folder
+<br>
+<br>
+
+## Functions
+### 1. Check Thread
+![alt text](VisualStudio_Images/Check_Thread.png)<br>
+Multi-Thread 환경에서 `현재 수행 중인 Thread를 알고 싶다면`, 프로그램을 일시정지 한 뒤에 Thread 목록을 살펴보면 된다.<br>
+
+<br>
+
+### 2. Open Containing Folder
 ![open containing folder](VisualStudio_Images/open_containing_folder.png)
 
 선택한 파일이 위치한 Folder를 연다.
+
+<br>
+<br>
 
 ## Shortcut Keys
 ### alt + f12 ( peek definition )
