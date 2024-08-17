@@ -61,7 +61,7 @@ prefix = [
 
 ```cpp
 // 점화식
-prefix[i][j] = grid[i][j] + prefix[i - 1][j] + prefix[i][j - 1] + prefix[i - 1][j - 1];
+prefix[i][j] = grid[i][j] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
 
 // 구간 합 계산[ (1, 1) ~ (2, 3) ]
 sum((y1, x1), (y2, x2)) = prefix[y2][x2] - prefix[y1 - 1][x2] - prefix[y2][x1 - 1] + prefix[y1 - 1][x1 - 1];
