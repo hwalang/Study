@@ -1,12 +1,13 @@
 **Visual Studio 2022 TIP**
-- [Properties](#properties) : project 또는 solution 속성
+- [Properties](#properties)
   - [1. cpp compiler](#1-cpp-compiler)
   - [2. Preprocessor Definitions](#2-preprocessor-definitions)
-- [Functions](#functions) : visual studio 기능
+- [Functions](#functions)
   - [1. Check Thread](#1-check-thread)
   - [2. Open Containing Folder](#2-open-containing-folder)
-  - [3. 하나의 solution에 있는 projects를 한 번에 실행](#3-하나의-solution에-있는-projects를-한-번에-실행)
-- [Shortcut Keys](#shortcut-keys) : 단축키
+  - [3. 하나의 solution에 있는 projects를 동시에 실행](#3-하나의-solution에-있는-projects를-동시에-실행)
+  - [4. Release 환경에서 BreakPoint 적용](#4-release-환경에서-breakpoint-적용)
+- [Shortcut Keys](#shortcut-keys)
   - [alt + f12 ( peek definition )](#alt--f12--peek-definition-)
 
 <br>
@@ -48,6 +49,21 @@ Solution - Properties - Common Properties - Startup Project - check `Multiple st
 
 2개 이상의 projects를 동시에 실행해서 테스트 할 수 있다.<br>
 Action 값을 Start로 세팅한 projects만 실행된다.<br>
+
+<br>
+
+### 4. Release 환경에서 BreakPoint 적용
+[MS User code](https://learn.microsoft.com/en-us/visualstudio/debugger/just-my-code?view=vs-2022)<br>
+![alt text](VisualStudio_Images/Release_BreakPoint.png)<br>
+Tool - Options에 위치한다<br>
+
+Release 환경에서 실행할 때 break point는 무시한다.<br>
+하지만 Enable Just My Code를 해제하면 break point에서 실행을 멈춘다.<br>
+
+`최적화된 코드에서 생길 수 있는 Debugging 문제를 파악`할 수 있다<br>
+
+![alt text](VisualStudio_Images/ModulesWindow_user_code.png)<br>
+Debugging 할 때, Modules window에서 Debugger가 user code로 취급하는 코드를 표시한다.<br>
 
 <br>
 <br>
