@@ -3,7 +3,7 @@
 어떤 `resource나 object에 대한 참조 혹은 식별자`다.</br>
 특정 resource를 직접 다루는 대신 `handle을 통해 상호작용`한다.</br>
 
-## 예시 1 : AysncOperationHandle
+## 예시 1 : AysncOperationHandle from Unity
 [AsyncOperationHandle](/5_Unity/Unity_S1/1_Managers/4_Memory_Policy.md) </br>
 ```c#
 public class ResourceManager
