@@ -20,7 +20,9 @@
 <br>
 <br>
 
-**`C#에서는 Thread를 직접 관리하지 않고 ThreadPool 또는 Task를 이용`한다.**
+**`C#에서는 Thread를 직접 관리하지 않고 ThreadPool 또는 Task를 이용`한다.**<br>
+직접 Thread를 사용하는 것은 legacy이거나 MMO 등 특정 상황에 알맞은 방식이다.<br>
+보통 C#에서는 ThreadPool을 이용해 직접 Thread를 관리하지 않고, 일감만 등록해서 분배 실행하는 식으로 작업한다.<br>
 
 <br>
 <br>
