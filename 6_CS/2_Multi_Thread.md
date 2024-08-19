@@ -1,11 +1,6 @@
 - [들어가기 전에](#들어가기-전에)
     - [`process`](#process)
     - [CPU `Scheduling`](#cpu-scheduling)
-    - [`Context Switching`](#context-switching)
-      - [사용하는 이유](#사용하는-이유)
-      - [부작용 1 : Cache Pollution](#부작용-1--cache-pollution)
-      - [부작용 2 : overhead](#부작용-2--overhead)
-      - [용어 정리](#용어-정리)
     - [`thread`](#thread)
       - [Shared Segment](#shared-segment)
       - [Thread-Specific Segment](#thread-specific-segment)
@@ -36,50 +31,6 @@ CPU의 효율성을 높이기 위해 `OS가 CPU를 사용하려고 하는 proces
 한정된 Resource를 어떤 process에 얼마나 할당하는지 policy를 만드는 것이다<br>
 
 다양한 policy가 존재하지만 개념만 알고 간다.<br>
-
-<br>
-
-### `Context Switching`
-`CPU에서 실행 중이던 process 또는 thread가 다른 process 또는 thread로 교체`되는 것이다.<br>
-이때, `이전/이후 thread는 같거나 다른 process에 속한다`.<br>
-OS의 kernel에 의해 수행된다.<br>
-
-Context Switching이 발생할 때, CPU는 이전에 실행 중이던 작업( process, thread )의 context( 문맥 )를 저장하고, 새로 실행할 작업의 context를 load한다.<br>
-이처럼 여러 작업을 번갈아 가며 실행하기 때문에 각 process나 thread의 상태를 기억해야 한다.<br>
-
-<br>
-
-#### 사용하는 이유
-1. 여러 process 또는 thread가 `동시에 실행되는 것처럼` 보이기 위함
-2. `interrupt가 발생`할 때 context의 일부를 다른 process에 할당
-3. `높은 우선순위의 Task를 빠르게 처리`하기 위함
-4. 주어진 quantum( time slice ) 시간이 다 된 경우
-
-<br>
-
-#### 부작용 1 : Cache Pollution
-`Cache Pollution( 캐시 오염 )이 발생`한다.<br>
-Cache memory는 용량이 매우 작기 때문에 모든 process가 같이 사용한다.<br>
-Context Switching이 일어나면, 다시 사용할 것이라고 예상하여 cache에 저장한 데이터가 의미 없어진다.<br>
-`이전 process에서 실행된 정보`를 가지기 때문이다<br>
-
-때문에 context switching 직후에는 cache에 필요한 데이터가 없기 때문에 memory에 접근해서 데이터를 받아온다. => 성능 저하<br>
-
-<br>
-
-#### 부작용 2 : overhead
-overhead( 간접 비용 )은 프로그램 실행 흐름에서 나타난다.<br>
-`프로그램 실행 도중에 동떨어진 위치의 코드를 실행시켜야 할 때, 추가적으로 시간, memory, resource가 사용되는 현상`이다.<br>
-현재 프로그램과 상관 없는 작업을 하는 것이다.<br>
-
-10초가 걸리는 기능이 간접적인 원인으로 20초가 걸렸다면 overhead는 10초이다.<br>
-
-<br>
-
-#### 용어 정리
-`Context` : process, thread의 memory state를 의미한다.<br>
-`Process Context Switching`: process1 thread1 => process2 thread2<br>
-`Thread Context Switching`: process1 thread1 => process1 thread2<br>
 
 <br>
 <br>

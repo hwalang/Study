@@ -97,6 +97,8 @@ CPU Core는 Task를 처리하는 동안 memory에 여러 번 access 한다.<br>
 <br>
 
 # 3. Context Switching
+[Context Switching에 대한 설명](/6_CS/6_ContextSwitching.md)
+
 Multitasking 컴퓨터에서는 여러 process가 CPU 실행 시간을 공유한다.<br>
 하지만 일반적으로 CPU core 수는 컴퓨터에서 실행되는 process보다 적다.<br>
 따라서 `CPU는 process의 실행을 일정 간격으로 예약`한다.<br>
