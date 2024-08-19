@@ -51,12 +51,12 @@ num = temp;
 
 |Thread1|Thread2||num value|
 |:---:|:---:|:---:|:---:|
-|read value| |<--|0|
-||read value|<--|0|
+|read value| | &larr; |0|
+||read value| &larr; |0|
 |increase value|| |0|
 ||increase value| |0|
-|write back| |-->|1|
-||write back|-->|1|
+|write back| | &rarr; |1|
+||write back| &rarr; |1|
 
 이 경우에는 num은 2가 아니라 1이다.<br>
 이는 `한 번에 하나의 thread만 memory에 접근할 수 있도록 보장하지 않아서 생긴 문제`이다.<br>
