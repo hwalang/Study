@@ -40,9 +40,12 @@ CPU의 효율성을 높이기 위해 `OS가 CPU를 사용하려고 하는 proces
 <br>
 
 ### `Context Switching`
-`CPU에서 실행 중이던 thread가 다른 thread로 교체`되는 것이다.<br>
+`CPU에서 실행 중이던 process 또는 thread가 다른 process 또는 thread로 교체`되는 것이다.<br>
 이때, `이전/이후 thread는 같거나 다른 process에 속한다`.<br>
 OS의 kernel에 의해 수행된다.<br>
+
+Context Switching이 발생할 때, CPU는 이전에 실행 중이던 작업( process, thread )의 context( 문맥 )를 저장하고, 새로 실행할 작업의 context를 load한다.<br>
+이처럼 여러 작업을 번갈아 가며 실행하기 때문에 각 process나 thread의 상태를 기억해야 한다.<br>
 
 <br>
 
