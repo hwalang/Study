@@ -33,7 +33,6 @@ CPU의 효율성을 높이기 위해 `OS가 CPU를 사용하려고 하는 proces
 다양한 policy가 존재하지만 개념만 알고 간다.<br>
 
 <br>
-<br>
 
 ### `thread`
 `OS에서 CPU가 시간을 할당하는 기본 단위` 또는 `process 내에서 작업을 수행하는 기본 단위`이다<BR>
