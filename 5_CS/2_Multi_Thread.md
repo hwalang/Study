@@ -43,6 +43,9 @@ OS의 schedulr는 CPU 시간을 효율적으로 사용하기 위해 각 thread�
 
 <br>
 
+[How Do Threads Share Resources?](https://www.baeldung.com/cs/threads-sharing-resources)<br>
+threads가 공유하는 resources가 무엇인지 알려준 뒤에 어떻게 공유하는지 알려주는 글이다<br>
+
 #### Shared Segment
 하나의 process는 여러 개의 thread를 가질 수 있으며, 같은 process에 있는 threads는 code, data, heap 영역을 공유한다.<br>
 
