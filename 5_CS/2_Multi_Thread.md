@@ -49,7 +49,7 @@ threads가 공유하는 resources가 무엇인지 알려준 뒤에 어떻게 공
 #### Shared Segment
 하나의 process는 여러 개의 thread를 가질 수 있으며, 같은 process에 있는 threads는 code, data, heap 영역을 공유한다.<br>
 
-- `code segment`: process가 실행할 코드
+- `code(text) segment`: process가 실행할 코드( instructions to execute )
 - `data segment`: global 혹은 static 변수가 저장되는 영역
 - `heap segment`: dynamic memory
 
@@ -60,7 +60,7 @@ threads가 공유하는 resources가 무엇인지 알려준 뒤에 어떻게 공
 
 - `stack segment`
   - 각 thread는 독립된 stack을 가진다.
-  - stack은 함수 호출 시 매개변수, 복귀 주소, 로컬 변수를 저장하는 역할
+  - stack은 함수 호출 시 arguments, local variable, program counter( return memory address )를 저장하는 역할
 - `registers`
   - thread 상태를 관리하기 위한 CPU register이다.
   - Program Counter, Stack Pointer 등은 각 thread마다 독립적으로 관리한다.
