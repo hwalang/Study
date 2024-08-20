@@ -74,5 +74,10 @@ static void Func()
     int result = Interlocked.Increment(ref num);
 }
 ```
-`성능에 손해( cache 접근 X )`가 있지만, 항상 200000이 나온다.<br>
-`내부적으로 Memory Barrier를 사용`하기 때문에 num은 최적화 작업에서 제외되어 순서를 보장받는다.<br>
+Interlocked.Increament()와 같은 `atomic operation은 메모리 일관성을 보장하기 위해서 내부적으로 memory barrier를 사용`한다.<br>
+barrier는 CPU가 memory 접근 순서를 재배치하거나, `cache를 통해 데이터를 최적화하는 것을 제한`한다.<br>
+이로 인해 CPU는 데이터를 cache에서 읽는 대신에 main memory에서 읽고 쓰게 된다.<br>
+
+`성능에 손해( cache 접근 X, memory 접근 O )`가 있지만, 항상 200000이 나온다.<br>
+
+
