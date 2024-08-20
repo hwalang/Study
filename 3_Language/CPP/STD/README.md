@@ -5,4 +5,5 @@
 4. [std::iota](std_iota.md)
 5. [std::reverse](std_reverse.md)
 6. [std::min_element](std_min_element.md)
-7. [std::basic_string::substr](std_string_substr.md)
+7. [std::basic_string::erase](std_string_erase.md)
+8. [std::basic_string::substr](std_string_substr.md)
