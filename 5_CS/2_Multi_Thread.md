@@ -72,12 +72,10 @@ threads가 공유하는 resources가 무엇인지 알려준 뒤에 어떻게 공
 [How Many Threads Is Too Many?](https://www.baeldung.com/cs/servers-threads-number)<br>
 
 ### `SW thread를 HW thread로 제한`
-HW thread는 물리적인 CPU core 또는 hyper-threading으로 분리된 논리적 CPU core를 의미한다<br>
+HW thread는 물리적인 CPU core를 의미한다<br>
 
 `실행 가능한 thread 수를 HW thread 수로 제한하는 것을 권장`한다.<br>
 HW thread 수는 다 다르기 때문에 SW thread 제한을 하드 코딩하지 않는다.<br>
-
-다른 정보로는 HW thread 수는 `Core * 각 Core의 hyper-threading 수`로 결정된다<br>
 
 <br>
 
