@@ -133,8 +133,10 @@ Memory Barrier를 적용하지 않으면, Main Thread의 while문을 빠져나�
 
 ## 2. Memory Visibility
 Thread.MemoryBarrier()는 코드 순서의 재배치를 막는 역할도 있지만, `이전 작업을 memory에 올리는 역할`도 있다.<br>
-y = 1; 이후에 Thread.MemoryBarrier()를 넣었기 때문에 y 값을 memory에 올라갔음을 보장한다.<br>
+y = 1; 이후에 Thread.MemoryBarrier()를 넣었기 때문에 y 값을 `memory에 올라갔음을 보장`한다.<br>
 공유 memory에 올리기 때문에 예상치 못한 값을 load 할 일은 없다.<br>
+
+[참고](#예시-3--memory-visiblity)
 
 <br>
 
@@ -174,3 +176,6 @@ memory에 저장하는 작업을 했기에 memory visibility를 지키기 위해
 
 B에서 처음에 작성한 이유는 Load 작업 전에 memory에 올려두는 것이 안전하기 때문이다.<br>
 memory에서 데이터를 가져오기 전에 memory에 올려두는 작업이 필요하다.<br>
+
+`각 thread에서 memory 연산( store/load )을 하기 전에, 해당 memory의 값의 일관성을 보장할 필요`가 있다.<br>
+이를 통해 `thread 간의 데이터의 정확한 가시성을 확보`할 수 있다.<br>
