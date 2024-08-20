@@ -1,3 +1,4 @@
+[cppreference - erase](https://en.cppreference.com/w/cpp/string/basic_string/erase)
 
 # std::basic_string::erase
 ```cpp
