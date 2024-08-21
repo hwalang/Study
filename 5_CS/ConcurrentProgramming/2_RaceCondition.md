@@ -5,8 +5,8 @@
 <br>
 
 # Introduce
-같은 시간에 동시에 실행되는 code가 있을 때, race condition이 발생할 수 있다.<br>
-특히 `여러 thread가 공유 데이터에 동시에 접근할 때 race condition이 발생`한다.<br>
+`여러 thread가 Critical Section에 동시에 접근하면, 누가 먼저 접근했는지에 따라 실행 결과가 달라지는 Race Condition( 경쟁 상태 )이 발생`한다<br>
+
 race condition이 발생함으로써 공유 데이터에 손상이 발생한다.<br>
 
 multi-thread 환경에서 race condition은 상대적인 타이밍에 따라 달라지기 때문에 재현 및 디버깅이 어렵다.<br>
