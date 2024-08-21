@@ -54,7 +54,7 @@ It find(It first, It last, const T& value)
 {
     for (; first != last; ++first)
         if (*first == value)
-			return first;
+            return first;
 
 	return last;
 }
@@ -66,7 +66,7 @@ It find_if(It first, It last, UnaryPred p)
 {
     for (; first != last; ++first)
         if (p(*first))
-			return first;
+            return first;
 
 	return last;
 }
@@ -78,7 +78,7 @@ It find_if(It first, It last, UnaryPred q)
 {
     for (; first != last; ++first)
         if (!q(*first))
-			return first;
+            return first;
 
 	return last;
 }
