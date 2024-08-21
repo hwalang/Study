@@ -87,7 +87,7 @@ It find_if(It first, It last, UnaryPred q)
 <br>
 <br>
 
-# 예시 1
+# 예시1 - find
 [ Programmers - 가까운 1 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181898)<br>
 ```cpp
 #include <iostream>
@@ -104,5 +104,24 @@ int solution(std::vector<int> arr, int idx) {
     
     // 1이 있으면 해당 위치의 인덱스를 반환
     return std::distance(arr.begin(), it);
+}
+```
+
+<br>
+
+# 예시2 - find_if
+[Programmers - 첫 번째로 나오는 음수](https://school.programmers.co.kr/learn/courses/30/lessons/181896) <br>
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+using namespace std;
+
+int solution(vector<int> num_list)
+{
+    auto it = find_if(begin(num_list), end(num_list), [](int n) { return n < 0; });
+    return if (it == end(num_list)) ? -1 : distance(begin(num_list), it);
 }
 ```
