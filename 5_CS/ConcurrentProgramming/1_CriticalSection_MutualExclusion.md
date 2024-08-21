@@ -16,6 +16,8 @@
 <br>
 
 # Critical Section
+[ wiki 참고 ](https://en.wikipedia.org/wiki/Critical_section)<br>
+
 `동시성 프로그래밍에서 shared resources에 access하는 영역`에 대해 critical section 또는 critical region이라 한다<br>
 
 이 영역에는 한 번에 둘 이상의 process 또는 thread가 접근할 수 없고, 첫 process( thread )가 critical section을 벗어날 때까지 다른 process는 일시 중지시킨다<br>
@@ -37,6 +39,8 @@ x = 3 + z;
 <br>
 
 # Mutual Exclusion
+[ wiki 참고 ](https://en.wikipedia.org/wiki/Mutual_exclusion)<br>
+
 Mutual Exclusion은 `resources를 공유할 때 발생하는 문제를 해결하기 위해 도입된 개념`이다<br>
 
 `critical section에 이미 하나의 thread가 작업 중이라면, 다른 thread는 해당 영역에 접근하지 않아야 한다는 요구 사항`이다<br>
