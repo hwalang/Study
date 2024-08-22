@@ -5,4 +5,5 @@
 4. [Multi Thread](4_Multi_Thread.md) : 멀티 쓰레드 개론( process, scheduling, thread ), Thread Performance
 5. [Memory Barrier](5_MemoryBarrier.md) : Memory Barrier, Memory Visibility
 6. [DeadLock](6_DeadLock.md) : DeadLock, LockWrapper
-7. [SpinLock](7_SpinLock.md) : busy waiting, Compare-And-Swap
+7. [SpinLock](7_SpinLock.md) : busy waiting, Compare-And-Swap, Exponential Backoff
+8. [Atomics](8_Atomics.md)
