@@ -6,6 +6,7 @@
     - [2. Thread Constructors](#2-thread-constructors)
     - [3. `Join`](#3-join)
       - [`3.1.` Exception : Unstarted State, Infinitly Waiting](#31-exception--unstarted-state-infinitly-waiting)
+  - [Start()한 thread가 stack memory에서 해제된 경우](#start한-thread가-stack-memory에서-해제된-경우)
 - [Thread Pooling](#thread-pooling)
     - [1. `Thread Pool 특징`](#1-thread-pool-특징)
     - [2. `QueueUserWorkItem(callback method)`](#2-queueuserworkitemcallback-method)
@@ -153,6 +154,19 @@ static void ThreadPoc()
 
 `현재 Thread에서 현재 Thread에 대한 Join()를 호출하면 무한정 대기`하게 된다.<br>
 
+<BR>
+<BR>
+
+## Start()한 thread가 stack memory에서 해제된 경우
+아래는 Thread 객체는 stack memory에 위치하며, thread가 생성되고 실행된 후에는 stack memory에서 해제한다<br>
+```c#
+for (int i = 0; i < 4; ++i) {
+  Thread t = new Thread(ThreadPoc);
+  t.Start();
+}
+```
+중요한 점은 `thread의 실행 자체는 heap memory에 있는 thread resources와 OS의 scheduling에 의해 관리`된다는 점이다<br>
+따라서 thread 객체가 stack memory에서 해제해도, thread 실행에 필요한 정보는 OS와 heap memory에 저장되기 때문에 thread 실행은 정상적으로 계속된다<br>
 
 <br>
 <br>
