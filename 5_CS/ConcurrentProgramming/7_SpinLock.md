@@ -8,8 +8,8 @@
 [ 참고 ](https://en.wikipedia.org/wiki/Spinlock) <br>
 
 # Introduce
-thread가 lock 권한을 획득하기 위해서 lock을 사용할 수 있는지 확인해야 한다.<br>
-이때 `SpinLock은 다른 thread가 lock을 보유하고 있을 때, 그 lock을 반환할 때까지 계속 확인하며 기다리는 방법`이다<br>
+`lock 권한을 획득하는 방법`<br>
+`SpinLock은 다른 thread가 lock을 보유하고 있을 때, 그 lock을 반환할 때까지 계속 확인하며 기다리는 방법`이다<br>
 반복적으로 lock을 획득하려는 시도를 보고 thread가 spinning( 빙빙도는것 )하고 있다고 본다<br>
 
 
