@@ -12,6 +12,7 @@
 <br>
 
 [ 참고 ](https://en.wikipedia.org/wiki/Spinlock) <br>
+c#에서는 SpinLock class를 제공한다<br>
 
 # Introduce
 `busy waiting을 사용하여 lock이 available 여부를 반복적으로 확인하는 lock의 한 유형`이다<br>
