@@ -15,6 +15,10 @@
 
 <br>
 
+## 
+1. [std::erase](std_erase.md) : string, vector
+
+<br>
+
 ## String
-1. [std::basic_string::erase](std_string_erase.md)
-2. [std::basic_string::substr](std_string_substr.md)
+1. [std::basic_string::substr](std_string_substr.md)
