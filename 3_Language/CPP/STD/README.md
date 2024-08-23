@@ -15,8 +15,9 @@
 
 <br>
 
-## 
+## Generic Conatiner
 1. [std::erase](std_erase.md) : string, vector
+2. [std::assign](std_assign.md) : vector
 
 <br>
 
