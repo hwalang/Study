@@ -21,8 +21,11 @@ void assign(std::initializer<T> ilist);
 Container의 contents를 대체한다<br>
 
 1. value 값을 복제하여 count 만큼 가지는 content로 대체
-2. [first, last) 범위의 복제본으로 content를 대체
+2. `[first, last) 범위`의 복제본으로 content를 대체
+   - 만약 first == last인 경우, 값을 할당하지 않는다( test 해봄 )
 3. 초기화된 list의 elements로 content를 대체
+
+<br>
 
 ## 예시
 ```cpp
