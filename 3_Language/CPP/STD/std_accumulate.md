@@ -18,7 +18,9 @@ op는 적용할 binary operation 함수 객체이고, 아래와 같은 구조를
 Ret fun(const Type1 $a, const Type2 &b);
 ```
 T는 Type1과 Type2 타입으로 implicitly 변환할 수 있어야 한다. </br>
-Ret은 T 타입으로 변환할 수 있어야 한다.
+Ret은 T 타입으로 변환할 수 있어야 한다.</br>
+
+</br>
 
 ## Possible Implementation( 함수 구현 )
 ``` cpp
@@ -44,6 +46,7 @@ T accumulate(InputIt first, InputIt last, T init, BinaryOperation op)
 }
 ```
 
+</br>
 
 ## 예시
 ``` cpp
