@@ -14,7 +14,7 @@
 - [Lock](4_Lock.md) : Lock 사용법, System.Threading.Lock 객체
 - [AutoResetEvent](5_AutoResetEvent.md) : signal event
 - [ReaderWrtierLockSlim](6_ReaderWriterLockSlim.md)
-- [ThreadLocal( TLS )](7_ThreadLocal.md)
+- [ThreadLocal](7_ThreadLocal.md) : c#의 TLS
 
 <br>
 <br>
