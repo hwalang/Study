@@ -48,7 +48,7 @@ T accumulate(InputIt first, InputIt last, T init, BinaryOperation op)
 
 </br>
 
-## 예시
+## 예시 1
 ``` cpp
 #include <numeric>
 #include <vector>
@@ -61,4 +61,21 @@ int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());  /
 product의 BinaryOp는 accumulate의 연산자를 +가 아니라 *로 변경한다. </br>
 즉, 1부터 10까지의 모든 elements를 곱한 값을 리턴한다.
 
+<br>
 
+## 잘못된 예시 2 : 무조건 모든 index를 순회한다
+```cpp
+#include <numeric>
+
+int solution(vector<int> nums. int n) 
+{
+  return std::accumulate(nums.begin(), nums.end(), 0, [idx = 0, threshold = n](int sum, int value) {
+    sum += value;
+    if (sum > threshold) return sum;
+    ++idx;
+  });
+}
+```
+accumulate()는 중간에 순회를 멈추는 기능이 없다<br>
+아무리 lambda 식으로 sum이 threshold보다 높을 때 중단하고 싶어도 accumulate()가 허락하지 않는다<br>
+따라서 위 코드를 수행하면 threshold와 관계없이 무조건 nums의 총합이 반환된다<br>
