@@ -1,8 +1,20 @@
-[ 참고1 - programmers ](https://devdocs.programmers.co.kr/cpp/algorithm/find)<br>
-[ 참고2 - cppreference ](https://en.cppreference.com/w/cpp/algorithm/find)
+- [std::find | std::find\_if | std::find\_if\_not](#stdfind--stdfind_if--stdfind_if_not)
+    - [condition](#condition)
+    - [UnaryPred](#unarypred)
+  - [Possible Implementation](#possible-implementation)
+    - [find](#find)
+    - [find\_if](#find_if)
+    - [find\_if\_not](#find_if_not)
+  - [예시1 - find](#예시1---find)
+  - [예시2 - find\_if](#예시2---find_if)
+- [std::basic\_string::find](#stdbasic_stringfind)
+  - [예시](#예시)
+
+<br>
 
 # std::find | std::find_if | std::find_if_not
-
+[ 참고1 - programmers ](https://devdocs.programmers.co.kr/cpp/algorithm/find)<br>
+[ 참고2 - cppreference ](https://en.cppreference.com/w/cpp/algorithm/find)<br>
 ```cpp
 #include <algorithm>
 
@@ -46,7 +58,7 @@ auto it = std::find_if_not(v.begin(), v.end(), [](int n) { return n % 2 == 0; })
 <br>
 <br>
 
-# Possible Implementation
+## Possible Implementation
 ### find
 ```cpp
 template <class It, class T>
@@ -87,7 +99,7 @@ It find_if(It first, It last, UnaryPred q)
 <br>
 <br>
 
-# 예시1 - find
+## 예시1 - find
 [ Programmers - 가까운 1 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181898)<br>
 ```cpp
 #include <iostream>
@@ -109,7 +121,7 @@ int solution(std::vector<int> arr, int idx) {
 
 <br>
 
-# 예시2 - find_if
+## 예시2 - find_if
 [Programmers - 첫 번째로 나오는 음수](https://school.programmers.co.kr/learn/courses/30/lessons/181896) <br>
 ```cpp
 #include <string>
@@ -125,3 +137,39 @@ int solution(vector<int> num_list)
     return if (it == end(num_list)) ? -1 : distance(begin(num_list), it);
 }
 ```
+
+<br>
+<br>
+
+# std::basic_string::find
+[ cppreference - find ](https://en.cppreference.com/w/cpp/string/basic_string/find)<br>
+```cpp
+#include <string>
+
+size_type find(const string& sub_str, size_type pos = 0);
+```
+주어진 string에서 `첫 번째로 같은 substring을 찾는다`<br>
+`pos index에서 시작`한다<br>
+
+<br>
+
+## 예시
+[ Programmers ](https://school.programmers.co.kr/learn/courses/30/lessons/181878)<br>
+```cpp
+#include <string>
+#include <algorithm>
+#include <vector>
+
+int solution(string myString, string pat)
+{
+    transform(myString.begin(), myString.end(), myString.begin(), ::tolower);
+    transform(pat.begin(), pat.end(), pat.begin(), ::tolower);
+    
+    if (myString.find(pat) != string::npos) {
+        return 1;
+    }
+    return 0;
+}
+```
+대소문자를 구분하는 것보다 모든 문자열을 소문자로 통일하고 부분 문자열이 있는지 판단한다<br>
+myString에서 pat 문자열과 같은 부분 문자열이 있는지 찾는다<br>
