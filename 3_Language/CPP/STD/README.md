@@ -27,3 +27,8 @@
 
 ## numeric
 1. [std::accumulate](std_accumulate.md)
+
+<br>
+
+## functional
+1. [std::multiplies](std_multiplies.md)

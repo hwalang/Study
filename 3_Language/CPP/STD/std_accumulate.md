@@ -13,7 +13,9 @@ init으로 누적값을 초기화하고, 구간 내의 모든 elements를 차례
 
 last iterator는 vector.end()처럼 마지막 element의 다음 위치를 가리키는 iterator이다. </br>
 
-op는 적용할 binary operation 함수 객체이고, 아래와 같은 구조를 가진다.
+### BinaryOp
+op는 적용할 binary operation( 이항 연산 ) 함수 객체이고, 아래와 같은 구조를 가진다.<br>
+이름 그대로 `2개의 피연산자를 입력`으로 받아 `하나의 결과를 산출하는 연산`을 의미한다<br>
 ``` cpp
 Ret fun(const Type1 $a, const Type2 &b);
 ```
@@ -79,3 +81,19 @@ int solution(vector<int> nums. int n)
 accumulate()는 중간에 순회를 멈추는 기능이 없다<br>
 아무리 lambda 식으로 sum이 threshold보다 높을 때 중단하고 싶어도 accumulate()가 허락하지 않는다<br>
 따라서 위 코드를 수행하면 threshold와 관계없이 무조건 nums의 총합이 반환된다<br>
+
+<br>
+
+## 예시 2 : BinaryOp
+```cpp
+#include <functional>
+#include <numeric>
+
+int main()
+{
+	std::vector<int> numbers = { 1, 2, 3, 4, 5 };
+	int product = std::accumulate(numbers.begin(), numbers.end(), 1, std::multiplies<int>());
+	std::cout << product << std::endl;
+}
+```
+[std::multiplies](std_multiplies.md) <br>
