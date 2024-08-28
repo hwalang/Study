@@ -1,4 +1,4 @@
-- [Introduce](#introduce)
+- [std::multiplies](#stdmultiplies)
 - [std::multiplies::operator()](#stdmultipliesoperator)
 - [예시](#예시)
   - [1. 기본 사용법](#1-기본-사용법)
@@ -7,7 +7,7 @@
 
 <br>
 
-# Introduce
+# std::multiplies
 accumulate()의 BinaryOp 인자를 찾던 중 발견한 함수 객체이다<br>
 `Binary Operation( 이항 연산 ) 함수 객체`이다<br>
 
