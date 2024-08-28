@@ -68,14 +68,21 @@ new 연산자를 통해 memory를 할당하고, 그 위치에 constructor를 이
 ```cpp
 // memory만 할당, 객체 생성 X
 void* buffer = operator new(sizeof(Example));
+
 std::vector<Example> vec;
 vec.reserve(10);
 
+Example* example = (Example*)malloc(sizeof(Example));
+
 // 이미 할당된 memory에 객체를 생성
 Example* obj = new(buffer) Example();
+
 vec.emplace_back(1, 2, 3);             // vector의 capacity 내에서 객체 생성
+
+new (Example) Example;                 // 여기서 new는 memory를 할당하지 않고, 이미 할당된 memory에 객체를 생성
 ```
 placement-new는 `이미 할당된 memory에 객체를 생성`한다.<br>
+new에 대한 자세한 설명은 [new - 참고](/3_Language/CPP/3_new.md)<br>
 
 <br>
 
