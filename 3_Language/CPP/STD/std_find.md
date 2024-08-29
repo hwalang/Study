@@ -8,6 +8,7 @@
   - [예시1 - find](#예시1---find)
   - [예시2 - find\_if](#예시2---find_if)
 - [std::basic\_string::find](#stdbasic_stringfind)
+  - [return](#return)
   - [예시](#예시)
 
 <br>
@@ -146,10 +147,27 @@ int solution(vector<int> num_list)
 ```cpp
 #include <string>
 
-size_type find(const string& sub_str, size_type pos = 0);
+// 1.
+size_type find(const string& sub_str, size_type pos = 0) const;
+
+// 2.
+size_type find(const CharT* s, size_type pos, size_type count) const;
+
 ```
 주어진 string에서 `첫 번째로 같은 substring을 찾는다`<br>
 `pos index에서 시작`한다<br>
+
+1. sub_str과 같은 첫 번째 부분 문자열을 찾는다.
+2. [s, s + count) 범위에서 첫 번째로 같은 부분 문자열을 찾는다.
+   - 이 범위에 null 문자가 있을 수 있다.
+
+부분 문자열 뿐만 아니라 문자도 찾을 수 있다<br>
+
+<br>
+
+## return
+찾는 부분 문자열이 없는 경우 `std::string::npos`를 반환한다<br>
+
 
 <br>
 
