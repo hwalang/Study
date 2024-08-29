@@ -4,7 +4,9 @@
 - [예시](#예시)
   - [1. cppreference](#1-cppreference)
     - [cbegin(), cend()](#cbegin-cend)
-  - [programmers](#programmers)
+  - [2. programmers](#2-programmers)
+    - [예시 1 : lambda](#예시-1--lambda)
+    - [예시 2](#예시-2)
 
 <br>
 
@@ -122,7 +124,9 @@ const_begin(), const_end()라고 보면 된다<br>
 
 <br>
 
-## programmers
+## 2. programmers
+
+### 예시 1 : lambda
 ```cpp
 #include <algorithm>
 #include <cctype>
@@ -147,5 +151,13 @@ int main()
   std::cout << '\n';
   for (auto ord : ordinals) std::cout << ord << ' ';
   std::cout << '\n';
+}
+```
+
+### 예시 2
+```cpp
+string solution(string myString) {
+    transform(myString.cbegin(), myString.cend(), myString.begin(), ::tolower);
+    return myString;
 }
 ```
