@@ -16,4 +16,4 @@
 <br>
 
 # HongLab Index
-- [part1 목차](part1/README.md)
+- [Basic Concepts of Rendering](part1_BasicConceptsOfRendering/README.md)
