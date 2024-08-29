@@ -13,9 +13,8 @@ computer vision 또는 graphics에서는 2차원 배열을 많이 다룬다<br>
 ![alt text](Images/row_column_major_order.png)<br>
 
 $$
-\text{allocated memory} \to \text{2D matrix}\\
-
-\begin{array}{c|c|c|c|c}
+\text{allocated memory} = 
+\begin{matrix}
   0 & 1 & 2 & 3 & 4 \\
   \hline
   5 & 6 & 7 & 8 & 9 \\
@@ -23,10 +22,11 @@ $$
   10 & 11 & 12 & 13 & 14 \\
   \hline
   15 & 16 & 17 & 18 & 19
-\end{array}
+\end{matrix}
+$$
 
-\to
-
+$$
+\text{2D matrix} = 
 \begin{array}{c|c|c|c|c} 
   (0, 0) & (0, 1) & (0, 2) & (0, 3) & (0, 4) \\
   \hline
@@ -48,8 +48,9 @@ $$
 `row에 width를 곱한 후 column을 더하면` 1차원 배열의 각 위치를 알 수 있다<br>
 
 따라서 (i, j)를 1차원 배열로 표현하면<br>
+
 $$
-\boldsymbol{}index = i * column + j
+\boldsymbol{index = i * column + j}
 $$
 
 ## 예시
