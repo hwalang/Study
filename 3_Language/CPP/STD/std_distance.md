@@ -10,7 +10,7 @@ template<class InputIt>
 typename std::iterator_traits<InputIt>::difference_type 
   distance(InputIt first, InputIt last);
 ```
-`[first에서 last]까지 몇 번 이동해야 갈 수 있는지 반환`한다.<br>
+`[first에서 last)까지 몇 번 이동해야 갈 수 있는지 반환`한다.<br>
 `last에서 first로 도달할 수 있는 경우, 음수 값을 반환`한다.<br>
 
 만약 last까지 갈 수 없다면, 동작하지 않는다.<br>
