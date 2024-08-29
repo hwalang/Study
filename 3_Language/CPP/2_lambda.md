@@ -4,7 +4,9 @@
     - [3. `record`란](#3-record란)
 - [Introduce](#introduce)
 - [Examples](#examples)
-  - [1. Mutable](#1-mutable)
+  - [1. Capture: Mutable](#1-capture-mutable)
+  - [2. Capture: free variables](#2-capture-free-variables)
+  - [3. return type](#3-return-type)
 
 
 <br>
@@ -63,7 +65,7 @@ x는 value capture이다<br>
 # Examples
 lambda expression은 많은 규칙이 있기 때문에, 사용할 때마다 다양한 유형의 lambda expression을 예시로써 메모한다<br>
 
-## 1. Mutable
+## 1. Capture: Mutable
 mutable keyword는 `capture variables를 수정할 수 있는 기능`이다<br>
 기본적으로 lambda expression에서 `capture된 변수는 read-only( 상수 취급 )`이기 때문에 mutable을 사용해야 해당 변수의 값을 수정할 수 있다<br>
 ```cpp
@@ -77,3 +79,59 @@ int sum = std::accumulate(nums.begin(), nums.end(), 0, [i = 0](int sum, int valu
 });
 ```
 만약 mutable을 사용하지 않으면 `++i`에서 compile error가 발생한다<br>
+
+<br>
+
+## 2. Capture: free variables
+[ Programmers - 특정한 문자를 대문자로 바꾸기 ](https://school.programmers.co.kr/learn/courses/30/lessons/181873)<br>
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+string solution(string my_string, string alp) {
+    transform(my_string.cbegin(), my_string.cend(), my_string.begin(),
+             [alp](unsigned char ch) -> unsigned char {
+                 return ch == alp[0] ? static_cast<unsigned char>(std::toupper(ch)) : ch;
+             });
+    return my_string;
+}
+```
+`외부 변수( free variable )`를 가져와서 비교한다<br>
+alp는 한 글자 문자열이기 때문에 문자와 비교하기 위해선 operator[]를 이용해서 접근한다<br>
+
+<br>
+
+## 3. return type
+[ Programmers - A 강조하기 ](https://school.programmers.co.kr/learn/courses/30/lessons/181874)<br>
+lambda expression의 `return type이 일관되지 않으면 컴파일 에러가 발생`한다<br>
+이를 해결하기 위해서 return type이 일관되도록 명시적으로 type을 정해 줄 수 있다<br>
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+string solution(string myString) 
+{
+    transform(myString.cbegin(), myString.cend(), myString.begin(),
+             [](unsigned char ch) -> unsigned char {
+                 if (ch == 'a') 
+                     return static_cast<unsigned char>(std::toupper(ch));
+                 else if (isupper(ch)) 
+                     return static_cast<unsigned char>(std::tolower(ch))
+                 else return ch;
+             });
+    return myString;
+}
+```
+`-> unsigned char`를 이용해서 lambda expression의 return type을 unsigned char로 명시했다<br>
+`static_cast<unsigned char>()`로 ::toupper와 ::tolower가 반환하는 int를 unsigned char로 casting했다<br>
+
+참고로 std::tolower와 std::toupper는 인자로 unsigned char를 받도록 권장한다<br>
+왜냐하면 `#include <cctype>`의 모든 함수는 unsigned char로 변환할 수 없는 문자를 처리할 수 없기 때문이다<br>
