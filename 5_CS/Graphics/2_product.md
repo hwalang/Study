@@ -18,7 +18,7 @@ scalar 끼리 연산을 할 때는 dot, cross 연산자에 차이가 없이 곱�
 
 # Dot product
 [ Dot product ](https://www.mathsisfun.com/algebra/vectors-dot-product.html)<br>
-![alt text](dot_product.png)<br>
+![alt text](Images/dot_product.png)<br>
 $A \cdot B$ <br>
 
 `연산 결과가 scalar`이기 때문에 scalar product라고도 불린다<br>
@@ -34,7 +34,7 @@ inner product 또는 projection product라는 용어도 있다<br>
 `두 vector가 직각인지 확인할 때 유용`하다<br>
 직각 삼각형에서 두 변의 길이를 알면, 피타고라스 정의를 이용해서 나머지 한 변의 길이를 구할 수 있다<br>
 
-![alt text](dot_product_physics.png)<br>
+![alt text](Images/dot_product_physics.png)<br>
 `물리학에서 Work를 판단할 때 사용`한다<br>
 $Work = Force \cdot Distance$ <br>
 $Work = Force \times Distance \times \cos \theta$ <br>
@@ -47,7 +47,7 @@ Work가 Force times Distance인 경우는 물건에 힘을 주는 방향과 이�
 # Cross product
 [ Cross product ](https://www.mathsisfun.com/algebra/vectors-cross-product.html)<br>
 
-![alt text](cross_product.png)<br>
+![alt text](Images/cross_product.png)<br>
 $A \times B$ <br>
 
 Dot product와 달리 `vector 값을 반환`하기 때문에 vector product라는 이름도 있다<br>
