@@ -116,7 +116,7 @@ int main()
   float len = glm::length(c);
 
   // vector.size()
-  cout << (b - a).length() << endl;   // vector가 아닌 scalar는 to_string 불필요
+  cout << (b - a).length() << endl;
 }
 ```
 
