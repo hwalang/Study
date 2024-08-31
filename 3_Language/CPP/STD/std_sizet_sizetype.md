@@ -62,6 +62,7 @@ int main()
 <br>
 
 # std::size_t
+[ cpp reference ](https://en.cppreference.com/w/cpp/types/size_t)<br>
 ```cpp
 typedef size_t;
 using size_t = decltype(sizeof(0));
