@@ -167,6 +167,7 @@ size_type find(const CharT* s, size_type pos, size_type count) const;
 
 ## return
 찾는 부분 문자열이 없는 경우 `std::string::npos`를 반환한다<br>
+있는 경우 `첫 부분 문자열의 index`를 반환한다<br>
 
 
 <br>
