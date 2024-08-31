@@ -3,7 +3,8 @@
   - [2번 예시](#2번-예시)
   - [3번 예시](#3번-예시)
 - [std::vector::erase](#stdvectorerase)
-  - [예시](#예시)
+  - [예시 1](#예시-1)
+  - [예시 2 : Programmers](#예시-2--programmers)
 
 <br>
 
@@ -119,7 +120,7 @@ container의 특정 elements를 제거한다.<br>
 
 <br>
 
-## 예시
+## 예시 1 
 ```cpp
 #include <vector>
 
@@ -141,3 +142,26 @@ int main()
 1번 erase로 반환되는 iterator는 value 1을 가리킨다<br>
 2번의 첫 erase로 반환되는 iterator는 value 6을 가리킨다<br>
 2번의 두 번째 erase로 반환되는 iterator는 value 9를 가리킨다<br>
+
+<br>
+
+## 예시 2 : Programmers
+[ad 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/181870)<br>
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<string> solution(vector<string> strArr)
+{
+  for (auto it = strArr.begin(); it != strArr.end();) {
+    if (it->find("ad") != string::npos) it = strArr.erase(it);
+    else  ++it;
+  }
+  return strArr;
+}
+```
+for 문에서 strArr를 순회한다<br>
+it로 찾은 문자열에 접근( *it )하여 "ad" 부분 문자열이 있는지 확인한다<br>
+있으면 해당 it를 제거하고, 없으면 it를 한 칸 옮긴다<br>
