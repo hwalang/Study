@@ -83,6 +83,7 @@ std::string data = "apple orange banana";
 std::stringstream ss(data);
 
 std::string word;
+// ss >> word >> word2 >> word3; 도 가능
 while (ss >> word) {
   std::cout << word << std::endl;
 }
