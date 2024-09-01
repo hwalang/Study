@@ -10,9 +10,10 @@
 <br>
 
 # Programmers
-맞춘 문제는 해당 표에 존재하지 않는다<br>
+다시 풀어 볼 만한 문제를 모아둔다<br>
 | 날짜 | 문제 풀이 | 메모한 기술 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.08.23` | [`프로그래머스 - 문자열 잘라서 정렬하기`](Programmers/240901_문자열잘라서정렬.md) | conditional statement | 0 |
 | `2024.08.23` | [`프로그래머스 - 배열 조각하기`](Programmers/240823_배열조각하기.md) | implementation | 0 |
 | `2024.08.22` | [`프로그래머스 - 2의 영역`](Programmers/240822_2의영역.md) | vector<T>() constructor | 0 |
 | `2024.08.15` | [`프로그래머스 - 문자 개수 세기`](Programmers/240815_문자개수세기.md) | ASCII code와 영문자를 이용한 count 배열 | 0 |
