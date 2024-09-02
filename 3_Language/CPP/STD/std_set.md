@@ -4,6 +4,8 @@
   - [find](#find)
 - [example](#example)
 
+<br>
+
 # std::set
 
 associate container인 set에 대해 알아본다.</br>
@@ -12,9 +14,11 @@ sequence container와 달리 `key - value` 구조를 가진다.</br>
 
 `특정 key가` associate container에 `존재하는지 유무`를 알려준다.</br>
 
+<br>
+
 ## basic
 sequence container처럼 insert를 이용해서 element를 추가할 수 있다. 하지만 어디에 추가할지에 대한 정보는 없다.</br>
-set은 컨테이너 안에 모든 원소들을 `순서를 지키면서` 쑤셔 넣는 방식이다. 컨테이너 안에 `원소가 어디 있는지 중요하지 않고`, 원소가 `있냐/없냐 만이 중요한 정보`이기 때문이다.</br>
+set은 컨테이너 안에 모든 원소들을 `순서에 상관 없이` 쑤셔 넣는 방식이다. 컨테이너 안에 `원소가 어디 있는지 중요하지 않고`, 원소가 `있냐/없냐 만이 중요한 정보`이기 때문이다.</br>
 
 set에 element를 추가하거나 지우는 작업은 $O(logN)$ 걸린다. sequence container는 $O(N)$이기 때문에 더 빠르다는 것을 알 수 있다.</br>
 cpp의 std::set은 `Red-Black Tree`와 같은 균형 이진 탐색 트리로 이루어져있다.</br>
@@ -25,8 +29,12 @@ cpp의 std::set은 `Red-Black Tree`와 같은 균형 이진 탐색 트리로 이
 set 내부에는 `중복된 원소들이 존재하지 않는다`.</br>
 set에 존재하는 원소를 insert하는 경우, 이를 무시하는 성질을 가졌다.</br>
 
+<br>
+
 ## Bidirectional Iterator
 set은 sequence container처럼 임의의 위치에 존재하는 원소에 접근하는 것이 불가능하고, `순차적으로 하나 씩 접근하는 iterator를 제공`한다.</br>
+
+<br>
 
 ## find
 vector의 find는 처음부터 끝까지 비교하면서 찾기 때문에 $O(N)$이 걸린다.</br>
@@ -40,6 +48,9 @@ else {
   std::cout << "없음" << std::endl;
 }
 ```
+
+<br>
+<br>
 
 # example
 [프로그래머스 - 주사위 게임2](https://school.programmers.co.kr/learn/courses/30/lessons/181930)
