@@ -35,6 +35,9 @@ set에 존재하는 원소를 insert하는 경우, 이를 무시하는 성질을
 ## Bidirectional Iterator
 set은 sequence container처럼 임의의 위치에 존재하는 원소에 접근하는 것이 불가능하고, `순차적으로 하나 씩 접근하는 iterator를 제공`한다.</br>
 
+이때 Bidirectional Iterator를 지원하는데, 한 방향으로만 전진할 수 있는 Forward Iterator와 달리, 반대 방향( 후진 )으로도 이동할 수 있다<br>
+때문에 `set의 iterator는 양방향으로 이동 가능`하다<br>
+
 <br>
 
 ## find
