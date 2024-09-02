@@ -7,6 +7,7 @@
 <br>
 
 # std::set
+[ cppreference - set ](https://en.cppreference.com/w/cpp/container/set)<br>
 
 associate container인 set에 대해 알아본다.</br>
 sequence container와 달리 `key - value` 구조를 가진다.</br>
@@ -18,13 +19,13 @@ sequence container와 달리 `key - value` 구조를 가진다.</br>
 
 ## basic
 sequence container처럼 insert를 이용해서 element를 추가할 수 있다. 하지만 어디에 추가할지에 대한 정보는 없다.</br>
-set은 컨테이너 안에 모든 원소들을 `순서에 상관 없이` 쑤셔 넣는 방식이다. 컨테이너 안에 `원소가 어디 있는지 중요하지 않고`, 원소가 `있냐/없냐 만이 중요한 정보`이기 때문이다.</br>
-
-set에 element를 추가하거나 지우는 작업은 $O(logN)$ 걸린다. sequence container는 $O(N)$이기 때문에 더 빠르다는 것을 알 수 있다.</br>
-cpp의 std::set은 `Red-Black Tree`와 같은 균형 이진 탐색 트리로 이루어져있다.</br>
-
-또한 순서를 지키면서 넣기 때문에 set 내부의 원소들은 `정렬된 상태를 유지`한다.</br>
+set은 컨테이너 안에 모든 원소들을 `순서에 상관 없이` 데이터를 저장하는 방식이다. 컨테이너 안에 `원소가 어디 있는지 중요하지 않고`, 원소가 `있냐/없냐 만이 중요한 정보`이기 때문이다.</br>
+하지만 key compare 함수를 통해 `내부적으로 key를 정렬해서 저장`한다<br>
 이러한 특징으로 인해 User-Defined Types( class )를 set에 저장하려면 `operator<`를 정의해야 한다.</br>
+
+set에 `element를 search, insert, remove 작업은 O(logN)`걸린다. sequence container는 $O(N)$이기 때문에 더 빠르다는 것을 알 수 있다.</br>
+
+cpp의 std::set은 `Red-Black Tree`와 같은 균형 이진 탐색 트리로 이루어져있다.</br>
 
 set 내부에는 `중복된 원소들이 존재하지 않는다`.</br>
 set에 존재하는 원소를 insert하는 경우, 이를 무시하는 성질을 가졌다.</br>
