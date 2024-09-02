@@ -7,6 +7,7 @@
   - [2. programmers](#2-programmers)
     - [예시 1 : lambda](#예시-1--lambda)
     - [예시 2](#예시-2)
+    - [예시 3 : lambda2](#예시-3--lambda2)
 
 <br>
 
@@ -50,6 +51,7 @@ ForwardIt3 transform(ExecutionPolicy&& policy, ForwardIt1 first1, ForwardIt1 las
 `반환되는 iterator는 OutputIt의 마지막 요소 다음을 가리키는 반복자( OutputIt.end() )`이다<br>
 
 d_first의 크기는 first2처럼 [first1, last1)의 범위이다<br>
+만약 `OutputIt의 크기가 [first1, last1) 크기보다 작다면 에러`가 발생한다<br>
 
 <br>
 <br>
@@ -153,6 +155,10 @@ int main()
   std::cout << '\n';
 }
 ```
+원래 transform의 OutputIt는 [first1, last1)의 범위와 같거나 커야한다<br>
+위 코드에서 ordinals는 크기를 정해주지 않았기 때문에 원래라면 Error가 발생하지만, `back_inserter를 사용해서 ordinals에 동적으로 값을 추가`할 수 있다<br>
+
+<br>
 
 ### 예시 2
 ```cpp
@@ -161,3 +167,29 @@ string solution(string myString) {
     return myString;
 }
 ```
+
+<br>
+
+### 예시 3 : lambda2
+[ Programmers - 배열의 길이에 따라 다른 연산하기](https://school.programmers.co.kr/learn/courses/30/lessons/181854)<br>
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> solution(vector<int> arr, int n) {
+    vector<int> results(arr.size());
+    bool is_even_size = (arr.size() % 2 == 0);
+    transform(arr.cbegin(), arr.cend(), results.begin(), [is_even_size, n, idx = 0](int value) mutable {
+        if ((is_even_size && idx % 2 != 0) || (!is_even_size && idx % 2 == 0)) {
+            value += n;
+        }
+        ++idx;
+        return value;
+    });
+    return results;
+}
+```
+for문으로 풀 수 있지만, transform의 lambda expression을 복습하는데 유용했다<br>
