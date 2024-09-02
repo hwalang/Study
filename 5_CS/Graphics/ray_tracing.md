@@ -14,6 +14,7 @@
     - [1. Ray( 광선 정보 )](#1-ray-광선-정보-)
     - [2. Hit( 충돌 정보 )](#2-hit-충돌-정보-)
     - [3. Ray Tracer( rendering에 필요한 정보 )](#3-ray-tracer-rendering에-필요한-정보-)
+    - [4. Object의 Material 정보](#4-object의-material-정보)
 
 <br>
 
@@ -137,3 +138,5 @@ normal vector란 Ray에 충돌한 위치에서 표면의 수직 벡터를 의미
 Graphics에서 normal vector는 unit vector로 저장한다<br>
 
 ### 3. Ray Tracer( rendering에 필요한 정보 )
+
+### 4. Object의 Material 정보
