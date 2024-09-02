@@ -8,7 +8,7 @@
 ## Algorithms
 1. [std::iota](std_iota.md)
 2. [std::reverse](std_reverse.md)
-3. [std::min_element](std_min_element.md)
+3. [std::min_element과 std::max_element](std_min(max)_element.md)
 4. [std::distance](std_distance.md)
 5. [std::transform](std_transform.md) : cbegin(), cend()
 
