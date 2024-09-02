@@ -40,3 +40,8 @@
 
 ## TYPE
 1. [std::size_t, std::container::size_type](std_sizet_sizetype.md) : size_t, size_type
+
+<br>
+
+## CMath
+1. [std::log2](std_log2.md)
