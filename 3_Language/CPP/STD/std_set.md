@@ -80,3 +80,36 @@ int solution(int a, int b, int c)
 ```
 주사위를 굴려서 나온 세 가지 숫자 중 몇 개의 숫자가 같은지 판단할 때 set을 이용했다.</br>
 set에 a, b, c를 넣었지만 set의 성질에 따르면 기존에 있던 key와 같은 원소를 넣을 수 없기 때문에 set의 크기가 1, 2, 3 중 하나임을 유추할 수 있다.</br>
+
+<br>
+
+[ Programmers - 무작위로 K개의 수 뽑기 ](https://school.programmers.co.kr/learn/courses/30/lessons/181858#)<br>
+```cpp
+#include <string>
+#include <vector>
+#include <set>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> solution(vector<int> arr, int k) {
+    set<int> temp;
+    vector<int> results;
+    for (auto ele : arr) {
+        if (results.size() == k) break;
+        
+        if (temp.find(ele) == temp.end()) {
+            results.emplace_back(ele);
+            temp.insert(ele);
+        }
+    }
+
+    if (results.size() < k) {
+        results.insert(results.end(), k - results.size(), -1);
+    }
+
+    return results;
+}
+```
+문제에서는 results에 저장하는 elements가 정렬된 상태를 원하지 않는다<br>
+그렇기 때문에 set을 중복 여부를 판단하는 용도로만 사용했다<br>
