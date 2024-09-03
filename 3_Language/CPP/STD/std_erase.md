@@ -3,8 +3,8 @@
   - [2번 예시](#2번-예시)
   - [3번 예시](#3번-예시)
 - [std::vector::erase](#stdvectorerase)
-  - [예시 1](#예시-1)
-  - [예시 2 : Programmers](#예시-2--programmers)
+  - [예시 1 : return iterator 개념 잡기](#예시-1--return-iterator-개념-잡기)
+  - [예시 2 : container의 element를 순서대로 제거](#예시-2--container의-element를-순서대로-제거)
 
 <br>
 
@@ -120,7 +120,7 @@ container의 특정 elements를 제거한다.<br>
 
 <br>
 
-## 예시 1 
+## 예시 1 : return iterator 개념 잡기
 ```cpp
 #include <vector>
 
@@ -145,7 +145,7 @@ int main()
 
 <br>
 
-## 예시 2 : Programmers
+## 예시 2 : container의 element를 순서대로 제거
 [ad 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/181870)<br>
 ```cpp
 #include <string>
