@@ -4,6 +4,7 @@
     - [사용처](#사용처)
 - [Cross product](#cross-product)
     - [특징](#특징-1)
+      - [**Graphics**](#graphics)
     - [사용처](#사용처-1)
 - [Programming](#programming)
   - [1. GLM](#1-glm)
@@ -37,7 +38,12 @@ inner product 또는 projection product라는 용어도 있다<br>
 
 ### 특징
 `두 vector가 서로 직각일 때, dot product 결과는 0`이다<br>
-`두 vector가 같은 방향을 가리키면 $a \times b$이다<br>
+
+`두 vector가 같은 방향을 가리키면 a * b`이다<br>
+
+![alt text](Images/cosine_graph.png)<br>
+위 두 가지 특징은 cos 함수를 그려보면 명확하다<br>
+이때 180도 구간을 보면 `두 vector의 방향이 서로 반대 방향인 경우, Dot product 결과가 -1`임을 알 수 있다<br>
 
 ### 사용처
 `두 vector가 직각인지 확인할 때 유용`하다<br>
@@ -48,6 +54,9 @@ inner product 또는 projection product라는 용어도 있다<br>
 $Work = Force \cdot Distance$ <br>
 $Work = Force \times Distance \times \cos \theta$ <br>
 Work가 Force times Distance인 경우는 물건에 힘을 주는 방향과 이동 방향이 같은 경우이다<br>
+
+`두 vector의 방향이 상대적으로 어떤지 알고 싶을 때 유용`하다<br>
+특히 Graphics에서 `두 unit vector의 방향을 판단`할 때 사용한다<br>
 
 
 <br>
@@ -66,14 +75,27 @@ Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 
 ### 특징
 `두 vector가 같은 방향 또는 반대 방향을 가리킬 때 길이가 0`이다<br>
-`두 vector가 직각일 때 최대 길이`이다<br>
-`cross product의 결과로 나온 vector는 피연산자인 두 vector와 직각`이다<br>
 
-cross product의 결과 vector는 `피연산자 vector의 직각삼각형 넓이의 2배`이다<br>
-이는 반대로 말하면, 두 vector가 이루는 삼각형 넓이를 구하기 위해서는 cross product 결과의 length를 2로 나누면 된다<br>
+`두 vector가 직각일 때 최대 길이`이다<br>
+
+
+#### **Graphics**
+두 vector a와 b를 Cross Product한 결과로 c vector를 얻었을 때
+
+- `c는 a와 b vector와 수직`이다
+- a와 b가 서로 다른 vector인 경우, `a와 b vector로 평면을 정의할 수 있다`
+
+위 두 가지 특징을 보면, a와 b vector로 얻은 한 평면의 normal vector를 구할 수 있다<br>
 
 ### 사용처
+![alt text](Images/corss_product_parallelogram.png) ![alt text](Images/cross_product_triangle.png) <br>
 Graphics에서는 `삼각형의 넓이를 구할 때` cross product를 사용한다<br>
+
+$\mathbf{a}와 \mathbf{b}\text{가 이루는 삼각형의 넓이} = \frac{\parallel \mathbf{a} \times \mathbf{b} \parallel}{2}$ <br>
+
+cross product의 결과 vector의 length는 `피연산자 vector의 삼각형 넓이의 2배`이다<br>
+이는 반대로 말하면, 두 vector가 이루는 삼각형 넓이를 구하기 위해서는 cross product 결과의 length를 2로 나누면 된다<br>
+
 
 <br>
 <br>
