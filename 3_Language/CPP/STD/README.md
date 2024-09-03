@@ -11,6 +11,7 @@
 3. [std::min_element과 std::max_element](std_min(max)_element.md)
 4. [std::distance](std_distance.md)
 5. [std::transform](std_transform.md) : cbegin(), cend()
+6. [std::sort](std_sort.md) : IntroSort Algorithm
 
 <br>
 
