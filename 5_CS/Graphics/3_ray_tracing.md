@@ -4,12 +4,17 @@
     - [2. image-order rendering](#2-image-order-rendering)
     - [3. 차이점](#3-차이점)
 - [Ray Tracing Algorithm](#ray-tracing-algorithm)
-- [Projection](#projection)
 - [Ray-Sphere Intersection](#ray-sphere-intersection)
   - [Ray-Tracing에 사용하는 3가지 경우](#ray-tracing에-사용하는-3가지-경우)
     - [1. Object와 Ray의 충돌 검출](#1-object와-ray의-충돌-검출)
     - [2. Ray 굴절 및 반사 계산](#2-ray-굴절-및-반사-계산)
     - [3. Shadow 계산](#3-shadow-계산)
+- [Projection](#projection)
+  - [Orthographic Projection](#orthographic-projection)
+  - [Perspective Projection](#perspective-projection)
+- [Triangular Mesh](#triangular-mesh)
+    - [1. Triangle과 Ray의 충돌](#1-triangle과-ray의-충돌)
+    - [2. Triangle 내부에 point Q가 있는지 판단](#2-triangle-내부에-point-q가-있는지-판단)
 - [Ray Tracing을 구현하기 위해 필요한 정보](#ray-tracing을-구현하기-위해-필요한-정보)
     - [1. Ray( 광선 정보 )](#1-ray-광선-정보-)
     - [2. Hit( 충돌 정보 )](#2-hit-충돌-정보-)
@@ -64,12 +69,14 @@ Scene Object를 Screen에 비추기 위해서 어떻게 할까?<br>
    - Camera가 바라보는 방향으로 `모든 pixel에서 Scene으로 pixel 1개당 하나의 Ray를 쏜다`<br>
    - 나중에는 각 pixel에서 여러 개의 Ray를 Scene으로 쏘는 경우도 있다.
 2. **Intersection Calculation( object와 교차점 계산 )**
-   - Ray가 처음으로 충돌한( hit ) 지점( point )을 찾는다.
-   - `Ray가 Object와 교차하는 지점을 찾는다.`
+   - `Ray가 처음으로 충돌한( hit ) 지점( point )을 찾는다`.
+   - Ray가 Object와 교차하는 지점을 찾는다.
 3. **Ray-Object Interaction( 상호작용 )**
-   - 교`차 지점에서 object의 surface 속성( 반사, 굴절, 그림자 등 )을 계산하여 pixel 값을 결정`한다.
+   - `교차 지점에서 object의 surface 속성( 반사, 굴절, 그림자 등 )을 계산`한다.
 4. **Lighting and Shading( 빛과의 상호작용 )**
+   - `교차 지점에 영향을 주는 light를 고려해서 pixel의 색깔을 결정`한다<br>
    - Ray와의 관계를 통해 조명과 그림자 효과를 적용한다<br>
+   - light effect를 phong model을 이용해서 간단하게 구현할 수 있다<br>
 5. **Screen**
    - Screen에 계산한 pixel 값을 적용한다
 
@@ -81,13 +88,6 @@ Scene Object를 Screen에 비추기 위해서 어떻게 할까?<br>
 먼저 빛이 screen을 통과하면 가장 가까운 object를 식별한다.<br>
 object를 식별하면 ray tracing 알고리즘을 통해 screen에 보일 pixel 값을 정한다.<br>
 pixel 값은 object의 재질, 광원을 결합하여 최종 pixel( 색상 ) 값을 결정한다<br>
-
-<br>
-<br>
-
-# Projection
-Orthographic Projection( 정투영 )과 Perspective Projection( 원근투영 )이 있다<br>
-Ray를 Screen에 수직인 방향( vec3(0, 0, 1) )으로 쏴주는 것을 Orthographic projection이라 한다<br>
 
 <br>
 <br>
@@ -125,6 +125,67 @@ Ray와 Object가 교차할 때, 이 교차점을 기준으로 Ray의 방향이 �
 ### 3. Shadow 계산
 Lighting이 있을 때, Object에 Shadow가 생긴다<br>
 Lighting에서 발사된 Ray가 object와 교차하는지 판단하여 그림자를 결정한다<br>
+
+<br>
+<br>
+
+# Projection
+Orthographic Projection( 정투영 )과 Perspective Projection( 원근투영 )이 있다<br>
+`Ray Tracing을 이용해서 Projection 효과를 구현`할 수 있다<br>
+
+## Orthographic Projection
+`Ray를 Screen의 모든 pixel에서 수직인 방향( vec3(0, 0, 1) )으로 Scene에 쏴 준다`<br>
+
+## Perspective Projection
+`Ray가 Screen의 pixel마다 쏴주는 방향이 다르다`<br>
+방향을 다르게 하는 방법은 virtual camera( 가상의 눈, 카메라 )의 위치에서 Screen의 pixel 위치로 Ray를 쏜다<br>
+
+<br>
+<br>
+
+# Triangular Mesh
+[ 사전 지식 Cross Product ](1_product.md)<br>
+Ray Tracing에서 삼각형을 어떻게 다루는지 알아본다<br>
+먼저 Camera에서 발사하는 Ray가 삼각형에 닿았는지 아닌지 판단한다.<br>
+삼각형을 그릴 수 있으면, 모든 도형을 그릴 수 있다<br>
+
+### 1. Triangle과 Ray의 충돌
+`무한히 넓은 삼각형과 Ray가 충돌하는지 판단`한다<br>
+일단 닿았다고 생각하고 point Q를 찾는다<br>
+
+[ 참고 ](https://courses.cs.washington.edu/courses/csep557/10au/lectures/triangle_intersection.pdf)<br>
+![<alt text>](Images/Ray_Triangle_Intersection.png)<br>
+3개의 vertex로 구성된 triangle이 scene에 있다<br>
+`Camera에서 쏜 Ray의 unit vector가 triangle과 충돌하는 지점`을 $\mathbf{Q}$ 라고 한다<br>
+$\mathbf{Q} = \mathbf{P} + t \times \mathbf{d}$ ( [Line-Sphere Intersection의 x = o + du 식을 이용 ](https://en.wikipedia.org/wiki/Line%E2%80%93sphere_intersection) )<br>
+위 수식을 이용하여 t를 찾아야 한다<br>
+
+![alt text](Images/Ray_Triangle_Solving1.png) ![alt text](Images/Ray_Triangle_Solving2.png) <br>
+1. point Q를 찾기 위해서 `삼각형의 normal vector를 구한다`
+   - vec3(B - A)와 vec3(C - A)의 Cross product 결과를 unit vector로 변환
+   - `cross product의 곱하는 순서가 z의 방향을 결정`
+     - left-handed system에선 왼손의 커브 방향처럼 A, C, B 순서로 진행해야 z 방향이 Camera를 향한다
+     - $\frac{\parallel \mathbf{(B-A)} \times \mathbf{(C-A)} \parallel}{2}$라면 right-handed이며, $\frac{\parallel \mathbf{(C-A)} \times \mathbf{(B-A)} \parallel}{2}$라면 left-handed이다
+     - 이는 code에서도 똑같다.
+2. `point A, B, C에서 Q로 향하는 vector는 1번에서 찾은 unit normal vector와 수직`
+   - $\mathbf{(Q - A)} \cdot \mathbf{n} = 0$
+   - $\mathbf{((\mathbf{P} + t \times \mathbf{d}) - A)} \cdot \mathbf{n} = 0$
+   - point A만 아니라 B 또는 C와도 위 결과가 같기 때문에 이를 이용해서 t를 구한다
+3. 2번의 수식을 이용해서 `t를 구한다`
+   - $\mathbf{(Q - A)} \cdot \mathbf{n} = \mathbf{(Q - B)} \cdot \mathbf{n} = \mathbf{(Q - C)} \cdot \mathbf{n}$
+   - $t = \frac{\mathbf{A} \cdot \mathbf{n} - \mathbf{P} \cdot \mathbf{n}}{\mathbf{d} \cdot \mathbf{n}}$
+
+<br>
+
+### 2. Triangle 내부에 point Q가 있는지 판단
+$\mathbf{(Q - A)}와 \mathbf{(Q - B)}와 \mathbf{(Q - C)}$로 vertex(A, B, C)인 삼각형을 3조각으로 나눈다<br>
+
+이렇게 쪼개진 세 삼각형의 normal vector를 각각 n1, n2, n3라 한다<br>
+
+만약 point Q가 vertex(A, B, C)인 삼각형 내부에 있으면, vertex(A, C, Q), vertex(C, B, Q), vertex(A, Q, B) 삼각형의 n1, n2, n3가 n과 같은 방향이다<br>
+
+$\mathbf{n1} \cdot \mathbf{n} >= 0$`이면 내부에 있고, 0보다 작으면 삼각형 외부에 point Q가 존재`한다<br>
+n1, n2, n3가 n과의 연산에서 하나라도 0보다 작으면 point Q는 삼각형 외부에 존재한다<br>
 
 <br>
 <br>
