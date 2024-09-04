@@ -10,15 +10,16 @@
 2. [std::reverse](std_reverse.md)
 3. [std::min_element과 std::max_element](std_min(max)_element.md)
 4. [std::distance](std_distance.md)
-5. [std::transform](std_transform.md) : cbegin(), cend()
-6. [std::sort](std_sort.md) : IntroSort Algorithm
+5. [std::transform](std_transform.md) : `cbegin(), cend()`
+6. [std::sort](std_sort.md) : `IntroSort Algorithm`
+7. [std::for_each](std_for_each.md) : `stateful/stateless` function object, `invoke`
 
 <br>
 
 ## Generic Container
 1. [std::erase](std_erase.md) : string, vector
 2. [std::assign](std_assign.md) : vector
-3. [std::find, find_if, find_if_not](std_find.md) : Unary Operation, string, vector
+3. [std::find, find_if, find_if_not](std_find.md) : `Unary Operation`, string, vector
 4. [std::insert](std_insert.md) : vector
 
 <br>
@@ -35,7 +36,7 @@
 <br>
 
 ## functional
-1. [std::multiplies](std_multiplies.md) : Binary Operation
+1. [std::multiplies](std_multiplies.md) : `Binary Operation`
 
 <br>
 
