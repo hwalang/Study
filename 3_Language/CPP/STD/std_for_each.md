@@ -67,6 +67,8 @@ Struct Print
 ```
 Print 객체는 상태를 저장하지 않고, 단순히 값을 출력한다<br>
 
+<br>
+
 ## 3. stateful, stateless의 다양한 방법
 ```cpp
 // 1. struct, class로 functor 정의

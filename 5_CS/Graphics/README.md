@@ -2,7 +2,10 @@
 
 # Index
 1. [HongLab 강의](HongLab/README.md)
-2. [product](1_product.md) : Dot / Cross product, glm::vec3
+2. [product](1_product.md) : `Dot / Cross product`, glm::vec3
 3. [Coordinate Systems](2_coordinateSystems.md)
-4. [Ray Tracing](3_ray_tracing.md) : rendering( image-order, object-order ), projection( Orthographic, Perspective ), Ray-sphere intersection
-5. [Phong Model](4_phong_model.md) : light effect, Lambertian Reflection
+4. [Ray Tracing](3_ray_tracing.md) : rendering( `image-order, object-order` ), projection( `Orthographic, Perspective` ), `Ray-sphere intersection`
+5. [Phong Model](4_phong_model.md) : `light effect`, `Lambertian Reflection`
+
+
+Backface culling: 뒷면을 그리지 않는 방법<br>
