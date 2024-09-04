@@ -18,6 +18,9 @@ UnaryFunc for_each(InputIt first, InputIt last, UnaryFunc f);
 ```
 `[first, last) 범위의 모든 iterator를 역참조( pointer가 가리키는 실제 값을 참조 )한 결과에 주어진 함수 객체 f를 적용`한다.<br>
 
+`for_each문 도중에 멈출 수 있는 기능을 제공하지 않는다`<br>
+try-catch를 사용하면 가능하다<br>
+
 ### result
 - 만약 InputIt TYPE의 `iterator가 mutable 하다면, f는 iterator로부터 역참조한 [first, last) 범위의 elements를 수정할 수 있다`
 - for_each는 `function object를 수정한 후 그 객체를 반환`
