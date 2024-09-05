@@ -181,13 +181,14 @@ enum struct|class name : type;
 
 ### 2.1. static_cast
 ```cpp
-enum class Color { red, green = 20, blue };
+enum class Color : int { red, green = 20, blue };
 Color color = Color::blue;
 
 int n = static_cast<int>(color);
 int n = color;                      // error
 ```
 Scoped Enumeration은 `implicit( 암시적 ) conversion을 지원하지 않는다`<br>
+Underlying Type을 명시적으로 알려줘도 Type 안전성을 위해 implicit conversion을 할 수 없다<br>
 대신 `static_cast를 이용`하여 Color::blue를 정수형으로 변환할 수 있다<br>
 
 <br>
