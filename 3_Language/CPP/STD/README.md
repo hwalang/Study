@@ -21,6 +21,7 @@
 2. [std::assign](std_assign.md) : vector
 3. [std::find, find_if, find_if_not](std_find.md) : `Unary Operation`, string, vector
 4. [std::insert](std_insert.md) : vector
+5. [std::replace](std_replace.md) : `chaning`, string
 
 <br>
 
