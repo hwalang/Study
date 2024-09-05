@@ -6,6 +6,8 @@
 
 <br>
 
+[ cppreference - std::vector<T>::insert ](https://en.cppreference.com/w/cpp/container/vector/insert)<br>
+
 # std::vector::insert
 ```cpp
 // 1.
@@ -27,7 +29,7 @@ iterator insert(const_iterator pos, std::initializer_list<T> ilist);
 container의 `특정 위치에 elements를 넣는다`<br>
 
 1. `pos 앞`에 value를 넣는다.
-2. ㅇ
+2. std::move를 사용해서 pos 앞에 value를 넣는다.
 3. pos 앞에 value를 count 만큼 추가한다.
 4. pos 앞에 [first, last) 범위의 elements를 넣는다
    - `*this( 자기 자신 )의 iterator를 추가할 수 없다`.
@@ -69,7 +71,7 @@ int main()
     cout << "\n" << vec.capacity() << endl;
 }
 ```
-최근 실험해본 결과 `reallocation이 발생해도 iterator가 유효`했다<br>
+최근 실험해본 결과 `reallocation이 발생해도 iterator가 유효`하는 경우가 있었다<br>
 이는 compiler 최적화나 Debug 모드의 최적화, 시스템에서 메모리 할당을 기존 메모리 위치와 같은 경우 등 다양한 원인이 있으 수 있다<br>
 
 
@@ -114,7 +116,6 @@ int main()
 ```
 
 ### Programmers
-[ 빈 배열에 추가, 삭제하기 ](https://school.programmers.co.kr/learn/courses/30/lessons/181860)<br>
 ```cpp
 vector<int> solution(vector<int> arr, vector<bool> flag)
 {
@@ -126,3 +127,35 @@ vector<int> solution(vector<int> arr, vector<bool> flag)
   return vec;
 }
 ```
+[ 빈 배열에 추가, 삭제하기 ](https://school.programmers.co.kr/learn/courses/30/lessons/181860)<br>
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<string> solution(vector<string> picture, int k) {
+    for (auto& str : picture) {
+        string temp = "";
+        int len = str.length();
+        for (auto ch : str) {
+            for (int i = 0; i < k; ++i) temp += ch;
+        }
+        str = temp;
+    }
+    
+    for (auto it = picture.begin(); it != picture.end();) {
+        const string temp = *it;
+        it = picture.insert(it, k - 1, temp);
+        std::advance(it, k);     // iterator를 k칸 앞으로 이동, it += k 역할
+    }
+    
+    return picture;
+}
+```
+[ 그림 확대 ](https://school.programmers.co.kr/learn/courses/30/lessons/181836)<br>
+`insert 이후 iterator가 가리키는 element의 참조가 무효화` 됐다<br>
+이는 reallocation이 발생했기 때문이다<br>
+
+때문에 `반환된 iterator를 it 변수에 초기화` 해야 했다<br>
+it에 insert했기 때문에 기존 it에 있던 element는 삽입된 element의 앞에 위치한다<br>
