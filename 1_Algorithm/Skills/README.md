@@ -3,3 +3,4 @@
 2. [문자열에서 가장 왼쪽에 있는 0을 제거하는 방법](2_remove_zero_from_string.md)
 3. [Big Integer Arithmetic](3_Big_Integer_Arithmetic.md) : 컴퓨터에서 숫자로 표현할 수 없는 정수를 처리하는 방법
 4. [bit 연산 모음집](4_bitwise_operation.md)
+5. [여러 가지 mapping 방법](5_mapping.md) : `enum - unordered_map`
