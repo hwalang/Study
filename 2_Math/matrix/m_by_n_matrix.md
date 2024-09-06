@@ -19,6 +19,7 @@ a10 a11 a12
 - n은 `col의 개수`
 
 따라서 위 그림은 2 * 3 행렬이다.<br>
+![alt text](Images/row_col_index.png)<br>
 또한 row는 `가로줄의 위치, row_index`, column은 `세로줄의 위치, col_index`이다.<br>
 
 <br>
