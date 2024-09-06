@@ -5,12 +5,14 @@
 
 # Index
 1. [Skills](Skills/README.md) : 다양한 문제 해결 기법을 메모한다.
-2. **Problem Solving** : 틀린 문제를 다시 풀어보면서 내 것으로 만든다
+2. **Problem Solving** : 다시 풀어 볼 만한 문제를 언제든지 풀 수 있도록 기록한다.
 
 <br>
 
 # Programmers
 다시 풀어 볼 만한 문제를 모아둔다<br>
+더 이상 안 풀어도 되는 경우 삭제한다<br>
+
 | 날짜 | 문제 풀이 | 메모한 기술 | Try Count |
 |:---:|:---:|:---:|:---:|
 | `2024.09.06` | [`정수를 나선형으로 배치하기`](Programmers/240906_정수를나선형으로배치.md) | matrix, implementation | 0 |
