@@ -2,6 +2,7 @@
     - [특징](#특징)
 - [Example](#example)
   - [1. Bitwise AND : 짝수, 홀수 판단](#1-bitwise-and--짝수-홀수-판단)
+  - [2. Bitwise Left-Shift : 2배](#2-bitwise-left-shift--2배)
 
 <br>
 
@@ -37,3 +38,24 @@ AND 0011  (decimal 3)
 ```
 `두 operand는 같은 크기의 bit를 가져야 한다`<br>
 `두 operand의 bit에 대해 logical AND 연산을 수행`한다<br>
+
+<br><br>
+
+## 2. Bitwise Left-Shift : 2배
+```cpp
+#include <vector>
+#include <algorithm>
+
+std::vector<int> vec { 1, 2, 3, 4, 5 };
+std::transform(vec.cbegin(), vec.cend(), vec.begin(), [](int ele) {
+  ele = ele << 1;
+  return ele;
+});
+```
+배열의 모든 elements를 2배하는 코드를 작성했다<br>
+```
+    00010111 (decimal 23) LEFT-SHIFT
+=   00101110 (decimal 46)
+```
+left-shift를 수행한 뒤, rightmost position에 `새롭게 생기는 bit 값은 0`이다<br>
+`기존 값을 2배로 증가`시켜준다<br>
