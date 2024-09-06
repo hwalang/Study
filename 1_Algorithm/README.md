@@ -13,7 +13,7 @@
 다시 풀어 볼 만한 문제를 모아둔다<br>
 | 날짜 | 문제 풀이 | 메모한 기술 | Try Count |
 |:---:|:---:|:---:|:---:|
-| `2024.09.06` | [`정수를 나선형으로 배치하기`](Programmers/240901_문자열잘라서정렬.md) | matrix, implementation | 0 |
+| `2024.09.06` | [`정수를 나선형으로 배치하기`](Programmers/240906_정수를나선형으로배치.md) | matrix, implementation | 0 |
 | `2024.08.23` | [`문자열 잘라서 정렬하기`](Programmers/240901_문자열잘라서정렬.md) | conditional statement | 0 |
 | `2024.08.23` | [`배열 조각하기`](Programmers/240823_배열조각하기.md) | implementation | 0 |
 | `2024.08.22` | [`2의 영역`](Programmers/240822_2의영역.md) | vector<T>() constructor | 0 |
