@@ -9,6 +9,7 @@
   - [예시](#예시)
     - [1. basic](#1-basic)
     - [2. mapping : enum class - unordered\_map](#2-mapping--enum-class---unordered_map)
+    - [3. 빈도수 : counts 배열](#3-빈도수--counts-배열)
 
 <br>
 
@@ -176,6 +177,32 @@ int main()
 `operator[]를 사용`하면, std::map과 마찬가지로 `unordered_map에 해당 key가 없는 경우 새로운 key-value를 추가`한다<br>
 이때 value는 빈 값이다<br>
 
+<br>
+
 ### 2. mapping : enum class - unordered_map
 [mapping 예시](/1_Algorithm/Skills/5_mapping.md/#예시-1--메뉴와-가격-enum-class와-unordered_map-)<br>
 위 글을 보면 알 수 있듯이 enum과 map을 이용한 mapping은 자주 사용한다<br>
+
+<br>
+
+### 3. 빈도수 : counts 배열
+[ frequency 기록하는 예시 ](/1_Algorithm/Skills/7_frequency.md/#2-unordered_map)<br>
+내가 말하는 counts 배열이란, index를 value( Integer )로 삼고 각 value가 몇 번 등장했는지 기록하는 자료 구조이다<br>
+```cpp
+// 0 ~ 1000 사이의 값
+int counts[1001];                       // 0은 dummy
+for (int i = 0; i < array.size(); ++i) {
+  counts[array[i]]++;
+}
+```
+이 방법으로 각 value에 대한 빈도수를 저장하기 위해선 `value의 범위를 미리 알아야 한다`<br>
+counts의 index에 접근하려면 미리 크기를 지정해야 하기 때문이다<br>
+하지만 `value의 범위가 넓으면 0을 저장하는 공간이 늘어나며, 이는 memory를 비효율적으로 사용하게 만든다`<br>
+
+```cpp
+unordered_map<int, int> counts;   // freq라고 지어도 괜찮음
+for (int i = 0; i < array.size(); ++i) {
+  counts[array[i]]++;
+}
+```
+`값의 범위가 불특정하고 빈도수를 효율적으로 관리`하고 싶을 때, unordered_map을 사용한다<br>
