@@ -59,7 +59,7 @@ image-order rendering은 작업이 단순하고 유연하게 effect를 생성할
 `Ray Tracing은 3D 컴퓨터 그래픽에서 사실적인 이미지를 제작하는 방법`이다<br>
 광선을 추적하여 광선이 물체와 상호작용하는 방식에 초점을 둔다<br>
 
-![alt text](Images/Ray_Tracing.png)<br>
+![alt text](Images/RayTracing/Ray_Tracing.png)<br>
 
 Scene Object를 Screen에 비추기 위해서 어떻게 할까?<br>
 
@@ -97,7 +97,7 @@ pixel 값은 object의 재질, 광원을 결합하여 최종 pixel( 색상 ) 값
 
 Line-Sphere Intersection은 `3D 공간에 주어진 직선과 구가 만나는 지점을 찾을 때 이용`하는 개념이다<br>
 
-![<alt text>](Images/ray_sphere_intersection.png)<br>
+![<alt text>](Images/RayTracing/ray_sphere_intersection.png)<br>
 
 
 Line과 Sphere는 3가지 방법으로 상호작용한다<br>
@@ -154,13 +154,13 @@ Ray Tracing에서 삼각형을 어떻게 다루는지 알아본다<br>
 일단 닿았다고 생각하고 point Q를 찾는다<br>
 
 [ 참고 ](https://courses.cs.washington.edu/courses/csep557/10au/lectures/triangle_intersection.pdf)<br>
-![<alt text>](Images/Ray_Triangle_Intersection.png)<br>
+![<alt text>](Images/RayTracing/Ray_Triangle_Intersection.png)<br>
 3개의 vertex로 구성된 triangle이 scene에 있다<br>
 `Camera에서 쏜 Ray의 unit vector가 triangle과 충돌하는 지점`을 $\mathbf{Q}$ 라고 한다<br>
 $\mathbf{Q} = \mathbf{P} + t \times \mathbf{d}$ ( [Line-Sphere Intersection의 x = o + du 식을 이용 ](https://en.wikipedia.org/wiki/Line%E2%80%93sphere_intersection) )<br>
 위 수식을 이용하여 t를 찾아야 한다<br>
 
-![alt text](Images/Ray_Triangle_Solving1.png) ![alt text](Images/Ray_Triangle_Solving2.png) <br>
+![alt text](Images/RayTracing/Ray_Triangle_Solving1.png) ![alt text](Images/RayTracing/Ray_Triangle_Solving2.png) <br>
 1. point Q를 찾기 위해서 `삼각형의 normal vector를 구한다`
    - vec3(B - A)와 vec3(C - A)의 Cross product 결과를 unit vector로 변환
    - `cross product의 곱하는 순서가 z의 방향을 결정`

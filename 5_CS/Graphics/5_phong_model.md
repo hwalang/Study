@@ -15,7 +15,7 @@ phong model을 알아보기 전에 사전 지식을 알아본다<br>
 [ Lambertian Reflection - wiki ](https://en.wikipedia.org/wiki/Lambertian_reflectance)<br>
 [Lambertian Reflection - blog](https://blog.naver.com/jetarrow82/221252045857)<br>
 
-![alt text](Images/lambertian_reflection.png)<br>
+![alt text](Images/PhongModel/lambertian_reflection.png)<br>
 
 object의 `surface에 닿는 빛의 세기( intensity, incident light<입사 광도> )`가 `표면의 법선 벡터( normal vector )와 빛의 방향 벡터( light vector, diffuse reflection ) 사이의 각도에 따라 달라진다`<br>
 즉, intensity는 두 벡터가 이루는 $\cos \theta$ 값에 비례한다<br>

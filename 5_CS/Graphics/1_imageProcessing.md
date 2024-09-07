@@ -67,7 +67,7 @@ HDR( High Dynamic Range )을 사용하거나 컴퓨터 shader로 수치 연산�
 즉, 이미지의 각 픽셀에 존재하는 RGB에 1.Nf 값을 곱해서 밝게 만들 수 있다.<br>
 
 ### 1.4.1. 문제 1 : 이미지 변형
-![problem1_imageRW](part1_images/problem1_imageRW.png)<br>
+![problem1_imageRW](Images/ImageProcessing/problem1_imageRW.png)<br>
 
 문제는 이렇게 밝게 만든 이미지를 저장하면 다른 이미지로 보일 수 있다. 위 이미지의 왼쪽이 원본이고, 오른쪽이 원본을 밝게 만든 뒤 저장한 이미지다.<br>
 
@@ -76,7 +76,7 @@ HDR( High Dynamic Range )을 사용하거나 컴퓨터 shader로 수치 연산�
 이러한 문제는 코드 상에서 직접 조절해야 한다. cpp의 경우, `std::clamp()를 통해 0.0f ~ 1.0f 값을 벗어나지 않도록 고정`할 수 있다.</br>
 
 ### 1.4.2. 문제 2: RGB channel 포화
-![problem2_imageRW](part1_images/problem2_imageRW.png)<br>
+![problem2_imageRW](Images/ImageProcessing/problem2_imageRW.png)<br>
 
 또 다른 문제는 `최대한 밝게 하더라도 이미지에 노란색 또는 빨간색이 남는 현상`이 발생한다.</br>
 
@@ -122,7 +122,7 @@ Image Processing에서의 kernel이란? ( **[wiki](https://en.wikipedia.org/wiki
 
 | identity | box blur | gaussian blur3 | gaussian blur5 |
 | :---: | :---: | :---: | :---: |
-| ![convolusion_identity](part1_images/convolusion_identity.png) | ![convolusion_boxblur](part1_images/convolution_boxblur.png) | ![convolusion_gaussian3](part1_images/convolusion_gaussian3.png) | ![convolusion_gaussian5](part1_images/convolusion_gaussian5.png) |
+| ![convolusion_identity](Images/ImageProcessing/convolusion_identity.png) | ![convolusion_boxblur](Images/ImageProcessing/convolution_boxblur.png) | ![convolusion_gaussian3](Images/ImageProcessing/convolusion_gaussian3.png) | ![convolusion_gaussian5](Images/ImageProcessing/convolusion_gaussian5.png) |
 
 `Box blur`를 보면 3 * 3 행렬에 모든 값이 1이고, 이를 9로 나눈다. 즉, `평균을 구한다`.<br>
 `Gaussian blur`는 행렬이 어떤 방향으로 보더라도 `대칭`을 이룬다.<br>
@@ -133,7 +133,7 @@ Box와 Gaussian blur는 행렬의 총합으로 행렬을 나눈다는 것을 알
 
 ## 2.2. convolution
 `image와 kernel( 또는 필터 )라고 불리는 두 행렬을 합성하여 새로운 이미지를 생성하는 과정`이다<br>
-![convolution](part1_images/convolution.png)<br>
+![convolution](Images/ImageProcessing/convolution.png)<br>
 
 `kernel을 이미지의 모든 픽셀에 적용시키는 과정`을 convolution이라 한다.( **[wiki](https://en.wikipedia.org/wiki/Convolution)** 의 Discrete convolution gif 참고 )</br>
 원본 이미지에 kernel 값을 convolution해서 결과 이미지를 얻는다.</br>
@@ -194,7 +194,7 @@ const float weights[5] = { 0.0545f, 0.2442f, 0.4026f, 0.2442f, 0.0545f };
 
 # 4. Bloom 효과 만들기
 ### 4.1. 이미지의 어두운 픽셀은 검정색으로 바꾼다
-![BloomEffect_1](part1_images/BloomEffect_1.png)<br>
+![BloomEffect_1](Images/ImageProcessing/BloomEffect_1.png)<br>
 
 Bloom 효과를 만들기 위해서는 `이미지의 모든 픽셀 중 밝은 부분은 그대로 둔 뒤에 어두운 부분은 검정색으로 바꾼다`.<br>
 
@@ -202,13 +202,13 @@ Bloom 효과를 만들기 위해서는 `이미지의 모든 픽셀 중 밝은 �
 [Relative Luminance Y](#relative-luminance-y) 값이 사람의 눈으로 인지할 수 있는 밝음의 기준이다.<br>
 
 ### 4.2. 바꾼 이미지에 Gaussian Filter를 적용
-![BloomEffect_2](part1_images/BloomEffect_2.png)<br>
+![BloomEffect_2](Images/ImageProcessing/BloomEffect_2.png)<br>
 
 `바꾼 이미지에 Gaussian blur를 적용`한다.<br>
 위 이미지는 Gaussian blur를 100번 적용한 결과 이미지이다.<br>
 
 ### 4.3. 원본 이미지 + (1, 2번 과정을 거친)이미지
-![BloomEffect_3](part1_images/BloomEffect_3.png)<br>
+![BloomEffect_3](Images/ImageProcessing/BloomEffect_3.png)<br>
 
 `위 순서로 만들어진 이미지와 원본 이미지를 더하면 Bloom 효과가 적용`된다.<br>
 
