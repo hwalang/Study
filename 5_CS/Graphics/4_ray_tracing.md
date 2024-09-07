@@ -15,6 +15,9 @@
 - [Triangular Mesh](#triangular-mesh)
     - [1. Triangle과 Ray의 충돌](#1-triangle과-ray의-충돌)
     - [2. Triangle 내부에 point Q가 있는지 판단](#2-triangle-내부에-point-q가-있는지-판단)
+- [Shadow](#shadow)
+    - [기본 개념](#기본-개념)
+    - [주의점](#주의점)
 - [Ray Tracing을 구현하기 위해 필요한 정보](#ray-tracing을-구현하기-위해-필요한-정보)
     - [1. Ray( 광선 정보 )](#1-ray-광선-정보-)
     - [2. Hit( 충돌 정보 )](#2-hit-충돌-정보-)
@@ -73,10 +76,12 @@ Scene Object를 Screen에 비추기 위해서 어떻게 할까?<br>
    - Ray가 Object와 교차하는 지점을 찾는다.
 3. **Ray-Object Interaction( 상호작용 )**
    - `교차 지점에서 object의 surface 속성( 반사, 굴절, 그림자 등 )을 계산`한다.
+   - 계산 값을 고려해서 `pixel( color ) 값을 결정`
 4. **Lighting and Shading( 빛과의 상호작용 )**
-   - `교차 지점에 영향을 주는 light를 고려해서 pixel의 색깔을 결정`한다<br>
-   - Ray와의 관계를 통해 조명과 그림자 효과를 적용한다<br>
-   - light effect를 phong model을 이용해서 간단하게 구현할 수 있다<br>
+   - `교차 지점에 영향을 주는 light를 고려해서 shadow ray를 쏜다`
+   - shawdow ray는 light까지 도달할 수 있는지 체크하는 용도
+   - `view ray와 shadow ray와의 관계를 통해 조명과 그림자 효과를 적용`한다<br>
+   - light effect를 phong model을 이용해서 간단하게 구현할 수 있다
 5. **Screen**
    - Screen에 계산한 pixel 값을 적용한다
 
@@ -189,6 +194,24 @@ n1, n2, n3가 n과의 연산에서 하나라도 0보다 작으면 point Q는 삼
 
 <br>
 <br>
+
+# Shadow
+Ray-Tracing으로 그림자를 표현하는 방법<br>
+참고로 real time graphics에서는 ray tracing으로 그림자를 표현하지 않고, `그림자를 따로 그려서 덧붙이는 방식을 더 많이 사용`한다<br>
+
+### 기본 개념
+![alt text](Images/RayTracing/Ray_Tracing.png)<br>
+view ray가 object의 한 지점과 충돌한 부분에서 light와의 관계를 파악한다<br>
+이는 shadow ray를 light를 향해서 발사하면 알 수 있다<br>
+만약 shadow ray가 light에 도달하기 전 object를 만난다면, 그림자 효과를 추가한다<br>
+`그림자 효과는 Ambient만 적용하고, Specular와 Diffuse를 적용하지 않으면 된다`<br>
+
+### 주의점
+이론과는 달리 `프로그래밍에서는 view ray와 object의 충돌 지점에서 바로 light를 향해 shadow ray를 발사하지 않는다`<br>
+컴퓨터에서는 수치상의 문제로 인해 바로 발사하면 view ray와 닿은 object가 shadow ray에 충돌할 수 있기 때문이다<br>
+때문에 view ray와 닿은 지점에서 `0.001f 정도 떨어진 거리에 새로운 shadow ray를 생성하여 발사`한다<br>
+
+<br><br>
 
 # Ray Tracing을 구현하기 위해 필요한 정보
 
