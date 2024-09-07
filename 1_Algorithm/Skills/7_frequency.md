@@ -13,6 +13,7 @@
 <br><br>
 
 # 1. array, vector
+`value의 범위가 작거나 사용되지 않는 정수가 별로 없는 경우에 유용`하다<br>
 ```cpp
 // 0 ~ 1000 사이의 값
 int counts[1001];                       // 0은 dummy
