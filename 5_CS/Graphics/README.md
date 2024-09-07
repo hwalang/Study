@@ -3,7 +3,7 @@
 # Index
 1. [DirectX11 환경 설정](0_DirectX11_환경설정.md)
    - vcpkg( imgui, glm )
-1. [Image Processing](1_imageProcessing.md)
+1. [Image Processing](1_image_processing.md)
    - `channel`, image processing
    - `Relative Luminance Y`
    - `kernel`( filter ), `convolution, seperable convolution`
@@ -12,7 +12,7 @@
 2. [product](2_product.md)
    - `Dot / Cross product`
    - glm::vec3
-3. [Coordinate Systems](3_coordinateSystems.md)
+3. [Coordinate Systems](3_coordinate_systems.md)
 4. [Ray Tracing](4_ray_tracing.md)
    - rendering( `image-order, object-order` )
    - projection( `Orthographic, Perspective` )
