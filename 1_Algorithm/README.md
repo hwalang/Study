@@ -22,5 +22,5 @@
 | `2024.08.15` | [`문자 개수 세기`](Programmers/240815_문자개수세기.md) | ASCII code와 영문자를 이용한 count 배열 | 0 | |
 | `2024.08.15` | [`QR code`](Programmers/240815_QRcode.md) | Modulo 연산 | 0 | |
 | `2024.08.14` | [`세로 읽기`](Programmers/240814_세로읽기.md) | Thinking | 0 | |
-| `2024.08.09` | [`주사위 게임3`](Programmers/240809_주사위게임3.md) | 2D-matrix, Thinking | 0 | |
+| `2024.08.09` | [`주사위 게임3`](Programmers/240809_주사위게임3.md) | 2D-matrix, Thinking | 1 | counts-array, 2D-vector |
 | `2024.07.28` | [`배열 만들기2`](Programmers/240728_배열만들기2.md) | brute-force, bit-mask | 1 | brute_force |
