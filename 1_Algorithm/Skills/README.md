@@ -5,3 +5,4 @@
 4. [bit 연산 모음집](4_bitwise_operation.md)
 5. [여러 가지 mapping 방법](5_mapping.md) : `enum - unordered_map`
 6. [어려운 matrix 연산법](6_matrix_operation.md) : `Lower/Upper Triangular Matrix`
+7. [ frequency 기록 방법 ](7_frequency.md) : array, unordered_map
