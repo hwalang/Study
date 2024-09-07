@@ -1,7 +1,7 @@
 # DirectX11 환경설정
 ### Tool
 - visual studio
-- vcpkg( IMGUI )
+- vcpkg( IMGUI, glm )
 
 <br>
 
@@ -31,8 +31,8 @@ vcpkg 경로에서 `vcpkg install glm:x64-windows` 입력 후 설치를 진행�
 <br>
 
 ## 3. visual studio 2022 세팅
-- 멀티쓰레드 이용을 위한 open MP 사용
-![openMP 사용](part1_images/openMP.png)
+- `멀티쓰레드 이용을 위한 open MP 사용`<br>
+   ![openMP 사용](Images/Settings/openMP.png)<br>
   - 프로젝트의 properties로 이동
   - C/C++ -> All Options -> open 검색
   - Configuration을 Release로 변경
