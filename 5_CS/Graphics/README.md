@@ -21,6 +21,10 @@
    - `light effect`
    - `Lambertian Reflection`
 7. [Texturing](6_texturing.md)
+   - `texture coordinates`
+   - sampling, `texture sampling`
+8. [Anti Aliasing](7_Anti_Aliasing.md)
+   - `super sampling`
 
 <br>
 
