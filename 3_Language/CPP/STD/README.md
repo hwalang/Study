@@ -49,3 +49,4 @@
 
 ## CMath
 1. [std::log2](std_log2.md)
+2. [std::ceil](std_ceil.md)
