@@ -17,6 +17,10 @@
    - rendering( `image-order, object-order` )
    - projection( `Orthographic, Perspective` )
    - `Ray-sphere intersection`
+   - `Triangular Mesh`
+   - `Shadow`
+   - `Reflection`
+   - `Transparency`, `Refraction`, `Cube Mapping`
 6. [Phong Model](5_phong_model.md)
    - `light effect`
    - `Lambertian Reflection`

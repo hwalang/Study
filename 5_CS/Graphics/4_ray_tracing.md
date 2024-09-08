@@ -21,6 +21,7 @@
 - [Reflection](#reflection)
   - [pixel color 연산](#pixel-color-연산)
 - [Transparency와 Refraction](#transparency와-refraction)
+  - [Cube Mapping](#cube-mapping)
 - [Ray Tracing을 구현하기 위해 필요한 정보](#ray-tracing을-구현하기-위해-필요한-정보)
     - [1. Ray( 광선 정보 )](#1-ray-광선-정보-)
     - [2. Hit( 충돌 정보 )](#2-hit-충돌-정보-)
@@ -235,6 +236,10 @@ reflection 속성을 가진다면, `ray와 충돌한 object의 표면에서 다�
 # Transparency와 Refraction
 투명한 object( Transparency )의 pixel color를 구하는 방법을 알아본다<br>
 물체가 투명하다면 object 내부로 ray가 굴절( refraction )되어 들어간다<br>
+
+## Cube Mapping
+`배경을 만들 때 많이 사용`하는 Cube Mapping<br>
+cube map texture를 따로 구해야 한다<br>
 
 <br><br>
 
