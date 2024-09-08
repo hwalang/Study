@@ -1,8 +1,10 @@
 - [Greatest Common Divisor( GCD ) - 최대공약수](#greatest-common-divisor-gcd----최대공약수)
-  - [1. Euclidean Algorithm - 유클리드 호제법](#1-euclidean-algorithm---유클리드-호제법)
-  - [2. Code Example](#2-code-example)
-    - [2.1. Recursion](#21-recursion)
-    - [2.2. Loop](#22-loop)
+    - [Common Divisor](#common-divisor)
+- [1. Euclidean Algorithm - 유클리드 호제법](#1-euclidean-algorithm---유클리드-호제법)
+- [2. Code Example](#2-code-example)
+  - [2.1. Recursion](#21-recursion)
+  - [2.2. Loop](#22-loop)
+  - [2.3. std::gcd](#23-stdgcd)
 
 <br>
 
@@ -11,7 +13,10 @@
 
 $\gcd(12, 18) = 6$ <br>
 
-공약수( common factor )는 모든 약수를 뜻한다.<br>
+<br>
+
+### Common Divisor
+공약수( common divisor )는 `모든 약수`를 뜻한다.<br>
 따라서 0이 아닌 두 정수 n, m의 공약수란, n의 약수이자 m의 약수인 정수이다<br>
 `최대공약수는 공약수 중에서 가장 큰 하나`다<br>
 
@@ -19,7 +24,7 @@ Greatest Common Divisor를 구하는 방법을 알아본다<br>
 
 <br>
 
-## 1. Euclidean Algorithm - 유클리드 호제법
+# 1. Euclidean Algorithm - 유클리드 호제법
 `약분을 하기 위한 GCD는 유클리드 호제법` 등의 방법으로 찾을 수 있다<br>
 
 192와 72의 최대공약수를 구해본다<br>
@@ -38,8 +43,8 @@ Greatest Common Divisor를 구하는 방법을 알아본다<br>
 
 <br><br>
 
-## 2. Code Example
-### 2.1. Recursion
+# 2. Code Example
+## 2.1. Recursion
 [ Programmers - 분수의 덧셈 ](https://school.programmers.co.kr/learn/courses/30/lessons/120808)<br>
 ```cpp
 // recursion 1 : ME
@@ -67,7 +72,7 @@ int gcd(int a, int b) {
 
 <br>
 
-### 2.2. Loop
+## 2.2. Loop
 ```cpp
 // loop
 int gcd(int a, int b) {
@@ -80,3 +85,10 @@ int gcd(int a, int b) {
 }
 ```
 0으로 나누기 전까지 loop를 반복하며, b가 0이면 a가 Greatest Common Divisor이다<br>
+
+## 2.3. std::gcd
+[ std::gcd ](/3_Language/CPP/STD/std_gcd_lcm.md)<br>
+```cpp
+#include <numeric>
+std::gcd(a, b);
+```
