@@ -33,6 +33,7 @@
 
 ## numeric
 1. [std::accumulate](std_accumulate.md)
+2. [std::gcd, std::lcm](std_gcd_lcm.md)
 
 <br>
 
