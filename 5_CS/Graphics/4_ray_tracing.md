@@ -18,6 +18,9 @@
 - [Shadow](#shadow)
     - [기본 개념](#기본-개념)
     - [주의점](#주의점)
+- [Reflection](#reflection)
+  - [pixel color 연산](#pixel-color-연산)
+- [Transparency와 Refraction](#transparency와-refraction)
 - [Ray Tracing을 구현하기 위해 필요한 정보](#ray-tracing을-구현하기-위해-필요한-정보)
     - [1. Ray( 광선 정보 )](#1-ray-광선-정보-)
     - [2. Hit( 충돌 정보 )](#2-hit-충돌-정보-)
@@ -61,6 +64,8 @@ image-order rendering은 작업이 단순하고 유연하게 effect를 생성할
 # Ray Tracing Algorithm
 `Ray Tracing은 3D 컴퓨터 그래픽에서 사실적인 이미지를 제작하는 방법`이다<br>
 광선을 추적하여 광선이 물체와 상호작용하는 방식에 초점을 둔다<br>
+
+여기서 `Ray는 light가 아니라 Camera, 즉 보는 방향`이다<br>
 
 ![alt text](Images/RayTracing/Ray_Tracing.png)<br>
 
@@ -210,6 +215,26 @@ view ray가 object의 한 지점과 충돌한 부분에서 light와의 관계를
 이론과는 달리 `프로그래밍에서는 view ray와 object의 충돌 지점에서 바로 light를 향해 shadow ray를 발사하지 않는다`<br>
 컴퓨터에서는 수치상의 문제로 인해 바로 발사하면 view ray와 닿은 object가 shadow ray에 충돌할 수 있기 때문이다<br>
 때문에 view ray와 닿은 지점에서 `0.001f 정도 떨어진 거리에 새로운 shadow ray를 생성하여 발사`한다<br>
+
+<br><br>
+
+# Reflection
+pixel color를 결정할 때, shading에 의한 색의 비율이 줄어든 대신, 반사광이 반환해주는 색이 일정 비율만큼 추가한다<br>
+
+## pixel color 연산
+만약 object에 reflection 속성이 없다면, ray와 충돌한 object의 pixel color를 phong model로 shading을 해서 값을 결정한다.
+
+reflection 속성을 가진다면, `ray와 충돌한 object의 표면에서 다시 ray를 발사`한다.<br>
+`reflection ray가 또 다른 object2를 만났을 때 object2가 reflection 속성을 가지지 않았다면, object2와 ray가 만난 지점의 pixel color2를 결정하고 기존 color와 color2를 적절한 비율로 blending` 한다<br>
+만약 object2가 reflection 속성을 가진다면, 또 reflection ray를 발사한다<br>
+
+우연히 object1과 object2가 서로 끊임없이 reflection ray를 쏠 수 있기 때문에, 이를 막기 위해 reflection ray를 몇 번 발사할지 제한한다<br>
+
+<br><br>
+
+# Transparency와 Refraction
+투명한 object( Transparency )의 pixel color를 구하는 방법을 알아본다<br>
+물체가 투명하다면 object 내부로 ray가 굴절( refraction )되어 들어간다<br>
 
 <br><br>
 
