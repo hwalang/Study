@@ -3,17 +3,22 @@
 # Index
 1. [DirectX11 환경 설정](0_DirectX11_환경설정.md)
    - vcpkg( imgui, glm )
-2. [Image Processing](1_image_processing.md)
-   - `channel`, image processing
-   - `Relative Luminance Y`
+2. [Digital_Image_Basics](Digital_Image_Basics.md)
+   - Digital Image( `Grayscale Image`, `Color Image` )
+   - `pixel intensity`( image intensity, amplitude value )
+   - `resolution`
+   - `Stored Image Size`
+   - `channel`
+   - `color space conversion`, `image compression`, `Luminance`, `Chrominance`
+3. [Bloom Effect](Bloom_Effect.md)
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
    - `bloom effect`
-3. [product](2_product.md)
+4. [product](2_product.md)
    - `Dot / Cross product`
    - glm::vec3
-4. [Coordinate Systems](3_coordinate_systems.md)
-5. [Ray Tracing](4_ray_tracing.md)
+5. [Coordinate Systems](3_coordinate_systems.md)
+6. [Ray Tracing](4_ray_tracing.md)
    - rendering( `image-order, object-order` )
    - projection( `Orthographic, Perspective` )
    - `Ray-sphere intersection`
@@ -21,13 +26,13 @@
    - `Shadow`
    - `Reflection`
    - `Transparency`, `Refraction`, `Cube Mapping`
-6. [Phong Model](5_phong_model.md)
+7. [Phong Model](5_phong_model.md)
    - `light effect`
    - `Lambertian Reflection`
-7. [Texturing](6_texturing.md)
+8. [Texturing](6_texturing.md)
    - `texture coordinates`
    - sampling, `texture sampling`
-8. [Anti Aliasing](7_Anti_Aliasing.md)
+9.  [Anti Aliasing](7_Anti_Aliasing.md)
    - `super sampling`
 
 <br>
