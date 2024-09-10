@@ -1,7 +1,7 @@
 - [Introduce](#introduce)
 - [Checking the Lower/Upper Triangular Matrix](#checking-the-lowerupper-triangular-matrix)
     - [1. for문](#1-for문)
-    - [2. string](#2-string)
+    - [2. string(count, ch)](#2-stringcount-ch)
 
 <br>
 
@@ -36,7 +36,7 @@ int solution(vector<vector<int>> arr)
 
 <br>
 
-### 2. string
+### 2. string(count, ch)
 [ Programmers - 직각삼각형 출력 ](https://school.programmers.co.kr/learn/courses/30/lessons/120823)<br>
 lower-triangular matrix( 0부분을 제외한 matrix )에 string constructor를 이용하는 방법으로 별을 찍어본다<br>
 ```cpp
