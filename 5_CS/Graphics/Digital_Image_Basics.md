@@ -1,4 +1,3 @@
-- [Image Processing](#image-processing)
 - [Digital Image Basics](#digital-image-basics)
   - [1. Grayscale Images](#1-grayscale-images)
     - [1.1. Pixel Intensity( Image intensity )](#11-pixel-intensity-image-intensity-)
@@ -10,20 +9,15 @@
     - [2.2. Channels](#22-channels)
     - [2.3. Color Space Conversion](#23-color-space-conversion)
     - [2.4. RGB space to YCbCr space](#24-rgb-space-to-ycbcr-space)
-- [1. 이미지 읽고 저장하기](#1-이미지-읽고-저장하기)
-  - [1.2. 이미지 읽기](#12-이미지-읽기)
-  - [1.3. 이미지 저장](#13-이미지-저장)
-  - [1.4. 이미지 밝게 하기](#14-이미지-밝게-하기)
-    - [1.4.1. 문제 1 : 이미지 변형](#141-문제-1--이미지-변형)
-    - [1.4.2. 문제 2: RGB channel 포화](#142-문제-2-rgb-channel-포화)
-    - [1.4.3. channel 포화 해결법](#143-channel-포화-해결법)
+- [Image Processing](#image-processing)
+  - [1. Image Loading](#1-image-loading)
+    - [Code Example](#code-example)
+  - [2. Image Saving](#2-image-saving)
+    - [Code Example](#code-example-1)
+  - [1.3. Image Manipulation](#13-image-manipulation)
+    - [1.3.1. Problem1: Overflow Issue](#131-problem1-overflow-issue)
+    - [1.3.2. Problem2: RGB channel 포화](#132-problem2-rgb-channel-포화)
   - [1.5. Relative Luminance Y : 사람의 밝기 판단](#15-relative-luminance-y--사람의-밝기-판단)
-
-<br>
-
-# Image Processing
-[ Digital Image Processing Basics ](https://www.geeksforgeeks.org/digital-image-processing-basics/)<br>
-Image Processing은 computer가 `High-Quality Image를 얻는 것`,  `Image로부터 의미 있는 정보를 얻는 것`, `Image 작업을 자동화하는 것`이 목표다<br>
 
 <br>
 
@@ -51,15 +45,13 @@ pixel이 많으면 많을수록 더 세밀한 이미지를 얻을 수 있다<br>
 <br>
 
 ### 1.3. (15 * 15) Pixel Portion of the Image
-![alt text](Images/ImageProcessing/pixel_image.png) ![alt text](Images/ImageProcessing/pixel_intensity.png)<br>
+![alt text](Images/DigitalImageBasic/pixel_image.png) ![alt text](Images/DigitalImageBasic/pixel_intensity.png)<br>
 15 * 15 pixel의 크기를 가진 image를 표현하는 방법<br>
 
 <br>
 
 ### 1.4. Stored Image Size
-`Image는 정해진 해상도( pixel counts )`와 `pixel 당 정해진 밝기 값( 대부분 0 ~ 255, white ~ black )`을 가진다<br>
-
-이러한 `image of size M * N pixels를 저장할 때, 하나의 pixel을 8bit로 저장하기 때문에 image의 용량은 M * N * 8 bits`이다<br>
+`image of size M * N pixels를 저장할 때, 하나의 pixel을 8bit로 저장하기 때문에 image의 용량은 M * N * 8 bits`이다<br>
 pixel 하나가 0 ~ 255 값을 표현할 수 있기 때문에 $2^8$ bits( = 1 byte ) 크기를 차지하며, 이러한 pixel이 m * n개 있기 때문이다<br>
 
 만약 768 * 512 크기의 image라면, 768 * 512 * 8 = 3,145,728 bits 용량을 차지한다<br>
@@ -84,7 +76,7 @@ color image의 pixel intensity는 grayscale image와 같은 0 ~ 255 값을 가�
 
 color image에서 channel은 R, G, B가 존재하며, JEPG2000에서 channel은 Y, Cb, Cr이 존재한다<br>
 
-![alt text](Images/ImageProcessing/pixel_channels.png)<br>
+![alt text](Images/DigitalImageBasic/pixel_channels.png)<br>
 
 여기서 Red channel은 빨간색 성분을 담당하며, 이 channel의 각 pixel 값은 빨간색의 intensity를 나타낸다<br>
 각 channel은 전체 image와 동일한 크기를 가지며, 해당 색상에 대한 밝기 정보를 가진다<br>
@@ -118,78 +110,155 @@ $(r, g, b) = (r / 255, g / 255, b / 255)$<br>
 YCbCr space는 blue와 red를 사용하며, `Cb channel`은 $Cb = (b - y)/1.772$로 정의하고, `Cr channel`은 $Cr = (r - y)/1.402$로 정의한다<br>
 여기서 Y channel이 refernce channel( 기준 채널 )이다<br>
 
-![alter text](Images/ImageProcessing/YCbCr_space_image.png)<br>
+![alter text](Images/DigitalImageBasic/YCbCr_space_image.png)<br>
 RGB space를 YCbCr space로 변환한 결과이다<br>
 이는 `이미지를 압축해서 저장하는 방식에서 사용`할 수 있다<br>
 
 
 <br><br>
 
+# Image Processing
+[ Digital Image Processing Basics ](https://www.geeksforgeeks.org/digital-image-processing-basics/)<br>
+Image Processing은 computer가 `High-Quality Image를 얻는 것`,  `Image로부터 의미 있는 정보를 얻는 것`, `Image 작업을 자동화하는 것`이 목표다<br>
+
 <br><br>
 
-# 1. 이미지 읽고 저장하기
-일반적으로 `graphics에서 pixel의 색상 값`을 $0.0f \sim 1.0f$ 사이의 `float로 표현`한다<br>
-0.0f는 검정색이고, 1.0f는 흰색이다<br>
+## 1. Image Loading
+위에서 설명했듯이 Image의 pixel intensity는 0 ~ 255로 표현하기 때문에 Image의 크기는 Width * Height * 8 bytes를 차지했다<br>
+이러한 `이미지를 가져와서 화면에 출력하려면, unsigned char( 8bit )를 0 ~ 1.0f 사이의 float( 32bit )로 표현`한다<br>
+HDR( High Dynamic Range )을 사용하거나 컴퓨터 shader로 수치 연산을 할 때는 `float를 사용하는 경우가 많기 때문`이다.<br>
+이때 0.0f는 검정색이고, 1.0f는 흰색이다<br>
 
-`화면에 출력하거나 파일로 저장하기 위해서는 float 값을 0 ~ 255 범위의 정수( uint8_t )로 변환`해야 한다<br>
+### Code Example
+`파일을 읽어서 화면에 표현하기 위해서 먼저 unsigned char( 8bit, 0 ~ 255 )로 저장된 이미지를 float( 32bit, 0 ~ 1.0f )로 변환하여 memory에 저장`한다<br>
 
-$0.0f \sim 1.0f \to 0 \sim 255$ 이다.<br>
+```cpp
+#include <vector>
+#include <glm/glm.hpp>
 
-따라서 float 값을 uint8_t로 변환하기 위해 `float * 255 연산을 수행`한다<br> 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
+int width = 0, height = 0, channels = 0;    // image의 width pixel cnt, height pixel cnt, channel cnt
+std::vector<glm::vec4> pixels;              // image의 각 pixel RGBA 값을 저장
+
+// RGB image만 load함을 가정
+unsigned char* img = stbi_load(image_path, &width, &height, &channels, 0);
+
+pixels.resize(width * height);
+for (int i = 0; i < width * height; ++i) {    // RGB channels
+  pixels[i].r = img[i * channels] / 255.0f;
+  pixels[i].g = img[i * channels + 1] / 255.0f;
+  pixels[i].b = img[i * channels + 2] / 255.0f;
+  (channels == 4) ? pixels[i].v[3] = img[i * channels + 3] / 255.0f : pixels[i].v[3] = 1.0f;
+}
+
+stbi_image_free(img);   // = delete[] img;
+```
+stb_image library를 사용해서 image를 load 한다.<br>
+stbi_load()에서 image 경로와 해당 경로에 있는 image의 크기( width, height의 pixel cnt ), 그리고 몇 개의 channel이 있는지 가져온다<br>
+이때 해당 image의 정보( width, height, channel cnt )를 가져와서 할당한다<br>
+
+각 image의 pixel을 RGB image로 표현하기 위해 glm::vec4로 변환한다<br>
+
+<br><br>
+
+## 2. Image Saving
+`Memory에 있는 Image를 파일로 저장하기 위해서는 float 값을 unsigned char로 변환`해야 한다<br>
+`Image는 정해진 해상도( pixel counts )`와 `pixel 당 정해진 밝기 값( 대부분 0 ~ 255, white ~ black )`을 가지기 때문이다<br>
+
+따라서 float 값을 unsigned char로 변환하기 위해 `float * 255 연산을 수행`한다<br> 
+
+### Code Example
+`Memory에 있는 image data를 PNG 파일로 변환하여 DISK에 저장`한다<br>
+
+```cpp
+#include <vector>
+#include <glm/glm.hpp>
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include <stb_image_write.h>
+
+std::vector<unsigned char> img(width * height * channels, 0);
+for (int i = 0; i < width * height; ++i) {
+  img[i * channels] = unsigned char(pixels[i].r * 255.0f);
+  img[i * channels + 1] = unsigned char(pixels[i].g * 255.0f);
+  img[i * channels + 2] = unsigned char(pixels[i].b * 255.0f);
+}
+
+stbi_write_png(image_path, width, height, channels, img.data(), width * channels);
+```
+`img vector의 크기가 width * height * channels인 이유는 RGB space`를 나타내기 위함이다<br>
+RGB space를 저장하기 위해서는 width * height로 image의 총 pixel 수를 구한 뒤, 여기에 channel의 수를 곱해야 한다<br>
+[ color image size ](#14-stored-image-size) 참고<br>
+따라서 `M * N * 3 bytes 용량`을 가진다<br>
 
 <br>
 
-## 1.2. 이미지 읽기
-`색깔 값을 이미지 파일에 저장할 때는 uint8_t( unsigned char, 8bit, 0 ~ 255 )을 사용`한다.<br>
-이를 유념하고 이미지를 읽는 방법에 대해 알아본다<br>
+float를 unsigned char로 변환할 때, pixels의 r, b, g 값은 0.0 ~ 1.0f 값을 가진다고 가정한다<br>
+[ Image Manipulation ](#13-image-manipulation)를 참고<br>
+`overflow 가능성을 배제하기 위함`이다<Br>
 
-`Image Processing( 이미지 프로세싱 )을 통해 이미지를 읽어들일 때`
-1. 중간 단계로 `uint8_t를 4채널 float( 32bit, 0.0f ~ 1.0f )로 변환( 8bit -> 32bit )`한다.
-2. 32bit 이미지 데이터를 가져와서 저장한다.</br>
+<br><br>
 
-저장된 이미지는 uint8_t이기 때문에 8bit를 32bit로 변환한다<br>
-HDR( High Dynamic Range )을 사용하거나 컴퓨터 shader로 수치 연산을 할 때는 `float를 사용하는 경우가 많기 때문`이다.
-</br>
-</br>
-32bit 또는 64bit를 사용할지는 직접 제어할 수 있다. 참고로 딥러닝에서는 32bit가 부담되기 때문에 16bit float를 사용하는 경우도 있다.
-
-<br>
-
-## 1.3. 이미지 저장
-반대로 `이미지 파일로 저장할 때는 32bit( float )를 8bit( unsigned char, uint8_t )로 다시 변환`해야 한다.
-
-<br>
-
-## 1.4. 이미지 밝게 하기
+## 1.3. Image Manipulation
 `이미지의 RGB 값에 1보다 큰 값을 곱하면 밝아지고, 1보다 작은 값을 곱하면 어두워진다`.<br>
-즉, 이미지의 각 픽셀에 존재하는 RGB에 1.Nf 값을 곱해서 밝게 만들 수 있다.<br>
+즉, `각 channels의 pixel intensity에 1.Nf를 곱하면 image를 밝게 만들 수 있다`<Br>
 
-### 1.4.1. 문제 1 : 이미지 변형
-![problem1_imageRW](Images/ImageProcessing/problem1_imageRW.png)<br>
+이제 Image를 밝기를 높이기 위해서 각 pixel intensity에 1.Nf를 곱한 상황에서 발생할 수 있는 문제를 살펴본다<br>
 
-문제는 이렇게 밝게 만든 이미지를 저장하면 다른 이미지로 보일 수 있다. 위 이미지의 왼쪽이 원본이고, 오른쪽이 원본을 밝게 만든 뒤 저장한 이미지다.<br>
+### 1.3.1. Problem1: Overflow Issue
+화면에 출력할 때는 우리가 예상한 밝기로 보여줄 수 있지만, `문제는 image를 저장할 때 발생`한다<br>
 
-`0.0f ~ 1.0f 사이의 값에 1.Nf를 곱하면 1.0f를 초과( overflow )할 수 있다`. 이 상태에서 255를 곱하고 uint8_t로 캐스팅하면 overflow 때문에 원하는 값으로 저장할 수 없다.</br>
+![alt text](Images/DigitalImageBasic/problem_image_manipulation2.png) ![alt text](Images/DigitalImageBasic/problem_image_manipulation1.png)<br>
 
-이러한 문제는 코드 상에서 직접 조절해야 한다. cpp의 경우, `std::clamp()를 통해 0.0f ~ 1.0f 값을 벗어나지 않도록 고정`할 수 있다.</br>
+왼쪽은 화면에 출력한 이미지고, 오른쪽은 DISK에 저장한 이미지다<br>
 
-### 1.4.2. 문제 2: RGB channel 포화
-![problem2_imageRW](Images/ImageProcessing/problem2_imageRW.png)<br>
+`0.0f ~ 1.0f 사이의 값에 1.Nf를 곱하면 1.0f를 초과( overflow )할 수 있다`. 이 상태에서 float에 255를 곱해서 unsigned char로 캐스팅하면 overflow 때문에 원하는 값으로 저장할 수 없다.<br>
+```cpp
+#include <algorithm>
 
-또 다른 문제는 `최대한 밝게 처리해도 이미지에 특정 색상( 노란색 또는 빨간색 )이 남는 현상`이 발생할 수 있다.</br>
+pixels.resize(width * height);
+for (int i = 0; i < width * height; ++i) {    // RGB channels
+  pixels[i].r = std::clamp(img[i * channels] / 255.0f * 1.99f, 0.0f, 1.0f);
+  pixels[i].g = std::clamp(img[i * channels + 1] / 255.0f * 1.99f, 0.0f, 1.0f);
+  pixels[i].b = std::clamp(img[i * channels + 2] / 255.0f * 1.99f, 0.0f, 1.0f);
+
+  (channels == 4) ? pixels[i].v[3] = img[i * channels + 3] / 255.0f : pixels[i].v[3] = 1.0f;
+}
+```
+이러한 문제는 코드 상에서 직접 조절해야 한다. cpp의 경우, `std::clamp()를 통해 0.0f ~ 1.0f 값을 벗어나지 않도록 고정`할 수 있다.<br>
+
+<br>
+
+### 1.3.2. Problem2: RGB channel 포화
+또 다른 문제는 `최대한 밝게 처리해도 이미지에 특정 색상( 노란색 또는 빨간색 )이 남는 현상`이 발생할 수 있다.<br>
+
+![problem2_imageRW](Images/DigitalImageBasic/problem2_imageRW.png)<br>
 
 RGB 이미지에서 밝기를 증가시키면 각 픽셀의 RGB 값에 동일한 `scale factor`( 어떤 양을 늘리거나 줄이거나 또는 곱하는 수 )가 곱해진다<br>
 (0.8, 0.7, 0.6)인 RGB 값에 밝기를 증가시키기 위해 1.5f를 곱하면, (1.2, 1.05, 0.9)로 변환된다<br>
 R과 G는 `channel이 포화`되면서 255로 clamping되고 B는 229로 변환된다<br>
 이때 `포화되지 않은 채널이 여전히 더 낮은 값을 가지기 때문에 이미지가 밝게 처리된 후에도 특정 색상이 강하게 남는 현상이 발생`한다<br>
 
-### 1.4.3. channel 포화 해결법
-`이미지를 읽어들일 때 각 픽셀의 RGB 값에 아주 작은 값을 한 번만 더하면 해결`할 수 있다.<br>
+이는 `이미지를 Memory로 읽어들일 때 각 픽셀의 RGB 값에 아주 작은 값을 한 번만 더하면 해결`할 수 있다.<br>
+```cpp
+pixels.resize(width * height);
+for (int i = 0; i < width * height; ++i) {
+  pixels[i].r = std::clamp((img[i * channels] / 255.0f + 0.001f) * 1.99f, 0.0f, 1.0f);
+  pixels[i].g = std::clamp((img[i * channels + 1] / 255.0f + 0.001f) * 1.99f, 0.0f, 1.0f);
+  pixels[i].b = std::clamp((img[i * channels + 2] / 255.0f + 0.001f) * 1.99f, 0.0f, 1.0f);
+
+  (channels == 4) ? pixels[i].v[3] = img[i * channels + 3] / 255.0f : pixels[i].v[3] = 1.0f;
+}
+```
+epsilon 같은 매우 작은 값( 0.001f 또는 0.0001f = 1e-3 또는 1e-4 )을 더한다<br>
 
 이는 `밝기 증가에 따른 왜곡을 줄이고 균형을 맞추기 위한 방법`이다<br>
 모든 channel에 작은 값을 더해서 상대적으로 낮은 channel이 너무 어두워지지 않도록 하고, 포화된 channel은 덜 부각되게 만든다<br>
 
-<br>
+
+<br><br>
 
 ## 1.5. Relative Luminance Y : 사람의 밝기 판단
 `"픽셀의 RGB에 어떤 값을 곱해야 사람의 눈으로 밝게 보일까?"에 대한 답`을 과학자들이 도출해낸 값이다.
