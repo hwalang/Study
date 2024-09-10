@@ -3,7 +3,6 @@
 - [Possible Implementation](#possible-implementation)
 - [예시](#예시)
   - [1. cppreference](#1-cppreference)
-    - [cbegin(), cend()](#cbegin-cend)
   - [2. programmers](#2-programmers)
     - [예시 1 : lambda](#예시-1--lambda)
     - [예시 2](#예시-2)
@@ -119,10 +118,6 @@ int main()
   binary_transform_example(std::move(ordinals));
 }
 ```
-
-### cbegin(), cend()
-const_begin(), const_end()라고 보면 된다<br>
-`const_iterator`로 불리며, `container의 element를 읽기 전용으로 접근`한다<br>
 
 <br>
 
