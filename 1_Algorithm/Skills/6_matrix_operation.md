@@ -51,12 +51,7 @@ int main() {
     cout << string(i, '*') << '\n';
 }
 ```
-
-```cpp
-#include <string>
-basic_string( size_type count, CharT ch, const Allocator& alloc = Allocator());
-```
-`ch 문자를 count만큼 복사하여 string을 생성`한다<br>
+[ string(count, ch) constructor 참고 ](/1_Algorithm/Skills/2_string.md/#문자-반복-출력)<br>
 해당 문자열 생성자를 이용해서 lower-triangular matrix 자리에 별을 찍었다<br>
 ```cpp
 // string constructor to for
