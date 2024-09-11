@@ -211,7 +211,7 @@ float를 unsigned char로 변환할 때, pixels의 r, b, g 값은 0.0 ~ 1.0f 값
 
 ![alt text](Images/DigitalImageBasic/problem_image_manipulation2.png) ![alt text](Images/DigitalImageBasic/problem_image_manipulation1.png)<br>
 
-왼쪽은 화면에 출력한 이미지고, 오른쪽은 DISK에 저장한 이미지다<br>
+첫 번째 이미지는 화면에 출력한 상태이고, 그 다음은 DISK에 저장한 이미지다<br>
 
 `0.0f ~ 1.0f 사이의 값에 1.Nf를 곱하면 1.0f를 초과( overflow )할 수 있다`. 이 상태에서 float에 255를 곱해서 unsigned char로 캐스팅하면 overflow 때문에 원하는 값으로 저장할 수 없다.<br>
 ```cpp
