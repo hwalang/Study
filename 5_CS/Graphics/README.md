@@ -3,17 +3,17 @@
 # Index
 1. [DirectX11 환경 설정](0_DirectX11_환경설정.md)
    - vcpkg( imgui, glm )
-2. [Digital_Image_Basics](Digital_Image_Basics.md)
+2. [Digital_Image_Basics](1_Digital_Image_Basics.md)
    - Digital Image( `Grayscale Image`, `Color Image` )
    - `pixel intensity`( image intensity, amplitude value )
    - `resolution`
    - `Stored Image Size`
    - `channel`
    - `color space conversion`, `image compression`, `Luminance`, `Chrominance`
-3. [Bloom Effect](Bloom_Effect.md)
+3. [Bloom Effect](2_Bloom_Effect.md)
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
-   - `bloom effect`
+   - `Relative Luminance Y`, `bloom effect`
 4. [product](2_product.md)
    - `Dot / Cross product`
    - glm::vec3
