@@ -19,7 +19,7 @@
 ## Generic Container
 1. [std::erase](std_erase.md) : string, vector
 2. [std::assign](std_assign.md) : vector
-3. [std::find, find_if, find_if_not](std_find.md) : `Unary Operation`, string, vector
+3. [std::find, find_if, find_if_not](std_find.md) : `Unary Operation`, string, vector, map
 4. [std::insert](std_insert.md) : vector
 5. [std::replace](std_replace.md) : `chaning`, string
 

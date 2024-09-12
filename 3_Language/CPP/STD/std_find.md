@@ -10,6 +10,8 @@
 - [std::basic\_string::find](#stdbasic_stringfind)
   - [return](#return)
   - [예시](#예시)
+- [std::map::find](#stdmapfind)
+  - [return](#return-1)
 
 <br>
 
@@ -192,3 +194,16 @@ int solution(string myString, string pat)
 ```
 대소문자를 구분하는 것보다 모든 문자열을 소문자로 통일하고 부분 문자열이 있는지 판단한다<br>
 myString에서 pat 문자열과 같은 부분 문자열이 있는지 찾는다<br>
+
+<br><br>
+
+# std::map::find
+```cpp
+iterator find(const Key& key);
+```
+`key와 동일한 key를 가진 element`를 찾는다<br>
+
+## return
+동일한 key를 찾으면, 해당 key를 가리키는 iterator를 반환<br>
+아니면 end() 반환
+
