@@ -13,6 +13,7 @@ rendering 속도 측면에서 복잡한 polygon model을 사용하는 것보다 
 즉, `핵심은 단순한 model에 image를 덧씌우는 방법`이다<br>
 
 # Texture coordinates
+**[ 참고 ](3_coordinate_systems.md)**<br>
 model에 image를 덧씌우기 전에 model의 vertex에 색깔을 지정해야 한다<br>
 이를 위해 texture image에서 어느 위치의 색깔을 가져오는지 판단해야 하는데, 이때 texture coordinates( 텍스쳐 좌표 )가 필요하다<bR>
 
