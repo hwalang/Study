@@ -4,7 +4,7 @@
     - [사용처](#사용처)
 - [Cross product](#cross-product)
     - [특징](#특징-1)
-      - [**Graphics**](#graphics)
+      - [**in Graphics**](#in-graphics)
     - [사용처](#사용처-1)
 - [Programming](#programming)
   - [1. GLM](#1-glm)
@@ -49,11 +49,15 @@ inner product 또는 projection product라는 용어도 있다<br>
 `두 vector가 직각인지 확인할 때 유용`하다<br>
 직각 삼각형에서 두 변의 길이를 알면, 피타고라스 정의를 이용해서 나머지 한 변의 길이를 구할 수 있다<br>
 
+<br>
+
 ![alt text](Images/Product/dot_product_physics.png)<br>
 `물리학에서 Work를 판단할 때 사용`한다<br>
 $Work = Force \cdot Distance$ <br>
 $Work = Force \times Distance \times \cos \theta$ <br>
-Work가 Force times Distance인 경우는 물건에 힘을 주는 방향과 이동 방향이 같은 경우이다<br>
+Work가 Force * Distance인 경우는 물건에 힘을 주는 방향과 이동 방향이 같은 경우이다<br>
+
+<br>
 
 `두 vector의 방향이 상대적으로 어떤지 알고 싶을 때 유용`하다<br>
 특히 Graphics에서 `두 unit vector의 방향을 판단`할 때 사용한다<br>
@@ -79,7 +83,7 @@ Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 `두 vector가 직각일 때 최대 길이`이다<br>
 
 
-#### **Graphics**
+#### **in Graphics**
 두 vector a와 b를 Cross Product한 결과로 c vector를 얻었을 때
 
 - `c는 a와 b vector와 수직`이다
@@ -108,6 +112,8 @@ glm은 수학 연산은 직관적이기 때문에 초보 개발자에게 적합�
 DirectXMath는 성능이 더 좋지만, 복잡한 사용법을 익혀야 한다<br>
 
 ## 1. GLM
+**[GLM Documents](https://openframeworks.cc/documentation/glm/)**<br>
+Open`GL M`athematics<br>
 
 ### glm::vec3 사용법
 ```cpp
@@ -134,10 +140,11 @@ int main()
   // vector * scalar
   c = a * 10.0f;
 
-  // 피타고라스 정의를 사용한 vector의 length
+  // vector magnitude
   float len = glm::length(c);
 
   // vector.size()
+  // always glm::vec2.length() == 2, glm::vec3.length() == 3, glm::vec4.length() == 4
   cout << (b - a).length() << endl;
 }
 ```
@@ -159,7 +166,7 @@ if (glm::length(u) < 1e-4f) {
 }
 ```
 원래 length가 0인 vector를 normalize하면 안되지만, 현실적으로 복잡한 계산을 하기 때문에 모든 걸 판단하기 힘들다<br>
-이러한 이유로 if문으로 안전 장치를 마련하는 것을 권장한다<br>
+이러한 이유로 `if문으로 안전 장치를 마련하는 것을 권장`한다<br>
 
 <br>
 

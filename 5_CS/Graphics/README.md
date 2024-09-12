@@ -14,7 +14,8 @@
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
    - `Relative Luminance Y`, `bloom effect`
-4. [product](2_product.md)
+4. [product](3_product.md)
+   - scalar와 vector, `magnitude`, `normalize(unit vector)`
    - `Dot / Cross product`
    - glm::vec3
 5. [Coordinate Systems](3_coordinate_systems.md)
