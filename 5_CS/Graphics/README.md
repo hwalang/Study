@@ -14,11 +14,12 @@
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
    - `Relative Luminance Y`, `bloom effect`
-4. [product](3_product.md)
+4. [product](3_Product.md)
    - scalar와 vector, `magnitude`, `normalize(unit vector)`
    - `Dot / Cross product`
    - glm::vec3
-5. [Coordinate Systems](3_coordinate_systems.md)
+5. [Coordinate Systems](4_Coordinate_Systems.md)
+   - `texture`, `texel`, `Texture Coordinates`, **`texel mapping process`**, primitive, object space
 6. [Ray Tracing](4_ray_tracing.md)
    - rendering( `image-order, object-order` )
    - projection( `Orthographic, Perspective` )
@@ -32,7 +33,7 @@
    - `Lambertian Reflection`
 8. [Texturing](6_texturing.md)
    - `texture coordinates`
-   - sampling, `texture sampling`
+   - `sampling`, `exture sampling
 9.  [Anti Aliasing](7_Anti_Aliasing.md)
    - `super sampling`
 
