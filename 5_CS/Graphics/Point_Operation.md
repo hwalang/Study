@@ -3,6 +3,7 @@
   - [2. Line Segment](#2-line-segment)
 - [Affine](#affine)
   - [Affine Combination( Affine Sum )](#affine-combination-affine-sum-)
+    - [Why Affine Combination Sum = 1?](#why-affine-combination-sum--1)
 
 <br>
 
@@ -62,3 +63,8 @@ Graphics에서 Affine은 Affine transformation에서 사용하는 단어다<br>
 $$y = \theta x_1 + (1 - \theta)x_2 \text{ with } 0 \leq \theta \leq 1$$
 [line segment 수식](#2-line-segment)의 계수의 합을 1로 제한한 것을 Affine Combination이라 한다<br>
 `Point의 계수를 가중치로 볼 때, 이러한 weights의 합들이 1이 되도록 combination( 조합, 섞음 )한다`는 의미로 사용되는 용어다<br>
+
+### Why Affine Combination Sum = 1?
+[Why the sum of all coefficients is 1 in Affine Combination?](https://math.stackexchange.com/questions/3109134/why-the-sum-of-all-coefficients-is-1-in-affine-combination)<br>
+
+계수( 또는 가중치 )의 합이 1이어야 Affine Combination의 결과값 Point가 Affine Transformation을 거쳐도 불변이기 때문이다<br>
