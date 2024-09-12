@@ -18,7 +18,7 @@
 # vector
 scalar 끼리 연산을 할 때는 dot, cross 연산자에 차이가 없이 곱셈을 의미한다<br>
 하지만 vector 끼리 연산은 다르다<br>
-![alt text](Images/Product/vector.png)<br>
+![alt text](Images/VectorOperation/vector.png)<br>
 `vector는 magnitude( 크기 )와 direction( 방향 )을 표현`한다<br>
 
 참고로 `unit vector`는 magnitude를 제거했기 때문에 `direction만 표현하고 싶을 때` 구한다<br>
@@ -28,7 +28,7 @@ scalar 끼리 연산을 할 때는 dot, cross 연산자에 차이가 없이 곱�
 
 # Dot product
 [ Dot product ](https://www.mathsisfun.com/algebra/vectors-dot-product.html)<br>
-![alt text](Images/Product/dot_product.png)<br>
+![alt text](Images/VectorOperation/dot_product.png)<br>
 $A \cdot B$ <br>
 
 `연산 결과가 scalar`이기 때문에 scalar product라고도 불린다<br>
@@ -41,7 +41,7 @@ inner product 또는 projection product라는 용어도 있다<br>
 
 `두 vector가 같은 방향을 가리키면 a * b`이다<br>
 
-![alt text](Images/Product/cosine_graph.png)<br>
+![alt text](Images/VectorOperation/cosine_graph.png)<br>
 위 두 가지 특징은 cos 함수를 그려보면 명확하다<br>
 이때 180도 구간을 보면 `두 vector의 방향이 서로 반대 방향인 경우, Dot product 결과가 -1`임을 알 수 있다<br>
 
@@ -51,7 +51,7 @@ inner product 또는 projection product라는 용어도 있다<br>
 
 <br>
 
-![alt text](Images/Product/dot_product_physics.png)<br>
+![alt text](Images/VectorOperation/dot_product_physics.png)<br>
 `물리학에서 Work를 판단할 때 사용`한다<br>
 $Work = Force \cdot Distance$ <br>
 $Work = Force \times Distance \times \cos \theta$ <br>
@@ -69,7 +69,7 @@ Work가 Force * Distance인 경우는 물건에 힘을 주는 방향과 이동 �
 # Cross product
 [ Cross product ](https://www.mathsisfun.com/algebra/vectors-cross-product.html)<br>
 
-![alt text](Images/Product/cross_product.png)<br>
+![alt text](Images/VectorOperation/cross_product.png)<br>
 $A \times B$ <br>
 
 Dot product와 달리 `vector 값을 반환`하기 때문에 vector product라는 이름도 있다<br>
@@ -92,7 +92,7 @@ Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 위 두 가지 특징을 보면, a와 b vector로 얻은 한 평면의 normal vector를 구할 수 있다<br>
 
 ### 사용처
-![alt text](Images/Product/corss_product_parallelogram.png) ![alt text](Images/Product/cross_product_triangle.png) <br>
+![alt text](Images/VectorOperation/corss_product_parallelogram.png) ![alt text](Images/VectorOperation/cross_product_triangle.png) <br>
 Graphics에서는 `삼각형의 넓이를 구할 때` cross product를 사용한다<br>
 
 $\mathbf{a}와 \mathbf{b}\text{가 이루는 삼각형의 넓이} = \frac{\parallel \mathbf{a} \times \mathbf{b} \parallel}{2}$ <br>
@@ -106,7 +106,8 @@ cross product의 결과 vector의 length는 `피연산자 vector의 삼각형 �
 
 # Programming
 [ glm 환경 설정 ](HongLab/part1_BasicConceptsOfRendering/1_DirectX11_환경설정.md)<br>
-DirectXMath.h 또는 glm을 이용해서 수학 연산을 진행한다<br>
+`DirectXMath.h, GLM, SimpleMath을 이용해서 수학 연산`을 진행한다<br>
+참고로 위 3가지 library에서 vector와 point를 구분하지 않았기 때문에 문맥에 따라 개발자가 결정한다<br>
 
 glm은 수학 연산은 직관적이기 때문에 초보 개발자에게 적합하다<br>
 DirectXMath는 성능이 더 좋지만, 복잡한 사용법을 익혀야 한다<br>
