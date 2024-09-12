@@ -25,7 +25,10 @@ associate container에는 set과 map이 존재한다.</br>
 set과는 달리 `key의 존재 유무만 판단`하는 것이 아니라 `대응되는 value`를 가져올 수 있다. </br>
 하지만 map은 set보다 사용하는 메모리가 많기 때문에 key의 존재 유무만 궁금한 경우 set을 사용한다.<br>
 
-`key 순서대로 정렬`된다<br>
+```cpp
+std::map<int, int, greater<int>> m;     // 내림차순
+```
+기본적으로 `key를 기준으로 오름차순으로 정렬`<br>
 
 map은 `binary tree 구조`를 사용했기 때문에 `O(logN)의 검색 성능`이다<br>
 
