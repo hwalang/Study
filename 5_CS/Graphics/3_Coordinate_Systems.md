@@ -18,6 +18,7 @@
 이미지 좌표계
 스크린 좌표계
 좌표계 변환
+Homogeneous Coordinates: 동차 좌표계( vector와 point를 혼용해서 쓰는 좌표 )
 aspect ratio: 화면의 가로 세로 비율
 
 ![alt text](Images/CoordinateSystems/coordinate_systems.png)<br>

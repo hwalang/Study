@@ -14,13 +14,9 @@
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
    - `Relative Luminance Y`, `bloom effect`
-4. [product](3_Product.md)
-   - scalar와 vector, `magnitude`, `normalize(unit vector)`
-   - `Dot / Cross product`
-   - glm::vec3
-5. [Coordinate Systems](4_Coordinate_Systems.md)
+4. [Coordinate Systems](4_Coordinate_Systems.md)
    - `texture`, `texel`, `Texture Coordinates`, **`texel mapping process`**, primitive, object space
-6. [Ray Tracing](4_ray_tracing.md)
+5. [Ray Tracing](4_ray_tracing.md)
    - rendering( `image-order, object-order` )
    - projection( `Orthographic, Perspective` )
    - `Ray-sphere intersection`
@@ -28,14 +24,23 @@
    - `Shadow`
    - `Reflection`
    - `Transparency`, `Refraction`, `Cube Mapping`
-7. [Phong Model](5_phong_model.md)
+6. [Phong Model](5_phong_model.md)
    - `light effect`
    - `Lambertian Reflection`
-8. [Texturing](6_texturing.md)
+7. [Texturing](6_texturing.md)
    - `texture coordinates`
    - `sampling`, `exture sampling
-9.  [Anti Aliasing](7_Anti_Aliasing.md)
+8.  [Anti Aliasing](7_Anti_Aliasing.md)
    - `super sampling`
+---
+### Basic
+1. [Vector Operation](Vector_Operation.md)
+   - scalar와 vector, `magnitude`, `normalize(unit vector)`
+   - `Dot / Cross product`
+   - glm::vec3
+2. [Point Operation](Point_Operation.md)
+   - `line`, `line-segment`
+   - Affine, `Affine Combination( Affine, Sum )`
 
 <br>
 
