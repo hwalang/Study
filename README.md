@@ -5,3 +5,4 @@
 4. [Unity](4_Unity/)
 5. [Computer Science](5_CS/)
 6. [GIT](6_GIT/)
+7. [Visual Studio 2022 TIP](7_VisualStudio%20Tip/)
