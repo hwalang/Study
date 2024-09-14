@@ -1,3 +1,7 @@
+- [Handed Coordinates](#handed-coordinates)
+  - [1. Left-handed Coordinates](#1-left-handed-coordinates)
+  - [2. Right-handed Coordinates](#2-right-handed-coordinates)
+  - [3 Cross Product](#3-cross-product)
 - [Texture Coordinates](#texture-coordinates)
   - [1. Texture와 Texture Coordinates](#1-texture와-texture-coordinates)
   - [2. Mapping Texels to Screen Space in DirectX](#2-mapping-texels-to-screen-space-in-directx)
@@ -21,10 +25,29 @@
 Homogeneous Coordinates: 동차 좌표계( vector와 point를 혼용해서 쓰는 좌표 )
 aspect ratio: 화면의 가로 세로 비율
 
-![alt text](Images/CoordinateSystems/coordinate_systems.png)<br>
+# Handed Coordinates
+![alt text](Images/CoordinateSystems/handed_coordinates.png)<br>
+
 `OpenGL에서 Ray의 방향( z축 )은 현실 세계를 향하고`, `DirectX는 가상 세계를 바라본다`<br>
-DirectX는 Left-handed System이다.<br>
+## 1. Left-handed Coordinates
+DirectX는 Left-handed Coordinates이다.<br>
+**X is to the right, and Y is up, then Z is towards screen**<br>
+**library의 cross()를 사용할 때 인자로 들어가는 순서**는 `X cross Y = -Z`이다<br>
+
+<br>
+
+## 2. Right-handed Coordinates
 OpenGL은 Right-handed System이다.<br>
+**X is to the right, and Y is up, then Z is towards you**<br>
+
+## 3 Cross Product
+대부분의 library( GLM, DirectXMath )의 cross API는 right-handed coordinates를 따른다<br>
+```cpp
+#include <glm/glm.hpp>
+glm::vec3 crossXY = glm::cross(vecX, vecY);   // (0, 0, 1)
+glm::vec3 crossYX = glm::cross(vecY, vecX);   // (0, 0, -1)
+```
+따라서 **library의 cross()를 사용할 때 인자로 들어가는 순서**는 `X cross Y = Z`이다<br>
 
 
 <br><br>
