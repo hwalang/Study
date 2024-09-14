@@ -16,9 +16,11 @@
    - `Relative Luminance Y`, `bloom effect`
 4. [Coordinate Systems](4_Coordinate_Systems.md)
    - `texture`, `texel`, `Texture Coordinates`, **`texel mapping process`**, primitive, object space
-5. [Phong Model](4_Phong_Model.md)
-   - `light effect`
+5. [Lighting Model](4_Lighting_Model.md)
    - `Lambertian Reflection`
+     - `Diffuse Surface`, `Diffuse Reflection`, `Specular Reflection`, `Lambert's consine law`, `Diffuse Lighting Model`
+     - `Phong Reflection Model`
+       - Diffuse, Specular, Ambient
 6. [Ray Tracing](5_Ray_Tracing.md)
    - rendering( `image-order, object-order` )
    - `Ray Tracing Algorithm`
