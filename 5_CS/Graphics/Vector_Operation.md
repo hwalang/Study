@@ -172,17 +172,26 @@ if (glm::length(u) < 1e-4f) {
 <br>
 
 ### glm::dot(), glm::cross()
+
 ```cpp
+#include <glm/glm.hpp>
 using namespace glm;
 
 float aDotB = glm::dot(a, b);
 cout << aDotB << endl;
 cout << glm::dot(vec3(1, 0, 0), vec3(0, 1, 0)) << endl;
-
-glm::vec3 aCrossB = glm::cross(a, b);
-cout << to_string(aCrossB) << endl;
-cout << length(cross(vec3(1.5, 0, 0), vec3(0, 2, 0)) << endl;
 ```
+
+```cpp
+glm::vec3 vecX{ 1.0f, 0.0f, 0.0f };
+glm::vec3 vecY{ 0.0f, 1.0f, 0.0f };
+
+glm::vec3 crossXY = glm::cross(vecX, vecY);   // (0, 0, 1)
+glm::vec3 crossYX = glm::cross(vecY, vecX);   // (0, 0, -1)
+```
+**[ right-handed coordinates ](/5_CS/Graphics/3_Coordinate_Systems.md)**<br>
+거의 모든 library의 `cross() 함수의 좌표계는 right-handed coordinates`이다<br>
+떄문에 **인자로 전달되는 vector의 순서에 따라 z 방향이 달라진다**<br>
 
 <br>
 
