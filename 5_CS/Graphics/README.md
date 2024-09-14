@@ -18,12 +18,13 @@
    - `texture`, `texel`, `Texture Coordinates`, **`texel mapping process`**, primitive, object space
 5. [Ray Tracing](4_ray_tracing.md)
    - rendering( `image-order, object-order` )
-   - projection( `Orthographic, Perspective` )
+   - `Ray Tracing Algorithm`
    - `Ray-sphere intersection`
    - `Triangular Mesh`
    - `Shadow`
    - `Reflection`
    - `Transparency`, `Refraction`, `Cube Mapping`
+   - projection( `Orthographic, Perspective` )
 6. [Phong Model](5_phong_model.md)
    - `light effect`
    - `Lambertian Reflection`
