@@ -34,7 +34,7 @@ Diffuse Reflection이란, `빛, 파동, 입자가 반사되어 표면에 입사�
 그림의 ray는 luminous intensity를 나타내며, 이러한 intensity는 Lambert's consine law에 의해 달라진다<br>
 
 ## 3. Lambert's Cosine Law
-[ Lambert's cosine law ](https://en.wikipedia.org/wiki/Lambert%27s_cosine_law)<br>
+[ Lambert's cosine law - wiki ](https://en.wikipedia.org/wiki/Lambert%27s_cosine_law)<br>
 [ Lambertian Reflection - wiki ](https://en.wikipedia.org/wiki/Lambertian_reflectance)<br>
 
 `Diffuse Reflection에 대한 법칙`이다<br>
