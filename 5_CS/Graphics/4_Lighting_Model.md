@@ -44,7 +44,7 @@ Lambert's cosine law을 따르는 surface를 lambertian surface라 하며, 위 D
 
 Diffuse surface로 들어오는 incident light( 입사광 )
 
-Lambertian Surface( Diffuse Surface )에서 반사된 빛의 강도( intensity )는 $I = I_\circ \dot \cos \theta$로 계산한다<br>
+Lambertian Surface( Diffuse Surface )에서 반사된 빛의 강도( intensity )는 $I = I_\circ \cdot \cos \theta$로 계산한다<br>
 - $I$: reflction light intensity
 - $I_\circ$: incident light
 - $\theta$: incident light와 surface의 normal vector 사이의 각도
@@ -81,14 +81,14 @@ HW의 한계로 인해 저렴한 비용으로 높은 성능을 추구했던 과�
 ## 1. Diffuse Reflection
 [ Lambert's cosine law ](#3-lamberts-cosine-law)에 따라 `surface에 닿는 빛이 모든 방향으로 고르게 반사되는 현상`이다<br>
 
-$I_d = k_d \dot I_{light} \dot (L \dot N)$<br>
+$I_d = k_d \cdot I_{light} \cdot (\mathbf{L} \cdot \mathbf{N})$<br>
 
 - $I_d$: diffuse reflection intensity
 - $k_d$: surface의 diffuse reflection 계수( 얼마나 diffuse를 반사하나? )
 - $I_{light}$: light intensity
-- $L$: light의 방향 벡터
-- $N$: surface normal vector
-- $L \dot N$: light direction과 normal vector 사이의 cosine 값( incident light 각도 )
+- $\mathbf{L}$: light의 방향 벡터
+- $\mathbf{N}$: surface normal 벡터
+- $L \cdot N$: light direction과 normal vector 사이의 cosine 값( incident light 각도 )
 
 <br>
 
@@ -97,12 +97,12 @@ $I_d = k_d \dot I_{light} \dot (L \dot N)$<br>
 이러한 현상은 반짝거리는 효과를 만들 때 사용한다<br>
 `surface를 바라보는 눈이 어디 있는지도 영향`을 미친다<br>
 
-$I_s = k_s \dot I_{light} \dot (R \dot V)^n$
+$I_s = k_s \cdot I_{light} \cdot (\mathbf{R} \cdot \mathbf{V})^n$
 
 - $I_s$: specular reflection intensity
 - $k_s$: surface specular reflection 계수
-- $R$: 반사 벡터
-- $V$: viewer의 방향 벡터
+- $\mathbf{R}$: 반사 벡터
+- $\mathbf{V}$: viewer의 방향 벡터
 - $n$: 표면의 반짝임을 나타내는 지수( n이 클수록 빛의 반사가 더 좁고 날카롭다 )
 
 <br>
@@ -111,7 +111,7 @@ $I_s = k_s \dot I_{light} \dot (R \dot V)^n$
 빛이 없어도 보이는 빛이며, object 자체의 빛이라고 생각하면 된다<br>
 정확히 말하면, `물체가 어두운 환경에서 빛을 완전히 흡수하지 않고 약간의 빛을 반사하는 현상`이다<br>
 
-$I_a = k_a \dot I_{ambient}$<br>
+$I_a = k_a \cdot I_{ambient}$<br>
 
 - $I_a$: ambient lighting reflection intensity
 - $k_a$: surface의 ambient reflection 계수( 얼마나 주변광을 반사하나? )
