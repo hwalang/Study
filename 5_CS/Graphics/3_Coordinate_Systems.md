@@ -40,7 +40,10 @@ DirectX는 Left-handed Coordinates이다.<br>
 OpenGL은 Right-handed System이다.<br>
 **X is to the right, and Y is up, then Z is towards you**<br>
 
+<br>
+
 ## 3 Cross Product
+**[ How do you use the right-handed rule for glm::cross? ](https://stackoverflow.com/questions/37519476/how-do-you-use-the-right-hand-rule-for-glmcross)**<br>
 대부분의 library( GLM, DirectXMath )의 cross API는 right-handed coordinates를 따른다<br>
 ```cpp
 #include <glm/glm.hpp>
