@@ -18,7 +18,7 @@
 - [Reflection](#reflection)
   - [pixel color 연산](#pixel-color-연산)
 - [Transparency와 Refraction](#transparency와-refraction)
-  - [Cube Mapping](#cube-mapping)
+- [Cube Mapping](#cube-mapping)
 - [Projection](#projection)
   - [Orthographic Projection](#orthographic-projection)
   - [Perspective Projection](#perspective-projection)
@@ -145,7 +145,7 @@ Shadow Ray와 Light 사이에 Object가 존재하는지 판단하여 그림자�
 # Triangular Mesh
 Graphics에서 삼각형을 그릴 수 있으면, 모든 도형을 그릴 수 있다<br>
 
-**[ 사전 지식 Cross Product ](1_product.md)**<br>
+**[ 사전 지식 Cross Product ](Vector_Operation.md/#cross-product)**<br>
 
 Ray Tracing에서 삼각형을 어떻게 다루는지 알아본다<br>
 먼저 Camera에서 발사하는 Ray가 삼각형에 닿았는지 아닌지 판단한다.<br>
@@ -210,16 +210,17 @@ view ray가 object의 한 지점과 충돌한 부분에서 light와의 관계를
 ### 주의점
 이론과는 달리 `프로그래밍에서는 view ray와 object의 충돌 지점에서 바로 light를 향해 shadow ray를 발사하지 않는다`<br>
 컴퓨터에서는 수치상의 문제로 인해 바로 발사하면 view ray와 닿은 object가 shadow ray에 충돌할 수 있기 때문이다<br>
-때문에 view ray와 닿은 지점에서 `0.001f 정도 떨어진 거리에 새로운 shadow ray를 생성하여 발사`한다<br>
+때문에 view ray와 닿은 지점에서 `0.001f( 1e-3f ) 정도 떨어진 거리에 새로운 shadow ray를 생성하여 발사`한다<br>
 
 
 <br><br>
 
 
 # Reflection
-pixel color를 결정할 때, shading에 의한 색의 비율이 줄어든 대신, 반사광이 반환해주는 색이 일정 비율만큼 추가한다<br>
+pixel color를 결정할 때, shading에 의한 색의 비율이 줄어든 대신, 반사광이 반환해주는 색을 일정 비율만큼 추가한다<br>
 
 ## pixel color 연산
+**[ Phong model ](4_Phong_Model.md/#phong-reflection-model)**<br>
 만약 object에 reflection 속성이 없다면, ray와 충돌한 object의 pixel color를 phong model로 shading을 해서 값을 결정한다.
 
 reflection 속성을 가진다면, `ray와 충돌한 object의 표면에서 다시 ray를 발사`한다.<br>
@@ -232,9 +233,13 @@ reflection 속성을 가진다면, `ray와 충돌한 object의 표면에서 다�
 
 # Transparency와 Refraction
 투명한 object( Transparency )의 pixel color를 구하는 방법을 알아본다<br>
-물체가 투명하다면 object 내부로 ray가 굴절( refraction )되어 들어간다<br>
+물체가 투명( water )하다면 object 내부로 ray가 굴절( refraction )되어 들어간다<br>
 
-## Cube Mapping
+
+<br><br>
+
+
+# Cube Mapping
 `배경을 만들 때 많이 사용`하는 Cube Mapping<br>
 cube map texture를 따로 구해야 한다<br>
 

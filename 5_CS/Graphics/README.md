@@ -16,18 +16,19 @@
    - `Relative Luminance Y`, `bloom effect`
 4. [Coordinate Systems](4_Coordinate_Systems.md)
    - `texture`, `texel`, `Texture Coordinates`, **`texel mapping process`**, primitive, object space
-5. [Ray Tracing](4_ray_tracing.md)
+5. [Phong Model](4_Phong_Model.md)
+   - `light effect`
+   - `Lambertian Reflection`
+6. [Ray Tracing](5_Ray_Tracing.md)
    - rendering( `image-order, object-order` )
    - `Ray Tracing Algorithm`
    - `Ray-sphere intersection`
    - `Triangular Mesh`
    - `Shadow`
    - `Reflection`
-   - `Transparency`, `Refraction`, `Cube Mapping`
+   - `Transparency`, `Refraction`
+   - `Cube Mapping`
    - projection( `Orthographic, Perspective` )
-6. [Phong Model](5_phong_model.md)
-   - `light effect`
-   - `Lambertian Reflection`
 7. [Texturing](6_texturing.md)
    - `texture coordinates`
    - `sampling`, `exture sampling
