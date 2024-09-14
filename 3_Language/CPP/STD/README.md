@@ -13,6 +13,7 @@
 5. [std::transform](std_transform.md)
 6. [std::sort](std_sort.md) : `IntroSort Algorithm`
 7. [std::for_each](std_for_each.md) : `stateful/stateless` function object, `invoke`
+8. [std::rotate](std_rotate.md)
 
 <br>
 
