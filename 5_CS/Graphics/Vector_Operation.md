@@ -42,8 +42,13 @@ inner product 또는 projection product라는 용어도 있다<br>
 `두 vector가 같은 방향을 가리키면 a * b`이다<br>
 
 ![alt text](Images/VectorOperation/cosine_graph.png)<br>
+
 위 두 가지 특징은 cos 함수를 그려보면 명확하다<br>
 이때 180도 구간을 보면 `두 vector의 방향이 서로 반대 방향인 경우, Dot product 결과가 -1`임을 알 수 있다<br>
+
+- 두 벡터 a, b가 같은 방향을 향하고 있으면, $0^\circ \leq \theta < 90^\circ$ `결과는 양수`
+- 두 벡터 a, b가 서로 수직이라면, $\theta = 90^\circ$
+- 두 벡터 a, b가 서로 반대 방향이라면, $90^\circ < \theta \leq 180^\circ$ `결과는 음수`
 
 ### 사용처
 `두 vector가 직각인지 확인할 때 유용`하다<br>
