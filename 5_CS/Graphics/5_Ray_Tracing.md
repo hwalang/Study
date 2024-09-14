@@ -220,7 +220,7 @@ view ray가 object의 한 지점과 충돌한 부분에서 light와의 관계를
 pixel color를 결정할 때, shading에 의한 색의 비율이 줄어든 대신, 반사광이 반환해주는 색을 일정 비율만큼 추가한다<br>
 
 ## pixel color 연산
-**[ Phong model ](4_Phong_Model.md/#phong-reflection-model)**<br>
+**[ Phong reflection model ](4_Lighting_Model.md/#phong-reflection-model)**<br>
 만약 object에 reflection 속성이 없다면, ray와 충돌한 object의 pixel color를 phong model로 shading을 해서 값을 결정한다.
 
 reflection 속성을 가진다면, `ray와 충돌한 object의 표면에서 다시 ray를 발사`한다.<br>
