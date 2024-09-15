@@ -13,9 +13,13 @@
       - [2.4.2. distorted pixel](#242-distorted-pixel)
       - [2.4.3. mapped pixel vertex to texture space mapping](#243-mapped-pixel-vertex-to-texture-space-mapping)
       - [2.4.4. sampling pixel color from texel](#244-sampling-pixel-color-from-texel)
-- [Barycentric coordinates - 무게 중심 좌표계](#barycentric-coordinates---무게-중심-좌표계)
-    - [Interpolation](#interpolation)
-    - [blending triangle color](#blending-triangle-color)
+- [Bary-Centric Coordinates - 무게 중심 좌표계](#bary-centric-coordinates---무게-중심-좌표계)
+  - [1. Weights : 가중치](#1-weights--가중치)
+    - [1.1. Weights Properties](#11-weights-properties)
+    - [1.2. Weights의 물리적 해석](#12-weights의-물리적-해석)
+  - [2. 삼각형 내부의 임의의 점 P 구하기( GLM )](#2-삼각형-내부의-임의의-점-p-구하기-glm-)
+  - [Interpolation](#interpolation)
+  - [blending triangle color](#blending-triangle-color)
 
 <br>
 
@@ -134,10 +138,116 @@ pixel color를 계산하는 방법이 texture filtering이며, DirectX의 method
 <br><br>
 
 
-# Barycentric coordinates - 무게 중심 좌표계
-### Interpolation
+# Bary-Centric Coordinates - 무게 중심 좌표계
+한 점의 위치를 simplex( n차원 다면체 )의 vertice에 대한 가중 평균으로 표현하는 좌표계이다   
+즉, `삼각형의 세 꼭지점과 가중치를 이용하여 삼각형 내부의 임의의 점을 표현하는 방법`이다   
+```
+simplex
+0차원 simplex : 한 개의 Point
+1차원 simplex : 두 점을 잇는 line segment
+2차원 simplex : 세 점을 연결하여 만든 Trigangle
+3차원 simplex : 네 점을 연결하여 만든 Tetrahedron( 사면체 )
+```
+<br>
+
+Graphics에서 `Texture Mapping에서 활용`한다.   
+
+$$P = \alpha A + \beta B + \gamma C$$
+
+위 수식은 vertice가 A, B, C인 삼각형에서 평면상의 임의의 점 P를 표현하는 방법이다   
+여기서 $\alpha + \beta + \gamma = 1$이며, 각 $\alpha, \beta, \gamma$는 Point P의 중심 좌표다   
+
+<br>
+
+## 1. Weights : 가중치
+```
+          C
+          /\
+         /  \
+      γ /    \ β
+       /  P   \
+      /________\
+     A    α     B
+```
+bary-centric coordinates에서 weights( $\alpha, \beta, \gamma$ )는 삼각형의 각 꼭지점 A, B, C가 점 P의 위치를 결정하는 데 얼마나 기여하는지 나타내는 값이다   
+
+- $\alpha$: P가 꼭지점 A에 얼마나 가깝나?
+- $\beta$: P가 꼭지점 B에 얼마나 가깝나?
+- $\gamma$: P가 꼭지점 C에 얼마나 가깝나?
+
+### 1.1. Weights Properties
+`weights가 클수록 해당 꼭지점에 더 가깝다`
+
+`weights의 합은 항상 1`이며, 점 P가 삼각형 내부/외부 어디에 있든 항상 성립한다.   
+
+- `삼각형 내부`: 모든 가중치가 양수
+- `삼각형의 변 위의 점`: 한 가중치가 0이고, 나머지 두 가중치는 양수
+- `삼각형 외부의 점`: 하나 이상의 가중치가 음수
+
+`Weights는 삼각형의 부분 면적과도 관련`이 있다   
+$\alpha$는 점 P를 꼭지점으로 하는 삼각형 PBC의 면적이 전체 삼각형 ABC 면적에서 차지하는 비율과 비례한다   
+
+### 1.2. Weights의 물리적 해석
+질량 분포로 생각할 수 있다. `각 꼭지점에 Weights 만큼의 질량이 있다고 가정하면, P는 이 질량들의 무게 중심`이다   
+
+<br>
+
+## 2. 삼각형 내부의 임의의 점 P 구하기( GLM )
+`임의의 점 P에 대한 가중치와 세 꼭지점이 존재할 때`, 삼각형 내부의 임의의 점 P를 구하는 방법을 알아본다   
+삼각형 내부의 어느 한 점 P를 기준으로 쪼개지는 세 가지 삼각형의 넓이를 이용해서 계산할 수도 있다   
+```
+          C (0, 5)
+           /\
+          /  \
+       γ /    \ β
+        /  P   \
+       /________\
+    A (0, 0)     B (5, 0)
+           α
+```
+
+$$P = \begin{cases}
+  \mathnormal{x}_{P} = \alpha \mathnormal{x}_{A} + \beta \mathnormal{x}_{B} + \gamma \mathnormal{x}_{C} \\
+  \mathnormal{y}_{P} = \alpha \mathnormal{y}_{A} + \beta \mathnormal{y}_{B} + \gamma \mathnormal{y}_{C}
+\end{cases}$$
+
+```cpp
+#include <glm/glm.hpp>
+#include <iostream>
+
+int main() {
+    // 삼각형의 세 꼭지점
+    glm::vec2 A(0.0f, 0.0f);
+    glm::vec2 B(5.0f, 0.0f);
+    glm::vec2 C(0.0f, 5.0f);
+
+    // 중심 좌표 (α, β, γ)
+    float alpha = 0.3f;
+    float beta = 0.3f;
+    float gamma = 0.4f;
+
+    // 중심 좌표의 합이 1인지 확인
+    if (alpha + beta + gamma != 1.0f) {
+        std::cerr << "가중치의 합이 1이 아닙니다." << std::endl;
+        return -1;
+    }
+
+    // 점 P의 좌표 계산
+    glm::vec2 P = alpha * A + beta * B + gamma * C;
+
+    // 결과 출력
+    std::cout << "점 P의 좌표: (" << P.x << ", " << P.y << ")" << std::endl;
+
+    return 0;
+}
+```
+math library에서는 Point와 Vector를 구분하지 않기 때문에 코드를 작성하는 개발자가 vector와 point를 결정한다   
+
+<br>
+
+## Interpolation
 Linear/Barycentric Interpolation<br>
 
-### blending triangle color
+## blending triangle color
 ![alt text](Images/CoordinateSystems/barycentric_triangle_blending_color.png)<br>
 barycentric coordinate system을 응용하면 삼각형 표면의 3개의 색깔을 섞어서 표현할 때 사용될 수 있다<br>
