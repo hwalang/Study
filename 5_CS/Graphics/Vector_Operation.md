@@ -1,11 +1,11 @@
 - [vector](#vector)
 - [Dot product](#dot-product)
     - [특징](#특징)
-    - [사용처](#사용처)
+    - [Dot Product 사용처](#dot-product-사용처)
 - [Cross product](#cross-product)
     - [특징](#특징-1)
       - [**in Graphics**](#in-graphics)
-    - [사용처](#사용처-1)
+    - [Cross Product 사용처](#cross-product-사용처)
 - [Programming](#programming)
   - [1. GLM](#1-glm)
     - [glm::vec3 사용법](#glmvec3-사용법)
@@ -50,7 +50,7 @@ inner product 또는 projection product라는 용어도 있다<br>
 - 두 벡터 a, b가 서로 수직이라면, $\theta = 90^\circ$
 - 두 벡터 a, b가 서로 반대 방향이라면, $90^\circ < \theta \leq 180^\circ$ `결과는 음수`
 
-### 사용처
+### Dot Product 사용처
 `두 vector가 직각인지 확인할 때 유용`하다<br>
 직각 삼각형에서 두 변의 길이를 알면, 피타고라스 정의를 이용해서 나머지 한 변의 길이를 구할 수 있다<br>
 
@@ -96,7 +96,7 @@ Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 
 위 두 가지 특징을 보면, a와 b vector로 얻은 한 평면의 normal vector를 구할 수 있다<br>
 
-### 사용처
+### Cross Product 사용처
 ![alt text](Images/VectorOperation/corss_product_parallelogram.png) ![alt text](Images/VectorOperation/cross_product_triangle.png) <br>
 Graphics에서는 `삼각형의 넓이를 구할 때` cross product를 사용한다<br>
 
