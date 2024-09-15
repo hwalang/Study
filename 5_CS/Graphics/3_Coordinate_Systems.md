@@ -18,16 +18,22 @@
     - [1.1. Weights Properties](#11-weights-properties)
     - [1.2. Weights의 물리적 해석](#12-weights의-물리적-해석)
   - [2. 삼각형 내부의 임의의 점 P 구하기( GLM )](#2-삼각형-내부의-임의의-점-p-구하기-glm-)
+  - [3. pixel color를 결정하기 전 `pixel이 삼각형 내부에 존재하는지 판단`](#3-pixel-color를-결정하기-전-pixel이-삼각형-내부에-존재하는지-판단)
+    - [3.1. Edge Function](#31-edge-function)
   - [Interpolation](#interpolation)
   - [blending triangle color](#blending-triangle-color)
 
 <br>
 
-이미지 좌표계
-스크린 좌표계
-좌표계 변환
-Homogeneous Coordinates: 동차 좌표계( vector와 point를 혼용해서 쓰는 좌표 )
-aspect ratio: 화면의 가로 세로 비율
+[Normalized Device Coordinates](http://www.directxtutorial.com/lesson.aspx?lessonid=111-4-1)   
+- 해상도와 상관 없이 Screen을 표현하기 위해 가로 세로 길이가 2인 정사각형 좌표계를 말한다
+- 
+Local/World 좌표계   
+이미지 좌표계   
+스크린 좌표계   
+좌표계 변환   
+Homogeneous Coordinates: 동차 좌표계( vector와 point를 혼용해서 쓰는 좌표 )   
+aspect ratio: 화면의 가로 세로 비율   
 
 # Handed Coordinates
 ![alt text](Images/CoordinateSystems/handed_coordinates.png)<br>
@@ -150,12 +156,13 @@ simplex
 ```
 <br>
 
-Graphics에서 `Texture Mapping에서 활용`한다.   
+Graphics에서 `Texture Mapping`과 `screen 상의 각 pixel이 object 내부에 존재하는지 판단`할 때 사용한다   
 
 $$P = \alpha A + \beta B + \gamma C$$
 
 위 수식은 vertice가 A, B, C인 삼각형에서 평면상의 임의의 점 P를 표현하는 방법이다   
-여기서 $\alpha + \beta + \gamma = 1$이며, 각 $\alpha, \beta, \gamma$는 Point P의 중심 좌표다   
+$\alpha + \beta + \gamma = 1$이며, 각 $\alpha, \beta, \gamma$는 Point P의 중심 좌표다   
+bary-centric coordinates를 이용해서 $\alpha, \beta, \gamma$ 값을 찾는다   
 
 <br>
 
@@ -184,6 +191,7 @@ bary-centric coordinates에서 weights( $\alpha, \beta, \gamma$ )는 삼각형�
 - `삼각형의 변 위의 점`: 한 가중치가 0이고, 나머지 두 가중치는 양수
 - `삼각형 외부의 점`: 하나 이상의 가중치가 음수
 
+위 세 가지 경우에 대한 설명은 [Edge Function](#31-edge-function)에 있다   
 `Weights는 삼각형의 부분 면적과도 관련`이 있다   
 $\alpha$는 점 P를 꼭지점으로 하는 삼각형 PBC의 면적이 전체 삼각형 ABC 면적에서 차지하는 비율과 비례한다   
 
@@ -194,7 +202,6 @@ $\alpha$는 점 P를 꼭지점으로 하는 삼각형 PBC의 면적이 전체 �
 
 ## 2. 삼각형 내부의 임의의 점 P 구하기( GLM )
 `임의의 점 P에 대한 가중치와 세 꼭지점이 존재할 때`, 삼각형 내부의 임의의 점 P를 구하는 방법을 알아본다   
-삼각형 내부의 어느 한 점 P를 기준으로 쪼개지는 세 가지 삼각형의 넓이를 이용해서 계산할 수도 있다   
 ```
           C (0, 5)
            /\
@@ -242,6 +249,31 @@ int main() {
 }
 ```
 math library에서는 Point와 Vector를 구분하지 않기 때문에 코드를 작성하는 개발자가 vector와 point를 결정한다   
+
+## 3. pixel color를 결정하기 전 `pixel이 삼각형 내부에 존재하는지 판단`
+screen의 pixel을 순회하면서 각 pixel이 삼각형 내부에 존재하는지 판단하는 경우가 있다   
+이때, `특정 pixel이 삼각형 내부에 있는지 판단하는 방법이 Bary-centric coordinates`이다   
+이렇게 pixel이 삼각형 내부에 있다면, pixel color를 결정한다   
+```
+          C
+          /\
+         /  \
+        /    \
+       /  P   \
+      /________\
+     A          B
+```
+`삼각형 내부의 어느 한 점 P를 기준으로 쪼개지는 세 가지 삼각형의 넓이를 이용해서 판단`할 수 있다   
+삼각형 ABC의 넓이는 3개의 부분 삼각형의 넓이( ACP, CBP, BPA )의 합이다   
+부분 삼각형의 넓이를 각각 $\alpha_0, \alpha_1, \alpha_2$라고 할 때, 부분 삼각형의 넓이는 두 벡터의 **[Cross Product](Vector_Operation.md/#cross-product-사용처) / 2**로 구할 수 있다   
+
+### 3.1. Edge Function
+![alt text](Images/CoordinateSystems/Edge_Function.png)   
+
+**[Rasterization - Edge Function](https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/rasterization-stage.html)**   
+주의할 점은 $\alpha_0 = (C - A) \times (P - A) / 2$의 값이 음수라면 확실히 삼각형 내부를 벗어났지만, 양수라면 삼각형 내부 방향에 있다는 의미다   
+왜냐하면 `(C - A) line segment를 기준으로 왼쪽에 있으면 음수이고, 오른쪽에 있으면 양수이기 때문`이다   
+이러한 개념을 Edge Function이라 한다   
 
 <br>
 
