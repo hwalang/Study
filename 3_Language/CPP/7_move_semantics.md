@@ -34,8 +34,26 @@ std::move(T&& t)    // t: the object to be moved
 이러한 Move Operation에는 Move Constructor와 Move Assignment Operation이 존재한다   
 
 ### 1.2.1. Moved-From State
+```cpp
+std::vector<int> numbers = {1, 2, 3, 2, 4, 2, 5};
+
+// 숫자 2를 제거
+auto new_end = std::remove(numbers.begin(), numbers.end(), 2);
+
+// 새로운 끝까지의 요소들을 출력
+std::cout << "std::remove 이후의 요소들: ";
+for (auto it = numbers.begin(); it != new_end; ++it) {
+  std::cout << *it << ' ';
+}
+```
+```
+인덱스: 0  1  2  3  4  5  6
+값:    1  3  4  5  ?, ?, ?
+```
 Move Operation 이후 original 객체는 resource를 잃게 되어, 마치 비어있는 것처럼 보이기 때문에 이동 대상이 된 객체들은 사실상 제거된 것과 같은 효과가 있다   
 즉, 원본 객체는 `moved-from state`를 가진다   
+
+이러한 `moved-from state 상태인 객체는 일반적으로 기존의 값이 남아있을 수 있지만, 이를 신뢰하면 안 된다`.   
 
 ### 1.2.2. 주의점
 원본 객체의 resource 이동 후, 원본 객체는 valid 하지만 내부 resource는 특정되지 않은 상태라서 재사용하려면 초기화가 필요하다   
