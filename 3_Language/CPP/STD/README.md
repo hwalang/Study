@@ -14,6 +14,7 @@
 6. [std::sort](std_sort.md) : `IntroSort Algorithm`
 7. [std::for_each](std_for_each.md) : `stateful/stateless` function object, `invoke`
 8. [std::rotate](std_rotate.md)
+9. [std::remove | std::remove_if](std_remove.md) : `stable algorithm`
 
 <br>
 
