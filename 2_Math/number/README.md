@@ -9,3 +9,4 @@
 6. [Number Theory - 정수론](6_Number_Theory.md)
    - `Prime Number`
    - `Composite Number`
+   - `Prime Factorization`, `sqrt vs (n * n)`
