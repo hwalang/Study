@@ -1,5 +1,6 @@
 - [std::map](#stdmap)
     - [특징](#특징)
+    - [container 무결성](#container-무결성)
     - [중복 key 처리](#중복-key-처리)
     - [operator\[\] 주의점](#operator-주의점)
 - [std::multimap](#stdmultimap)
@@ -12,6 +13,9 @@
     - [3. 빈도수 : counts 배열](#3-빈도수--counts-배열)
 
 <br>
+
+여기서 element란 container에 저장된 데이터 단위를 의미하며, container 종류에 따라 의미가 달라진다   
+map에서는 `element가 key-value의 pair를 의미`한다   
 
 # std::map
 associative container( 연관 컨테이너 )인 `map과 multimap`, `unordered_map`에 대해 알아본다.</br>
@@ -31,6 +35,11 @@ std::map<int, int, greater<int>> m;     // 내림차순
 기본적으로 `key를 기준으로 오름차순으로 정렬`<br>
 
 map은 `binary tree 구조`를 사용했기 때문에 `O(logN)의 검색 성능`이다<br>
+
+### container 무결성
+container 무결성 및 검색과 탐색 기능을 유지하기 위해서 `element를 수정할 수 없다`   
+`여기서 element는 key를 의미`한다. 왜냐하면 key로 hash 값을 결정하기 때문이다   
+때문에 cpp에서 key는 const로 선언되어 수정할 수 없으며 value는 수정할 수 있다   
 
 <br>
 
