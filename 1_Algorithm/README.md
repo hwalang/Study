@@ -15,6 +15,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.17` | [`모음 제거`](Programmers/240917_모음제거.md) | unordered_set, remove_if, erase | 0 |
 | `2024.09.15` | [`합성수 찾기`](Programmers/240915_합성수찾기.md) | Composite Number | 0 |
 | `2024.09.13` | [`구슬을 나누는 경우의 수`](Programmers/240913_구슬을나누는경우의수.md) | Combination, DP, Recursion | 0 |
 | `2024.09.12` | [`순서쌍의 개수`](Programmers/240912_순서쌍의개수.md) | 수학 | 0 |
