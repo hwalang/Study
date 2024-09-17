@@ -4,3 +4,11 @@
 3. [lambda](2_lambda.md) : `closure`, `first-class function`, `record`, \<cctype\>
 4. [operator new](3_operator_new.md)
 5. [Enumeration](4_Enumeration.md) : `Underlying Type`, `dependent type`
+6. [Iterators Function : begin, end ](5_Iterators_begin_end.md) : begin(), cbegin(), rbegin()
+7. [Smart Pointer](6_smart_pointer.md)
+8. [Move Semantics](7_move_semantics.md)
+   - `Copy VS Move`
+   - `moved-from state`
+   - `Move Constructor, Move Assignment Operation` VS Copy Constructor, Copy Assignment Operation
+   - `std::move`
+9.  
