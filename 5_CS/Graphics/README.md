@@ -74,8 +74,17 @@
    - Triangle Model
    - `Ray Tracing VS Rasterization`
    - `Bounding Box`
-2. 
+2. **[Transformation](9_Transformation.md)**
+   - `GPU 특징`
+   - Clockwise Winding Order
+   - Graphics: `Triangle Mesh를 위한 Data Structure`
+   - `2D Transformation`
+     - Translate
+     - Rotate
+     - Scale
+   - `Vertex Shader`
+3. 
 
 <br>
 
-Backface culling: 뒷면을 그리지 않는 방법<br>
+Backface culling: 뒷면을 그리지 않는 방법   
