@@ -15,6 +15,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.19` | [`가까운 수`](Programmers/240919_가까운수.md) | Simulation | 0 |
 | `2024.09.17` | [`소인수 분해`](Programmers/240917_소인수분해.md) | set, prime factorization | 0 |
 | `2024.09.17` | [`모음 제거`](Programmers/240917_모음제거.md) | unordered_set, remove_if, erase | 0 |
 | `2024.09.15` | [`합성수 찾기`](Programmers/240915_합성수찾기.md) | Composite Number | 0 |
@@ -27,6 +28,6 @@
 | `2024.08.22` | [`2의 영역`](Programmers/240822_2의영역.md) | vector<T>() constructor | 1 |
 | `2024.08.15` | [`문자 개수 세기`](Programmers/240815_문자개수세기.md) | ASCII code와 영문자를 이용한 count 배열 | 1 |
 | `2024.08.15` | [`QR code`](Programmers/240815_QRcode.md) | Modulo 연산 | 1 |
-| `2024.08.14` | [`세로 읽기`](Programmers/240814_세로읽기.md) | Thinking | 1 |
+| `2024.08.14` | [`세로 읽기`](Programmers/240814_세로읽기.md) | Simulation | 1 |
 | `2024.08.09` | [`주사위 게임3`](Programmers/240809_주사위게임3.md) | 2D-matrix, Thinking | 1 |
 | `2024.07.28` | [`배열 만들기2`](Programmers/240728_배열만들기2.md) | brute-force, bit-mask | 1 |
