@@ -15,6 +15,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.20` | [`문자열 계산하기`](Programmers/240920_문자열계산하기.md) | stringstream | 0 |
 | `2024.09.20` | [`영어가 싫어요`](Programmers/240920_영어가싫어요.md) | string | 0 |
 | `2024.09.19` | [`가까운 수`](Programmers/240919_가까운수.md) | Simulation | 0 |
 | `2024.09.17` | [`소인수 분해`](Programmers/240917_소인수분해.md) | set, prime factorization | 0 |
