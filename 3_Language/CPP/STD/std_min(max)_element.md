@@ -103,3 +103,15 @@ int solution(vector<string> strArr) {
     return *max_element(len.cbegin(), len.cend());
 }
 ```
+[Programmers - 가장 큰 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/120899)   
+```cpp
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> solution(vector<int> array) {
+    auto max_index = max_element(array.cbegin(), array.cend());
+    return vector<int>{ *max_index, static_cast<int>((max_index - array.cbegin())) };
+}
+```
