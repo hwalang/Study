@@ -2,16 +2,22 @@
 ``` cpp
 #include <numeric>
 
+// 1.
 template<class InputIt, class T>
 T accumulate(InputIt first, InputIt last, T init);
 
+// 2.
 template<class InputIt, class T>
 T accumulate(InputIt first, InputIt last, T init, BinaryOp op);
 ```
-구간 [first, last)에 속한 elements의 합을 구한다. </br>
-init으로 누적값을 초기화하고, 구간 내의 모든 elements를 차례대로 더해서 누적값을 반환한다. </br>
+구간 [first, last)에 속한 elements와 `init( 주어진 초기값 )`의 합을 구한다.   
+init으로 누적값을 초기화하고, 구간 내의 모든 elements를 차례대로 더해서 누적값을 반환한다.   
+기본적으로 `acc = acc + *i 또는 acc = std::move(acc) + *i`로 init( acc )를 초기화한다   
+BinaryOp를 제공하면 `acc = op(acc, *i) 또는 acc = op(std::move(acc), *i)`로 init을 초기화한다   
 
-last iterator는 vector.end()처럼 마지막 element의 다음 위치를 가리키는 iterator이다. </br>
+즉, **주어진 범위의 elements를 누적하여 하나의 값을 계산할 때 사용**한다   
+기본적으로 덧셈 연산이지만, custom operator를 제공할 수 있다   
+
 
 ### BinaryOp
 op는 적용할 binary operation( 이항 연산 ) 함수 객체이고, 아래와 같은 구조를 가진다.<br>
@@ -85,6 +91,8 @@ accumulate()는 중간에 순회를 멈추는 기능이 없다<br>
 <br>
 
 ## 예시 2 : BinaryOp
+### 2.1. multiplies
+[std::multiplies](std_multiplies.md) <br>
 ```cpp
 #include <functional>
 #include <numeric>
@@ -96,4 +104,22 @@ int main()
 	std::cout << product << std::endl;
 }
 ```
-[std::multiplies](std_multiplies.md) <br>
+
+### 2.2. Custom BinaryOp
+[Programmers - N의 배수 고르기](/1_Algorithm/Programmers/240921_n의배수고르기.md)   
+```cpp
+#include <vector>
+#include <numeric>
+
+using namespace std;
+
+vector<int> solution(int n, vector<int> numlist) {
+  return accumulate(numlist.begin(), numlist.end(), vector<int>(),
+    [n](vector<int>& acc, int ele) {
+      if (ele % n == 0) {
+        acc.emplace_back(ele);
+      }
+      return acc;
+    });
+}
+```
