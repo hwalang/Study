@@ -3,6 +3,8 @@
 - [Example](#example)
   - [1. Bitwise AND : 짝수, 홀수 판단](#1-bitwise-and--짝수-홀수-판단)
   - [2. Bitwise Left-Shift : 2배](#2-bitwise-left-shift--2배)
+    - [2.1. 모든 elements를 2배씩 증가](#21-모든-elements를-2배씩-증가)
+    - [2.2. T시간에 2배씩 증가](#22-t시간에-2배씩-증가)
 
 <br>
 
@@ -42,6 +44,13 @@ AND 0011  (decimal 3)
 <br><br>
 
 ## 2. Bitwise Left-Shift : 2배
+```
+    00010111 (decimal 23) LEFT-SHIFT
+=   00101110 (decimal 46)
+```
+left-shift를 수행한 뒤, rightmost position에 `새롭게 생기는 bit 값은 0`이다<br>
+`기존 값을 2배로 증가`시켜준다<br>
+### 2.1. 모든 elements를 2배씩 증가
 ```cpp
 #include <vector>
 #include <algorithm>
@@ -52,10 +61,8 @@ std::transform(vec.cbegin(), vec.cend(), vec.begin(), [](int ele) {
   return ele;
 });
 ```
-배열의 모든 elements를 2배하는 코드를 작성했다<br>
+
+### 2.2. T시간에 2배씩 증가
+```cpp
+int solution(int n, int t) { return n << t; }
 ```
-    00010111 (decimal 23) LEFT-SHIFT
-=   00101110 (decimal 46)
-```
-left-shift를 수행한 뒤, rightmost position에 `새롭게 생기는 bit 값은 0`이다<br>
-`기존 값을 2배로 증가`시켜준다<br>
