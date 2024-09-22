@@ -15,6 +15,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.22` | [`머쓱이보다 키 큰 사람`](Programmers/240922_머쓱이보다키큰사람.md) | distance | 0 |
 | `2024.09.21` | [`n의 배수 고르기`](Programmers/240921_n의배수고르기.md) | remove_if, erase, accumulate | 0 |
 | `2024.09.20` | [`배열의 유사도`](Programmers/240920_배열의유사도.md) | set | 0 |
 | `2024.09.20` | [`문자열 계산하기`](Programmers/240920_문자열계산하기.md) | stringstream | 0 |
