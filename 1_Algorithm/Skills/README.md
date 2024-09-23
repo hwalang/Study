@@ -3,6 +3,7 @@
 2. [string 활용법](2_string.md)
    - 정수의 앞자리 0을 제거하는 방법
    - string 생성자
+   - string `token 및 parsing`
 3. [Big Integer Arithmetic](3_Big_Integer_Arithmetic.md) : 컴퓨터에서 숫자로 표현할 수 없는 정수를 처리하는 방법
 4. [bit 연산 모음집](4_bitwise_operation.md)
    - 짝/홀 판단

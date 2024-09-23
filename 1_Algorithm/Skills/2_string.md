@@ -5,6 +5,7 @@
 - [문자 반복 출력](#문자-반복-출력)
     - [1. 별 찍기](#1-별-찍기)
     - [2. 문자 반복 출력](#2-문자-반복-출력)
+- [문자열 token 및 parsing](#문자열-token-및-parsing)
 
 <br>
 
@@ -88,3 +89,10 @@ string solution(string my_string, int n) {
     return result;
 }
 ```
+
+<br><br>
+
+# 문자열 token 및 parsing
+[programmers - 다항식 더하기](/1_Algorithm/Programmers/240923_다항식더하기.md/#풀이)   
+[token과 parsing이란](/5_CS/4_token_parsing.md)   
+문자열을 whitespace 또는 delimiter를 기준으로 token화 하는 방법을 메모했다   
