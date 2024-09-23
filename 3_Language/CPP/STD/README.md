@@ -30,7 +30,17 @@
 
 ## String
 1. [std::basic_string::substr](std_string_substr.md)
-2. [std::basic_stringstream](std_stringstream.md): `cpp stream state`
+
+<br>
+
+## I/O stream
+1. [std::basic_stringstream](std_stringstream.md): `cpp stream state`
+2. [std::getline](std_getline.md)
+   - `sentry class`
+   - iostream에서의 getline
+   - basic_string에서의 getline
+3. 
+
 
 <br>
 
