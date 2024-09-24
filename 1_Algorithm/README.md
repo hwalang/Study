@@ -15,6 +15,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.24` | [`안전 지대`](Programmers/240924_안전지대.md) | simulation | 0 |
 | `2024.09.24` | [`숨어있는 숫자의 덧셈(2)`](Programmers/240924_숨어있는숫자의덧셈2.md) | token, parsing | 0 |
 | `2024.09.23` | [`다항식 더하기`](Programmers/240923_다항식더하기.md) | simulation, token, parsing | 0 |
 | `2024.09.22` | [`머쓱이보다 키 큰 사람`](Programmers/240922_머쓱이보다키큰사람.md) | distance | 0 |
