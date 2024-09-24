@@ -2,8 +2,9 @@
 1. [place value ( digit )](1_place_value(digit).md) : 숫자의 자릿수를 다루는 방법을 알아본다.
 2. [string 활용법](2_string.md)
    - 정수의 앞자리 0을 제거하는 방법
-   - string 생성자
+   - 문자 반복 출력
    - string `token 및 parsing`
+   - string(cnt, char) 생성자를 이용한 `char to string`
 3. [Big Integer Arithmetic](3_Big_Integer_Arithmetic.md) : 컴퓨터에서 숫자로 표현할 수 없는 정수를 처리하는 방법
 4. [bit 연산 모음집](4_bitwise_operation.md)
    - 짝/홀 판단

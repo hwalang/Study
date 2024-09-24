@@ -4,8 +4,9 @@
     - [간단한 방법](#간단한-방법)
 - [문자 반복 출력](#문자-반복-출력)
     - [1. 별 찍기](#1-별-찍기)
-    - [2. 문자 반복 출력](#2-문자-반복-출력)
+    - [2. 문자 반복 출력 - string(cnt, char) 생성자](#2-문자-반복-출력---stringcnt-char-생성자)
 - [문자열 token 및 parsing](#문자열-token-및-parsing)
+- [char to string](#char-to-string)
 
 <br>
 
@@ -73,7 +74,7 @@ int main() {
 }
 ```
 
-### 2. 문자 반복 출력
+### 2. 문자 반복 출력 - string(cnt, char) 생성자
 [ Programmers - 문자 반복 출력 ](https://school.programmers.co.kr/learn/courses/30/lessons/120825)<br>
 ```cpp
 #include <string>
@@ -96,3 +97,17 @@ string solution(string my_string, int n) {
 [programmers - 다항식 더하기](/1_Algorithm/Programmers/240923_다항식더하기.md/#풀이)   
 [token과 parsing이란](/5_CS/4_token_parsing.md)   
 문자열을 whitespace 또는 delimiter를 기준으로 token화 하는 방법을 메모했다   
+
+<br><br>
+
+# char to string
+cpp에서 char를 string으로 변환하는 방법이 없다   
+```cpp
+to_string('a');     // "97"
+```
+`to_string(char)를 하는 경우, ASCII code로 변환 후, string으로 casting`하기 때문에 의도치 않은 값이 나온다   
+```cpp
+string(1, 'a');     // "a"
+```
+때문에 `string(1, char)를 이용해서 string을 생성`한다   
+[문자 반복 출력](#2-문자-반복-출력---stringcnt-char-생성자)에서 string(cnt, char) 생성자에 대한 설명이 있다   
