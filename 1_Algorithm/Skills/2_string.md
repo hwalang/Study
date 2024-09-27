@@ -6,7 +6,9 @@
     - [1. 별 찍기](#1-별-찍기)
     - [2. 문자 반복 출력 - string(cnt, char) 생성자](#2-문자-반복-출력---stringcnt-char-생성자)
 - [문자열 token 및 parsing](#문자열-token-및-parsing)
-- [char to string](#char-to-string)
+- [char to string | string to char](#char-to-string--string-to-char)
+  - [1. string(cnt, char);](#1-stringcnt-char)
+  - [2. string\[0\];](#2-string0)
 
 <br>
 
@@ -100,7 +102,8 @@ string solution(string my_string, int n) {
 
 <br><br>
 
-# char to string
+# char to string | string to char
+## 1. string(cnt, char);
 cpp에서 char를 string으로 변환하는 방법이 없다   
 ```cpp
 to_string('a');     // "97"
@@ -111,3 +114,10 @@ string(1, 'a');     // "a"
 ```
 때문에 `string(1, char)를 이용해서 string을 생성`한다   
 [문자 반복 출력](#2-문자-반복-출력---stringcnt-char-생성자)에서 string(cnt, char) 생성자에 대한 설명이 있다   
+
+## 2. string[0];
+string의 첫 번째 index만 가져오면 된다   
+```cpp
+string s = "a";
+s[0];
+```
