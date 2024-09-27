@@ -6,6 +6,9 @@
 # Index
 1. [Skills](Skills/README.md) : 다양한 문제 해결 기법을 메모한다.
 2. **Problem Solving** : 다시 풀어 볼 만한 문제를 언제든지 풀 수 있도록 기록한다.
+3. [sweep line algorithm](1_Sweep_Line_Algorithm.md)
+   - `겹치는 선분의 길이`
+4. 
 
 <br>
 
@@ -15,6 +18,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.27` | [`겹치는 선분의 길이`](Programmers/240927_겹치는선분의길이.md) | sweep line algorithm | 0 |
 | `2024.09.24` | [`외계어 사전`](Programmers/240924_외계어사전.md) | string, simulation | 0 |
 | `2024.09.24` | [`삼각형의 완성조건(2)`](Programmers/240924_삼각형의완성조건2.md) | math | 0 |
 | `2024.09.24` | [`안전 지대`](Programmers/240924_안전지대.md) | simulation | 0 |
