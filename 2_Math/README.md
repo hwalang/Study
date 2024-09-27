@@ -9,3 +9,4 @@
 2. [number](number/README.md) : 숫자
 3. [sequence](sequence/README.md) : 수열
 4. [polygon](polygon/README.md) : 다각형
+5. [두 직선의 기울기 판단](1_checking_for_parallel_lines.md)
