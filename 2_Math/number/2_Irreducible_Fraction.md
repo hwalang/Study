@@ -1,4 +1,4 @@
-- [Irreducible Fraction( 기약 분수 )](#irreducible-fraction-기약-분수-)
+- [Irreducible Fraction( 기약 분수, Simplified Fraction )](#irreducible-fraction-기약-분수-simplified-fraction-)
   - [Example](#example)
     - [1. basic](#1-basic)
     - [2. 단위 분수( unit fraction )](#2-단위-분수-unit-fraction-)
@@ -6,8 +6,9 @@
 
 <br>
 
-# Irreducible Fraction( 기약 분수 )
+# Irreducible Fraction( 기약 분수, Simplified Fraction )
 [ wiki - 기약 분수 ](https://ko.wikipedia.org/wiki/%EA%B8%B0%EC%95%BD%EB%B6%84%EC%88%98)<br>
+[ Greatest Common Divisor ](3_GCD.md)   
 
 `분자와 분모의 공약수( Greatest Common Divisor, GCD )가 1뿐이어서 더 이상 약분되지 않는 분수`이다<br>
 
