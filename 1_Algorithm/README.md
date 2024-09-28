@@ -18,6 +18,7 @@
 
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.09.28` | [`옹알이(1)`](Programmers/240928_옹알이1.md) | string, bit mask | 0 |
 | `2024.09.28` | [`등수 매기기`](Programmers/240929_등수매기기.md) | simulation | 0 |
 | `2024.09.28` | [`유한소수 판별하기`](Programmers/240928_유한소수판별하기.md) | Irreducible Fraction, Prime Factor, Prime Factorization, GCD | 0 |
 | `2024.09.27` | [`겹치는 선분의 길이`](Programmers/240927_겹치는선분의길이.md) | sweep line algorithm | 0 |
