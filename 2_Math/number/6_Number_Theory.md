@@ -1,6 +1,7 @@
 - [Introduce](#introduce)
 - [1. Prime Number( 소수 )](#1-prime-number-소수-)
-  - [2.1. Prime Number in CPP](#21-prime-number-in-cpp)
+  - [1.1. prime factor와 prime number의 차이점](#11-prime-factor와-prime-number의-차이점)
+  - [1.2. Prime Number in CPP](#12-prime-number-in-cpp)
 - [2. Composite Number( 합성수 )](#2-composite-number-합성수-)
   - [2.1. Example](#21-example)
   - [2.2. Composite Number in CPP](#22-composite-number-in-cpp)
@@ -20,7 +21,18 @@ Number Theory( 정수론 )는 정수의 성질과 그들 사이의 관계를 연
 # 1. Prime Number( 소수 )
 `1과 자기 자신만을 약수로 가지는 1보다 큰 자연수`   
 
-## 2.1. Prime Number in CPP
+## 1.1. prime factor와 prime number의 차이점
+`Prime`은 Prime Number( 소수 )를 의미하며, 1과 자기 자신 외에는 약수를 가지지 않는 수   
+`Factor`( 인수 )는 어떤 수를 곱해서 다른 수를 만들 수 있는 숫자   
+
+예를 들면, 2, 3, 5, 7은 소수이고, 12의 factor는 1, 2, 3, 4, 6, 12이다   
+
+따라서 `prime factor는` 어떤 수를 소수들의 곱으로 나누었을 때 나오는 그 소수들, 즉 `소인수`를 의미한다   
+prime factor는 `그 자체로 소수이면서 동시에 소인수 역할을 수행`한다   
+예를 들면, 18의 prime factor는 2와 3이다. 왜냐하면 18은 $2 \times 3^2$로 소인수 분해( Prime Factorizaion )할 수 있기 때문이다   
+이 경우, 2와 3은 prime number이며, 18을 소수들로 나눈 결과가 prime factor이다   
+
+## 1.2. Prime Number in CPP
 ```cpp
 #include <iostream>
 #include <cmath>
