@@ -10,3 +10,7 @@
    - `Prime Number`
    - `Composite Number`
    - `Prime Factorization`, `sqrt vs (n * n)`
+7. [Terminating Decimal - 유한소수](7_Terminating_Decimal.md)
+   - `Terminating Decimal Condition`
+   - 
+8. 
