@@ -1,7 +1,7 @@
 - [Arithmetic Sequence( 등차수열, 또는 Arithmetic Progression\[AP\] )](#arithmetic-sequence-등차수열-또는-arithmetic-progressionap-)
   - [1. 개념](#1-개념)
   - [2. 등차수열 구하기](#2-등차수열-구하기)
-  - [3. 공차 구하기](#3-공차-구하기)
+  - [3. 공차( common difference ) 구하기](#3-공차-common-difference--구하기)
   - [4. 등차수열의 합](#4-등차수열의-합)
 - [활용](#활용)
   - [1. 연속된 수의 합을 이용한 **첫 번째 항 구하기**](#1-연속된-수의-합을-이용한-첫-번째-항-구하기)
@@ -38,7 +38,7 @@ $$a_{n} = a_{x} + (n - x)d$$
 $$a_n = a_1 + (n - 1)d$$
 
 
-## 3. 공차 구하기
+## 3. 공차( common difference ) 구하기
 $$ d = a(n + 1) - a_n ( n >= 2 ) $$
 
 $$ \frac{a_x - a_y}{x - y} $$
