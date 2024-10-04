@@ -1,6 +1,7 @@
 - [push\_back](#push_back)
     - [push\_back 과정](#push_back-과정)
 - [emplace\_back](#emplace_back)
+  - [emplace\_back 인자에 Initializer\_list( 중괄호 초기화 ) 사용하는 경우](#emplace_back-인자에-initializer_list-중괄호-초기화--사용하는-경우)
 - [객체 생성 방법 2가지](#객체-생성-방법-2가지)
   - [1. 일반적인 객체 생성](#1-일반적인-객체-생성)
   - [2. placement-new 방식의 객체 생성](#2-placement-new-방식의-객체-생성)
@@ -44,12 +45,31 @@ template <class... Args>
 reference emplace_back(Args&&... args);
 ```
 container의 마지막에 새로운 element를 추가한다.<br>
-전달된 인자들을 placement-new( vector 내부 메모리 공간에 바로 생성 )로 불필요한 임시 객체나 이동 작업 없이 효율적으로 container에 element를 추가한다.<br>
+전달된 인자들을 placement-new( vector 내부 메모리 공간에 바로 생성 )로 `불필요한 임시 객체나 이동 작업 없이` 효율적으로 container에 element를 추가한다.<br>
 
-emplace_back을 이해하기 위해선 객체 생성이 이뤄지는 방법을 알아야 한다.<br>
+`emplace_back을 이해하기 위해선 객체 생성이 이뤄지는 방법을 알아야 한다`.<br>
 
-<br>
-<br>
+## emplace_back 인자에 Initializer_list( 중괄호 초기화 ) 사용하는 경우
+```
+emplace_back({ int, int });
+
+emplace_back : 전달된 인자를 사용하여 pair<int, int> 객체를 생성
+{ int, int } : std::initializer_list를 사용한 초기화로써, pair 생성자와 일치하지 않을 수 있음
+```
+emplace_back은 전달된 인자를 `임시 객체로 만들지 않고` container 요소로 생성한다   
+하지만 initializer_list는 compiler에게 `임시 객체를 생성하도록 지시`하며, 이는 emplace_back의 목적과 다르다   
+
+```cpp
+emplace_back(int, int);
+```
+**emplace_back은 생성자의 인자를 직접 전달할 수 있다**   
+때문에 initializer_list 대신 pair 생성자에 필요한 인자를 직접 전달하는 방식이 좋다   
+```cpp
+push_back(make_pair(int, int));
+```
+make_pair를 사용하여 pair 객체를 생성한 후 push_back으로 추가할 수도 있다   
+
+<br><br>
 
 # 객체 생성 방법 2가지
 ## 1. 일반적인 객체 생성
@@ -82,7 +102,7 @@ vec.emplace_back(1, 2, 3);             // vector의 capacity 내에서 객체 �
 new (Example) Example;                 // 여기서 new는 memory를 할당하지 않고, 이미 할당된 memory에 객체를 생성
 ```
 placement-new는 `이미 할당된 memory에 객체를 생성`한다.<br>
-new에 대한 자세한 설명은 [new - 참고](/3_Language/CPP/3_new.md)<br>
+new에 대한 자세한 설명은 [new - 참고](/3_Language/CPP/3_operator_new.md.md)<br>
 
 <br>
 
