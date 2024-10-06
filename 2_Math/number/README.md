@@ -5,7 +5,7 @@
 4. [최소공배수](4_LCM.md) : `Common Multiple( 공배수 )`
 5. [Combinatorics - 조합론](5_Combinatorics.md)
    - `Permutation`
-   - `Combination`
+   - `Combination` - code example( `recursion, memoization, dp` )
 6. [Number Theory - 정수론](6_Number_Theory.md)
    - `Prime Number`
    - `Composite Number`

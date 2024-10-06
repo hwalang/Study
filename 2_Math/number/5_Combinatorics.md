@@ -9,8 +9,9 @@
     - [4개 중 3개를 뽑는다.](#4개-중-3개를-뽑는다)
     - [수식 단순화](#수식-단순화)
   - [2.2. Pascal's Triangle 원리를 적용한 Combination](#22-pascals-triangle-원리를-적용한-combination)
-    - [2.2.1. code example : DP](#221-code-example--dp)
-    - [2.2.2. code example : Recursion](#222-code-example--recursion)
+    - [2.2.1. code example : Recursion](#221-code-example--recursion)
+    - [2.2.2. code example : memorization](#222-code-example--memorization)
+    - [2.2.3. code exmaple : DP](#223-code-exmaple--dp)
 - [3. Repeated Permutation](#3-repeated-permutation)
 - [4. Repeated Combination](#4-repeated-combination)
 
@@ -118,57 +119,17 @@ $$\binom{n}{r} = \binom{n - 1}{r - 1} + \binom{n - 1}{r}$$
 
 이 `두 가지 경우의 수를 더하면, 전체 경우의 수`가 나온다<br>
 
-### 2.2.1. code example : DP
-```cpp
-#include <vector>
-#include <numeric>
-using namespace std;
-
-int solution(int n, int r) {
-  vector<long long> dp(n - r + 1);
-  dp[0] = 1;
-  for (int i = 0; i < r; ++i) {
-    for (int j = 1; j < dp.size(); ++j) {
-      dp[j] += dp[j - 1];
-    }
-  }
-  return accumulate(dp.begin(), dp.end(), 0ll);
-}
-```
-dp에는 각 index의 의미는 뽑는 개수( r )이다<br>
-즉, `dp[i]는 i개를 뽑는 경우의 수`를 나타낸다<br>
-
-`가장 외부의 for문`에서 r의 개수가 현재 n에서 r개를 뽑는 행위를 의미한다<br>
-만약 5개 중에 3개를 뽑는다면, 바깥 for문은 3번 반복한다<br>
-
-`dp[j] += dp[j - 1]`는 pascal's triangle 원리를 적용했다<br>
-- dp[j]는 두 가지 값을 저장
-  - $\binom{n}{j}$ : dp[j]
-  - $\binom{n - 1}{j}$ : dp[j] + dp[j - 1]에서의 dp[j]
-  - 즉, 덧셈 전까지 dp[j]는 $\binom{n - 1}{j}$이며, 계산 후에 $\binom{n}{j}$를 나타낸다
-- `dp[j - 1]`
-  - j개를 뽑는 경우의 수가 아닌 `j - 1개를 뽑는 경우의 수`를 나타낸다
-- 즉, dp[j] += dp[j - 1]은 $\binom{n}{j} = \binom{n - 1}{j - 1} + \binom{n - 1}{j}$를 반영하여 새로운 경우의 수를 누적하는 과정
-
-예를 들면, $\binom{5}{3} = \binom{4}{3} + \binom{4}{2}$이다<br>
-
 <br>
 
-### 2.2.2. code example : Recursion
+### 2.2.1. code example : Recursion
 ```cpp
+// O(2^n)
 using namespace std;
 
 int combi(int n, int r){
-    if(r == 0) return 1;
-    if(r == n) return 1;
+    if(r == 0 || r == n) return 1;
     if(r > n) return 0;
     return combi(n-1, r) + combi(n-1, r-1);
-}
-
-int solution(int balls, int share) {
-    int answer = 0;
-    answer = combi(balls, share);
-    return answer;
 }
 ```
 `r == 0`은 $\binom{n}{0} = 1$를 의미하며, 0개를 선택하는 경우를 처리한다.<br>
@@ -176,6 +137,72 @@ int solution(int balls, int share) {
 
 `r > 0은 불가능하기 때문에 항상 0가지 존재`한다<br>
 
+
+### 2.2.2. code example : memorization
+recursion 코드에서 중복 계산을 피하기 위한 방법   
+```cpp
+// O(n * r)
+#include <vector>
+using namespace std;
+
+int combi(int n, int r, vector<vector<int>>& memo) {
+  if (r == 0 || r == n) return 1;
+  if (r > n) return 0;
+  if (memo[n][r] != -1) return memo[n][r];
+  memo[n][r] = combi(n - 1, r, memo) + combi(n - 1, r - 1, memo);
+  return memo[n][r];
+}
+```
+memo[n][r]은 이미 계산된 combi(n, r) 값을 저장한다   
+recursion 호출 전에 memo[n][r]을 확인하여 중복 계산을 방지한다   
+시간 복잡도가 개선된다   
+
+### 2.2.3. code exmaple : DP
+```cpp
+// O(n * r)
+#include <vector>
+using namespace std;
+
+int combi(int n, int r) {
+  vector<vector<int>> dp(n + 1, vector<int>(r + 1, 0));
+
+  for (int i = 0; i <= n; ++i) {
+    dp[i][0] = 1;     // nC0 = 1;
+  }
+
+  for (int i = 0; i <= n; ++i) {
+    for (int j = 1; j <= min(i, r); ++j) {
+      if (i == j) dp[i][j] = 1;   // nCn = 1
+      else dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1];
+
+    }
+  }
+  return dp[n][r];
+}
+```
+dp[i][j]는 i개의 원소에서 j개를 선택하는 조합의 수를 저장한다   
+pascal's triangle 원리를 이용한 조합 수식을 사용한다   
+```cpp
+// 이해하기 어려움 skip
+#include <vector>
+using namespace std;
+
+int combi(int n, int r) {
+  vector<int> dp(r + 1, 0);
+  dp[0] = 1;      // nC0 = 1
+
+  for (int i = 1; i <= n; ++i) {
+    for (int j = min(i, r); j > 0; --j) {
+      dp[j] = dp[j] + dp[j - 1];
+    }
+  }
+
+  return dp[r];
+}
+```
+공간 복잡도 O(n * r)에서 O(r)으로 줄여 공간 효율성을 높였다   
+dp[j]는 현재 단계에서의 조합 수를 저장한다   
+j를 역순으로 순회하여 이전 단계의 값을 덮어쓰지 않는다   
 
 <br><br>
 
