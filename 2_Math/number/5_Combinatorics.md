@@ -153,6 +153,7 @@ int combi(int n, int r, vector<vector<int>>& memo) {
   return memo[n][r];
 }
 ```
+`vector<vector<int>> memo(n + 1, vector<int>(r + 1, -1))`   
 memo[n][r]은 이미 계산된 combi(n, r) 값을 저장한다   
 recursion 호출 전에 memo[n][r]을 확인하여 중복 계산을 방지한다   
 시간 복잡도가 개선된다   
@@ -170,20 +171,22 @@ int combi(int n, int r) {
     dp[i][0] = 1;     // nC0 = 1;
   }
 
+  // iCj
   for (int i = 0; i <= n; ++i) {
     for (int j = 1; j <= min(i, r); ++j) {
       if (i == j) dp[i][j] = 1;   // nCn = 1
       else dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1];
-
     }
   }
   return dp[n][r];
 }
 ```
 dp[i][j]는 i개의 원소에서 j개를 선택하는 조합의 수를 저장한다   
+`min(i, r)`은 선택한 원소의 수 j가 전체 원소의 수 i를 넘을 수 없기 때문이다   
 pascal's triangle 원리를 이용한 조합 수식을 사용한다   
+
 ```cpp
-// 이해하기 어려움 skip
+// 공간: O(r) | 시간: O(n * r)
 #include <vector>
 using namespace std;
 
@@ -191,7 +194,7 @@ int combi(int n, int r) {
   vector<int> dp(r + 1, 0);
   dp[0] = 1;      // nC0 = 1
 
-  for (int i = 1; i <= n; ++i) {
+  for (int i = 1; i <= n; ++i) {          // iCj
     for (int j = min(i, r); j > 0; --j) {
       dp[j] = dp[j] + dp[j - 1];
     }
@@ -202,7 +205,15 @@ int combi(int n, int r) {
 ```
 공간 복잡도 O(n * r)에서 O(r)으로 줄여 공간 효율성을 높였다   
 dp[j]는 현재 단계에서의 조합 수를 저장한다   
+`dp[0] = 1` 조합의 기본 값인 C(n, 0) 즉, 아무것도 선택하지 않는 경우의 수는 항상 1이다   
 j를 역순으로 순회하여 이전 단계의 값을 덮어쓰지 않는다   
+
+`dp[j]`는 이전 단계까지 계산된 C(i - 1, j) 값이다   
+`dp[j - 1]`은 C(i - 1, j - 1) 값이다   
+즉, 이 식은 pascal's triangle 원리를 이용한 C(i, j) = C(i - 1, j) + C(i - 1, j - 1)이다   
+두 조합값을 더한 dp[j]는 C(i, j)이다   
+
+dp[r]은 C(n, r)값이 저장됐다   
 
 <br><br>
 
