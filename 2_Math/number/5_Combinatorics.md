@@ -10,7 +10,7 @@
     - [수식 단순화](#수식-단순화)
   - [2.2. Pascal's Triangle 원리를 적용한 Combination](#22-pascals-triangle-원리를-적용한-combination)
     - [2.2.1. code example : Recursion](#221-code-example--recursion)
-    - [2.2.2. code example : memorization](#222-code-example--memorization)
+    - [2.2.2. code example : memoization](#222-code-example--memoization)
     - [2.2.3. code exmaple : DP](#223-code-exmaple--dp)
 - [3. Repeated Permutation](#3-repeated-permutation)
 - [4. Repeated Combination](#4-repeated-combination)
@@ -138,7 +138,7 @@ int combi(int n, int r){
 `r > 0은 불가능하기 때문에 항상 0가지 존재`한다<br>
 
 
-### 2.2.2. code example : memorization
+### 2.2.2. code example : memoization
 recursion 코드에서 중복 계산을 피하기 위한 방법   
 ```cpp
 // O(n * r)
