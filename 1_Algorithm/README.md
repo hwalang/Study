@@ -64,7 +64,7 @@
 | `2024.09.17` | [`소인수 분해`](Programmers/240917_소인수분해.md) | set, prime factorization | 0 |
 | `2024.09.17` | [`모음 제거`](Programmers/240917_모음제거.md) | unordered_set, remove_if, erase | 0 |
 | `2024.09.15` | [`합성수 찾기`](Programmers/240915_합성수찾기.md) | Composite Number | 0 |
-| `2024.09.13` | [`구슬을 나누는 경우의 수`](Programmers/240913_구슬을나누는경우의수.md) | Combination, DP, Recursion | 0 |
+| `2024.09.13` | [`구슬을 나누는 경우의 수`](Programmers/240913_구슬을나누는경우의수.md) | Combination, DP, Recursion, memorization | 1 |
 | `2024.09.12` | [`순서쌍의 개수`](Programmers/240912_순서쌍의개수.md) | 수학 | 1 |
 | `2024.09.12` | [`진료순서 정하기`](Programmers/240912_진료순서정하기.md) | 문제 해석 능력 | 1 |
 | `2024.09.06` | [`정수를 나선형으로 배치하기`](Programmers/240906_정수를나선형으로배치.md) | matrix, implementation | 1 |
