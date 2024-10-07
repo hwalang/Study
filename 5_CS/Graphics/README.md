@@ -83,7 +83,8 @@
      - Rotate
      - Scale
    - `Vertex Shader`
-3. 
+3. **[Depth Buffer( z-buffer )](10_Depth_Buffer.md)**
+   - Depth Buffer `in Orthographic Projection`
 
 <br>
 
