@@ -90,7 +90,10 @@
    - Shader
    - `Vertex Shader`
    - `Pixel Shader`
+5. **[Culling](12_Culling.md)**
+   - `Back-face Culling`
 
 <br>
 
-Backface culling: 뒷면을 그리지 않는 방법   
+복잡한 로직( 예, 파이어볼 )을 디버깅 할 때는 일부 이미지 처리 효과나 이펙트 등 유닛 테스트처럼 따로 분리해서 디버깅하는 것을 권장한다   
+일반적으로 일효율을 높이는 요령이다   
