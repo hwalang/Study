@@ -62,7 +62,7 @@
 | `2024.09.20` | [`영어가 싫어요`](Programmers/240920_영어가싫어요.md) | string | 0 |
 | `2024.09.19` | [`가까운 수`](Programmers/240919_가까운수.md) | Simulation | 0 |
 | `2024.09.17` | [`소인수 분해`](Programmers/240917_소인수분해.md) | set, prime factorization | 0 |
-| `2024.09.17` | [`모음 제거`](Programmers/240917_모음제거.md) | unordered_set, remove_if, erase | 0 |
+| `2024.09.17` | [`모음 제거`](Programmers/240917_모음제거.md) | unordered_set | 1 |
 | `2024.09.15` | [`합성수 찾기`](Programmers/240915_합성수찾기.md) | Composite Number | 1 |
 | `2024.09.13` | [`구슬을 나누는 경우의 수`](Programmers/240913_구슬을나누는경우의수.md) | Combination, DP, Recursion, memoization | 1 |
 | `2024.09.12` | [`순서쌍의 개수`](Programmers/240912_순서쌍의개수.md) | 수학 | 1 |
