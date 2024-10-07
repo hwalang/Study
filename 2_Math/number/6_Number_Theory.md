@@ -68,12 +68,11 @@ bool is_prime(int num) {
 ## 2.2. Composite Number in CPP
 ```cpp
 #include <iostream>
-#include <cmath>
 
 bool is_composite(int num) {
-  if (num <= 1) return false;
+  if (num <= 3) return false;
 
-  for (int i = 2; i <= std::sqrt(num); ++i) {
+  for (int i = 2; i * i <= num; ++i) {
     if (num % i == 0) return true;
   }
 
@@ -86,6 +85,9 @@ bool is_composite(int num) {
 제곱근까지 검사하는 이유는 약수의 대칭성 때문이다. 12의 약수는 (2, 6), (3, 4)와 같이 곱셈의 순서가 바뀐 쌍으로 나타나기 때문에 제곱근 이상을 검사할 필요가 없다   
 약수를 찾지 못하면 약수가 1과 자기 자신만 존재하기 때문에 prime number다   
 
+num이 3이하인 경우에는 소수로 판단하지만, i가 2부터 시작하는 이유는 합성수를 판단하는 로직 때문이다   
+loop 시작을 4로 하면, num = 9일 때, 약수인 3을 검사하지 않기 때문에 잘못된 결과를 얻게 된다   
+따라서 2부터 시작하여 num의 약수인지 판단해야 한다   
 
 <br><br>
 
