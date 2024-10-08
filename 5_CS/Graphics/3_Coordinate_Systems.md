@@ -214,8 +214,8 @@ $\alpha$는 점 P를 꼭지점으로 하는 삼각형 PBC의 면적이 전체 �
 ```
 
 $$P = \begin{cases}
-  \mathnormal{x}_{P} = \alpha \mathnormal{x}_{A} + \beta \mathnormal{x}_{B} + \gamma \mathnormal{x}_{C} \\
-  \mathnormal{y}_{P} = \alpha \mathnormal{y}_{A} + \beta \mathnormal{y}_{B} + \gamma \mathnormal{y}_{C}
+  x_{P} = \alpha x_{A} + \beta x_{B} + \gamma x_{C} \\
+  y_{P} = \alpha y_{A} + \beta y_{B} + \gamma y_{C}
 \end{cases}$$
 
 ```cpp
