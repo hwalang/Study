@@ -153,7 +153,8 @@ int main()
 
 #### 홀수 인수 검사 및 제거
 step 1 이후, `i가 3부터 시작하여 2씩 증가하면서 sqrt(num)까지 순회`한다.   
-모든 composite number는 자신과 같거나 작은 prime factor를 최소 하나를 가진다.   
+
+모든 composite number는 `sqrt(n) 이하의 prime factor를 적어도 하나는 가진다`   
 ```cpp
 // 왜 sqrt(n)까지 순회하나?
 // composite number: n
@@ -162,9 +163,10 @@ n의 인수 i에 대해 n = i * (n / i)가 성립
 i와 (n / i)가 sqrt(n)보다 크다면, i * (n / i) = n 임을 부정하는 것이다
 때문에 i와 (n / i) 중 최소 하나는 반드시 sqrt(n)이하이다
 ```
-이러한 성질을 이용하여 for문을 수행한다   
-1. i + 2를 통해 n의 소인수인 1 또는 prime factor를 찾는다
-2. `n /= i를 모든 i에 대해 반복적으로 수행하여 n을 prime factor i( n의 인수 )와 중복된 경우를 제거`한다
+또한 `i * i <= n`까지 순회하는 이유는 n의 인수인 i에 대해 `n == i * (n / i)`가 성립한다   
+이러한 성질을 이용하여 1 또는 하나의 소수가 남을 때까지 number를 소수로 나눈다   
+
+`n /= i를 모든 i에 대해 반복적으로 수행하여 n을 prime factor i( n의 인수 )와 중복된 경우를 제거`한다
 
 #### 남은 prime factor 처리
 `마지막으로 남은 수가 2보다 크면, num 자체가 소수`이다   
