@@ -35,7 +35,7 @@
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
    - `Relative Luminance Y`, `bloom effect`
-4. **[Coordinate Systems](4_Coordinate_Systems.md)**
+4. **[Coordinate Systems](3_Coordinate_Systems.md)**
    - `Texture Coordinates`
      - texture`
      - `texel`
