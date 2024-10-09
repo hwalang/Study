@@ -62,7 +62,7 @@
 | `2024.09.21` | [`n의 배수 고르기`](Programmers/240921_n의배수고르기.md) | remove_if, erase, accumulate | 0 |
 | `2024.09.20` | [`배열의 유사도`](Programmers/240920_배열의유사도.md) | set | 0 |
 | `2024.09.20` | [`문자열 계산하기`](Programmers/240920_문자열계산하기.md) | stringstream | 0 |
-| `2024.09.20` | [`영어가 싫어요`](Programmers/240920_영어가싫어요.md) | string | 0 |
+| `2024.09.20` | [`영어가 싫어요`](Programmers/240920_영어가싫어요.md) | string, regex | 1 |
 | `2024.09.19` | [`가까운 수`](Programmers/240919_가까운수.md) | Simulation | 1 |
 | `2024.09.17` | [`소인수 분해`](Programmers/240917_소인수분해.md) | set, prime factorization | 1 |
 | `2024.09.17` | [`모음 제거`](Programmers/240917_모음제거.md) | unordered_set | 1 |
