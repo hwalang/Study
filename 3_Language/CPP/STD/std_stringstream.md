@@ -2,10 +2,10 @@
   - [1. stringstream STATE](#1-stringstream-state)
 - [사용법](#사용법)
   - [1. read/write stream](#1-readwrite-stream)
-  - [2. stringstream::str(), clear()](#2-stringstreamstr-clear)
-  - [3. operator\>\>](#3-operator)
-    - [3.1. token( split )](#31-token-split-)
-    - [3.2. automatically type casting](#32-automatically-type-casting)
+  - [2. operator\>\>](#2-operator)
+    - [2.1. token( split )](#21-token-split-)
+    - [2.2. automatically type casting](#22-automatically-type-casting)
+  - [3. stringstream::str(), clear()](#3-stringstreamstr-clear)
 
 <br>
 
@@ -53,7 +53,7 @@ int main()
   ss << "World!";
 
   std::string result = ss.str();
-  std::cout << result << std::endl;
+  std::cout << result << std::endl;   // Hello, World!
 }
 ```
 ```cpp
@@ -75,31 +75,15 @@ int main()
 
 <br>
 
-## 2. stringstream::str(), clear()
-```cpp
-std::stringstream ss;
-ss << "12345";
-
-int num;
-ss >> num;    // 12345
-
-ss.str("");
-ss.clear();
-```
-`str()` : stringstream 객체에 있는 문자열을 get 또는 set 한다.<br>
-`clear()` : stringstream 상태를 초기화<br>
-
-<br>
-
-## 3. operator>>
+## 2. operator>>
 ```cpp
 basic_istream& operator>>( unsigned short& value );
 basic_istream& operator>>( unsigned int& value );
 ...
 ```
 input stream으로부터 값을 추출한다   
-기본적으로 whitespace를 스킵하여 값을 추출하며, 
-### 3.1. token( split )
+기본적으로 `whitespace를 기준으로 값을 추출`한다   
+### 2.1. token( split )
 ```cpp
 std::string data = "apple orange banana";
 std::stringstream ss(data);
@@ -110,10 +94,28 @@ while (ss >> word) {
   std::cout << word << std::endl;
 }
 ```
-문자열을 특정 구분자를 기준으로 나눌 수 있다<br>
 operator>>를 이용하여 공백 문자를 제거하면서 문자열을 나눈다<br>
 
-### 3.2. automatically type casting
+```cpp
+#include <iostream>
+#include <sstream>
+#include <string>
+
+istringstream input;
+input.str("1\n2\n3\n4\n5\n6\n7\n");
+int sum = 0;
+for (string line; getline(input, line)) sum += stoi(line);
+
+// ;을 기준으로 split
+istringstream input2;
+input2.str("a;b;c;d");
+for (string line; getline(input2, line, ';')) cout << line << ' ';
+```
+[basic_string의 getline()](std_getline.md/#stdgetline---basic_string)을 이용하면 문자열을 특정 구분자를 기준으로 나눌 수 있다   
+
+<br>
+
+### 2.2. automatically type casting
 ```cpp
 string input = "41 3.14 false hello world";
 stringstream ss(input);
@@ -130,4 +132,20 @@ cout  << "n = " << n << '\n'
 // extract the rest using the streambuf overload
 ss >> std::cout.rdbuf();
 ```
-이처럼 string을 입력 받아서 공백을 기준으로 나누되, 다양한 TYPE으로 Casting이 가능하다   
+이처럼 string을 입력 받아서 공백을 기준으로 나누되, `Implicit Type Casting이 가능`하다   
+
+<br>
+
+## 3. stringstream::str(), clear()
+```cpp
+std::stringstream ss;
+ss << "12345";
+
+int num;
+ss >> num;    // 12345
+
+ss.str("");
+ss.clear();
+```
+`str()` : stringstream 객체에 있는 문자열을 get 또는 set 한다.<br>
+`clear()` : stringstream 상태를 초기화<br>
