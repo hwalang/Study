@@ -30,6 +30,9 @@
 
 ## String
 1. [std::basic_string::substr](std_string_substr.md)
+2. [regular expression](std_regex.md)
+   - std::regex
+   - std::regex_replace
 
 <br>
 
