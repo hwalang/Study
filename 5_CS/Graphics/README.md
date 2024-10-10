@@ -58,7 +58,6 @@
    - `Reflection`
    - `Transparency`, `Refraction`
    - `Cube Mapping`
-   - projection( `Orthographic, Perspective` )
 7. **[Texturing](6_texturing.md)**
    - `texture coordinates`
    - `sampling`, `exture sampling
@@ -92,6 +91,9 @@
    - `Pixel Shader`
 5. **[Culling](12_Culling.md)**
    - `Back-face Culling`
+6. [Projection](13_Projection.md)
+   - `Orthographics`
+   - `Perspective`, `Perspective-Correct Interpolation`
 
 <br>
 
