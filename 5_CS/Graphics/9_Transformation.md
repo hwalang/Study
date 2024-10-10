@@ -49,6 +49,9 @@ memory에 저장할 때, 중복을 제거하기 위해 효율적인 자료구조
 Triangle Mesh로 구성된 원에 Transformation( rotation, translation, scale ) 연산을 적용하려면 어떻게 하나?   
 
 ### 어떤 점을 원점에 대해 회전시키는 경우
+
+참고로 `object( ex. box )를 회전시킬 때는 normal vector도 함께 회전`시켜줘야 한다   
+
 ![alt text](Images/Transformation/rotation_world.png)   
 
 2차원에서는 어떤 Point를 중심으로 회전하는지가 중요하다   
