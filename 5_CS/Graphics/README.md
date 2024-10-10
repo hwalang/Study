@@ -49,8 +49,10 @@
 5. **[Lighting Model](4_Lighting_Model.md)**
    - `Lambertian Reflection`
      - `Diffuse Surface`, `Diffuse Reflection`, `Specular Reflection`, `Lambert's consine law`, `Diffuse Lighting Model`
-     - `Phong Reflection Model`
-       - Diffuse, Specular, Ambient
+   - `Phong Reflection Model`
+     - Diffuse, Specular, Ambient
+   - `Blinn-Phong Model`
+     - Halfway Vector
 6. **[Ray Tracing](5_Ray_Tracing.md)**
    - rendering( `image-order, object-order` )
    - `Ray Tracing Algorithm`
