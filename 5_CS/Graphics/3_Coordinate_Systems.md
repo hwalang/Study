@@ -2,6 +2,7 @@
   - [1. Left-handed Coordinates](#1-left-handed-coordinates)
   - [2. Right-handed Coordinates](#2-right-handed-coordinates)
   - [3 Cross Product](#3-cross-product)
+- [Normalized Device Coordinates( NDC )](#normalized-device-coordinates-ndc-)
 - [Texture Coordinates](#texture-coordinates)
   - [1. Texture와 Texture Coordinates](#1-texture와-texture-coordinates)
   - [2. Mapping Texels to Screen Space in DirectX](#2-mapping-texels-to-screen-space-in-directx)
@@ -25,9 +26,6 @@
 
 <br>
 
-[Normalized Device Coordinates](http://www.directxtutorial.com/lesson.aspx?lessonid=111-4-1)   
-- 해상도와 상관 없이 Screen을 표현하기 위해 가로 세로 길이가 2인 정사각형 좌표계를 말한다
-- 
 Local/World 좌표계   
 이미지 좌표계   
 스크린 좌표계   
@@ -61,6 +59,14 @@ glm::vec3 crossXY = glm::cross(vecX, vecY);   // (0, 0, 1)
 glm::vec3 crossYX = glm::cross(vecY, vecX);   // (0, 0, -1)
 ```
 따라서 **library의 cross()를 사용할 때 인자로 들어가는 순서**는 `X cross Y = Z`이다<br>
+
+
+<br><br>
+
+
+# Normalized Device Coordinates( NDC )
+[Normalized Device Coordinates](http://www.directxtutorial.com/lesson.aspx?lessonid=111-4-1)   
+- 해상도와 상관 없이 Screen을 표현하기 위해 가로 세로 길이가 2인 정사각형 좌표계를 말한다
 
 
 <br><br>
