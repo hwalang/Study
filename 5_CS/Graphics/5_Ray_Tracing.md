@@ -19,9 +19,6 @@
   - [pixel color 연산](#pixel-color-연산)
 - [Transparency와 Refraction](#transparency와-refraction)
 - [Cube Mapping](#cube-mapping)
-- [Projection](#projection)
-  - [Orthographic Projection](#orthographic-projection)
-  - [Perspective Projection](#perspective-projection)
 - [Ray Tracing을 구현하기 위해 필요한 정보](#ray-tracing을-구현하기-위해-필요한-정보)
     - [1. Ray( 광선 정보 )](#1-ray-광선-정보-)
     - [2. Hit( 충돌 정보 )](#2-hit-충돌-정보-)
@@ -242,21 +239,6 @@ reflection 속성을 가진다면, `ray와 충돌한 object의 표면에서 다�
 # Cube Mapping
 `배경을 만들 때 많이 사용`하는 Cube Mapping<br>
 cube map texture를 따로 구해야 한다<br>
-
-
-<br><br>
-
-
-# Projection
-Orthographic Projection( 정투영 )과 Perspective Projection( 원근투영 )이 있다<br>
-`Ray Tracing을 이용해서 Projection 효과를 구현`할 수 있다<br>
-
-## Orthographic Projection
-`Ray를 Screen의 모든 pixel에서 수직인 방향( vec3(0, 0, 1) )으로 Scene에 쏴 준다`<br>
-
-## Perspective Projection
-`Ray가 Screen의 pixel마다 쏴주는 방향이 다르다`<br>
-방향을 다르게 하는 방법은 virtual camera( 가상의 눈, 카메라 )의 위치에서 Screen의 pixel 위치로 Ray를 쏜다<br>
 
 
 <br><br>
