@@ -57,7 +57,7 @@
 | `2024.09.24` | [`삼각형의 완성조건(2)`](Programmers/240924_삼각형의완성조건2.md) | math | 0 |
 | `2024.09.24` | [`안전 지대`](Programmers/240924_안전지대.md) | simulation | 0 |
 | `2024.09.24` | [`숨어있는 숫자의 덧셈(2)`](Programmers/240924_숨어있는숫자의덧셈2.md) | token, parsing | 0 |
-| `2024.09.23` | [`다항식 더하기`](Programmers/240923_다항식더하기.md) | simulation, token, parsing | 0 |
+| `2024.09.23` | [`다항식 더하기`](Programmers/240923_다항식더하기.md) | simulation, token, parsing | 1 |
 | `2024.09.22` | [`머쓱이보다 키 큰 사람`](Programmers/240922_머쓱이보다키큰사람.md) | distance | 1 |
 | `2024.09.21` | [`n의 배수 고르기`](Programmers/240921_n의배수고르기.md) | remove_if, erase, accumulate | 1 |
 | `2024.09.20` | [`배열의 유사도`](Programmers/240920_배열의유사도.md) | set | 1 |
