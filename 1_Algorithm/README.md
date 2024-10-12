@@ -83,4 +83,4 @@
 ### Level 1
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
-|  |  |   |  |
+| `2024.10.12` | [두 정수 사이의 합](Programmers_level_1/241012_두정수사이의합.md) | Arithmetic Sequence, type casting | 0 |
