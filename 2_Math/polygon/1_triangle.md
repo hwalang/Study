@@ -10,9 +10,9 @@
 # Triangle Inequality Theorem( 삼각형 완성 조건 )
 `삼각형 세 변의 길이가 서로를 만족해야 삼각형을 성립`할 수 있다는 조건   
 
-## 1. Degenerate Triangle
+## 1. The three types of degenerate Triangles
 ![alt text](Images/Triangle/degenerate_triangle.png)   
-두 변의 길이의 합이 나머지 한 변의 길이보다 같은 경우, degenerate triangle을 나타낸다   
+두 변의 길이의 합이 나머지 한 변의 길이보다 같은 경우, degeneracy triangle을 나타낸다   
 이는 넓이가 0인 삼각형을 의미한다   
 
 ## 2. Triangle Inequality
