@@ -49,6 +49,8 @@ $$\textnormal{Number of possible c = (Upper Bound) - (Lower Bound) + 1}$$
 
 $$\textnormal{Number of possible c =} ( a + b - 1 ) - (a-b+1) + 1 = 2b - 1$$
 
+UpperBound에 +1, LowerBound에 -1을 한 이유는 $\leq$가 아니기 때문이다   
+
 ## 3. Code Example
 [240924_삼각형의완성조건(2)](/1_Algorithm/Programmers/240924_삼각형의완성조건2.md)   
 [Triangle Inequality Expression](#2-triangle-inequality)   
