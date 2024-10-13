@@ -41,9 +41,12 @@ $$|a - b| < c < a + b$$
 이때 a, b는 주어진 두 변 중 더 큰 값이 a이고, 더 작은 값이 b이다($a \geq b$)   
 
 ### 2.2. Counting the Number of Integers in a Closed Interval
-더 나아가 `닫힌 구간[L, U] 내에 있는 정수의 개수를 구하는 공식`을 사용하면, c가 가질 수 있는 가능한 값이 몇 개인지 판단할 수 있다   
+더 나아가 `닫힌 구간[L, U] 내에 있는 정수의 개수를 구하는 공식`을 사용하면, c가 가질 수 있는 가능한 값이 몇 개인지 판단할 수 있다  
+
 $$\textnormal{Number of Integers between L and U = U - L + 1}$$
+
 $$\textnormal{Number of possible c = (Upper Bound) - (Lower Bound) + 1}$$
+
 $$\textnormal{Number of possible c =} ( a + b - 1 ) - (a-b+1) + 1 = 2b - 1$$
 
 ## 3. Code Example
