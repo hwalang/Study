@@ -54,7 +54,7 @@
 | `2024.09.28` | [`유한소수 판별하기`](Programmers_level_0/240928_유한소수판별하기.md) | Irreducible Fraction, Prime Factor, Prime Factorization, GCD | 0 |
 | `2024.09.27` | [`겹치는 선분의 길이`](Programmers_level_0/240927_겹치는선분의길이.md) | sweep line algorithm | 0 |
 | `2024.09.24` | [`외계어 사전`](Programmers_level_0/240924_외계어사전.md) | string, simulation | 0 |
-| `2024.09.24` | [`삼각형의 완성조건(2)`](Programmers_level_0/240924_삼각형의완성조건2.md) | math | 0 |
+| `2024.09.24` | [`삼각형의 완성조건(2)`](Programmers_level_0/240924_삼각형의완성조건2.md) | math | 1 |
 | `2024.09.24` | [`안전 지대`](Programmers_level_0/240924_안전지대.md) | simulation | 1 |
 | `2024.09.24` | [`숨어있는 숫자의 덧셈(2)`](Programmers_level_0/240924_숨어있는숫자의덧셈2.md) | token, parsing | 1 |
 | `2024.09.23` | [`다항식 더하기`](Programmers_level_0/240923_다항식더하기.md) | simulation, token, parsing | 1 |
