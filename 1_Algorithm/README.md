@@ -52,7 +52,7 @@
 | `2024.09.29` | [`등수 매기기`](Programmers_level_0/240929_등수매기기.md) | simulation | 0 |
 | `2024.09.28` | [`옹알이(1)`](Programmers_level_0/240928_옹알이1.md) | string, bit mask | 0 |
 | `2024.09.28` | [`유한소수 판별하기`](Programmers_level_0/240928_유한소수판별하기.md) | Irreducible Fraction, Prime Factor, Prime Factorization, GCD | 0 |
-| `2024.09.27` | [`겹치는 선분의 길이`](Programmers_level_0/240927_겹치는선분의길이.md) | sweep line algorithm | 0 |
+| `2024.09.27` | [`겹치는 선분의 길이`](Programmers_level_0/240927_겹치는선분의길이.md) | sweep line algorithm | 1 |
 | `2024.09.24` | [`외계어 사전`](Programmers_level_0/240924_외계어사전.md) | string, simulation, unordered_map | 1 |
 | `2024.09.24` | [`삼각형의 완성조건(2)`](Programmers_level_0/240924_삼각형의완성조건2.md) | math | 1 |
 | `2024.09.24` | [`안전 지대`](Programmers_level_0/240924_안전지대.md) | simulation | 1 |

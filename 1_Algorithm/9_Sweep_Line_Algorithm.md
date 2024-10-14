@@ -30,6 +30,7 @@ Event( 또는 Entry )가 발생하고 이를 기반으로 정보를 업데이트
 두 개 이상의 선분이 활성화된 구간의 길이를 누적   
 
 ### 1.4. Code
+[비슷하지만 세부 코드가 다른 방식](Programmers_level_0/240927_겹치는선분의길이.md)   
 ```cpp
 #include <vector>
 #include <algorithm>
