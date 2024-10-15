@@ -5,6 +5,7 @@
     - [1.1. 짝수? 홀수?](#11-짝수-홀수)
     - [1.2. bit mask](#12-bit-mask)
       - [응용 : Flag](#응용--flag)
+      - [응용 : 사용됐는지 여부를 추적](#응용--사용됐는지-여부를-추적)
   - [2. Bitwise Left-Shift : 2배](#2-bitwise-left-shift--2배)
     - [2.1. 모든 elements를 2배씩 증가](#21-모든-elements를-2배씩-증가)
     - [2.2. T시간에 2배씩 증가](#22-t시간에-2배씩-증가)
@@ -114,6 +115,56 @@ int main() {
 }
 ```
 
+#### 응용 : 사용됐는지 여부를 추적
+[ Programmers - 옹알이(1) ](https://school.programmers.co.kr/learn/courses/30/lessons/120956)   
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// 허용된 발음 리스트
+const vector<string> allowed = {"aya", "ye", "woo", "ma"};
+
+// 주어진 문자열이 발음 리스트로만 구성될 수 있는지 확인하는 함수
+bool can_babble(const string& s, int index, int used) {
+  // 문자열 끝에 도달하면 성공
+  if (index == s.size()) return true;
+
+  // 모든 허용된 발음에 대해 시도
+  for (int i = 0; i < allowed.size(); ++i) {
+    // 해당 발음이 아직 사용되지 않았는지 확인
+    if ( !(used & (1 << i)) ) {
+      const string& sub = allowed[i];
+      // 현재 인덱스에서 발음이 일치하는지 확인
+      if (index + sub.size() <= s.size() && s.substr(index, sub.size()) == sub) {
+        // 발음이 사용한 상태로 다음 부분 문자열을 검사
+        if ( can_babble(s, index + sub.size(), used | (1 << i)) ) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;   // 모든 발음이 실패하면 불가능
+}
+
+int solution(vector<string> babbling) {
+  int cnt = 0;
+  for (const string& s : babbling) {
+    if (can_babble(s, 0, 0)) ++cnt;
+  }
+  return cnt;
+}
+```
+used 변수는 bitmask로 사용해서, 각 bit는 allowed에 있는 특정 발음이 이미 사용됐는지 나타낸다   
+```
+bit 0 ( 1 << 0 ): "aya"의 사용 여부
+bit 1 ( 1 << 1 ): "ye"의 사용 여부
+bit 2 ( 1 << 2 ): "woo"의 사용 여부
+bit 3 ( 1 << 3 ): "ma"의 사용 여부
+```
+즉, used 변수는 4 bit( 0 ~ 3 bit )를 사용하여 각 발음의 사용 여부를 추적한다   
+
 <br><br>
 
 ## 2. Bitwise Left-Shift : 2배
@@ -123,6 +174,11 @@ int main() {
 ```
 left-shift를 수행한 뒤, rightmost position에 `새롭게 생기는 bit 값은 0`이다<br>
 `기존 값을 2배로 증가`시켜준다<br>
+```
+1 << i: 1을 왼쪽으로 i번 shift 하는 연산
+a << 1: bit a를 왼쪽으로 1번 shift 하는 연산
+```
+
 ### 2.1. 모든 elements를 2배씩 증가
 ```cpp
 #include <vector>
