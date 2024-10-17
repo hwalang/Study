@@ -48,7 +48,7 @@
 | `2024.10.03` | [`연속된 수의 합`](Programmers_level_0/241003_연속된수의합.md) | math  | 0 |
 | `2024.10.03` | [`문자열 밀기`](Programmers_level_0/241003_문자열밀기.md) | string  | 0 |
 | `2024.10.01` | [`A를 B로 만들기`](Programmers_level_0/241001_A로B만들기.md) | string  | 0 |
-| `2024.10.01` | [`이진수 더하기`](Programmers_level_0/241001_이진수더하기.md) | string, bit mask  | 0 |
+| `2024.10.01` | [`이진수 더하기`](Programmers_level_0/241001_이진수더하기.md) | string, bit mask  | 1 |
 | `2024.09.29` | [`등수 매기기`](Programmers_level_0/240929_등수매기기.md) | simulation | 1 |
 | `2024.09.28` | [`옹알이(1)`](Programmers_level_0/240928_옹알이1.md) | string, bit mask | 1 |
 | `2024.09.28` | [`유한소수 판별하기`](Programmers_level_0/240928_유한소수판별하기.md) | Irreducible Fraction, Prime Factor, Prime Factorization, GCD | 1 |
