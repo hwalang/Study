@@ -22,9 +22,27 @@
 참고로 `unit vector`는 magnitude를 제거( normalizing )했기 때문에 `direction만 표현하고 싶을 때` 구한다   
 vector는 location( 위치 ) 정보를 가지지 않는다   
 
-#### Displacements
+## 1. Displacements
 vector로 `이동하는 행위를 표현`하는 용어이며, 변위라고 번역한다   
-point A가 A'로 이동하거나 밀려지는 경우가 있다   
+이때 이동의 주체는 point이다   
+
+### 1.1. position vector
+![alt text](Images/VectorOperation/displacement_position_vector.png)   
+
+어떤 좌표계에 대해서 point를 정의하고 싶으면, 해당 좌표계의 원점으로부터 좌표 축들의 방향을 기준으로 어떤 방향으로 얼마나 가면 point가 나오는지 판단할 수 있다   
+이를 `원점으로부터 상대적인 displacement를 이용해서 point가 어디에 있는지 표현`할 수 있다   
+
+즉, 어떤 좌표계의 상대적인 point의 위치를 표현할 때, vector를 사용할 수 있다   
+이러한 point를 표현하는 벡터라는 의미를 구분하기 위해서 `position vector( 위치 벡터 )`라고 부른다   
+
+### 1.2. point operation
+point에서 point를 빼면 vector가 나온다   
+이러한 성질을 이용하면 `point p가 p'로 가는 방법을 표현`할 수 있다   
+![alt text](Images/VectorOperation/displacement.png)   
+즉, point p에서 point p'로 가는 displacement를 구하고 싶을 때, 목적지인 p'에서 시작점인 p를 빼면 된다   
+
+위 과정을 응용하면 point p에 displacement를 더하면 p'를 구할 수 있다   
+즉, `point에 vector를 더하면 또 다른 point를 구할 수 있다`   
 
 <br><br>
 
@@ -97,11 +115,19 @@ $A \times B$ <br>
 Dot product와 달리 `vector 값을 반환`하기 때문에 vector product라는 이름도 있다<br>
 `3차원에서 사용`한다<br>
 
+#### **in 2D space**
+![alt text](Images/VectorOperation/2D_Cross_Product.png)   
+2차원 공간에서 두 벡터 u와 v에 대해 cross product를 수행하려면, x좌표의 부호를 바꾼다   
+이는 `곧 특정 벡터를 90도로 회전시키는 것과 동일`하다   
+
 Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 
 ## 1. Cross product 특징
-1. `두 vector가 같은 방향 또는 반대 방향을 가리킬 때 길이가 0`
-2. `두 vector가 직각일 때 최대 길이`
+1. `두 vector가 같은 방향 또는 반대 방향을 가리킬 때 길이가 0` => cross product를 사용하는 의미가 없다
+2. `두 vector가 직각일 때 cross product의 결과는 최대 길이`를 가진다
+3. left, right `coordinates에 따라 결과 벡터의 방향이 달라진다`
+4. `두 벡터의 연산 순서`에 따라 cross product의 `결과 벡터의 방향이 달라진다`
+   - $u \times v$와 $v \times u$의 결과 벡터의 방향이 반대
 
 
 #### **in Graphics**
@@ -113,13 +139,20 @@ Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 위 두 가지 특징을 보면, a와 b vector로 얻은 한 평면의 normal vector를 구할 수 있다<br>
 
 ## 2. Cross Product 사용처
+### 2.1. 두 벡터의 수직인 벡터를 구할 때
+Cross Product가 처음으로 사용된 용도다   
+두 벡터가 서로 다른 벡터( 같은 방향 또는 반대 방향을 가리키는 벡터가 아님 )일 때, cross product를 이용하여 각 벡터에 대해 수직인 벡터를 구할 수 있다   
+
+### 2.2. 삼각형의 넓이를 구할 때
+서로 다른 벡터가 아니면 평면을 정의할 수 없다   
+
 ![alt text](Images/VectorOperation/corss_product_parallelogram.png) ![alt text](Images/VectorOperation/cross_product_triangle.png) <br>
-Graphics에서는 `삼각형의 넓이를 구할 때` cross product를 사용한다<br>
 
 $\mathbf{a}와 \mathbf{b}\text{가 이루는 삼각형의 넓이} = \frac{\parallel \mathbf{a} \times \mathbf{b} \parallel}{2}$ <br>
 
 cross product의 결과 vector의 length는 `피연산자 vector의 삼각형 넓이의 2배`이다<br>
 이는 반대로 말하면, 두 vector가 이루는 삼각형 넓이를 구하기 위해서는 cross product 결과의 length를 2로 나누면 된다<br>
+
 
 
 <br><br>
@@ -170,7 +203,9 @@ $$ = \frac{(v \cdot n)}{|n|^2}n$$
 
 $$\{v_0, v_1\} \text{ to } \{w_0, w_1\}$$
 
-$$w_0 = v_0, \space w_1 = v_1 - proj_{w_0}(v_1)$$
+$$w_0 = v_0$$
+
+$$w_1 = v_1 - proj_{w_0}(v_1)$$
 
 w0는 v0로 그대로 사용하되, w1만 w0에 수직이 되도록 만들면 된다   
 v1을 w0에 대해 Orthogonal Projection을 수행하지만, 다른 방향으로 projection해야 하기 때문에 이를 뺀다   
@@ -188,6 +223,14 @@ $$w_0 = v_0$$
 $$\text{For } 1 \leq i \leq n - 1, \space w_i = v_i - \Sigma^{i-1}_{j=0}proj_{w_j}(v_i)$$
 
 $$\text{Orthonormal Set을 구한다면 각 벡터에 대해 } w_i = \frac{w_i}{|w_i|}$$
+
+### 2.3. Orthonormalization with the Cross Product
+
+$$\hat{w_0} = \frac{v_0}{|v_0|}$$
+
+$$\hat{w_2} = \frac{\hat{w_0} \times v_1}{|\hat{w_0} \times v_1|}$$
+
+$$\hat{w_1} = \hat{w_2} \times \hat{w_0}$$
 
 
 <br><br>

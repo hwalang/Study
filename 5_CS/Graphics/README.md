@@ -10,7 +10,9 @@
 
 # Basic
 1. [Vector Operation](Vector_Operation.md)
-   - scalar와 vector, `magnitude`, `normalize(unit vector)`
+   - vector
+     - `magnitude`, `normalize(unit vector)`
+     - `displacement`, position vector
    - `Dot / Cross product`
    - `Orthogonal Projection`
      - Orthogonalization
