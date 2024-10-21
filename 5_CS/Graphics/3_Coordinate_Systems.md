@@ -26,6 +26,9 @@
 
 <br>
 
+좌표계와 같은 의미를 갖는 용어: Frame, Frame of Reference, Space, Coordinate System   
+Frame인 이유는 Frame이 움직이면 내부에 존재하는 object도 함께 이동되기 때문이다   
+
 Local/World 좌표계   
 이미지 좌표계   
 스크린 좌표계   
@@ -38,7 +41,7 @@ aspect ratio: 화면의 가로 세로 비율
 
 `OpenGL에서 Ray의 방향( z축 )은 현실 세계를 향하고`, `DirectX는 가상 세계를 바라본다`<br>
 ## 1. Left-handed Coordinates
-DirectX는 Left-handed Coordinates이다.<br>
+`DirectX는 Left-handed` Coordinates이다.<br>
 **X is to the right, and Y is up, then Z is towards screen**<br>
 **library의 cross()를 사용할 때 인자로 들어가는 순서**는 `X cross Y = -Z`이다<br>
 
