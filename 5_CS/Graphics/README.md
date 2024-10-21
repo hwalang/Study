@@ -46,7 +46,8 @@
      - object space
    - `Bary-Centric Coordinates`, 
      - `Edge Function`과 Cross Product
-5. **[Lighting Model](4_Lighting_Model.md)**
+5. **[Light And Light Model](4_Light.md)**
+   - Light
    - `Lambertian Reflection`
      - `Diffuse Surface`, `Diffuse Reflection`, `Specular Reflection`, `Lambert's consine law`, `Diffuse Lighting Model`
    - `Phong Reflection Model`

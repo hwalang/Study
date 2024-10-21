@@ -1,3 +1,4 @@
+- [Lights](#lights)
 - [Lambertian Reflection( Lambertian Shading )](#lambertian-reflection-lambertian-shading-)
   - [1. Diffuse Surface](#1-diffuse-surface)
   - [2. Diffuse Reflection과 Specular Reflection](#2-diffuse-reflection과-specular-reflection)
@@ -15,6 +16,23 @@
   - [2. Halfway Vector](#2-halfway-vector)
 
 <br>
+
+# Lights
+조명에는 Directional Light, Point Light, Spotlight가 존재한다   
+```cpp
+// lights properties
+struct Light {
+    vec3 strength      = vec3(1.0f);
+    vec3 direction     = vec3(0.0f, -1.0f, 0.0f);   // directional/spot light only
+    vec3 position      = vec3(0.0f, 1.0f, 0.5f);    // point/spot light only
+    float fallOffStart = 0.0f;                      // point/spot light only
+    float fallOffEnd   = 1.8f;                      // point/spot light only
+    float spotPower    = 0.0f;                      // spot light only
+};
+```
+조명이 가지는 속성을 나열했다. 여기서 각 Light에 따라 필요없는 속성이 있기 때문에 주석으로 이를 구분했다.   
+
+<br><br>
 
 조명이 빛을 반사해서 우리 눈에 Object가 어떻게 보이는 지에 대한 모델을 알아본다<br>
 
