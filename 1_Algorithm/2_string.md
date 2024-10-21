@@ -10,10 +10,10 @@
   - [1. string(cnt, char);](#1-stringcnt-char)
   - [2. string\[0\];](#2-string0)
 - [**문자열 비교**](#문자열-비교)
-  - [1. sort](#1-sort)
-  - [2. string doubling](#2-string-doubling)
+  - [1. 같은지 비교하는 방법](#1-같은지-비교하는-방법)
+  - [2 shift 연산으로 같아질 수 있는지 비교하는 방법](#2-shift-연산으로-같아질-수-있는지-비교하는-방법)
     - [2.1. 직접 밀기](#21-직접-밀기)
-    - [2.2. find](#22-find)
+    - [2.2. string doubling](#22-string-doubling)
 
 <br><br>
 
@@ -131,9 +131,8 @@ s[0];
 
 
 # **문자열 비교**
+## 1. 같은지 비교하는 방법
 일반적으로 문자열 길이와 처음 주어진 두 문자열이 같은지 비교하여 불필요한 연산을 피한다   
-
-## 1. sort
 ```cpp
 #include <string>
 #include <algorithm>
@@ -150,9 +149,11 @@ bool is_same(string A, string B) {
 ```
 두 문자열을 같은 기준( 여기선 사전순 )으로 정렬하면 `같은 위치에 같은 문자`가 있는 원리를 이용했다   
 
+<br>
 
-## 2. string doubling
-두 문자열 중 하나의 문자열을 오른쪽으로 최소 몇 번 밀어야 같아지는지 판단하는 방법   
+## 2 shift 연산으로 같아질 수 있는지 비교하는 방법
+두 문자열 중 하나의 문자열을 왼쪽( 또는 오른쪽 )으로 최소 몇 번 밀어야 같아지는지 판단하는 방법   
+
 ### 2.1. 직접 밀기
 ```cpp
 #include <string>
@@ -176,7 +177,8 @@ int is_same(string A, string B) {
 문자열을 오른쪽으로 한 칸씩 밀면서 확인한다   
 
 
-### 2.2. find
+### 2.2. string doubling
+두 문자열 중 하나의 문자열을 오른쪽으로 최소 몇 번 밀어야 같아지는지 판단하는 방법   
 ```cpp
 #include <string>
 using namespace std;
@@ -187,6 +189,13 @@ int is_same(string A, string B) {
     string doubled = B + B;
     return doubled.find(A);
 }
+```
+```
+A = "hello"
+B = "ohell"
+
+BB = "ohellohell"
+B.find(A) = 1
 ```
 문자열 A를 오른쪽으로 밀면서 B로 변환하는 과정은 B를 A로 되돌리는 것과 동일한 작업이다   
 따라서 B + B에서 A를 찾는 것은 A가 B의 몇 번 밀린 결과인지 정확히 알 수 있다   
