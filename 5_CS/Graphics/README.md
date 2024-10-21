@@ -12,6 +12,10 @@
 1. [Vector Operation](Vector_Operation.md)
    - scalar와 vector, `magnitude`, `normalize(unit vector)`
    - `Dot / Cross product`
+   - `Orthogonal Projection`
+     - Orthogonalization
+     - Orthogonal Set, Orthonormal Set
+     - 2D, Gram-Schmidt Orthogonalization
    - glm::vec3
 2. [Point Operation](Point_Operation.md)
    - `line`, `line-segment`

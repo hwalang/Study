@@ -1,4 +1,5 @@
 - [vector](#vector)
+      - [Displacements](#displacements)
 - [Dot product](#dot-product)
     - [특징](#특징)
     - [Dot Product 사용처](#dot-product-사용처)
@@ -16,18 +17,21 @@
 <BR>
 
 # vector
-scalar 끼리 연산을 할 때는 dot, cross 연산자에 차이가 없이 곱셈을 의미한다<br>
-하지만 vector 끼리 연산은 다르다<br>
-![alt text](Images/VectorOperation/vector.png)<br>
-`vector는 magnitude( 크기 )와 direction( 방향 )을 표현`한다<br>
+![alt text](Images/VectorOperation/vector.png)   
+`vector는 magnitude( 크기 )와 direction( 방향 )을 표현`한다   
+참고로 `unit vector`는 magnitude를 제거( normalizing )했기 때문에 `direction만 표현하고 싶을 때` 구한다   
+vector는 location( 위치 ) 정보를 가지지 않는다   
 
-참고로 `unit vector`는 magnitude를 제거했기 때문에 `direction만 표현하고 싶을 때` 구한다<br>
+#### Displacements
+vector로 `이동하는 행위를 표현`하는 용어이며, 변위라고 번역한다   
+point A가 A'로 이동하거나 밀려지는 경우가 있다   
 
-<br>
-<br>
+<br><br>
 
 # Dot product
 [ Dot product ](https://www.mathsisfun.com/algebra/vectors-dot-product.html)<br>
+
+scalar 끼리 연산을 할 때는 dot, cross 연산자에 차이가 없이 곱셈을 의미하지만 vector 끼리 연산은 다르다   
 ![alt text](Images/VectorOperation/dot_product.png)<br>
 $A \cdot B$ <br>
 
@@ -36,10 +40,19 @@ inner product 또는 projection product라는 용어도 있다<br>
 
 `하나의 vector에 투영( projection )한다는 의미`를 가진다<br>
 
-### 특징
-`두 vector가 서로 직각일 때, dot product 결과는 0`이다<br>
+## 1. Dot product 방법
+![alt text](Images/VectorOperation/dot_product2.png)    
 
-`두 vector가 같은 방향을 가리키면 a * b`이다<br>
+$$\vec{u} \cdot \vec{v} = u_xv_x + u_yv_y + u_zv_z = |u||v| \cos\theta$$
+
+이때 각도의 범위는 0 ~ 180이다.   
+
+
+## 2. Dot product 특징
+1. `두 vector가 서로 직각일 때, dot product 결과는 0`이다
+2. `두 vector가 같은 방향을 가리키면 a * b`이다
+3. $\vec{u} \cdot \vec{v}$ > 0이면, 각도가 90도보다 작다( 예각 )
+4. $\vec{u} \cdot \vec{v}$ < 0이면, 각도가 90도보다 크다( 둔각 )
 
 ![alt text](Images/VectorOperation/cosine_graph.png)<br>
 
@@ -50,26 +63,30 @@ inner product 또는 projection product라는 용어도 있다<br>
 - 두 벡터 a, b가 서로 수직이라면, $\theta = 90^\circ$
 - 두 벡터 a, b가 서로 반대 방향이라면, $90^\circ < \theta \leq 180^\circ$ `결과는 음수`
 
-### Dot Product 사용처
-`두 vector가 직각인지 확인할 때 유용`하다<br>
+## 3. Dot Product 사용처
+### 3.1. 두 vector가 직각인지 확인
 직각 삼각형에서 두 변의 길이를 알면, 피타고라스 정의를 이용해서 나머지 한 변의 길이를 구할 수 있다<br>
 
-<br>
+### 3.2. 두 vector의 방향이 상대적으로 어떤지 판단
+특히 Graphics에서 `두 unit vector의 방향을 판단`할 때 사용한다<br>
+두 벡터의 Dot product의 결과가 양수, 음수인지에 따라 두 벡터의 방향이 대강 같은지, 다른지 판단할 수 있다   
 
+이는 **삼각형의 앞면을 판단할 때도 이용하는 성질**이다   
+
+### 3.3. Orthogonal Set 구하기
+[Orthogonal Projection](#orthogonal-projection)   
+임의의 벡터들의 집합의 각 원소들이 모두 서로에 대해 직각이면 Orthogonal Set이다   
+직각 여부를 판단하기 위해서 Dot product를 사용한다   
+
+### 3.4. 물리학에서 Work를 판단
 ![alt text](Images/VectorOperation/dot_product_physics.png)<br>
-`물리학에서 Work를 판단할 때 사용`한다<br>
 $Work = Force \cdot Distance$ <br>
 $Work = Force \times Distance \times \cos \theta$ <br>
 Work가 Force * Distance인 경우는 물건에 힘을 주는 방향과 이동 방향이 같은 경우이다<br>
 
-<br>
 
-`두 vector의 방향이 상대적으로 어떤지 알고 싶을 때 유용`하다<br>
-특히 Graphics에서 `두 unit vector의 방향을 판단`할 때 사용한다<br>
+<br><br>
 
-
-<br>
-<br>
 
 # Cross product
 [ Cross product ](https://www.mathsisfun.com/algebra/vectors-cross-product.html)<br>
@@ -82,10 +99,9 @@ Dot product와 달리 `vector 값을 반환`하기 때문에 vector product라�
 
 Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 
-### 특징
-`두 vector가 같은 방향 또는 반대 방향을 가리킬 때 길이가 0`이다<br>
-
-`두 vector가 직각일 때 최대 길이`이다<br>
+## 1. Cross product 특징
+1. `두 vector가 같은 방향 또는 반대 방향을 가리킬 때 길이가 0`
+2. `두 vector가 직각일 때 최대 길이`
 
 
 #### **in Graphics**
@@ -96,7 +112,7 @@ Cross product를 나타내는 `"Right Hand Rule"`도 존재한다<br>
 
 위 두 가지 특징을 보면, a와 b vector로 얻은 한 평면의 normal vector를 구할 수 있다<br>
 
-### Cross Product 사용처
+## 2. Cross Product 사용처
 ![alt text](Images/VectorOperation/corss_product_parallelogram.png) ![alt text](Images/VectorOperation/cross_product_triangle.png) <br>
 Graphics에서는 `삼각형의 넓이를 구할 때` cross product를 사용한다<br>
 
@@ -106,8 +122,76 @@ cross product의 결과 vector의 length는 `피연산자 vector의 삼각형 �
 이는 반대로 말하면, 두 vector가 이루는 삼각형 넓이를 구하기 위해서는 cross product 결과의 length를 2로 나누면 된다<br>
 
 
-<br>
-<br>
+<br><br>
+
+
+# Orthogonal Projection
+한글로 번역하면 직각 투영이다   
+![alt text](Images/VectorOperation/Orthogonal_Projection.png)   
+위에서 벡터 v와 n이 존재할 때, 벡터 v를 다른 벡터 n에 projection하여 p를 구한다   
+이때 수직으로 투영하기 때문에 Orthogonal projection이라 한다   
+
+## 1. Orthogonal Projection 2가지 수식
+### 1.1. Unit vector
+
+$$p = proj_{\hat{n}}(v)$$
+$$ = k\hat{n}$$
+$$ = (|v||\hat{n}|\cos\theta)\hat{n}$$
+$$ = (v \cdot \hat{n})\hat{n}$$
+
+여기서 v와 n 벡터를 알고 있고, n은 normalizing해서 사용하기에 unit vector이다   
+v를 n으로 Orthogonal projection해서 생기는 `벡터 p를 구하는 것이 목표`다   
+
+p는 unit vector에 scalar k를 곱한 결과이며, 이러한 k는 $|v|\cos\theta$로 구한다   
+이때, $|\hat{n}|$은 1이기 때문에 마치 n hat의 절대값이 곱해진 것처럼 적으면, v와 n hat의 dot product로 전개할 수 있다   
+
+Dot project는 음수가 나올 수 있기에 k도 음수가 될 수 있다   
+
+### 1.2. Normal vector
+
+$$ = \frac{(v \cdot n)}{|n|^2}n$$
+
+만약 unit vector가 아닌 일반적인 벡터에 대한 n으로 p를 구하고 싶으면, 위 식을 이용한다   
+
+## 2. Orthogonalization
+임의의 벡터 집합을 서로 Orthogonal한 벡터들의 집합으로 변환하는 것을 의미한다   
+
+벡터들의 집합인 $\{ v_0, ... , v_{n-1} \}$의 `모든 벡터들이 서로 수직이라면, Orthogonal Set`이다   
+수직 여부를 Dot product로 판단할 수 있다   
+만약 `집합 안의 벡터들이 모두 unit vector인 경우, Orthonormal Set`이다   
+
+참고로 **집합에는 같은 elements가 존재하지 않고**, 길이가 0인 벡터가 존재하면 안 된다   
+
+### 2.1. 2D Orthogonalization
+2차원 공간에서는 서로 Orthogonal한 벡터를 2개만( x, y ) 찾을 수 있다   
+때문에 set에는 2개의 vector만 존재한다   
+
+![alt text](Images/VectorOperation/2D_Orthogonalization.png)   
+
+$$\{v_0, v_1\} \text{ to } \{w_0, w_1\}$$
+
+$$w_0 = v_0, \space w_1 = v_1 - proj_{w_0}(v_1)$$
+
+w0는 v0로 그대로 사용하되, w1만 w0에 수직이 되도록 만들면 된다   
+v1을 w0에 대해 Orthogonal Projection을 수행하지만, 다른 방향으로 projection해야 하기 때문에 이를 뺀다   
+즉, w0에 수직인 벡터를 찾기 위해 v1을 w0에 대해 projection한 값을 뺐다   
+
+### 2.2. Gram-Schmidt Orthogonalization
+`2D 공간의 Orthogonalization을 임의의 차원으로 확장하는 것을 의미`한다   
+
+$$w_2 = v_2 - proj_{w_0}(v_2) - proj_{w_1}(v2)$$
+
+3D 공간에는 서로 Orthogonal한 벡터가 3개가 존재한다   
+
+$$w_0 = v_0$$
+
+$$\text{For } 1 \leq i \leq n - 1, \space w_i = v_i - \Sigma^{i-1}_{j=0}proj_{w_j}(v_i)$$
+
+$$\text{Orthonormal Set을 구한다면 각 벡터에 대해 } w_i = \frac{w_i}{|w_i|}$$
+
+
+<br><br>
+
 
 # Programming
 [ glm 환경 설정 ](HongLab/part1_BasicConceptsOfRendering/1_DirectX11_환경설정.md)<br>
