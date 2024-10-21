@@ -17,4 +17,5 @@
 9.  **[ operator[]와 at()의 차이점 ](8_operator[]_at.md)**
     - operator[], at()
     - const container
-10. 
+10. **[ std::string 내부 살펴보기 ](9_string.md)**
+    - `concatenate`
