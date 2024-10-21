@@ -33,6 +33,7 @@ prime factor는 `그 자체로 소수이면서 동시에 소인수 역할을 수
 이 경우, 2와 3은 prime number이며, 18을 소수들로 나눈 결과가 prime factor이다   
 
 ## 1.2. Prime Number in CPP
+참고로 1은 소수가 아니다   
 ```cpp
 #include <iostream>
 #include <cmath>
