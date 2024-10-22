@@ -29,6 +29,11 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
    - `line`, `line-segment`
    - Affine, `Affine Combination( Affine, Sum )`
 3. [ Matrix Operation ](Matrix_Operation.md)
+   - vector를 matrix로 표현하는 방법
+     - `row-vector`, `column-vector`
+   - Matrix Multiplication
+     - properties
+     - vector-matrix multiplication, `Linear Combination`
    - 
 4. [Nonlinear Transformation](Nonlinear_Transformation.md)
    - perspective projection
