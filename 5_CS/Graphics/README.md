@@ -7,8 +7,14 @@
 **[Computer Graphics 자료 - scratchapixel](https://www.scratchapixel.com/index.html)**   
 생소한 용어가 많기 때문에 일단 메모한 뒤에 나중에 자세히 알아본다   
 
+#### Geometry란
+Geometry is a branch of mathematics concerned with questions of shape, size, the relative position of figures, and the properties of space.   
+기하학은 수학의 한 분야로, 형태, 크기, 도형들의 상대적인 위치, 그리고 공간의 특성에 대한 문제를 다룬다.   
+
+<br><br>
 
 # Basic
+Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 것이 좋을 것 같다.   
 1. [Vector Operation](Vector_Operation.md)
    - vector
      - `magnitude`, `normalize(unit vector)`
@@ -22,7 +28,9 @@
 2. [Point Operation](Point_Operation.md)
    - `line`, `line-segment`
    - Affine, `Affine Combination( Affine, Sum )`
-3. [Nonlinear Transformation](Nonlinear_Transformation.md)
+3. [ Matrix Operation ](Matrix_Operation.md)
+   - 
+4. [Nonlinear Transformation](Nonlinear_Transformation.md)
    - perspective projection
 
 
