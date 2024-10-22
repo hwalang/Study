@@ -44,7 +44,7 @@
 ### Level 0
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
-| `2024.10.03` | [`다음에 올 숫자`](Programmers_level_0/241003_다음에올숫자.md) | math  | 0 |
+| `2024.10.03` | [`다음에 올 숫자`](Programmers_level_0/241003_다음에올숫자.md) | math  | 1 |
 | `2024.10.03` | [`연속된 수의 합`](Programmers_level_0/241003_연속된수의합.md) | math  | 1 |
 | `2024.10.03` | [`문자열 밀기`](Programmers_level_0/241003_문자열밀기.md) | string  | 1 |
 | `2024.10.01` | [`A를 B로 만들기`](Programmers_level_0/241001_A로B만들기.md) | string  | 1 |
