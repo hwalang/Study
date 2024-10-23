@@ -1,6 +1,7 @@
 - [Matrix](#matrix)
   - [1. Vector로 Matrix를 표현하는 방법](#1-vector로-matrix를-표현하는-방법)
     - [1.1. 표기법: row vector, column vector](#11-표기법-row-vector-column-vector)
+      - [square matrix( 정방 행렬 )](#square-matrix-정방-행렬-)
     - [1.2. 표기법: Matrix to row vector](#12-표기법-matrix-to-row-vector)
     - [1.3. 표기법: Matrix to column vector](#13-표기법-matrix-to-column-vector)
   - [2. Matrix Multiplication](#2-matrix-multiplication)
@@ -9,6 +10,14 @@
     - [2.2. Vector-Matrix Multiplication](#22-vector-matrix-multiplication)
       - [Linear Combination](#linear-combination)
   - [3. Transpose( 전치 행렬 )](#3-transpose-전치-행렬-)
+    - [3.1. Transpose : properties](#31-transpose--properties)
+  - [4. Identity Matrix( 단위 행렬 )](#4-identity-matrix-단위-행렬-)
+  - [5. Inverse Matrix( 역행렬 )](#5-inverse-matrix-역행렬-)
+    - [5.1. Minor Matrix](#51-minor-matrix)
+    - [5.2. Cofactor Matrix](#52-cofactor-matrix)
+    - [5.3. Adjoint Matrix](#53-adjoint-matrix)
+  - [5.4. Inverse Matrix : Properties](#54-inverse-matrix--properties)
+  - [5.5. Compute the Inverse Matirx](#55-compute-the-inverse-matirx)
 
 <br>
 
@@ -45,6 +54,13 @@ $$\mathbf{u} = \begin{bmatrix}
 위 수식은 벡터 u, v를 행렬로 나타내는 방법이다   
 왼쪽 수식은 `row 하나로 벡터를 표현( row vector )`하고, 오른쪽 수식은 `column 하나로 벡터를 표현( column vector )`한다   
 DirectX는 row vector를 선호한다   
+
+<hr>
+
+#### square matrix( 정방 행렬 )
+row와 column의 개수가 같은 matrix   
+
+<hr>
 
 ### 1.2. 표기법: Matrix to row vector
 *( Asterisk, Star )   
@@ -178,3 +194,147 @@ uA를 Au로 표현할 수 있다
 <br>
 
 ## 3. Transpose( 전치 행렬 )
+
+$$
+A = \begin{bmatrix}
+  1 & 2 & 3 \\ 4 & 5 & 6
+\end{bmatrix}, \quad 
+B = \begin{bmatrix}
+  a & b & c \\ d & e & f \\ g & h & i
+\end{bmatrix}, \quad 
+C = \begin{bmatrix}
+  5 \\ 4 \\ 3 \\ 2 \\ 1
+\end{bmatrix}
+$$
+
+$$
+A^T = \begin{bmatrix}
+  1 & 4 \\ 2 & 5 \\ 3 & 6
+\end{bmatrix}, \quad
+B^T = \begin{bmatrix}
+  a & d & g \\ b & e & h \\ c & f & i
+\end{bmatrix}, \quad
+C^T = \begin{bmatrix}
+  5 & 4 & 3 & 2 & 1
+\end{bmatrix}
+$$
+
+The transpose of a matrix는 `행렬을 대각선 방향으로 뒤집는 연산자`다   
+
+<br>
+
+### 3.1. Transpose : properties
+
+1. $(A + B)^T = A^T + B^T$
+2. $(cA)^T = cA^T$
+3. $(AB)^T = B^TA^T$
+4. $(A^T)^T = A$
+5. $(A^{-1})^T = (A^T)^{-1}$
+
+<br><br>
+
+## 4. Identity Matrix( 단위 행렬 )
+숫자 1과 같은 역할이며, [square matrix](#square-matrix-정방-행렬-)이다   
+
+$$
+\mathbf{I} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}, \quad
+\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+$$
+
+$$
+\mathbf{AI = A} \\
+\mathbf{IB = B}
+$$
+
+M이 I와 같은 크기를 가진 square matrix 라면 $\mathbf{MI = IM = M}$이다   
+`벡터와 I의 곱에서도 자기 자신`이 나온다   
+
+
+<br><br>
+
+
+## 5. Inverse Matrix( 역행렬 )
+Inverse Matrix의 의미가 중요하다   
+
+`특정 벡터를 matrix를 이용하여 Transformation 했을 때, 마음에 들지 않아서 다시 되돌리고 싶은 경우`가 있다   
+이때 Inverse Matrix를 곱하여 원래 벡터로 되돌린다   
+
+아래 3가지 Matrix( Minor, Cofactor, Adjoint )는 Inverse Matrix를 표현하기 위한 도구다   
+
+<br>
+
+### 5.1. Minor Matrix
+`Minor Matrix는 Inverse Matirx를 구할 때 사용`한다   
+
+$$
+A = \begin{bmatrix}
+  A_{11} & A_{12} & A_{13} \\ A_{21} & A_{22} & A_{23} \\ A_{31} & A_{32} & A_{33}
+\end{bmatrix}
+$$
+
+$$
+\bar{A}_{11} = \begin{bmatrix} A_{22} & A_{23} \\ A_{32} & A_{33} \end{bmatrix} \\
+\bar{A}_{12} = \begin{bmatrix} A_{11} & A_{13} \\ A_{31} & A_{33} \end{bmatrix} \\
+\bar{A}_{13} = \begin{bmatrix} A_{21} & A_{22} \\ A_{32} & A_{32} \end{bmatrix}
+$$
+
+자신이 포함된 row와 column line을 무시한 나머지 elements를 나타낸다   
+Minor Matrix는 Matrix를 Determinant( 어떤 행렬의 판별식, **절댓값** )로 나타낼 때 사용한다   
+
+$$
+\det \begin{bmatrix}
+  A_{11} & A_{12} & A_{13} \\ A_{21} & A_{22} & A_{23} \\ A_{31} & A_{32} & A_{33}
+\end{bmatrix} = A_{11}\det\begin{bmatrix} A_{22} & A_{23} \\ A_{32} & A_{33} \end{bmatrix}
+- A_{12} \det\begin{bmatrix} A_{21} & A_{23} \\ A_{31} & A_{33} \end{bmatrix}
++ A_{13} \det\begin{bmatrix} A_{21} & A_{22} \\ A_{31} & A_{32} \end{bmatrix}
+$$
+
+여기서 `determinant는` A 행렬의 $A_{11}$의 `Minor Matirx의 절댓값`을 의미한다   
+즉, A matrix의 절댓값은 위 수식을 이용해서 구한다   
+
+### 5.2. Cofactor Matrix
+
+$$
+C_A = C_{ij} = (-1)^{i+j} \det \bar{A}_{ij}
+$$
+
+A matrix의 Cofactor Matrix를 $C_A$라고 표기한다   
+
+### 5.3. Adjoint Matrix
+
+$$
+A^* = C^T_A
+$$
+
+A matrix의 Cofactor Matrix의 Transpose가 Adjoint Matrix이다   
+
+<br>
+
+## 5.4. Inverse Matrix : Properties
+
+1. `square matrix만 inverse matrix`를 가질 수 있다
+2. $M^{-1}$로 표기
+3. 모든 square matrix가 inverse matrix를 가질 수 없다
+   1. `Invertible matrix` : inverse matrix를 가질 수 있는 matrix
+   2. `Singular matrix` : inverse matrix를 가질 수 없는 matrix
+4. 하나의 matrix는 하나의 inverse matrix를 가진다
+5. $MM^{-1} = M^{-1}M = I$, 자기 자신이다
+
+Singular matrix의 예시 중 하나는 모든 elements가 0인 matrix이다   
+inverse matrix를 구하기 위해서 Determinant를 나눠야 하는데, 0 값으로 나눌 수 없기 때문이다   
+
+## 5.5. Compute the Inverse Matirx
+
+$$
+A^{-1} = \frac{A^*}{\det A}
+$$
+
+이렇게 보면 inverse matrix를 구하기 위해선 많은 연산량을 요구한다   
+`Graphics에서는 특정 상황에서 inverse matrix를 위 수식으로 구하는 것이 아니라 Inverse Trnasformation( 역변환 )을 통해 효율적으로 구할 수 있다`   
+
+$$p` = pM$$
+$$p`M^{-1} = pMM^{-1}$$
+$$p`M^{-1} = pI$$
+$$p`M^{-1} = p$$
+
+위 과정은 벡터 p'을 원래 벡터 p로 되돌리는 과정으로써, inverse matrix가 어떻게 사용되는지 보여준다   
