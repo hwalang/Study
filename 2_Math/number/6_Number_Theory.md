@@ -48,7 +48,21 @@ bool is_prime(int num) {
   return true;
 }
 ```
+위 코드를 통해 composite number를 판단하는 함수를 떠올릴 수 있다   
 
+```cpp
+bool is_prime(int num) {
+    if (num <= 1) return false;         // 1 or less is not prime
+    if (num == 2) return true;          // 2 is prime
+    if (num % 2 == 0) return false;     // Even numbers greater than 2 are not prime
+    
+    for (int i = 3; i * i <= num; i += 2) { // Check odd divisors only
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+```
+오직 소수를 판단하는 기능을 최적화한 방법이다   
 
 <br><br>
 
