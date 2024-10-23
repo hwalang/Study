@@ -83,6 +83,7 @@
 ### Level 1
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.10.23` | [소수 만들기](Programmers_level_1/241023_소수만들기.md) | math | 0 |
 | `2024.10.23` | [약수의 합](Programmers_level_1/241023_약수의합.md) | math | 0 |
 | `2024.10.22` | [시저 암호](Programmers_level_1/241022_시저암호.md) | math | 0 |
 | `2024.10.21` | [수박수...?](Programmers_level_1/241021_수박.md) | string 내부 동작 | 0 |
