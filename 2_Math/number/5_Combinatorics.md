@@ -9,9 +9,12 @@
     - [4개 중 3개를 뽑는다.](#4개-중-3개를-뽑는다)
     - [수식 단순화](#수식-단순화)
   - [2.2. Pascal's Triangle 원리를 적용한 Combination](#22-pascals-triangle-원리를-적용한-combination)
-    - [2.2.1. code example : Recursion](#221-code-example--recursion)
-    - [2.2.2. code example : memoization](#222-code-example--memoization)
-    - [2.2.3. code exmaple : DP](#223-code-exmaple--dp)
+  - [2.3. Counting Combinations](#23-counting-combinations)
+    - [2.3.1. Recursion](#231-recursion)
+    - [2.3.2. memoization](#232-memoization)
+    - [2.3.3. DP](#233-dp)
+  - [2.4. Generating Combinations](#24-generating-combinations)
+    - [2.4.1. N Nested loops](#241-n-nested-loops)
 - [3. Repeated Permutation](#3-repeated-permutation)
 - [4. Repeated Combination](#4-repeated-combination)
 
@@ -121,7 +124,9 @@ $$\binom{n}{r} = \binom{n - 1}{r - 1} + \binom{n - 1}{r}$$
 
 <br>
 
-### 2.2.1. code example : Recursion
+## 2.3. Counting Combinations
+
+### 2.3.1. Recursion
 ```cpp
 // O(2^n)
 using namespace std;
@@ -138,7 +143,7 @@ int combi(int n, int r){
 `r > 0은 불가능하기 때문에 항상 0가지 존재`한다<br>
 
 
-### 2.2.2. code example : memoization
+### 2.3.2. memoization
 recursion 코드에서 중복 계산을 피하기 위한 방법   
 ```cpp
 // O(n * r)
@@ -158,7 +163,7 @@ memo[n][r]은 이미 계산된 combi(n, r) 값을 저장한다
 recursion 호출 전에 memo[n][r]을 확인하여 중복 계산을 방지한다   
 시간 복잡도가 개선된다   
 
-### 2.2.3. code exmaple : DP
+### 2.3.3. DP
 ```cpp
 // O(n * r)
 #include <vector>
@@ -214,6 +219,61 @@ j를 역순으로 순회하여 이전 단계의 값을 덮어쓰지 않는다
 두 조합값을 더한 dp[j]는 C(i, j)이다   
 
 dp[r]은 C(n, r)값이 저장됐다   
+
+<br>
+
+## 2.4. Generating Combinations
+주어진 Object, Number 등을 이용하여 서로 다른 N개의 조합을 만드는 방법을 알아본다   
+
+### 2.4.1. N Nested loops
+[Programmers - 소수 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/12977)   
+주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하는 문제   
+```cpp
+// O(N^3)
+#include <vector>
+
+using namespace std;
+
+int solution(vector<int> nums) {
+    int count = 0;
+    int n = nums.size();
+    // Iterate over all combinations of three different numbers
+    for (int i = 0; i < n - 2; ++i) {
+        for (int j = i + 1; j < n - 1; ++j) {
+            for (int k = j + 1; k < n; ++k) {
+                int sum = nums[i] + nums[j] + nums[k]; // Sum of three numbers
+                if (isPrime(sum)) count++;             // Increment count if sum is prime
+            }
+        }
+    }
+    return count; // Return the total count
+}
+```
+`nums에는 최대 50개의 숫자가 존재`하며, 각 원소는 1이상 1000이하의 자연수이며, 중복된 숫자는 없다   
+따라서 최대 조합의 수는 `C(50, 3) = 19600`이다   
+
+`각 조합이 중복되지 않으려면 (i < j < k)` 조건을 충족해야 한다   
+
+```cpp
+// 예시
+vector<int> nums = {1, 2, 3, 4};
+
+i: 0 또는 1, (0 to n - 3)
+j: (i + 1) to (n - 2)
+k: (j + 1) to (n - 1)
+
+// 1. i = 0 인 경우
+j = 1, k = 2, 3
+j = 2, k = 3
+
+// 2. i = 1 인 경우
+j = 2
+k = 3
+
+// Generated Combinations
+| 1, 2, 3 | 1, 2, 4 | 1, 3, 4 | 2, 3, 4 |
+```
+
 
 <br><br>
 
