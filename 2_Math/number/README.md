@@ -7,9 +7,13 @@
 4. [최소공배수](4_LCM.md) : `Common Multiple( 공배수 )`
 5. [Combinatorics - 조합론](5_Combinatorics.md)
    - `Permutation`
-   - `Combination` - code example( `recursion, memoization, dp` )
+   - `Combination`
+     - Counting Combination( `recursion, memoization, dp` ): 조합의 수
+     - Generating Combinations( `N nested loop` ) : 조합 생성
 6. [Number Theory - 정수론](6_Number_Theory.md)
    - `Prime Number`
+     - Prime Checking Function
+     - Prime Gernating Function
    - `Composite Number`
    - `Prime Factorization`, `sqrt vs (n * n)`
 7. [Terminating Decimal - 유한소수](7_Terminating_Decimal.md)

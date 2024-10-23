@@ -2,6 +2,8 @@
 - [1. Prime Number( 소수 )](#1-prime-number-소수-)
   - [1.1. prime factor와 prime number의 차이점](#11-prime-factor와-prime-number의-차이점)
   - [1.2. Prime Number in CPP](#12-prime-number-in-cpp)
+    - [1.2.1. Prime Checking Function](#121-prime-checking-function)
+    - [1.2.2. Prime Generating Function](#122-prime-generating-function)
 - [2. Composite Number( 합성수 )](#2-composite-number-합성수-)
   - [2.1. Example](#21-example)
   - [2.2. Composite Number in CPP](#22-composite-number-in-cpp)
@@ -34,6 +36,7 @@ prime factor는 `그 자체로 소수이면서 동시에 소인수 역할을 수
 
 ## 1.2. Prime Number in CPP
 참고로 1은 소수가 아니다   
+### 1.2.1. Prime Checking Function
 ```cpp
 #include <iostream>
 #include <cmath>
@@ -63,6 +66,24 @@ bool is_prime(int num) {
 }
 ```
 오직 소수를 판단하는 기능을 최적화한 방법이다   
+
+### 1.2.2. Prime Generating Function
+N까지의 자연수 중 무엇이 prime number인지 저장하는 list를 생성한다   
+```cpp
+// Function to generate all primes up to 'max_num' using Sieve of Eratosthenes
+vector<bool> generate_primes(int max_num) {
+  vector<bool> is_prime(max_num + 1, true);
+  is_prime[0] = is_prime[1] = false;
+  for (int i = 2; i * i <= max_num; ++i) {
+    if (is_prime[i]) {
+      for (int j = i * i; j <= max_num; j += i) {
+        is_prime[j] = false;
+      }
+    }
+  }
+  return is_prime;
+}
+```
 
 <br><br>
 
