@@ -65,21 +65,25 @@ void decToBinary(int n) {
 using namespace std;
 
 string decToBinary(int n) {
-  string str;
+  string binary;
   while (n) {
     if (n & 1) str += '1';
     else       str += '0';
     n >>= 1;
   }
-  return str;
+
+  reverse(binary.begin(), binary.end());  
+  return binary;
 }
 
 int main() {
   int num = 59;
-  string binary = decToBinary(num);       // 110111
-  reverse(binary.begin(), binary.end());  // 111011
+  string binary = decToBinary(num);       // 111011
 }
 ```
+`n & 1`로 정수의 첫 번째 자리가 1인지 판단하여 even, odd에 따라 1 또는 0을 string에 추가한다   
+그 후 나머지 bit도 판단하기 위해서 right shift 연산으로 1칸 이동한다   
+마지막에 reverse 함수를 사용해서 문자열의 순서를 뒤집는다   
 
 ### 1.4. Return int( O(logN) )
 ```cpp
