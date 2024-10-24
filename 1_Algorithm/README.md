@@ -8,9 +8,8 @@
 # Index
 `KMP 알고리즘( Knuth-Morris-Pratt)` : find 함수 대신 KMP 알고리즘을 사용하여 더 효율적으로 부분 문자열을 찾을 수 있다   
 
-1. **Problem Solving** : 다시 풀어 볼 만한 문제를 언제든지 풀 수 있도록 기록한다.
-2. [place value ( digit )](1_place_value(digit).md) : 숫자의 자릿수를 다루는 방법을 알아본다.
-3. [string 활용법](2_string.md)
+1. **[place value ( digit )](1_place_value(digit).md)** : 숫자의 자릿수를 다루는 방법을 알아본다.
+2. **[string 활용법](2_string.md)**
    - 정수의 앞자리 0을 제거하는 방법
    - 문자 반복 출력
    - string `token 및 parsing`
@@ -19,20 +18,22 @@
      - sort
      - shift
      - find
-4. [Big Integer Arithmetic](3_Big_Integer_Arithmetic.md) : 컴퓨터에서 숫자로 표현할 수 없는 정수를 처리하는 방법
-5. [bit 연산 모음집](4_bitwise_operation.md)
+3. **[Big Integer Arithmetic](3_Big_Integer_Arithmetic.md)** : 컴퓨터에서 숫자로 표현할 수 없는 정수를 처리하는 방법
+4. **[bit 연산 모음집](4_bitwise_operation.md)**
    - 짝/홀 판단( & ), `bit mask( check, set, remove )`
    - 정수 2배( Left-Shift )
    - 2나누기( Right-Shift )
-6. [여러 가지 mapping 방법](5_mapping.md)
+5. **[여러 가지 mapping 방법](5_mapping.md)**
    - `enum - unordered_map`
-7. [어려운 matrix 연산법](6_matrix_operation.md)
+6. **[어려운 matrix 연산법](6_matrix_operation.md)**
    - `Lower/Upper Triangular Matrix`, `string(count, ch)`
-8. [ frequency 기록 방법 ](7_frequency.md) : array, unordered_map
-9.  [Refactoring Code to Eliminate If-Else Statements](8_refactoring_if_else.md)
+7. **[ frequency 기록 방법 ](7_frequency.md)** : array, unordered_map
+8.  [Refactoring Code to Eliminate If-Else Statements](8_refactoring_if_else.md)
    - Adding Binary Strings using Bitwise Operations
-10. [sweep line algorithm](9_Sweep_Line_Algorithm.md)
+9.  **[sweep line algorithm](9_Sweep_Line_Algorithm.md)**
    - `겹치는 선분의 길이`
+10. **[ Decimal To Binary ](10_Decimal_to_Binary.md)**
+    - Brute Force Approach( Print, Return )
 
 
 <br>
