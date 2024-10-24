@@ -21,8 +21,9 @@
   - [2. 삼각형 내부의 임의의 점 P 구하기( GLM )](#2-삼각형-내부의-임의의-점-p-구하기-glm-)
   - [3. pixel color를 결정하기 전 `pixel이 삼각형 내부에 존재하는지 판단`](#3-pixel-color를-결정하기-전-pixel이-삼각형-내부에-존재하는지-판단)
     - [3.1. Edge Function](#31-edge-function)
-  - [Interpolation](#interpolation)
-  - [blending triangle color](#blending-triangle-color)
+  - [4. Interpolation](#4-interpolation)
+  - [5. blending triangle color](#5-blending-triangle-color)
+- [Homogeneous Coordinates: 동차 좌표계](#homogeneous-coordinates-동차-좌표계)
 
 <br>
 
@@ -33,7 +34,6 @@ Local/World 좌표계
 이미지 좌표계   
 스크린 좌표계   
 좌표계 변환   
-Homogeneous Coordinates: 동차 좌표계( vector와 point를 혼용해서 쓰는 좌표 )   
 aspect ratio: 화면의 가로 세로 비율   
 
 # Handed Coordinates
@@ -286,9 +286,24 @@ screen의 pixel을 순회하면서 각 pixel이 삼각형 내부에 존재하는
 
 <br>
 
-## Interpolation
+## 4. Interpolation
 Linear/Barycentric Interpolation<br>
 
-## blending triangle color
+## 5. blending triangle color
 ![alt text](Images/CoordinateSystems/barycentric_triangle_blending_color.png)<br>
 barycentric coordinate system을 응용하면 삼각형 표면의 3개의 색깔을 섞어서 표현할 때 사용될 수 있다<br>
+
+<br><br>
+
+# Homogeneous Coordinates: 동차 좌표계
+
+$$
+\begin{bmatrix} x', y', 1 \end{bmatrix}
+= \begin{bmatrix} x, y, 1 \end{bmatrix}
+\begin{bmatrix}
+   1 & 0 & 0 \\ 0 & 1 & 0 \\ b_x & b_y & 1
+\end{bmatrix}
+$$
+
+Point에는 마지막에 1을 붙이고, Vector에는 0을 붙여서 차원을 하나 더 추가한 좌표계다   
+위 수식을 Point가 아닌 Vector( 0 )로 표현하면 x가 x'으로 이동하는 효과가 아니라, `x' = x`가 되어 이동하지 않는다   

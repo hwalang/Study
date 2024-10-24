@@ -69,6 +69,7 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
      - object space
    - `Bary-Centric Coordinates`, 
      - `Edge Function`과 Cross Product
+   - `Homogeneous Coordinates`
 5. **[Light And Light Model](4_Light.md)**
    - Light
    - `Lambertian Reflection`
