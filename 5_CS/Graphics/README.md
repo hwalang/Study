@@ -34,7 +34,7 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
    - Matrix Multiplication
      - properties
      - vector-matrix multiplication, `Linear Combination`
-   - `Transpose`
+   - `Transpose`( column-vector $\leftrightarrow$ row-vector )
    - `Identity Matrix`
    - `Inverse Matrix`( Minor, Cofactor, Adjoint matrix )
      - properties

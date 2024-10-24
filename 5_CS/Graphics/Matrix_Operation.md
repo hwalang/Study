@@ -11,6 +11,7 @@
       - [Linear Combination](#linear-combination)
   - [3. Transpose( 전치 행렬 )](#3-transpose-전치-행렬-)
     - [3.1. Transpose : properties](#31-transpose--properties)
+    - [3.2. Transpose: column-vector $\\leftrightarrow$ row-vector](#32-transpose-column-vector-leftrightarrow-row-vector)
   - [4. Identity Matrix( 단위 행렬 )](#4-identity-matrix-단위-행렬-)
   - [5. Inverse Matrix( 역행렬 )](#5-inverse-matrix-역행렬-)
     - [5.1. Minor Matrix](#51-minor-matrix)
@@ -230,6 +231,37 @@ The transpose of a matrix는 `행렬을 대각선 방향으로 뒤집는 연산�
 3. $(AB)^T = B^TA^T$
 4. $(A^T)^T = A$
 5. $(A^{-1})^T = (A^T)^{-1}$
+
+### 3.2. Transpose: column-vector $\leftrightarrow$ row-vector
+
+point( x, y )를 x', y'로 회전시키는 과정에서 column-vector를 row-vector 형식으로 바꿔본다   
+
+$$
+\begin{bmatrix} x' \\ y' \end{bmatrix}^T
+= \bigg( 
+\begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}
+\begin{bmatrix} x \\ y \end{bmatrix}
+\bigg)^T
+$$
+
+$$
+\begin{bmatrix} x' \\ y' \end{bmatrix}^T
+= \begin{bmatrix} x \\ y \end{bmatrix}^T
+\begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}^T
+$$
+
+$$
+\begin{bmatrix} x', y' \end{bmatrix}
+= \begin{bmatrix} x, y \end{bmatrix}
+\begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{bmatrix}
+$$
+
+
+$\theta$만큼 회전시키는 matrix와 column-vector로 나타낸 x, y를 곱하여 x', y'을 구할 수 있다   
+여기서 양변에 Transpose를 적용하면, row-vector 형태로 x', y'을 구할 수 있다   
+
+따라서 `column-vector와 row-vector는 Trnaspose 관계`임을 알 수 있다   
+
 
 <br><br>
 
