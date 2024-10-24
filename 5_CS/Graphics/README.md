@@ -107,9 +107,9 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
    - Clockwise Winding Order
    - Graphics: `Triangle Mesh를 위한 Data Structure`
    - `2D Transformation`
-     - Translate
-     - Rotate
-     - Scale
+     - Point를 `원점에 대해 Rotation`( `vector * matrix` )
+     - Point를 `Translation`( vector * matrix, Homogeneous Coordinates )
+     - **Vector/Point에 대한 Rotation과 Translation을 하나의 matrix로 표현**
    - `Vertex Shader`
 3. **[Depth Buffer( z-buffer )](10_Depth_Buffer.md)**
    - Depth Buffer `in Orthographic Projection`
