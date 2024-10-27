@@ -111,6 +111,10 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
      - Point를 `Translation`( vector * matrix, Homogeneous Coordinates )
      - **Vector/Point에 대한 Rotation과 Translation을 하나의 matrix로 표현**
    - `Vertex Shader`
+   - `Linear Transformation`
+     - vector와 matrix의 곱으로 Linear Transformation 나타내기
+     - `Standard Basis`
+     - `Scaling Matrix`
 3. **[Depth Buffer( z-buffer )](10_Depth_Buffer.md)**
    - Depth Buffer `in Orthographic Projection`
 4. **[Shader](11_Shader.md)**

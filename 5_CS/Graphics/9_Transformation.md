@@ -8,6 +8,12 @@
   - [2. Translate](#2-translate)
   - [3. Vector/Point의 Rotation과 Translation을 하나의 matrix로 표현](#3-vectorpoint의-rotation과-translation을-하나의-matrix로-표현)
     - [Vertex Shader](#vertex-shader)
+- [Linear Transformation](#linear-transformation)
+  - [1. Translation이 Linear Transformation이 아닌 이유](#1-translation이-linear-transformation이-아닌-이유)
+  - [2. Linear Transformation to Matrix](#2-linear-transformation-to-matrix)
+    - [2.1. Standard Basis( 표준 기저 벡터 )](#21-standard-basis-표준-기저-벡터-)
+      - [벡터 u의 (x, y, z)와 똑같은데 왜 i, j, k를 사용해서 표현하나?](#벡터-u의-x-y-z와-똑같은데-왜-i-j-k를-사용해서-표현하나)
+    - [2.2. Scaling을 표현하는 Matrix](#22-scaling을-표현하는-matrix)
 
 
 #### GPU 특징
@@ -189,3 +195,87 @@ $$
 ### Vertex Shader
 vertices들의 Transformation이 끝난 후 buffer에 저장하고, 이를 rendering한다.   
 여기서 vertex shader는 transformation이 끝난 vertice를 memory에 올리는 작업을 뜻한다.   
+
+
+<br><br>
+
+
+# Linear Transformation
+
+$$
+\mathbf{u} = (u_x, u_y, u_z) \\
+\mathbf{v} = (v_x, v_y, v_z) \\
+1. \quad \tau(\mathbf{u} + \mathbf{v}) = \tau(\mathbf{u}) + \tau(\mathbf{v}) \\
+2. \quad \tau(k\mathbf{u}) = k\tau(\mathbf{u})
+$$
+
+수학적으로 위 성질을 만족하면 Linear Transformation이다   
+
+![alt text](Images/Transformation/linear_transformation.png)   
+`Graphics에서 Linear Transformation은 도형을 Scaling 및 Rotation 할 때 사용`된다   
+$\tau$가 선형 변환을 시켜주는 함수라고 생각하면, 특정 도형이 인자로 왔을 때 $\tau$는 위 그림처럼 Scaling 또는 Rotation 시켜주는 함수다   
+
+<br>
+
+## 1. Translation이 Linear Transformation이 아닌 이유
+Linear Transformation의 2가지 성질을 만족하지 않기 때문이다   
+
+$$
+\tau(x, y, z) = (x + 1, y, z) \\
+\tau(1, 2, 3) = (2, 2, 3) \\
+k = 2 \\
+\tau(k\mathbf(u)) = \tau(2, 4, 6) = (3, 4, 6) \\
+k\tau(\mathbf(u)) = 2\tau(1, 2, 3) = (4, 4, 6)
+$$
+
+x + 1만큼 이동하는 tau 함수가 있다   
+위 증명 과정을 통해 두 번째 성질이 만족하지 않음을 알 수 있다   
+
+<br>
+
+## 2. Linear Transformation to Matrix
+`선형 변환을 행렬로 표현하는 방법`을 알아본다   
+
+### 2.1. Standard Basis( 표준 기저 벡터 )
+Basis란, 좌표축과 같이 다른 벡터들을 표현할 때, 기준으로 사용하는 벡터들을 말한다.   
+예를 들면, 동쪽과 남쪽을 먼저 정의한 벡터가 있으면, 그 둘의 선형 결합으로 동남쪽을 표현할 수 있다   
+
+$$
+\text{표준 좌표계를 나타내는 i, j, k 벡터가 Standard Basis이다} \\
+\mathbf{i} = (1, 0, 0), \mathbf{j} = (0, 1, 0), \mathbf{k} = (0, 0, 1) \\
+$$
+
+$$
+\mathbf{u} = (x, y, z) = x\mathbf{i} + y\mathbf{j} + k\mathbf{k} = x(1, 0, 0) + y(0, 1, 0) + z(0, 0, 1)
+$$
+
+Basis를 이용해서 벡터 u를 표현하는 방법이다   
+#### 벡터 u의 (x, y, z)와 똑같은데 왜 i, j, k를 사용해서 표현하나?   
+이를 이용해서 `Linear Transformation을 vector와 matrix의 곱으로 표현할 수 있기 때문( 핵심 )`이다   
+
+$$
+\mathbf{uA} = \begin{bmatrix} x, y, z \end{bmatrix}
+\begin{bmatrix}
+   \leftarrow & \tau(\mathbf{i}) & \rightarrow \\
+   \leftarrow & \tau(\mathbf{j}) & \rightarrow \\
+   \leftarrow & \tau(\mathbf{k}) & \rightarrow
+\end{bmatrix}
+$$
+
+여기서 tau(i), (j), (k)를 row-vector로 나타낸 `A가 Linear Transformation을 표현`한다   
+
+### 2.2. Scaling을 표현하는 Matrix
+Point에 Scalar값을 곱하는 것이 Scaling이다   
+
+$$
+S(x, y, z) = (s_xx, s_yy, s_zz) \\
+S(\mathbf{i}) = (s_x * 1, s_y * 0, s_z * 0) = (s_x, 0, 0) \\
+S(\mathbf{j}) = (s_x * 0, s_y * 1, s_z * 0) = (0, s_y, 0) \\
+S(\mathbf{k}) = (s_x * 0, s_y * 0, s_z * 1) = (0, 0, s_z) \\
+S = \begin{bmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & s_z \end{bmatrix}
+\qquad
+S^{-1} = \begin{bmatrix} 1/s_x & 0 & 0 \\ 0 & 1/s_y & 0 \\ 0 & 0 & 1/s_z \end{bmatrix}
+$$
+
+위 S와 S의 역행렬이 Scaling을 나타낸다   
+원래 크기에서 2배를 키웠을 때, 다시 되돌리고 싶으면 2로 나누면 된다. 이를 역행렬로 표현해도 똑같다   
