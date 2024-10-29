@@ -37,7 +37,8 @@
 <br>
 
 ## I/O stream
-1. [std::basic_stringstream](std_stringstream.md): `cpp stream state`
+1. [std::basic_stringstream](std_stringstream.md)
+   - `cpp stream state`
 2. [std::getline](std_getline.md)
    - `sentry class`
    - iostream에서의 getline

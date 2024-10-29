@@ -4,6 +4,9 @@
   - [1. read/write stream](#1-readwrite-stream)
   - [2. operator\>\>](#2-operator)
     - [2.1. token( split )](#21-token-split-)
+      - [공백 문자 단위](#공백-문자-단위)
+      - [Data Type 단위](#data-type-단위)
+      - [string::getline()과 delimiter](#stringgetline과-delimiter)
     - [2.2. automatically type casting](#22-automatically-type-casting)
   - [3. stringstream::str(), clear()](#3-stringstreamstr-clear)
 
@@ -84,6 +87,7 @@ basic_istream& operator>>( unsigned int& value );
 input stream으로부터 값을 추출한다   
 기본적으로 `whitespace를 기준으로 값을 추출`한다   
 ### 2.1. token( split )
+#### 공백 문자 단위
 ```cpp
 std::string data = "apple orange banana";
 std::stringstream ss(data);
@@ -96,6 +100,31 @@ while (ss >> word) {
 ```
 operator>>를 이용하여 공백 문자를 제거하면서 문자열을 나눈다<br>
 
+#### Data Type 단위
+[Programmers - 다트 게임(memo)](/1_Algorithm/Programmers_level_1/241029_다트게임.md/#gpt-2-string-stream)   
+```cpp
+std::string data = "1D2S#10S";
+std::stringstream ss(data);
+
+for (int round = 0; round < 3; ++round) {
+  int score = 0;
+  char bonus = ' ';
+  char option = ' ';
+
+  ss >> score;
+  ss >> bonus;
+  if (ss.peek() == '#' || ss.peek() == '*') {   // peek()은 get()과는 달리 보기만 한다
+    ss >> option;
+  }
+}
+```
+stringstream의 operator>>는 입력을 저장하는 memory의 Data Type에 맞춰서 string buffer에서 가져올 수 있다   
+즉, `공백 단위 뿐만 아니라 Data Type 단위로 나눠서 입력 받을 수 있다`   
+
+참고로 for문 내부의 변수를 초기화하지 않으면, option에 이전 값이 유지될 수 있다   
+왜냐하면 `C++은 local variable을 초기화하지 않으면 Garbage Value 또는 이전 round의 값이 유지`되기 때문이다   
+
+#### string::getline()과 delimiter
 ```cpp
 #include <iostream>
 #include <sstream>
