@@ -9,14 +9,15 @@
 
 <br>
 
-`Token`: input data를 분석 가능한 작은 단위로 분리   
-`Parsing`: 분리된 token을 문법 규칙에 따라 구조화하고 해석하는 과정   
-[programmers - 다항식 더하기](/1_Algorithm/Programmers/240923_다항식더하기.md)   
+`Token`: input data를 분석 가능한 작은 단위로 분리 즉, parsing 단위를 나타낸다   
+`Parsing( parse: 분석하다 )`: 분리된 token을 문법 규칙에 따라 구조화하고 해석하는 과정   
+[Programmers - 다항식 더하기(memo)](/1_Algorithm/Programmers/240923_다항식더하기.md)   
+[Programmers - 다트 게임](https://school.programmers.co.kr/learn/courses/30/lessons/17682)   
 
 <br>
 
 # Token
-text 또는 source code를 분석할 때, `가장 작은 단위의 의미 있는 element`를 말한다   
+text 또는 source code를 `분석할 때, 가장 작은 단위의 의미 있는 element`를 말한다   
 
 compiler나 interpreter가 source code를 분석하고 실행하기 위해 token으로 분리한다   
 검색 엔진이나 언어 모델이 text를 분석하고 처리하기 위해 단어 단위로 분리한다   
