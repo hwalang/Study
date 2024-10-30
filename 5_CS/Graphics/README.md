@@ -115,6 +115,7 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
      - vector와 matrix의 곱으로 Linear Transformation 나타내기
      - `Standard Basis`
      - `Scaling Matrix`
+     - `Rotation Matrix`
 3. **[Depth Buffer( z-buffer )](10_Depth_Buffer.md)**
    - Depth Buffer `in Orthographic Projection`
 4. **[Shader](11_Shader.md)**

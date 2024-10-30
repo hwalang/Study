@@ -14,6 +14,10 @@
     - [2.1. Standard Basis( 표준 기저 벡터 )](#21-standard-basis-표준-기저-벡터-)
       - [벡터 u의 (x, y, z)와 똑같은데 왜 i, j, k를 사용해서 표현하나?](#벡터-u의-x-y-z와-똑같은데-왜-i-j-k를-사용해서-표현하나)
     - [2.2. Scaling을 표현하는 Matrix](#22-scaling을-표현하는-matrix)
+  - [3. 어떤 축에 대해 회전시키는 경우](#3-어떤-축에-대해-회전시키는-경우)
+    - [3.1. 임의의 회전축에 대한 벡터의 회전](#31-임의의-회전축에-대한-벡터의-회전)
+    - [3.2. x, y, z축인 경우, 벡터를 회전하는 방법](#32-x-y-z축인-경우-벡터를-회전하는-방법)
+    - [3.3. 회전 행렬의 역행렬](#33-회전-행렬의-역행렬)
 
 
 #### GPU 특징
@@ -116,6 +120,8 @@ $$
 cos, sin으로 구성된 matrix는 $\theta$ 만큼 회전시킨다는 행위를 하나의 matrix로 표현한 것이다   
 즉, **위 식은 원점을 기준으로 $\theta$ 각도만큼 회전한 (x, y)좌표를 행렬로 표현하는 방법**이다   
 
+<br>
+
 #### row-vector * matrix
 
 $$
@@ -189,8 +195,8 @@ $$
 
 여기서 `w는 vector, point를 구분하는 변수`다   
 
-
 <br>
+
 
 ### Vertex Shader
 vertices들의 Transformation이 끝난 후 buffer에 저장하고, 이를 rendering한다.   
@@ -279,3 +285,51 @@ $$
 
 위 S와 S의 역행렬이 Scaling을 나타낸다   
 원래 크기에서 2배를 키웠을 때, 다시 되돌리고 싶으면 2로 나누면 된다. 이를 역행렬로 표현해도 똑같다   
+
+<br>
+
+## 3. 어떤 축에 대해 회전시키는 경우
+`3차원 공간에서의 Rotation은 어떠한 축을 기준으로 몇 도만큼 Rotation`한다   
+게임에서도 마찬가지로 공을 굴린다 하더라도 먼저 축을 정하고, 몇 도( $\theta$ )만큼 회전할지 결정한다   
+
+여기서 회전 축( vector )은 3가지 elements를 가지고 회전 각도( scalar )는 1가지 값을 나타낸다.   
+이는 `Quaternion( 사원수 )을 표현할 때 사용하는 개념`이다   
+
+### 3.1. 임의의 회전축에 대한 벡터의 회전
+![alt text](Images/Transformation/Rotation_vector.png)   
+회전축 n에 대해서 $\mathbf{v}$를 회전시킨 결과인 $R_n(\mathbf{v}), R(otation)$를 구하는 이미지다   
+
+여기서 $R_n$을 `표현하는 matrix를 찾는 것이 목표`다   
+
+오른쪽 그림은 왼쪽 그림을 위에서 보는 것이며, 이는 `3차원 회전을 2차원 회전으로 바라볼 수 있음`을 나타낸다   
+이를 위해서 평면을 찾아야 하는데, 이는 2개의 벡터가 필요하다   
+
+$$
+\mathbf{n} = (x, y, z) \\
+c = \cos \theta, s = \sin \theta \\ 
+\mathbf{R_n} = \begin{bmatrix}
+   c + (1 - c)x^2 & (1 - c)xy + sz & (1 - c)xz - sy \\
+   (1 - c)xy - sz & c + (1 - c)y^2 & (1 - c)yz + sx \\
+   (1 - c)xz + sy & (1 - c)yz - sx & c + (1 - c)z^2
+\end{bmatrix}
+$$
+
+코드로 직접 회전시킬때는 회전축 n과 각도 theta를 정하면 된다.   
+matrix는 framework에서 알아서 계산한다   
+
+### 3.2. x, y, z축인 경우, 벡터를 회전하는 방법
+
+$$
+\mathbf{n} = (1, 0, 0) \\
+\mathbf{R_x} = \begin{bmatrix}
+   1 & 0 & 0 \\
+   0 & \cos \theta & \sin \theta \\
+   0 & -\sin \theta & \cos \theta
+\end{bmatrix}
+$$
+Rn 행렬에 x = 1, y = 0, z = 0을 대입한다.   
+마찬가지로 Ry는 x = 0, y = 1, z = 0을 대입하고, Rz는 x = 0, y = 0, z = 1을 대입하여 구한다   
+
+### 3.3. 회전 행렬의 역행렬
+회전 행렬의 역행렬은 Transpose와 동일하다   
+회전의 역변환 행렬이 필요한 경우에 Transpose 행렬로 쉽게 구할 수 있다.   
