@@ -18,6 +18,13 @@
     - [3.1. 임의의 회전축에 대한 벡터의 회전](#31-임의의-회전축에-대한-벡터의-회전)
     - [3.2. x, y, z축인 경우, 벡터를 회전하는 방법](#32-x-y-z축인-경우-벡터를-회전하는-방법)
     - [3.3. 회전 행렬의 역행렬](#33-회전-행렬의-역행렬)
+- [4. Affine Transformation( 애파인 변환 )](#4-affine-transformation-애파인-변환-)
+  - [4.1. Homogeneous Coordinates](#41-homogeneous-coordinates)
+  - [4.2. Rotation \& Translation Matrix( Affine Transformation )](#42-rotation--translation-matrix-affine-transformation-)
+    - [3D space](#3d-space)
+  - [4.3. Translation Matrix](#43-translation-matrix)
+  - [4.4. Scaling Matrix( Affind Transformation )](#44-scaling-matrix-affind-transformation-)
+  - [4.5. Rotation Matrix( Affind Transformation )](#45-rotation-matrix-affind-transformation-)
 
 
 #### GPU 특징
@@ -286,7 +293,9 @@ $$
 위 S와 S의 역행렬이 Scaling을 나타낸다   
 원래 크기에서 2배를 키웠을 때, 다시 되돌리고 싶으면 2로 나누면 된다. 이를 역행렬로 표현해도 똑같다   
 
-<br>
+
+<br><br>
+
 
 ## 3. 어떤 축에 대해 회전시키는 경우
 `3차원 공간에서의 Rotation은 어떠한 축을 기준으로 몇 도만큼 Rotation`한다   
@@ -333,3 +342,109 @@ Rn 행렬에 x = 1, y = 0, z = 0을 대입한다.
 ### 3.3. 회전 행렬의 역행렬
 회전 행렬의 역행렬은 Transpose와 동일하다   
 회전의 역변환 행렬이 필요한 경우에 Transpose 행렬로 쉽게 구할 수 있다.   
+
+
+<br><br>
+
+
+# 4. Affine Transformation( 애파인 변환 )
+NonLinear Transformation인 `Translation을 matrix로 표현하기 위해서 사용`한다   
+Linear Transformation과 Translation을 하나의 행렬로 표현한다   
+
+## 4.1. Homogeneous Coordinates
+Linear Transformation과 NonLinear Transformation인 Translation을 합치기 위해서 추가된 개념이 Homogeneous Coordinates이다   
+3차원 좌표를 표현하려면 3가지 elements가 필요하지만, Homogeneous Coordinates는 4가지 elements를 다룬다   
+`vector는 (x, y, z, 0)`이고, `Point는 (x, y, z, 1)`로 표현한다   
+
+이때 `vector는 translation을 할 수 없지만 point는 가능`하다   
+```
+Properties
+1. Point - Point = vector
+2. Point + vector = Point
+3. Point + Point = ????    불가능
+
+(x, y, z, 1) - (x, y, z, 1) = (0, 0, 0, 0)
+```
+
+## 4.2. Rotation & Translation Matrix( Affine Transformation )
+$$
+x' = x\cos\theta - y\sin\theta + wb_x \\ 
+y' = x\sin\theta + y\cos\theta + wb_y \\ 
+$$
+
+$$
+\begin{bmatrix} x', y', w \end{bmatrix}
+= \begin{bmatrix} x, y, w \end{bmatrix}
+\begin{bmatrix}
+   \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ b_x & b_y & 1
+\end{bmatrix}
+$$
+
+[Rotation과 Translation을 하나의 matrix로 표현](#3-vectorpoint의-rotation과-translation을-하나의-matrix로-표현)할 수 있었다   
+앞에서 vector는 translation을 할 수 없다고 했는데, w에 0을 넣으면 이동할 수 없기 때문이다   
+
+$$
+\alpha(\mathbf{u}) = \tau(\mathbf{u}) + \mathbf{b}
+$$
+
+정리하자면, Affin Transformation( alpha )은 Linear Transformation( tau )에 Translation matrix를 더하는 것이다   
+
+### 3D space
+matrix에 vector를 더하는 과정은 번거롭기 때문에 4 * 4 matrix를 사용한다   
+2D space에서는 3 * 3 matrix를 사용한다   
+
+$$
+\begin{bmatrix} x, y, z, 1 \end{bmatrix}
+\begin{bmatrix}
+   A_{11} & A_{12} & A_{13} & 0 \\
+   A_{21} & A_{22} & A_{23} & 0 \\
+   A_{31} & A_{32} & A_{33} & 0 \\
+   b_x & b_y & b_z & 1
+\end{bmatrix}
+= \begin{bmatrix} x', y', z', 1 \end{bmatrix}
+$$
+
+## 4.3. Translation Matrix
+
+$$
+T = \begin{bmatrix}
+   1 & 0 & 0 & 0 \\
+   0 & 1 & 0 & 0 \\
+   0 & 0 & 1 & 0 \\
+   b_x & b_y & b_z & 1 \\
+\end{bmatrix}
+$$
+
+$$
+T^{-1} = \begin{bmatrix}
+   1 & 0 & 0 & 0 \\
+   0 & 1 & 0 & 0 \\
+   0 & 0 & 1 & 0 \\
+   -b_x & -b_y & -b_z & 1 \\
+\end{bmatrix}
+$$
+
+Point에만 적용되며, Vector에는 적용되지 않는다   
+마지막 element가 0이기 때문!!
+
+## 4.4. Scaling Matrix( Affind Transformation )
+
+$$
+S = \begin{bmatrix} 
+   s_x & 0 & 0 & 0 \\ 
+   0 & s_y & 0 & 0 \\ 
+   0 & 0 & s_z & 0 \\
+   0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+## 4.5. Rotation Matrix( Affind Transformation )
+
+$$
+\mathbf{R_n} = \begin{bmatrix}
+   c + (1 - c)x^2 & (1 - c)xy + sz & (1 - c)xz - sy & 0 \\
+   (1 - c)xy - sz & c + (1 - c)y^2 & (1 - c)yz + sx & 0 \\
+   (1 - c)xz + sy & (1 - c)yz - sx & c + (1 - c)z^2 & 0 \\
+   0 & 0 & 0 & 1
+\end{bmatrix}
+$$
