@@ -2,6 +2,7 @@
 - [Programmers](#programmers)
     - [Level 0](#level-0)
     - [Level 1](#level-1)
+- [Leet Code](#leet-code)
 
 <br>
 
@@ -84,6 +85,7 @@
 ### Level 1
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.10.30` | [키패드 누르기](Programmers_level_1/241030_키패드누르기.md) | implementation | 0 |
 | `2024.10.29` | [다트 게임](Programmers_level_1/241029_다트게임.md) | parsing | 0 |
 | `2024.10.29` | [실패율](Programmers_level_1/241029_실패율.md) | | 0 |
 | `2024.10.27` | [완주하지 못한 선수](Programmers_level_1/241027_완주하지못한선수.md) | | 0 |
@@ -94,3 +96,11 @@
 | `2024.10.21` | [수박수...?](Programmers_level_1/241021_수박.md) | string 내부 동작 | 0 |
 | `2024.10.14` | [문자열 내 p와 y의 개수](Programmers_level_1/241014_문자열내p와y의개수.md) |  | 1 |
 | `2024.10.12` | [두 정수 사이의 합](Programmers_level_1/241012_두정수사이의합.md) | Arithmetic Sequence, type casting | 1 |
+
+
+<br><br>
+
+# Leet Code
+| 날짜 | 문제 풀이 | 메모 | Try Count |
+|:---:|:---:|:---:|:---:|
+| `` | [`two sum`]() | math  | 0 |
