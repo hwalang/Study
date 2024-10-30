@@ -103,4 +103,4 @@
 # Leet Code
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
-| `2024.10.30` | [`two sum`](LeetCode/241030_TwoSum.md) | math  | 0 |
+| `2024.10.30` | [`two sum`](LeetCode/241030_TwoSum.md) | complement, hash table  | 0 |
