@@ -85,6 +85,7 @@
 ### Level 1
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.11.03` | [두 개 뽑아서 더하기](Programmers_level_1/241103_두개뽑아서더하기.md) | Combination | 0 |
 | `2024.10.30` | [키패드 누르기](Programmers_level_1/241030_키패드누르기.md) | implementation | 0 |
 | `2024.10.29` | [다트 게임](Programmers_level_1/241029_다트게임.md) | parsing | 0 |
 | `2024.10.29` | [실패율](Programmers_level_1/241029_실패율.md) | | 0 |
