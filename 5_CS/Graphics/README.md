@@ -19,6 +19,9 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
    - vector
      - `magnitude`, `normalize(unit vector)`
      - `displacement`, position vector
+     - `vector properties`
+       - frame of reference
+       - flipping, scaling
    - `Dot / Cross product`
    - `Orthogonal Projection`
      - Orthogonalization

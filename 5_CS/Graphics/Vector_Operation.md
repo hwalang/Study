@@ -32,7 +32,7 @@ vector로 `이동하는 행위를 표현`하는 용어이며, 변위라고 번�
 어떤 좌표계에 대해서 point를 정의하고 싶으면, 해당 좌표계의 원점으로부터 좌표 축들의 방향을 기준으로 어떤 방향으로 얼마나 가면 point가 나오는지 판단할 수 있다   
 이를 `원점으로부터 상대적인 displacement를 이용해서 point가 어디에 있는지 표현`할 수 있다   
 
-즉, 어떤 좌표계의 상대적인 point의 위치를 표현할 때, vector를 사용할 수 있다   
+즉, `어떤 좌표계의 상대적인 point의 위치를 표현`할 때, vector를 사용할 수 있다   
 이러한 point를 표현하는 벡터라는 의미를 구분하기 위해서 `position vector( 위치 벡터 )`라고 부른다   
 
 ### 1.2. point operation
@@ -44,10 +44,32 @@ point에서 point를 빼면 vector가 나온다
 위 과정을 응용하면 point p에 displacement를 더하면 p'를 구할 수 있다   
 즉, `point에 vector를 더하면 또 다른 point를 구할 수 있다`   
 
+## 2. vector properties
+### 2.1. frame of reference
+A vector specified by coordinates relative to a coordinate system.   
+`하나의 벡터는 특정 좌표계에 상대적인 좌표로 나타낸다`.   
+![alt text](Images/VectorOperation/vector_and_coordinates.png)   
+Observe that the coordinates of the vector $\mathbf{v}$ relative to frame A are different than the coordinates of the vector $\mathbf{v}$ relative to frame B.   
+In other words, `the same vector v has a different coordinate representation for distinct frames`.   
+
+Often in 3D computer graphics, `we will utilize more than one frame of reference` and, therefore, we will need to keep track of which frame a vector's coordinate are relative to; additionally, `we will need to know how to convert vector coordinates from one frame to another`.   
+
+### 2.2. negating vector( flipping ), scalar multiplication( scaling )
+![alt text](Images/VectorOperation/negating_vector_flipping.png)   
+How do $\mathbf{v}$ and $-\frac{1}{2}\mathbf{v}$ compare geometrically?   
+we notice that -1/2 v is in the direction directly opposite of v and its length is 1/2 that of v.   
+Thus, geometrically, `negating a vector can be thought of as "flipping" its direction`, and `scalar multiplication can be thought of as scaling the length of a vector`.   
+
 <br><br>
+
 
 # Dot product
 [ Dot product ](https://www.mathsisfun.com/algebra/vectors-dot-product.html)<br>
+
+```cpp
+// cpp에서는 inner_product라는 함수가 <numeric>에 존재한다.
+std::inner_product(InputIt1 first, InputIt1 last, InputIt2 first2, init);
+```
 
 scalar 끼리 연산을 할 때는 dot, cross 연산자에 차이가 없이 곱셈을 의미하지만 vector 끼리 연산은 다르다   
 ![alt text](Images/VectorOperation/dot_product.png)<br>
