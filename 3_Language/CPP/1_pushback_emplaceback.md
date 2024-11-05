@@ -1,12 +1,6 @@
-- [push\_back](#push_back)
-    - [push\_back 과정](#push_back-과정)
-- [emplace\_back](#emplace_back)
-  - [emplace\_back 인자에 Initializer\_list( 중괄호 초기화 ) 사용하는 경우](#emplace_back-인자에-initializer_list-중괄호-초기화--사용하는-경우)
 - [객체 생성 방법 2가지](#객체-생성-방법-2가지)
   - [1. 일반적인 객체 생성](#1-일반적인-객체-생성)
-  - [2. placement-new 방식의 객체 생성](#2-placement-new-방식의-객체-생성)
-- [공통점](#공통점)
-- [차이점](#차이점)
+- [push, emplace 차이점](#push-emplace-차이점)
 - [Move Constructor](#move-constructor)
   - [1. COPY](#1-copy)
   - [2. MOVE](#2-move)
@@ -16,60 +10,15 @@
 
 <br>
 
-vector의 push_back과 emplace_back의 차이점을 알아본다.<br>
-
-# push_back
-```cpp
-// std::vector<T, Allocator>::push_back
-void push_back(const T& value);
-void push_back(T&& value);
-```
-container의 마지막에 value를 추가한다.<br>
-
 ### push_back 과정
 1. 새로운 element를 생성( constructor, 임시 객체 생성 )
 2. element에 value를 복사( move )
 3. 임시 객체( element )를 vector에 추가
 4. push_back이 끝나면 임시 객체( element )를 삭제( destructor )
 
-<br>
-<br>
-
-# emplace_back
-```cpp
-// std::vector<T, Allocator>::emplace_back
-template <class... Args>
-void emplace_back(Args&&... args);
-
-template <class... Args>
-reference emplace_back(Args&&... args);
-```
-container의 마지막에 새로운 element를 추가한다.<br>
-전달된 인자들을 placement-new( vector 내부 메모리 공간에 바로 생성 )로 `불필요한 임시 객체나 이동 작업 없이` 효율적으로 container에 element를 추가한다.<br>
-
-`emplace_back을 이해하기 위해선 객체 생성이 이뤄지는 방법을 알아야 한다`.<br>
-
-## emplace_back 인자에 Initializer_list( 중괄호 초기화 ) 사용하는 경우
-```
-emplace_back({ int, int });
-
-emplace_back : 전달된 인자를 사용하여 pair<int, int> 객체를 생성
-{ int, int } : std::initializer_list를 사용한 초기화로써, pair 생성자와 일치하지 않을 수 있음
-```
-emplace_back은 전달된 인자를 `임시 객체로 만들지 않고` container 요소로 생성한다   
-하지만 initializer_list는 compiler에게 `임시 객체를 생성하도록 지시`하며, 이는 emplace_back의 목적과 다르다   
-
-```cpp
-emplace_back(int, int);
-```
-**emplace_back은 생성자의 인자를 직접 전달할 수 있다**   
-때문에 initializer_list 대신 pair 생성자에 필요한 인자를 직접 전달하는 방식이 좋다   
-```cpp
-push_back(make_pair(int, int));
-```
-make_pair를 사용하여 pair 객체를 생성한 후 push_back으로 추가할 수도 있다   
 
 <br><br>
+
 
 # 객체 생성 방법 2가지
 ## 1. 일반적인 객체 생성
@@ -82,47 +31,11 @@ Example* obj = new Example();
 new 연산자를 통해 memory를 할당하고, 그 위치에 constructor를 이용하여 객체를 초기화( 생성 )한다.<br>
 위 코드는 memory 할당과 객체 생성이 동시에 이뤄진다.<br>
 
-<br>
 
-## 2. placement-new 방식의 객체 생성
-```cpp
-// memory만 할당, 객체 생성 X
-void* buffer = operator new(sizeof(Example));
-
-std::vector<Example> vec;
-vec.reserve(10);
-
-Example* example = (Example*)malloc(sizeof(Example));
-
-// 이미 할당된 memory에 객체를 생성
-Example* obj = new(buffer) Example();
-
-vec.emplace_back(1, 2, 3);             // vector의 capacity 내에서 객체 생성
-
-new (Example) Example;                 // 여기서 new는 memory를 할당하지 않고, 이미 할당된 memory에 객체를 생성
-```
-placement-new는 `이미 할당된 memory에 객체를 생성`한다.<br>
-new에 대한 자세한 설명은 [new - 참고](/3_Language/CPP/3_operator_new.md.md)<br>
-
-<br>
-
-- **`memory 효율성`**
-  - 대규모 메모리 할당 또는 메모리를 미리 예약하는 상황인 경우, 미리 할당한 메모리 내에서 객체를 생성하여 불필요한 메모리 재할당을 피할 수 있다
-- **`특정 위치에 객체 생성`**
-  - 임베디드 시스템에서는 정해진 메모리 영역에서만 객체를 생성할 수 있다
-  - `vector 또한 내부에 메모리 블록`이 있으며, 새로 메모리를 할당하는 대신 `이미 할당된 메모리( vector의 capacity 내부 )에서 placement-new를 통해 객체를 생성`한다.
+<br><br>
 
 
-<br>
-<br>
-
-# 공통점
-만약 `new element를 추가한 후 vector의 size가 기존 capacity를 초과`하면, 더 큰 memory 공간에 vector를 할당( 생성 )하고 기존 elements를 그곳으로 옮긴다( 재할당 ).
-
-<br>
-<br>
-
-# 차이점
+# push, emplace 차이점
 move 연산의 차이<br>
 ```cpp
 #include <vector>
