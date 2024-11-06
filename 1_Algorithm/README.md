@@ -105,5 +105,6 @@
 # Leet Code
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.11.06` | [`longest common prefix`](LeetCode/241106_LongestCommonPrefix.md) | sort | 0 |
 | `2024.11.04` | [`palindrome number`](LeetCode/241104_PalindromeNumber.md) | | 0 |
 | `2024.10.30` | [`two sum`](LeetCode/241030_TwoSum.md) | complement, hash table  | 0 |
