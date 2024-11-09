@@ -85,6 +85,7 @@
 ### Level 1
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.11.09` | [최소 직사각형](Programmers_level_1/241109_최소직사각형.md) | brute-force | 0 |
 | `2024.11.08` | [숫자 문자열과 영단어](Programmers_level_1/241108_숫자문자열과영단어.md) | regex | 0 |
 | `2024.11.04` | [3진법 뒤집기](Programmers_level_1/241104_3진법뒤집기.md) | math | 0 |
 | `2024.11.03` | [두 개 뽑아서 더하기](Programmers_level_1/241103_두개뽑아서더하기.md) | Combination | 0 |
