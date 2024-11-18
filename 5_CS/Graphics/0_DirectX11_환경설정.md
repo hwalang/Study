@@ -24,10 +24,11 @@ vcpkg 경로 내부에서 명령어를 수행한다.
 vcpkg search imgui
 vcpkg install imgui[win32-binding,dx11-binding]:x64-windows
 ```
-### GLM
-`Math`   
+### Math
+`GLM`, `SimpleMath`
 ```
 vcpkg install glm:x64-windows
+vcpkg install directxtk:x64-windows
 ```
 ### STB
 `Image Processing`   
