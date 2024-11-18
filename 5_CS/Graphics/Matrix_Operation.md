@@ -19,6 +19,13 @@
     - [5.3. Adjoint Matrix](#53-adjoint-matrix)
   - [5.4. Inverse Matrix : Properties](#54-inverse-matrix--properties)
   - [5.5. Compute the Inverse Matirx](#55-compute-the-inverse-matirx)
+- [GLM](#glm)
+    - [1. matrix](#1-matrix)
+    - [2. zero matrix](#2-zero-matrix)
+    - [3. identity matrix](#3-identity-matrix)
+    - [4. transpose](#4-transpose)
+    - [5. opeartor\[\]](#5-opeartor)
+    - [6. translate](#6-translate)
 
 <br>
 
@@ -370,3 +377,85 @@ $$p`M^{-1} = pI$$
 $$p`M^{-1} = p$$
 
 위 과정은 벡터 p'을 원래 벡터 p로 되돌리는 과정으로써, inverse matrix가 어떻게 사용되는지 보여준다   
+
+<br><br>
+
+# GLM
+GLM matrix는 columm-major matrix이기 때문에 주의가 필요하다.   
+`행렬곱은 순서에 따라 다른 결과`가 나온다. 따라서 `column-major matrix는 먼저 변환을 적용할 행렬을 가장 마지막에 적용`한다.   
+```cpp
+#include <glm/glm.hpp>
+#include <glm/gtx/string_cast.hpp> // cout 출력을 위한 string_cast()
+
+#include <glm/gtc/matrix_inverse.hpp> // inverseTranspose
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp> // translate, rotate, scale
+
+using namespace std;
+using namespace glm;
+```
+### 1. matrix
+일반적인 matrix 사용법   
+```cpp
+mat2x2((1.000000, 2.000000), (3.000000, 4.000000))
+mat2 A = mat2(1, 2, 3, 4);
+```
+
+```
+|1 3|
+|2 4|
+```
+
+### 2. zero matrix
+argument가 비어있으면 모두 0이 들어간 행렬로 초기화된다.   
+```cpp
+mat2x2((0.000000, 0.000000), (0.000000, 0.000000))
+mat2 A = mat2();
+```
+
+### 3. identity matrix
+argument에 1만 넘겨주면 대각선이 1인 identity matrix로 초기화된다.   
+```cpp
+mat2x2((1.000000, 0.000000), (0.000000, 1.000000))
+mat2 A = mat2(1);
+```
+
+### 4. transpose
+행과 열이 뒤바뀐 형태   
+```cpp
+// | 1 2 |
+// | 3 4 |
+transpose(A);
+```
+
+### 5. opeartor[]
+index는 column을 의미한다.   
+```cpp
+// vec2(3.000000, 4.000000)
+A[1];
+```
+
+### 6. translate
+```cpp
+// x: 1, y: 2, z: 3 만큼 이동시키는 행렬
+mat4 translation = translate(vec3(1.0f, 2.0f, 3.0f));
+/*
+|1 0 0 1|
+|0 1 0 2|
+|0 0 1 3|
+|0 0 0 1|
+
+// Row-major matrix( DX )
+|1 0 0 0|
+|0 1 0 0|
+|0 0 1 0|
+|1 2 3 1|
+*/
+
+vec4 myPoint = vec4(4, 5, 6, 1);    // Homogeous coordinates
+vec4 myVector = vec4(4, 5, 6, 0);
+translation * myPoint;    // vec4(5, 7, 9, 1);
+translation * myVector;    // vec4(4, 5, 6, 0);
+```
+
+이외에도 `inverse`, `rotate`, `scale` 등 다양한 함수가 존재한다.   
