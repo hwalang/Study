@@ -50,20 +50,18 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
 
 
 # Graphics 1 : Ray_Tracing
-1. **[DirectX11 환경 설정](0_DirectX11_환경설정.md)**
-   - vcpkg( imgui, glm )
-2. **[Digital_Image_Basics](1_Digital_Image_Basics.md)**
+1. **[Digital_Image_Basics](1_Digital_Image_Basics.md)**
    - Digital Image( `Grayscale Image`, `Color Image` )
    - `pixel intensity`( image intensity, amplitude value )
    - `resolution`
    - `Stored Image Size`
    - `channel`
    - `color space conversion`, `image compression`, `Luminance`, `Chrominance`
-3. **[Bloom Effect](2_Bloom_Effect.md)**
+2. **[Bloom Effect](2_Bloom_Effect.md)**
    - `kernel`( filter ), `convolution, seperable convolution`
    - box `blur`, gaussian blur
    - `Relative Luminance Y`, `bloom effect`
-4. **[Coordinate Systems](3_Coordinate_Systems.md)**
+3. **[Coordinate Systems](3_Coordinate_Systems.md)**
    - `Texture Coordinates`
      - texture`
      - `texel`
@@ -73,7 +71,7 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
    - `Bary-Centric Coordinates`, 
      - `Edge Function`과 Cross Product
    - `Homogeneous Coordinates`
-5. **[Light And Light Model](4_Light.md)**
+4. **[Light And Light Model](4_Light.md)**
    - Light
    - `Lambertian Reflection`
      - `Diffuse Surface`, `Diffuse Reflection`, `Specular Reflection`, `Lambert's consine law`, `Diffuse Lighting Model`
@@ -81,7 +79,7 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
      - Diffuse, Specular, Ambient
    - `Blinn-Phong Model`
      - Halfway Vector
-6. **[Ray Tracing](5_Ray_Tracing.md)**
+5. **[Ray Tracing](5_Ray_Tracing.md)**
    - rendering( `image-order, object-order` )
    - `Ray Tracing Algorithm`
    - `Ray-sphere intersection`
@@ -90,10 +88,10 @@ Vector와 Point 파일은 Vector Folder로 통합하고 각 File로 나누는 �
    - `Reflection`
    - `Transparency`, `Refraction`
    - `Cube Mapping`
-7. **[Texturing](6_texturing.md)**
+6. **[Texturing](6_texturing.md)**
    - `texture coordinates`
    - `sampling`, `exture sampling
-8.  **[Anti Aliasing](7_Anti_Aliasing.md)**
+7.  **[Anti Aliasing](7_Anti_Aliasing.md)**
    - `super sampling`
 
 
