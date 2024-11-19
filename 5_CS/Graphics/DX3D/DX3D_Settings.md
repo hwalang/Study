@@ -1,3 +1,17 @@
+- [vcpkg](#vcpkg)
+  - [1. vcpkg 설치](#1-vcpkg-설치)
+  - [2. library 설치](#2-library-설치)
+    - [IMGUI](#imgui)
+    - [Math](#math)
+    - [STB](#stb)
+    - [Integrate](#integrate)
+- [visual studio 2022](#visual-studio-2022)
+  - [1. 멀티쓰레드 이용을 위한 open MP 사용](#1-멀티쓰레드-이용을-위한-open-mp-사용)
+- [DirectX project](#directx-project)
+  - [1. Create DirectX Project](#1-create-directx-project)
+
+<br><br>
+
 # vcpkg
 ## 1. vcpkg 설치
 1. `CMD에서 실행`
@@ -53,3 +67,16 @@ vcpkg integrate install
 2. C/C++ -> All Options -> open 검색
 3. Configuration을 Release로 변경
 4. Open MP Support를 YES로 세팅
+
+<br><br>
+
+# DirectX project
+## 1. Create DirectX Project
+![alt text](Images/Settings/create_DX3Dproj.png)   
+DirectX11 App Project를 만들기 위해서는 `C++를 사용한 데스크톱 개발`, `Windows 애플리케이션 개발`과 `C++를 사용한 게임 개발`에서 SDK를 다운받는다.   
+1. Desktop: `Windows 앱 SDK C++ 템플릿`
+2. check App
+   - [Universal Windows 필요](https://learn.microsoft.com/en-us/windows/uwp/gaming/user-interface#choosing-a-template)
+   - [Universal Windows 필요](https://github.com/microsoft/DirectXTK/wiki/The-basic-game-loop#setup)
+3. check Game
+4. Create DirectX11 App
