@@ -51,7 +51,8 @@ std::vector<int> LPS(const std::string& pat) {
   return table;
 }
 ```
-`table[0]`은 항상 `0`이다. 길이가 1인 부분 문자열의 prefix와 suffix가 존재하지 않기 때문이다.   
+`table[0]`은 항상 `0`이다. 왜냐하면 prefix index( 또는 현재 인덱스 )를 나타내는 `j`가 suffix index를 나타내는 `i`와 같은 위치에 존재하기 때문이다.   
+
 따라서 `i`는 1부터 시작한다.   
 **table[i]에 저장된 정보는 해당 위치까지의 prefix와 suffix가 일치하는 최대 길이**를 나타낸다.   
 
