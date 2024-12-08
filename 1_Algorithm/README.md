@@ -107,6 +107,7 @@
 # Leet Code
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.12.06` | [`Search Insert Position`](LeetCode/241206_SearchInsertPosition.md) | binary search | 0 |
 | `2024.11.28` | [`Find the Index of the First Occurrence in a String`](LeetCode/241127_FindTheIndexOfTheFirstOccurrenceInAString.md) | brute-force, KMP | 0 |
 | `2024.11.27` | [`Remove Element`](LeetCode/241126_RemoveElement.md) | two-pointer | 0 |
 | `2024.11.09` | [`Remove Dulplicates from Sorted Array`](LeetCode/241109_RemoveDuplicatesFromSortedArray.md) | two-pointer, std::unique | 0 |
