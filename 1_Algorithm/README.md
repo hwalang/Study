@@ -1,4 +1,6 @@
 - [Index](#index)
+- [Coding Test](#coding-test)
+  - [Top Interview 150 - leetcode](#top-interview-150---leetcode)
 - [Programmers](#programmers)
     - [Level 0](#level-0)
     - [Level 1](#level-1)
@@ -38,6 +40,14 @@
 
 
 <br>
+
+# Coding Test
+## Top Interview 150 - leetcode
+| 날짜 | 문제 풀이 | 메모 | Try Count |
+|:---:|:---:|:---:|:---:|
+| `2024.12.12` | [`Merge Sorted Array`](LeetCode/241212_MergeSortedArray.md) | implementation | 0 |
+
+<br><br>
 
 # Programmers
 다시 풀어 볼 만한 문제를 모아둔다<br>
@@ -107,7 +117,6 @@
 # Leet Code
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
-| `2024.12.12` | [`Merge Sorted Array`](LeetCode/241212_MergeSortedArray.md) | implementation | 0 |
 | `2024.12.06` | [`Search Insert Position`](LeetCode/241206_SearchInsertPosition.md) | binary search | 0 |
 | `2024.11.28` | [`Find the Index of the First Occurrence in a String`](LeetCode/241127_FindTheIndexOfTheFirstOccurrenceInAString.md) | brute-force, KMP | 0 |
 | `2024.11.27` | [`Remove Element`](LeetCode/241126_RemoveElement.md) | two-pointer | 0 |
