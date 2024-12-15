@@ -1,12 +1,26 @@
-- [vector](#vector)
-      - [Displacements](#displacements)
 - [Dot product](#dot-product)
-    - [특징](#특징)
-    - [Dot Product 사용처](#dot-product-사용처)
+  - [1. Dot product 방법](#1-dot-product-방법)
+  - [2. Dot product 특징](#2-dot-product-특징)
+  - [3. Dot Product 사용처](#3-dot-product-사용처)
+    - [3.1. 두 vector가 직각인지 확인](#31-두-vector가-직각인지-확인)
+    - [3.2. 두 vector의 방향이 상대적으로 어떤지 판단](#32-두-vector의-방향이-상대적으로-어떤지-판단)
+    - [3.3. Orthogonal Set 구하기](#33-orthogonal-set-구하기)
+    - [3.4. 물리학에서 Work를 판단](#34-물리학에서-work를-판단)
 - [Cross product](#cross-product)
-    - [특징](#특징-1)
+      - [**in 2D space**](#in-2d-space)
+  - [1. Cross product 특징](#1-cross-product-특징)
       - [**in Graphics**](#in-graphics)
-    - [Cross Product 사용처](#cross-product-사용처)
+  - [2. Cross Product 사용처](#2-cross-product-사용처)
+    - [2.1. 두 벡터의 수직인 벡터를 구할 때](#21-두-벡터의-수직인-벡터를-구할-때)
+    - [2.2. 삼각형의 넓이를 구할 때](#22-삼각형의-넓이를-구할-때)
+- [Orthogonal Projection](#orthogonal-projection)
+  - [1. Orthogonal Projection 2가지 수식](#1-orthogonal-projection-2가지-수식)
+    - [1.1. Unit vector](#11-unit-vector)
+    - [1.2. Normal vector](#12-normal-vector)
+  - [2. Orthogonalization](#2-orthogonalization)
+    - [2.1. 2D Orthogonalization](#21-2d-orthogonalization)
+    - [2.2. Gram-Schmidt Orthogonalization](#22-gram-schmidt-orthogonalization)
+    - [2.3. Orthonormalization with the Cross Product](#23-orthonormalization-with-the-cross-product)
 - [Programming](#programming)
   - [1. GLM](#1-glm)
     - [glm::vec3 사용법](#glmvec3-사용법)
@@ -15,52 +29,6 @@
     - [기타: vec4,](#기타-vec4)
 
 <BR>
-
-# vector
-![alt text](Images/VectorOperation/vector.png)   
-`vector는 magnitude( 크기 )와 direction( 방향 )을 표현`한다   
-참고로 `unit vector`는 magnitude를 제거( normalizing )했기 때문에 `direction만 표현하고 싶을 때` 구한다   
-vector는 location( 위치 ) 정보를 가지지 않는다   
-
-## 1. Displacements
-vector로 `이동하는 행위를 표현`하는 용어이며, 변위라고 번역한다   
-이때 이동의 주체는 point이다   
-
-### 1.1. position vector
-![alt text](Images/VectorOperation/displacement_position_vector.png)   
-
-어떤 좌표계에 대해서 point를 정의하고 싶으면, 해당 좌표계의 원점으로부터 좌표 축들의 방향을 기준으로 어떤 방향으로 얼마나 가면 point가 나오는지 판단할 수 있다   
-이를 `원점으로부터 상대적인 displacement를 이용해서 point가 어디에 있는지 표현`할 수 있다   
-
-즉, `어떤 좌표계의 상대적인 point의 위치를 표현`할 때, vector를 사용할 수 있다   
-이러한 point를 표현하는 벡터라는 의미를 구분하기 위해서 `position vector( 위치 벡터 )`라고 부른다   
-
-### 1.2. point operation
-point에서 point를 빼면 vector가 나온다   
-이러한 성질을 이용하면 `point p가 p'로 가는 방법을 표현`할 수 있다   
-![alt text](Images/VectorOperation/displacement.png)   
-즉, point p에서 point p'로 가는 displacement를 구하고 싶을 때, 목적지인 p'에서 시작점인 p를 빼면 된다   
-
-위 과정을 응용하면 point p에 displacement를 더하면 p'를 구할 수 있다   
-즉, `point에 vector를 더하면 또 다른 point를 구할 수 있다`   
-
-## 2. vector properties
-### 2.1. frame of reference
-A vector specified by coordinates relative to a coordinate system.   
-`하나의 벡터는 특정 좌표계에 상대적인 좌표로 나타낸다`.   
-![alt text](Images/VectorOperation/vector_and_coordinates.png)   
-Observe that the coordinates of the vector $\mathbf{v}$ relative to frame A are different than the coordinates of the vector $\mathbf{v}$ relative to frame B.   
-In other words, `the same vector v has a different coordinate representation for distinct frames`.   
-
-Often in 3D computer graphics, `we will utilize more than one frame of reference` and, therefore, we will need to keep track of which frame a vector's coordinate are relative to; additionally, `we will need to know how to convert vector coordinates from one frame to another`.   
-
-### 2.2. negating vector( flipping ), scalar multiplication( scaling )
-![alt text](Images/VectorOperation/negating_vector_flipping.png)   
-How do $\mathbf{v}$ and $-\frac{1}{2}\mathbf{v}$ compare geometrically?   
-we notice that -1/2 v is in the direction directly opposite of v and its length is 1/2 that of v.   
-Thus, geometrically, `negating a vector can be thought of as "flipping" its direction`, and `scalar multiplication can be thought of as scaling the length of a vector`.   
-
-<br><br>
 
 
 # Dot product
