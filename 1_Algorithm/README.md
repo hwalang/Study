@@ -42,10 +42,14 @@
 <br>
 
 # Coding Test
+코딩 테스트 통과에 필요한 실력을 갖추기 위한 공부   
 ## Top Interview 150 - leetcode
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.12.15` | [`Remove Dulplicates from Sorted Array 2`](LeetCode/241215_RemoveDuplicatesFromSortedArray2.md) | two-pointer | 0 |
 | `2024.12.12` | [`Merge Sorted Array`](LeetCode/241212_MergeSortedArray.md) | implementation | 0 |
+| `2024.11.27` | [`Remove Element`](LeetCode/241126_RemoveElement.md) | two-pointer | 0 |
+| `2024.11.09` | [`Remove Dulplicates from Sorted Array`](LeetCode/241109_RemoveDuplicatesFromSortedArray.md) | two-pointer, std::unique | 1 |
 
 <br><br>
 
@@ -119,8 +123,6 @@
 |:---:|:---:|:---:|:---:|
 | `2024.12.06` | [`Search Insert Position`](LeetCode/241206_SearchInsertPosition.md) | binary search | 0 |
 | `2024.11.28` | [`Find the Index of the First Occurrence in a String`](LeetCode/241127_FindTheIndexOfTheFirstOccurrenceInAString.md) | brute-force, KMP | 0 |
-| `2024.11.27` | [`Remove Element`](LeetCode/241126_RemoveElement.md) | two-pointer | 0 |
-| `2024.11.09` | [`Remove Dulplicates from Sorted Array`](LeetCode/241109_RemoveDuplicatesFromSortedArray.md) | two-pointer, std::unique | 0 |
 | `2024.11.08` | [`Merge Two Sorted Lists`](LeetCode/241108_MergeTwoSortedLists.md) | struct pointer | 0 |
 | `2024.11.06` | [`longest common prefix`](LeetCode/241106_LongestCommonPrefix.md) | sort | 0 |
 | `2024.11.04` | [`palindrome number`](LeetCode/241104_PalindromeNumber.md) | | 0 |
