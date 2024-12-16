@@ -33,9 +33,7 @@
 7. **[ frequency 기록 방법 ](7_frequency.md)** : array, unordered_map
 8.  [Refactoring Code to Eliminate If-Else Statements](8_refactoring_if_else.md)
    - Adding Binary Strings using Bitwise Operations
-9.  **[sweep line algorithm](9_Sweep_Line_Algorithm.md)**
-   - `겹치는 선분의 길이`
-10. **[ Decimal To Binary ](10_Decimal_to_Binary.md)**
+9.  **[ Decimal To Binary ](10_Decimal_to_Binary.md)**
     - Brute Force Approach( Print, Return )
 
 
@@ -46,6 +44,7 @@
 ## Top Interview 150 - leetcode
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.12.16` | [`Majority Element`](LeetCode/241216_MajorityElement.md) | hash-table, sort, Moore Voting Algorithm | 0 |
 | `2024.12.15` | [`Remove Dulplicates from Sorted Array 2`](LeetCode/241215_RemoveDuplicatesFromSortedArray2.md) | two-pointer | 0 |
 | `2024.12.12` | [`Merge Sorted Array`](LeetCode/241212_MergeSortedArray.md) | implementation | 0 |
 | `2024.11.27` | [`Remove Element`](LeetCode/241126_RemoveElement.md) | two-pointer | 0 |
