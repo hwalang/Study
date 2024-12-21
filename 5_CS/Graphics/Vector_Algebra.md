@@ -2,6 +2,9 @@
   - [1. Vectors and Coordinate Systems](#1-vectors-and-coordinate-systems)
   - [2. Left-Handed vs Right-Handed Coordinate Systems](#2-left-handed-vs-right-handed-coordinate-systems)
   - [3. Basic Vector Operations](#3-basic-vector-operations)
+- [Length And Unit Vectors](#length-and-unit-vectors)
+  - [1. Using Pythagorean Theorem for Length of Vector](#1-using-pythagorean-theorem-for-length-of-vector)
+  - [2. Normalizing Vector for Pure Direction](#2-normalizing-vector-for-pure-direction)
 
 vector를 기하학적으로, 수치적으로 표현되는 방식을 알아본다.   
 vector에 대한 operations와 이에 대한 기하학적 응용을 알아본다.   
@@ -68,3 +71,26 @@ $-\frac{1}{2}\mathbf{v}$는 $\mathbf{v}$에 대해 **반대 방향**을 가지�
 **c 그림은 두 벡터의 뺄셈의 기하학적 의미를 표현**한다.   
 **$\mathbf{v} - \mathbf{u}$는 $\mathbf{u}$의 head에서 $\mathbf{v}$의 head로 향하는 vector**를 반환한다.   
 만약 vector를 point로 생각하면, **point(u)에서 point(v)로 향하는 vector를 반환하고, length는 point(u)와 point(v)의 distance**를 나타낸다.   
+
+# Length And Unit Vectors
+기하학적으로 벡터의 magnitude는 directed line segment의 Length가 나타낸다. 이러한 magnitude를 수식으로 나타내면 $||\mathbf{u}||$이다.   
+
+<div>
+<img src="Images/VectorAlgebra/VectorLength.png" width=45% />
+<img src="Images/VectorAlgebra/Hypotenuse.png" width=45% />
+</div>
+
+## 1. Using Pythagorean Theorem for Length of Vector
+$||\mathbf{u}||$를 계산하기 위해서 피타고라스 정의를 두 번 적용한다.   
+
+$$||\mathbf{u}|| = \sqrt{y^2 + a^2} = \sqrt{y^2 + (\sqrt{x^2 + z^2})^2 = \sqrt{x^2 + y^2 + z^2}}$$
+
+xz-plane에서 [hypotenuse](https://www.math.net/hypotenuse) a를 구하기 위해서 한 번, a와 y를 이용해서 $||\mathbf{u}||$를 구하기 위해 한 번으로 총 두 번을 이용한다.   
+
+## 2. Normalizing Vector for Pure Direction
+**일반적으로 벡터의 Length는 다루지 않고, 방향 데이터만 표현**하길 원한다.   
+이러한 방향 벡터를 만들기 위해서 Length를 1로 만들고, 이러한 과정을 **normalizing** 이라 부른다.   
+
+$$\hat{\mathbf{u}} = \frac{\mathbf{u}}{||\mathbf{u}||} = (\frac{x}{||\mathbf{u}||}, \frac{y}{||\mathbf{u}||}, \frac{z}{||\mathbf{u}||})$$
+
+**벡터의 길이를 unit length로 만들기 위해서( normalizing ) 벡터의 각 components를 magnitude($||\mathbf{u}||$)로 나눈다**.   
