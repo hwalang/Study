@@ -44,6 +44,7 @@
 ## Top Interview 150 - leetcode
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.12.24` | [`Rotate Array`](LeetCode/241224_RotateArray.md) | Efficiency | 0 |
 | `2024.12.16` | [`Majority Element`](LeetCode/241216_MajorityElement.md) | hash-table, sort, [Moore Voting Algorithm](/1_Algorithm/AlgorithmConcepts/MooreVotingAlgorithm.md) | 0 |
 | `2024.12.15` | [`Remove Dulplicates from Sorted Array 2`](LeetCode/241215_RemoveDuplicatesFromSortedArray2.md) | two-pointer | 0 |
 | `2024.12.12` | [`Merge Sorted Array`](LeetCode/241212_MergeSortedArray.md) | implementation | 0 |
