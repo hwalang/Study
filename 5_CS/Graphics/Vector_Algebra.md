@@ -18,6 +18,10 @@
     - [4.1. 2D Orthogonalization](#41-2d-orthogonalization)
     - [4.2. 3D Orthogonalization](#42-3d-orthogonalization)
     - [4.3. N Orthogonalization( Gram-Schmidt Orthogonalization )](#43-n-orthogonalization-gram-schmidt-orthogonalization-)
+- [The Cross Product](#the-cross-product)
+  - [1. cross product properties](#1-cross-product-properties)
+  - [2. Pseudo 2D Cross Product](#2-pseudo-2d-cross-product)
+  - [3. Orthogonalization with the Cross Product](#3-orthogonalization-with-the-cross-product)
 
 vector를 기하학적으로, 수치적으로 표현되는 방식을 알아본다.   
 vector에 대한 operations와 이에 대한 기하학적 응용을 알아본다.   
@@ -236,3 +240,51 @@ $$\mathbf{w_2} = \mathbf{v_2} - proj_{w_0}(v_2) - proj_{w_1}(v_2)$$
 
 ![alt text](Images/VectorAlgebra/GramSchmidtOrthogonalization.png)   
 
+# The Cross Product
+벡터 곱의 두 번째 형태는 cross product이다. scalar 값을 도출하는 Dot Product와 달리, **새로운 vector를 반환**한다. 게다가 **cross product는 3D vector에 대해서만 정의**한다.   
+
+$$\mathbf{w} = \mathbf{u} \times \mathbf{v}$$
+
+<img src="Images/VectorAlgebra/CrossProduct.png" width=20% />
+
+두 벡터 $\mathbf{u}$와 $\mathbf{v}$를 cross product하면, **두 벡터에 대해 서로 orthogonal한 또 다른 벡터 $\mathbf{w}$가 생성**된다.   
+
+## 1. cross product properties
+
+$$\mathbf{w} = \mathbf{u} \times \mathbf{v} \qquad \mathbf{z} = \mathbf{v} \times \mathbf{u}$$
+$$\mathbf{w} \neq \mathbf{z}$$
+
+$$\mathbf{u} \times \mathbf{v} = -\mathbf{v} \times \mathbf{u}$$
+
+$\mathbf{w} = (0, 6, -2)$라면, $\mathbf{v} = (0, -6, 2)$값이 나온다.   
+즉, anti-commutative( 순서에 상관있음 )임을 알 수 있으며, 세 번째 수식같은 관계도 도출할 수 있다.   
+
+
+만약 left-handed coordinates system을 사용한다면, 엄지를 제외한 손가락들을 $\mathbf{u}$ 방향으로 향하고 나서, 이러한 손가락들을 구부리면 $\mathbf{v}$를 향하게 되고, 엄지 손가락은 cross product의 결과인 $\mathbf{w}$를 향한다.   
+여기서**벡터 $\mathbf{u}$는 cross product의 피연산자 순서의 첫 번째 벡터를 의미하고, $\mathbf{v}$는 두 번째 벡터를, $\mathbf{w}$는 반환된 벡터를 의미**한다.   
+
+
+반환된 벡터 $\mathbf{w}$가 두 벡터에 대해 orthogonal 함을 보여주기 위해서, Dot product를 사용한다.   
+
+## 2. Pseudo 2D Cross Product
+<img src="Images/VectorAlgebra/Pseudo2DCrossProduct.png" width=50% />
+
+$\mathbf{u}$와 orthogonal한 벡터 $\mathbf{v}$를 찾는데 유용하다.   
+즉, **하나의 2D 벡터에 대해 직교한 다른 벡터를 찾는데 사용**한다.   
+
+## 3. Orthogonalization with the Cross Product
+[4.3.](#43-n-orthogonalization-gram-schmidt-orthogonalization-)에선 하나의 벡터 집합을 orthogonalize하는 방법인 Gram-Schmidt 절차를 알아봤다.   
+
+**3D 공간에서 하나의 벡터 집합을 orthogonalize 하는 또 다른 방법이 존재**하는 데, 이때 Cross Product를 사용한다.   
+
+<img src="Images/VectorAlgebra/OrthogonalizationCrossProduct.png" width=45% />   
+
+**첫 번째**, $\mathbf{w_0} = \frac{\mathbf{v_0}}{||\mathbf{v_0}||}$로 unit vector로 만든다.   
+**두 번째**, $\mathbf{w_2} = \frac{\mathbf{w_0} \times \mathbf{v_1}}{||\mathbf{w_0} \times \mathbf{v_1}||}$로 세팅한다. $\mathbf{w_2}$가 $\mathbf{w_0}$와 $\mathbf{v_1}$에 orthogonal하면서 unit vector가 됨을 의미한다.   
+**마지막**, $\mathbf{w_1} = \mathbf{w_2} \times \mathbf{w_0}$로 세팅한다. $\mathbf{w_2}$와 $\mathbf{w_0}$은 orthogonal하고 $|| \mathbf{w_2} \times \mathbf{w_0} || = 1$이기 때문에, $\mathbf{w_1}$는 $\mathbf{w_2}$와 $\mathbf{w_0}$에 orthogonal하고 unit vector임을 알 수 있다.   
+
+세 과정을 통해서 $\{\mathbf{w_0}, \mathbf{w_1}, \mathbf{w_2} \}$는 orthonormal 한 벡터 집합을 생성할 수 있다.   
+
+여기서 **중요한 점은 첫 번째 세팅에서 $\mathbf{w_0}$는 $\mathbf{v_0}$의 방향을 그대로 가져간다**는 것이다. **이와 반대로 $\mathbf{w_1}$와 $\mathbf{w_2}$는 방향이 변경**됐다.   
+예를 들면, 나중에 $\mathbf{v_2}$로 방향을 나타내는 $\{\mathbf{v_0}, \mathbf{v_1}, \mathbf{v_2} \}$를 사용하여 camera의 방향을 표현할 수 있다. 
+이러한 **벡터를 orthonormalizing 할 때, 우리가 보는 방향을 변경하고 싶지 않기 때문에**, 위 세 과정에서 $\mathbf{v_2}$의 방향을 고정하여 orthogonalization을 수행하고, 나머지 $\mathbf{v_0}$와 $\mathbf{v_1}$의 방향은 수정한다.   
