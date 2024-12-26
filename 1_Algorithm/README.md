@@ -44,6 +44,7 @@
 ## Top Interview 150 - leetcode
 | 날짜 | 문제 풀이 | 메모 | Try Count |
 |:---:|:---:|:---:|:---:|
+| `2024.12.26` | [`Best Time to Buy and Sell Stock 2`](LeetCode/241226_BestTimeToBuyAndSellStock2.md) | implementation | 0 |
 | `2024.12.25` | [`Best Time to Buy and Sell Stock`](LeetCode/241225_BestTimeToBuyAndSellStock.md) | implementation | 0 |
 | `2024.12.24` | [`Rotate Array`](LeetCode/241224_RotateArray.md) | Efficiency | 0 |
 | `2024.12.16` | [`Majority Element`](LeetCode/241216_MajorityElement.md) | hash-table, sort, [Moore Voting Algorithm](/1_Algorithm/AlgorithmConcepts/MooreVotingAlgorithm.md) | 0 |
