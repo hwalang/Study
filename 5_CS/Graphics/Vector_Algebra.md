@@ -22,6 +22,7 @@
   - [1. cross product properties](#1-cross-product-properties)
   - [2. Pseudo 2D Cross Product](#2-pseudo-2d-cross-product)
   - [3. Orthogonalization with the Cross Product](#3-orthogonalization-with-the-cross-product)
+- [Points](#points)
 
 vector를 기하학적으로, 수치적으로 표현되는 방식을 알아본다.   
 vector에 대한 operations와 이에 대한 기하학적 응용을 알아본다.   
@@ -288,3 +289,18 @@ $\mathbf{u}$와 orthogonal한 벡터 $\mathbf{v}$를 찾는데 유용하다.
 여기서 **중요한 점은 첫 번째 세팅에서 $\mathbf{w_0}$는 $\mathbf{v_0}$의 방향을 그대로 가져간다**는 것이다. **이와 반대로 $\mathbf{w_1}$와 $\mathbf{w_2}$는 방향이 변경**됐다.   
 예를 들면, 나중에 $\mathbf{v_2}$로 방향을 나타내는 $\{\mathbf{v_0}, \mathbf{v_1}, \mathbf{v_2} \}$를 사용하여 camera의 방향을 표현할 수 있다. 
 이러한 **벡터를 orthonormalizing 할 때, 우리가 보는 방향을 변경하고 싶지 않기 때문에**, 위 세 과정에서 $\mathbf{v_2}$의 방향을 고정하여 orthogonalization을 수행하고, 나머지 $\mathbf{v_0}$와 $\mathbf{v_1}$의 방향은 수정한다.   
+
+# Points
+이때까지의 Vector는 position을 설명하지 않았지만, position을 표현할 필요가 있다.   
+
+<img src="Images/VectorAlgebra/PositionVector.png" width=50% />
+
+Coordinate System을 기준으로 우리는 공간 내부의 3D position을 표현하기 위해서 표준 위치로 Vector를 사용할 수 있다. 이것을 **position vector 또는 Point**라 부른다.   
+이 경우에는 **vector의 tip( 벡터의 끝점: direction과 magnitude를 나타냄 )이 location을 의미**한다.   
+
+<img src="Images/VectorAlgebra/PointOperations.png" width=70% />   
+
+몇 개의 vector operations는 points에 대해 호환된다. 예를 들면, 두 점 q와 p의 뺄셈은 p에서 q로 이동하는 $\mathbf{v}$를 나타내고, 점 p와 $\mathbf{v}$의 덧셈은 vector에 의해서 point가 이동하여 얻어진 점 q를 의미한다.   
+이처럼 **좌표계에 상대적으로 Point를 표현하기 때문에 vector algebra framework에 자연스럽게 통합되어 point 연산을 위한 추가 작업을 할 필요가 없다**.   
+참고로 points의 합은 affine combination이라는 특수한 경우를 의미하고, 이는 points의 가중치의 평균과 유사하다.   
+
